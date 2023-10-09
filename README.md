@@ -5,5 +5,5 @@ We want to use ChatGPT for recipe recommendation and a map API for the nearest s
 
 # Our vision
 
-Unsere Vision ist es ein Platz für hobbyköche, Profis und Amateure zu schaffen, auf welchen sich alle austauschen können, neue Rezepte finden un kreieren können. <br>
-CookPit bittet allen Personen den Vorteil neue Rezepte kennenzulernen .
+Our vision is to create a place for hobby cooks, professionals and amateurs, where everyone can exchange ideas, find new recipes and create new ones. <br>
+CookPit offers all people the advantage of getting to know new recipes.
