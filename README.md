@@ -7,3 +7,9 @@ We want to use ChatGPT for recipe recommendation and a map API for the nearest s
 
 Our vision is to create a place for hobby cooks, professionals and amateurs, where everyone can exchange ideas, find new recipes and create new ones. <br>
 CookPit offers all people the advantage of getting to know new recipes.
+
+#Project Rules
+
+Every Sprtint will be 2 weeks long. <br>
+Half an hour for every Sprint change meeting to review the previous sprint, and plan the next one. <br>
+The daily will be based on the regular Communication on Discord. <br>
