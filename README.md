@@ -10,6 +10,6 @@ CookPit offers all people the advantage of getting to know new recipes.
 
 # Project Rules
 
-Every Sprtint will be 2 weeks long. <br>
-Half an hour for every Sprint change meeting to review the previous sprint, and plan the next one. <br>
-The daily will be based on the regular Communication on Discord. <br>
+Every sprtint will be 2 weeks long. <br>
+Half an hour for every sprint change meeting to review the previous sprint, and plan the next one. <br>
+The daily will be based on regular communication on Discord. <br>
