@@ -13,3 +13,9 @@ CookPit offers all people the advantage of getting to know new recipes.
 Every sprtint will be 2 weeks long. <br>
 Half an hour for every sprint change meeting to review the previous sprint, and plan the next one. <br>
 The daily will be based on regular communication on Discord. <br>
+
+# TechStack
+
+Frontend - Boostsrap and React.js
+Backend - Node.js and OpenAI api
+Database - PostgreSQL
