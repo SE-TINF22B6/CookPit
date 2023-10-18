@@ -30,35 +30,41 @@ header{
     z-index: 99;
      
 }
-.searchBox{
-    height: 30px;
-    display: flex;
-    cursor: pointer;
-    padding: 10px 20px;
-    background: white;
-    border-radius: 30px;
-    align-items: center;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    left: 500px;
+.searchBoxContainer{
+    margin: auto;
+    margin-top: 20%;
+    position: relative;
+    width: 300px;
+    height: 42px;
+    border: 4px solid white;
+    padding: 0px 10px;
+    border-radius: 50px;
+    background-color: white;
 }
-.searchBox:hover input{
-    width: 400px;
+
+.searchBoxElementsContainer{
+width: 100%;
+height: 100%;
+vertical-align: middle;
 }
-.searchBox input{
-   width: 0;
-    outline: none;
-    border: none;
-    font-weight: 500;
-    transition: 0.8s;
-    background: transparent;
-}
-.searchBox a .fas{
-    color:red;
+
+.searchBoxInput{
+background: transparent;
+    height: 100%;
+    padding: 5px 5px;
     font-size: 18px;
+    color:black ;
+    font-weight: 500;
+    border: none;
 }
+
+.searchBoxInput:focus{
+    outline: none;
+}
+
  .navigation a {
     position: relative;
-    font-size: 1.1em;
+    font-size: .8em;
     text-decoration: none;
     color: white;
     font-weight: 500;
