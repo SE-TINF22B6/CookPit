@@ -3,9 +3,24 @@
 > This template is a simplified version based on the documentation templates from IBM Rational Unified Process (RUP).
 ### 1. Introduction
 #### 1.1 Overview
-> What are the selling points of your application?
+In this Software Requirements Specification (SRS) document, we describe the details of the functional and non-functional prerequisites for the development of a captivating and highly interactive recipes website. The platform is designed with a multifaceted purpose, aiming to empower users to explore, discover, and archive a diverse array of culinary delights.
+
+The primary audience comprises home cooks hailing from a wide spectrum of skill levels. With this diversity in mind, our objective is to construct an intuitive and user-friendly digital environment. This means ensuring that not only is the website easy to navigate, but it's also a delightful and informative hub for anyone with a passion for cooking. 
+
 #### 1.2 Scope
 > What is covered (not covered) in this document? Is it for your whole system or a subsystem? Does it cover both functional and nonfunctional requirements? (Will you seperate some of requirements into another document?)
+
+This SRS document provides an exhaustive exploration of both the functional and non-functional requisites essential for the successful realization of the entire system. The scope of this document cover the whole project, but also it extends its purview to encompass specifications for various constituent modules that collectively constitute this software. 
+
+Some of the functional requirements that will be listed in this SRS are the possibility of having a search bar to find a specific recipe, giving any user the chance of uploading a recipe at any moment, following other accounts, leaving comments in a recipe, the ability to save favorite recipes, the ability to view recipes in a detailed format, and setting tags to a recipe. The most important non functional requirements that will be discussed in this specification are maintainability, usability, reliability and documentation. The characteristics of each requirement will be detailed in their respective sections.
+
+All the requirements of this projects are listed in the current document. Other resources may need to be consulted for more visual hints. For example, the diagrams of the use cases or the mockup of the graphical interface. The link to these materials will be shared below.
+
+In addition to the description of the functional and non-functional dimensions, this SRS delves into the inherent technical constraints and opportunities inherent in the project. Furthermore, this SRS, explores the possibilities and limitations of the technologies that will be employed. Each technology is meticulously dissected, with explicit attention to the prerequisites.
+
+To enhance clarity, this document incorporates a dedicated section explaining the technical concepts related to this undertaking.
+
+By the nature of this project, the budget limitations will not be covered. This is because this is an academic project, therefore, there are not monetary resources assigned for its development. Realated to the previous point, this document does not cover neither the topic of generating economic profit after the deployment of this software. In addition, no legal concerns will be covered in this document.
 #### 1.3 Definitions, Acronyms and Abbreviations
 > Definitions of all terms, acronyms, and abbreviations required to properly interpret this document.
 #### 1.4 References
