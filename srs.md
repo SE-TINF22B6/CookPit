@@ -1,4 +1,4 @@
-# Project Name
+# CookPit
 ## Software Requirements Specification
 > This template is a simplified version based on the documentation templates from IBM Rational Unified Process (RUP).
 ### 1. Introduction
