@@ -37,7 +37,7 @@ This section contains the definitions of all terms, acronyms, and abbreviations 
 ### 2. Functional requirements
 In this section, we delve into the specific functions the software application must perform, detailing the inputs required, processing logic, and the expected outputs under various conditions. These requirements are derived from extensive discussions with stakeholders, including end-users, product managers, and developers, ensuring that the software solution aligns seamlessly with the business objectives and user expectations.
 
-The links to your UML diagrams will be added to this document.
+> The links to your UML diagrams and UI mockupds will be added to this document.
 
 #### 2.1 Overview 
 This software is a digital platform designed to provide users with a wide range of culinary resources and tools to enhance their cooking experience. It offers the following functionalities:
