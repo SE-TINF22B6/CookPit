@@ -1,6 +1,8 @@
 # CookPit
 ## Software Requirements Specification
 ### 1. Introduction
+The current document serves as a comprehensive blueprint for our project, outlining the detailed functional and non-functional requirements, system behavior, and constraints to guide the development team towards building a successful solution.
+
 #### 1.1 Overview
 In this Software Requirements Specification (SRS) document, we describe the details of the functional and non-functional prerequisites for the development of a captivating and highly interactive recipes website. The platform is designed with a multifaceted purpose, aiming to empower users to explore, discover, and archive a diverse array of culinary delights.
 
@@ -20,26 +22,37 @@ To enhance clarity, this document incorporates a dedicated section explaining th
 
 By the nature of this project, the budget limitations will not be covered. This is because this is an academic project, therefore, there are not monetary resources assigned for its development. Realated to the previous point, this document does not cover neither the topic of generating economic profit after the deployment of this software. In addition, no legal concerns will be covered in this document.
 #### 1.3 Definitions, Acronyms and Abbreviations
-> Definitions of all terms, acronyms, and abbreviations required to properly interpret this document.
+This section contains the definitions of all terms, acronyms, and abbreviations required to properly interpret this document.
 
-- SRS:  Software Requirements Specification: A comprehensive document outlining the functional and non-functional requirements of the cooking website.
-- DB: Database
-- DBMS: Database Management System: Software for creating, managing, and interacting with the website's database.
-- API: pplication Programming Interface: A set of rules and protocols that allow different software applications to communicate with each other.
-- URL: Uniform Resource Locator: The address used to access a specific webpage on the internet.
-- UX/UX Design: User Interface/User Experience Design: The process of designing the website's layout, visual elements, and overall user experience.
+- **SRS:**  Software Requirements Specification: A comprehensive document outlining the functional and non-functional requirements of the cooking website.
+- **DB:** Database: Structured collection of organized data that can be easily accessed, managed, and updated.
+- **DBMS:** Database Management System: Software for creating, managing, and interacting with the website's database.
+- **API:** pplication Programming Interface: A set of rules and protocols that allow different software applications to communicate with each other.
+- **URL:** Uniform Resource Locator: The address used to access a specific webpage on the internet.
+- **UX/UX Design:** User Interface/User Experience Design: The process of designing the website's layout, visual elements, and overall user experience.
+- 
 #### 1.4 References
 > A complete list of all documents referenced. Each document should be identified by title, date, and publishing organization. You can also insert hyperlinks, in order to open the references conviniently.
 
 ### 2. Functional requirements
->  This section contains all the software requirements to a level of detail sufficient to enable designers to design a system to satisfy those requirements and testers to test that the system satisfies those requirements.  
->  This section is typically organized by feature, but alternative organization methods may also be appropriate, for example, organization by user or organization by subsystem.
+In this section, we delve into the specific functions the software application must perform, detailing the inputs required, processing logic, and the expected outputs under various conditions. These requirements are derived from extensive discussions with stakeholders, including end-users, product managers, and developers, ensuring that the software solution aligns seamlessly with the business objectives and user expectations.
 
-> [!NOTE]
-> You can insert links to your UML diagrams and user stories, or labels of user stories into this document.
+The links to your UML diagrams will be added to this document.
 
 #### 2.1 Overview 
-> A brief description of the functionality of your application.  
+This software is a digital platform designed to provide users with a wide range of culinary resources and tools to enhance their cooking experience. It offers the following functionalities:
+
+1. **Recipes Database:** A vast collection of recipes spanning various cuisines, dietary preferences, and difficulty levels. Users can search for specific dishes or ingredients.
+
+2. **Step-by-Step Guides:** Detailed instructions accompanied by images that guide users through the cooking process, ensuring they understand each step.
+
+3. **User-generated Content:** Features that allow users to submit their recipes, photos, and cooking tips, fostering a sense of community and shared knowledge.
+
+4. **Interactive Features:** Forums, comments sections, or social media integration to facilitate discussions, recipe sharing, and feedback among users.
+
+5. **Personalized Recommendations:** Support from the OpenAI API that allows the users to prepare a meal with the ingredients they desire, instead of being restricted to get the ingredients for a given recipe.
+
+In summary, this cooking website serves as a comprehensive culinary hub, offering recipes, instructional content, community interaction, and helpful tools to empower users in their cooking endeavors.  
 > Include one or more **UML use case** diagram(s) and necessary description to specify the major use cases of your application.
 
 #### 2.2 Name of Feature 1 / Use Case 1
