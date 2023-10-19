@@ -1,6 +1,5 @@
 # CookPit
 ## Software Requirements Specification
-> This template is a simplified version based on the documentation templates from IBM Rational Unified Process (RUP).
 ### 1. Introduction
 #### 1.1 Overview
 In this Software Requirements Specification (SRS) document, we describe the details of the functional and non-functional prerequisites for the development of a captivating and highly interactive recipes website. The platform is designed with a multifaceted purpose, aiming to empower users to explore, discover, and archive a diverse array of culinary delights.
@@ -8,7 +7,6 @@ In this Software Requirements Specification (SRS) document, we describe the deta
 The primary audience comprises home cooks hailing from a wide spectrum of skill levels. With this diversity in mind, our objective is to construct an intuitive and user-friendly digital environment. This means ensuring that not only is the website easy to navigate, but it's also a delightful and informative hub for anyone with a passion for cooking. 
 
 #### 1.2 Scope
-> What is covered (not covered) in this document? Is it for your whole system or a subsystem? Does it cover both functional and nonfunctional requirements? (Will you seperate some of requirements into another document?)
 
 This SRS document provides an exhaustive exploration of both the functional and non-functional requisites essential for the successful realization of the entire system. The scope of this document cover the whole project, but also it extends its purview to encompass specifications for various constituent modules that collectively constitute this software. 
 
@@ -23,6 +21,13 @@ To enhance clarity, this document incorporates a dedicated section explaining th
 By the nature of this project, the budget limitations will not be covered. This is because this is an academic project, therefore, there are not monetary resources assigned for its development. Realated to the previous point, this document does not cover neither the topic of generating economic profit after the deployment of this software. In addition, no legal concerns will be covered in this document.
 #### 1.3 Definitions, Acronyms and Abbreviations
 > Definitions of all terms, acronyms, and abbreviations required to properly interpret this document.
+
+- SRS:  Software Requirements Specification: A comprehensive document outlining the functional and non-functional requirements of the cooking website.
+- DB: Database
+- DBMS: Database Management System: Software for creating, managing, and interacting with the website's database.
+- API: pplication Programming Interface: A set of rules and protocols that allow different software applications to communicate with each other.
+- URL: Uniform Resource Locator: The address used to access a specific webpage on the internet.
+- UX/UX Design: User Interface/User Experience Design: The process of designing the website's layout, visual elements, and overall user experience.
 #### 1.4 References
 > A complete list of all documents referenced. Each document should be identified by title, date, and publishing organization. You can also insert hyperlinks, in order to open the references conviniently.
 
