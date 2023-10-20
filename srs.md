@@ -278,6 +278,46 @@ Removal Option: Users have the option to remove recipes from their favorites. If
 **Estimated efforts:** Low efforts
 
 
+#### 2.7 Profile Management / Use Case 6
+User-submitted recipes, photos, and cooking tips, fostering a sense of community and allowing users to showcase their culinary creations.
+
+**User stories**
+1. As a user, I want to submit my own recipes to the website, including ingredients, step-by-step instructions, and images, so that I can share my culinary creations with the community.
+
+2. As a culinary expert, I want the option to submit cooking tips, techniques, and video tutorials, sharing my knowledge with others and enhancing the learning experience of users.
+
+> - **UI mockups**
+> - **UML behavior diagrams** and necessary text specification
+
+
+**Preconditions**
+
+- <ins>User Authentication:</ins> Users must be logged into their accounts on the cooking website to access and utilize the Posting a Recipe feature. This ensures that only authorized users can submit recipes.
+
+- <ins>Internet Connection:</ins> Users must have an active internet connection to access the cooking website and initiate actions related to posting a recipe, enabling real-time interaction with the website's database.
+
+- <ins>User Interface Loaded:</ins> The user interface elements, including the recipe submission form and relevant buttons, must be properly loaded and visible on the webpage.
+
+- <ins>Session Continuity:</ins> Users' login sessions must be active and continuous. If a session has expired, users need to log in again before accessing the Posting a Recipe feature.
+
+- <ins>Recipe Availability:</ins> Users must have all the necessary details for the recipe, including ingredients, measurements, instructions, and optional images, before initiating the posting process.
+
+
+
+**Postconditions**
+- <ins>Recipe Publication:</ins> After successful submission, the recipe is published on the website, making it publicly accessible to other users and visitors, adhering to any specified content guidelines and moderation rules.
+
+- <ins>User Interface Update:</ins> The user interface is updated to reflect the newly posted recipe, which may include adding the recipe to relevant categories, tags, or featured sections, ensuring visibility to users browsing the website.
+
+- <ins>Recipe Details Display:</ins> The posted recipe details, including ingredients, measurements, instructions, and optional images, are displayed accurately and clearly on the recipe page, ensuring users can understand and follow the recipe.
+
+- <ins>Visibility Options (if applicable):</ins> If the website offers visibility options, such as public, private, or friends-only recipes, the posted recipe respects the user's chosen visibility setting, ensuring the recipe is accessible only to the specified audience.
+
+- <ins>Searchable and Indexable:</ins> The posted recipe is searchable within the website's search functionality, allowing users to find it based on relevant keywords, ingredients, or tags.
+
+**Estimated efforts:** Medium efforts
+
+
 ### 3. Nonfunctional requirements
 
 > [!IMPORTANT]  
