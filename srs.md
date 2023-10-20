@@ -66,7 +66,7 @@ The search bar in the website enables users to input specific keywords, initiati
 
 > - **UI mockups**
 > - **UML behavior diagrams** and necessary text specification
-> - 
+
 
 **Preconditions**
 - <ins>User Interface Loaded:</ins> The search bar functionality assumes that the website's user interface is loaded and accessible to the user.
@@ -103,8 +103,51 @@ The search bar in the website enables users to input specific keywords, initiati
 **Estimated efforts:** Medium efforts
 
 
-#### 2.3 Name of Feature 2 / Use Case 2
-... ...
+#### 2.3 User Registration / Use Case 2
+Users can create an account by providing basic information such as username, email address, and password.
+
+**User stories**
+1. As a new user, I want to be able to register for an account on the cooking website so that I can access personalized features and save my favorite recipes.
+
+2. As a visitor, I want the registration process to be simple and intuitive, allowing me to sign up with my email address and create a secure password without unnecessary complications.
+
+
+> - **UI mockups**
+> - **UML behavior diagrams** and necessary text specification
+
+
+**Preconditions**
+- <ins>User Website Accessibility:</ins> The cooking website must be accessible and operational, allowing users to navigate to the registration page.
+
+- <ins>Internet Connection:</ins> Users must have an active internet connection to access the cooking website and complete the registration process online.
+
+- <ins>User Interface Loaded:</ins> The user interface elements, including the registration form and relevant buttons, must be properly loaded and visible on the webpage.
+
+- <ins>Database Connectivity:</ins> The website must be connected to the appropriate database where user account information will be stored securely.
+
+- <ins> Browser Compatibility:</ins> The registration process should be compatible with commonly used web browsers, ensuring a consistent experience across different platforms and devices.
+
+  
+
+**Postconditions**
+- <ins>User Account Creation:</ins> After successful registration, a new user account is created in the website's database, storing the user's provided information such as username, email address, and password hash.
+
+- <ins>User Authentication:</ins> The registered user can log in using the provided username/email and password, gaining access to the website's features and personalized content.
+
+- <ins>Profile Information Stored:</ins> The user's profile information, including optional details such as name and profile picture, is stored securely and associated with the user's account.
+
+- <ins>Security Measures Implemented:</ins> The registration system ensures the secure storage of user passwords using appropriate encryption and hashing techniques to protect sensitive user data.
+
+- <ins>User Interface Update:</ins> The user interface is updated to reflect the user's registration status, potentially showing a welcome message and providing access to additional features available to registered users.
+
+- <ins>Error Handling:</ins> If any errors occurred during the registration process (e.g., invalid input, database connection issues), appropriate error messages are displayed to the user, guiding them on how to resolve the issue.
+
+- <ins>Password Recovery Option:</ins> After registration, the user has the option to recover their password through the provided email address in case they forget their login credentials.
+
+- <ins>Database Integrity:</ins> The user registration process ensures the integrity of the database, preventing duplicate accounts and maintaining consistency in user data storage.
+
+
+**Estimated efforts:** Low efforts
 
 ### 3. Nonfunctional requirements
 
