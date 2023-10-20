@@ -209,16 +209,16 @@ Enable users to change their password and update account settings (e.g., email p
 
 **Preconditions**
 
-- <ins>User Authentication:<ins> Users must be logged into their accounts on the cooking website to access the Profile Management feature. This ensures that only authorized users can edit their profiles.
+- <ins>User Authentication:</ins> Users must be logged into their accounts on the cooking website to access the Profile Management feature. This ensures that only authorized users can edit their profiles.
 
-- <ins>User Registration:<ins> Users must have successfully registered and created an account on the cooking website. The registration process includes providing valid credentials such as username/email and password.
+- <ins>User Registration:</ins> Users must have successfully registered and created an account on the cooking website. The registration process includes providing valid credentials such as username/email and password.
 
-- <ins>Internet Connection:<ins> Users must have an active internet connection to access the cooking website and initiate actions related to Profile Management.
+- <ins>Internet Connection:</ins> Users must have an active internet connection to access the cooking website and initiate actions related to Profile Management.
 
-- <ins>User Interface Loaded:<ins> The user interface elements, including the profile editing form and relevant buttons, must be properly loaded and visible on the webpage.
+- <ins>User Interface Loaded:</ins> The user interface elements, including the profile editing form and relevant buttons, must be properly loaded and visible on the webpage.
 
 
-- <ins>Session Continuity:<ins> Users' login sessions must be active and continuous. If a session has expired, users need to log in again before accessing Profile Management features.
+- <ins>Session Continuity:</ins> Users' login sessions must be active and continuous. If a session has expired, users need to log in again before accessing Profile Management features.
 
 
 **Postconditions**
