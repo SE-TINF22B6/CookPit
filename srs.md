@@ -149,6 +149,55 @@ Users can create an account by providing basic information such as username, ema
 
 **Estimated efforts:** Low efforts
 
+
+#### 2.4  Log in / Use Case 3
+Registered users can log in securely using their username/email and password credentials.
+Implement password recovery/reset functionality in case users forget their passwords.
+
+**User stories**
+1. As a registered user, I want to log into my account using my username/email and password, ensuring secure access to my personalized content and saved recipes.
+
+2. As a user, I want to receive clear and informative error messages if I enter incorrect login credentials, guiding me on how to rectify the issue and successfully log in.
+
+
+> - **UI mockups**
+> - **UML behavior diagrams** and necessary text specification
+
+
+**Preconditions**
+
+- <ins>User Registration:</ins> Users must have previously registered and created an account on the cooking website. The registration process includes providing a valid email address or username and setting a secure password.
+
+- <ins>Internet Connection:</ins> Users must have an active internet connection to access the cooking website and initiate the login process.
+
+- <ins>User Interface Loaded:</ins> The user interface elements, including the login form and relevant buttons, must be properly loaded and visible on the webpage.
+
+- <ins>Website Accessibility:</ins> The cooking website must be accessible and operational, allowing users to navigate to the login page.
+
+- <ins>Correct Input Format:</ins> Users must enter their login credentials (username or email address and password) in the correct format, following any specified guidelines or restrictions.
+  
+
+**Postconditions**
+- <ins>User Authentication:</ins> After successful login, the system authenticates the user's credentials (username/email and password), verifying their identity against the stored information in the database.
+
+- <ins>Session Creation:</ins> A secure session is established for the user, allowing them to navigate the website, access personalized content, and perform actions related to their account.
+
+- <ins>User Interface Update:</ins> The user interface is updated to reflect the user's logged-in status, potentially displaying personalized content, greetings, and a user menu with options for account management.
+
+- <ins>Access to Account Features:</ins> Upon logging in, the user gains access to account-specific features such as saved recipes, favorite items, and user-generated content, enhancing their interactive experience.
+
+- <ins>Password Security:</ins> After successful login, the system ensures the user's password remains confidential and is not transmitted or stored in plain text within the session or any subsequent interactions.
+
+Error Handling: If there was an unsuccessful login attempt prior to the successful one, the system ensures that any error messages or alerts are cleared, providing a clean user experience after successful login.
+
+Session Management: The system manages the user's session securely, ensuring that the session remains active as long as the user is actively interacting with the website and is automatically terminated after a period of inactivity to protect user security.
+
+
+**Estimated efforts:** Low efforts
+
+
+
+
 ### 3. Nonfunctional requirements
 
 > [!IMPORTANT]  
