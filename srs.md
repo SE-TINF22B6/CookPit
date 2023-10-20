@@ -30,7 +30,7 @@ This section contains the definitions of all terms, acronyms, and abbreviations 
 - **API:** pplication Programming Interface: A set of rules and protocols that allow different software applications to communicate with each other.
 - **URL:** Uniform Resource Locator: The address used to access a specific webpage on the internet.
 - **UX/UX Design:** User Interface/User Experience Design: The process of designing the website's layout, visual elements, and overall user experience.
-- 
+
 #### 1.4 References
 > A complete list of all documents referenced. Each document should be identified by title, date, and publishing organization. You can also insert hyperlinks, in order to open the references conviniently.
 
@@ -55,14 +55,52 @@ This software is a digital platform designed to provide users with a wide range 
 In summary, this cooking website serves as a comprehensive culinary hub, offering recipes, instructional content, community interaction, and helpful tools to empower users in their cooking endeavors.  
 > Include one or more **UML use case** diagram(s) and necessary description to specify the major use cases of your application.
 
-#### 2.2 Name of Feature 1 / Use Case 1
-> Specify this feature / use case by:
-> - Relevant **user stories (their links or labels)**
+#### 2.2 Search Bar / Use Case 1
+The search bar in the website enables users to input specific keywords, initiating a search algorithm that locates and displays relevant content or information within the site, facilitating efficient navigation and access for users.
+
+**User stories**
+1. As a user, I want to be able to enter keywords into the search bar so that I can quickly find relevant articles, products, or information on the website.
+
+2. As a user, I want to see clear and relevant search results when I submit a query, ensuring that the most pertinent content appears at the top of the results list.
+
+
 > - **UI mockups**
 > - **UML behavior diagrams** and necessary text specification
-> - **Preconditions**. *A precondition of a use case is the state of the system that must be present prior to a use case being performed.*
-> - Postconditions. *A postcondition of a use case is a list of possible states the system can be in immediately after a use case has finished.*
-> - **Estimated efforts (high, medium, low)**
+> - 
+
+**Preconditions**
+- <ins>User Interface Loaded:</ins> The search bar functionality assumes that the website's user interface is loaded and accessible to the user.
+
+- <ins>Database Connectivity:</ins> The system must be connected to the necessary databases or data sources containing the information to be searched.
+
+- <ins>Data Indexing:</ins> The content to be searched must be properly indexed, allowing the search algorithm to retrieve relevant results efficiently.
+
+- <ins>Internet Connection:</ins> Users must have an active internet connection to enable real-time searching and retrieval of data from online sources.
+
+- <ins>Browser Compatibility:</ins> The search bar should be compatible with commonly used web browsers to ensure consistent functionality across different platforms and devices.
+
+- <ins>Correct Input Format:</ins> Users are expected to input search queries in a valid format compatible with the search algorithm (e.g., text, keywords) to receive accurate results.
+
+- <ins>Data Integrity:</ins> The data stored in the database or sources must be accurate and up-to-date to ensure the search results are relevant and reliable.
+
+- <ins>System Availability:</ins> The system hosting the website and search functionality must be operational and available for users to perform searches.
+  
+
+**Postconditions**
+- <ins>Search Results Displayed:</ins> After entering a search query, the search bar displays a listf relevant recipes, cooking tips, or articles matching the query.
+
+- <ins>Results Sorting:</ins> Users have the option to sort search results based on criteria such as relevance, popularity, ratings, or publication date, allowing for a customized viewing experience.
+
+- <ins>Clickable Results:</ins> Each search result displayed is clickable, leading users to the detailed page of the recipe or article, providing in-depth information about the selected item.
+
+- <ins>Clear Search Option:</ins> Users have the option to clear the search bar, removing the query and resetting the search results, enabling them to perform a new search or browse the website afresh.
+
+- <ins>Correct Search Algorithm:</ins> The search results reflect the application of the correct search algorithm, ensuring accurate and relevant matches to the user's query.
+
+- <ins>Fast Loading:</ins> Search results and associated content load quickly, ensuring users have a seamless experience without significant delays.
+
+
+**Estimated efforts:** Medium efforts
 
 
 #### 2.3 Name of Feature 2 / Use Case 2
