@@ -234,9 +234,48 @@ Enable users to change their password and update account settings (e.g., email p
 
 - <ins>Confirmation Message:</ins> Users receive a confirmation message indicating that their profile changes have been successfully saved, providing a positive user experience and assurance that their updates were processed.
 
+**Estimated efforts:** Medium efforts
+
+
+
+#### 2.6  Saved recipes / Use Case 5
+Users can bookmark or save their favorite recipes to their profile for quick access.
+Implement folders or categories within the saved recipes section for better organization.
+
+**User stories**
+1.As a user, I want to be able to save my favorite recipes to a designated section on the website, allowing me to easily find and access them later.
+
+> - **UI mockups**
+> - **UML behavior diagrams** and necessary text specification
+
+
+**Preconditions**
+
+- <ins>User Authentication:</ins> Users must be logged into their accounts on the cooking website to access and utilize the Favorite feature. This ensures that only authorized users can add recipes to their favorites.
+
+- <ins>Recipe Availability:</ins> The recipes that users want to mark as favorites must be available and accessible on the website. Users cannot mark recipes as favorites if the recipes are hidden, deleted, or inaccessible.
+
+- <ins>Internet Connection:</ins> Users must have an active internet connection to access the cooking website and utilize the Favorite feature, enabling real-time interaction with the website's database.
+
+- <ins>User Interface Loaded:</ins> The user interface elements, including the recipe pages and the favorite button/icon, must be properly loaded and visible on the webpage.
+
+- <ins>Session Continuity:</ins> Users' login sessions must be active and continuous. If a session has expired, users need to log in again before accessing the Favorite feature.
+
+
+**Postconditions**
+
+- <ins>Marked Recipes:</ins> After marking a recipe as a favorite, the system records the user's action, associating the selected recipe with the user's profile.
+
+- <ins>User Interface Update:</ins> The user interface reflects the change, displaying a visual indicator (such as a heart icon) next to the marked recipe, signifying that it has been added to the user's favorites list.
+
+- <ins>Favorite List Update:</ins> The selected recipe is added to the user's favorites list, which can be accessed via the user's profile or a dedicated "Favorites" section on the website.
+
+- <ins>Persistent Storage:</ins> Marked recipes persistently remain in the user's favorites list across sessions and devices, ensuring consistency and accessibility whenever the user logs in.
+
+Removal Option: Users have the option to remove recipes from their favorites. If a recipe is removed, the system updates the favorites list and user interface accordingly.
+
+
 **Estimated efforts:** Low efforts
-
-
 
 
 ### 3. Nonfunctional requirements
