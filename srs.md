@@ -188,10 +188,51 @@ Implement password recovery/reset functionality in case users forget their passw
 
 - <ins>Password Security:</ins> After successful login, the system ensures the user's password remains confidential and is not transmitted or stored in plain text within the session or any subsequent interactions.
 
-Error Handling: If there was an unsuccessful login attempt prior to the successful one, the system ensures that any error messages or alerts are cleared, providing a clean user experience after successful login.
+**Estimated efforts:** Low efforts
 
-Session Management: The system manages the user's session securely, ensuring that the session remains active as long as the user is actively interacting with the website and is automatically terminated after a period of inactivity to protect user security.
 
+
+
+#### 2.5  Profile Management / Use Case 4
+Users can edit and update their profile information, including name, email, profile picture, and other relevant details.
+Enable users to change their password and update account settings (e.g., email preferences).
+
+**User stories**
+1. As a user, I want to create a profile on the cooking website, providing my name, email address, and a password, enabling me to access personalized features and save my favorite recipes.
+
+2. As a user, I want to edit my profile information, including my name, email address, and profile picture, allowing me to keep my details up-to-date.
+
+
+> - **UI mockups**
+> - **UML behavior diagrams** and necessary text specification
+
+
+**Preconditions**
+
+- <ins>User Authentication:<ins> Users must be logged into their accounts on the cooking website to access the Profile Management feature. This ensures that only authorized users can edit their profiles.
+
+- <ins>User Registration:<ins> Users must have successfully registered and created an account on the cooking website. The registration process includes providing valid credentials such as username/email and password.
+
+- <ins>Internet Connection:<ins> Users must have an active internet connection to access the cooking website and initiate actions related to Profile Management.
+
+- <ins>User Interface Loaded:<ins> The user interface elements, including the profile editing form and relevant buttons, must be properly loaded and visible on the webpage.
+
+
+- <ins>Session Continuity:<ins> Users' login sessions must be active and continuous. If a session has expired, users need to log in again before accessing Profile Management features.
+
+
+**Postconditions**
+- <ins>Updated Profile Information:</ins> After making changes, the user's profile information, including name, email, profile picture, and other details, is updated and stored securely in the website's database.
+
+- <ins>Session Continuity:</ins> Users remain logged in after managing their profiles, ensuring a seamless transition without the need to log in again.
+
+- <ins>Security Measures:</ins> The system ensures that any sensitive information, especially password changes, is securely processed and stored using encryption and hashing techniques to protect user data.
+
+- <ins>Notification Preferences:</ins> Changes to notification preferences are applied, ensuring that users receive alerts and newsletters based on their updated settings.
+
+- <ins>Password Recovery Option:</ins> After updating their profile, users still have the option to reset their password using the updated email address if they forget their login credentials.
+
+- <ins>Confirmation Message:</ins> Users receive a confirmation message indicating that their profile changes have been successfully saved, providing a positive user experience and assurance that their updates were processed.
 
 **Estimated efforts:** Low efforts
 
