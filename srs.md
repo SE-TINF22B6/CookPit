@@ -318,6 +318,88 @@ User-submitted recipes, photos, and cooking tips, fostering a sense of community
 **Estimated efforts:** Medium efforts
 
 
+
+#### 2.6  Saved recipes / Use Case 5
+Users can bookmark or save their favorite recipes to their profile for quick access.
+Implement folders or categories within the saved recipes section for better organization.
+
+**User stories**
+1.As a user, I want to be able to save my favorite recipes to a designated section on the website, allowing me to easily find and access them later.
+
+> - **UI mockups**
+> - **UML behavior diagrams** and necessary text specification
+
+
+**Preconditions**
+
+- <ins>User Authentication:</ins> Users must be logged into their accounts on the cooking website to access and utilize the Favorite feature. This ensures that only authorized users can add recipes to their favorites.
+
+- <ins>Recipe Availability:</ins> The recipes that users want to mark as favorites must be available and accessible on the website. Users cannot mark recipes as favorites if the recipes are hidden, deleted, or inaccessible.
+
+- <ins>Internet Connection:</ins> Users must have an active internet connection to access the cooking website and utilize the Favorite feature, enabling real-time interaction with the website's database.
+
+- <ins>User Interface Loaded:</ins> The user interface elements, including the recipe pages and the favorite button/icon, must be properly loaded and visible on the webpage.
+
+- <ins>Session Continuity:</ins> Users' login sessions must be active and continuous. If a session has expired, users need to log in again before accessing the Favorite feature.
+
+
+**Postconditions**
+
+- <ins>Marked Recipes:</ins> After marking a recipe as a favorite, the system records the user's action, associating the selected recipe with the user's profile.
+
+- <ins>User Interface Update:</ins> The user interface reflects the change, displaying a visual indicator (such as a heart icon) next to the marked recipe, signifying that it has been added to the user's favorites list.
+
+- <ins>Favorite List Update:</ins> The selected recipe is added to the user's favorites list, which can be accessed via the user's profile or a dedicated "Favorites" section on the website.
+
+- <ins>Persistent Storage:</ins> Marked recipes persistently remain in the user's favorites list across sessions and devices, ensuring consistency and accessibility whenever the user logs in.
+
+Removal Option: Users have the option to remove recipes from their favorites. If a recipe is removed, the system updates the favorites list and user interface accordingly.
+
+
+**Estimated efforts:** Low efforts
+
+
+
+#### 2.7  Saved recipes / Use Case 6
+The functional requirement of linking a cooking website to the OpenAI API is to enable users to receive AI-generated recipe suggestions, enhancing their culinary experience with creative and personalized cooking ideas.
+
+**User stories**
+1. As a Home Cook I want to receive AI-generated recipe recommendations for each day of the week.
+2. As a User I want to access AI-generated recipe suggestions to discover new and exciting dishes.
+
+> - **UI mockups**
+> - **UML behavior diagrams** and necessary text specification
+
+
+**Preconditions**
+
+- <ins> OpenAI API Integration:</ins> The OpenAI API should be successfully integrated into the cooking website's infrastructure, and the necessary API credentials should be obtained and configured.
+
+- <ins> Stable Internet Connection:</ins> Users accessing the website should have a stable internet connection to send requests to the OpenAI API and receive recipe suggestions in a timely manner.
+
+- <ins> User Authentication:</ins> The website should have a user authentication system in place, ensuring that users are logged in before they can access AI-generated recipe suggestions.
+
+- <ins> Recipe Database:</ins> The website should have a database of recipes or access to recipe data that the AI can use as a reference when generating suggestions.
+
+- <ins> AI Model and API Availability:</ins> The OpenAI API, including the specific AI model used for generating recipe suggestions, should be available and operational.
+
+
+**Postconditions**
+
+- <ins> AI Recipe Suggestions Available:</ins> Users of the cooking website can access AI-generated recipe suggestions based on their preferences and needs.
+
+- <ins> User Personalization:</ins> Users receive recipe suggestions that are tailored to their dietary preferences, dietary restrictions, and other relevant information stored in their user profiles.
+
+- <ins> Diverse Recipe Content:</ins> The website offers a wider variety of recipe options, including new and creative dishes, thereby enhancing the user's culinary experience.
+
+- <ins> Enhanced Meal Planning:</ins> Users can easily plan their meals with AI-generated recipe recommendations, and they may have the option to add these recipes to their meal plans and shopping lists.
+
+- <ins> Reduced Search Effort:</ins> Users experience reduced effort in searching for recipes, as the AI system streamlines the recipe discovery process.
+
+
+**Estimated efforts:** Medium efforts
+
+
 ### 3. Nonfunctional requirements
 
 > [!IMPORTANT]  
@@ -328,4 +410,43 @@ User-submitted recipes, photos, and cooking tips, fostering a sense of community
 
 
 ### 4. Technical constraints
-> Specify any major constraints, assumptions or dependencies, e.g., any restrictions about which type of server to use, which type of open source license must be complied, etc. 
+This sections specifies any major constraints, assumptions or dependencies.
+
+#### 4.1 Assumptions
+
+Firstly, it's assumed that users have access to a stable internet connection, a fundamental prerequisite for using the website. Additionally, it's expected that users possess compatible devices, such as smartphones, tablets, or laptops, enabling them to access the website. Moreover, it is assumed that users are equipped with modern web browsers that support the website's features and functionalities.
+
+Furthermore, the accuracy and completeness of recipe data are contingent on user-generated content and publicly available information. Hence, the website cannot guarantee the correctness of such data. Another assumption is that users will create profiles and accurately provide their dietary preferences, restrictions, and other personalization information.
+
+In the context of AI services, it is assumed that the OpenAI API or other similar services for generating recipe suggestions will be accessible and operational. Data privacy and security are vital concerns, with the expectation that users will adhere to best practices, while the website's security measures will be effective in safeguarding user data.
+ill face competition from other cooking and recipe-related websites, and user preferences may shift accordingly. 
+
+Additionally, it's expected that users will positively embrace and adopt the AI-generated recipe suggestion feature to enhance their culinary experiences.
+
+These assumptions collectively establish the foundational expectations for the cooking website project. They are vital for stakeholders to comprehend the project's context and recognize potential risks associated with its development and operation.
+
+#### 4.2 Technical Limitations and dependencies
+
+Firstly, the website does not include provisions for offline functionality or graceful degradation in situations where an internet connection is unavailable.
+
+While the website aims to be compatible with a variety of modern web browsers, achieving complete compatibility with every possible browser and version is not guaranteed. The primary focus will be on testing and optimizing for major browsers.
+
+The website relies on third-party services and APIs for specific functionalities. The availability, performance, and changes to these external services are beyond the project's control. Consequently, the website may experience disruptions or limitations due to such dependencies.
+
+The accuracy and quality of user-generated content, such as recipes and reviews, cannot be guaranteed. The website relies on user contributions, and errors or inaccuracies may exist in the content.
+
+While the website aims to handle a reasonable amount of traffic, performance under extremely high traffic loads is not guaranteed. The project will involve load testing and optimization efforts, but inherent limitations may persist.
+
+The website's capacity for data storage and scalability may have constraints. As the user base and content expand, infrastructure upgrades or optimizations may become necessary.
+
+The project includes provisions for maintenance and updates. However, the availability of resources and the timeliness of updates may be subject to constraints, which could potentially impact the website's performance and functionality.
+
+The project cannot control or predict user behavior. Users may misuse the website or engage in activities that violate the platform's terms and conditions.
+
+The effectiveness and accuracy of AI-powered features, such as recipe suggestions, are subject to the quality of data and algorithms. The website cannot guarantee that the AI will always provide flawless recommendations.
+
+The project cannot control changes in the market landscape, user preferences, or the emergence of new technologies. These external factors may impact the website's competitiveness and relevance.
+
+While the website aims to adhere to accessibility standards, achieving complete compliance with all regulations and guidelines may pose technical challenges.
+
+These technical limitations serve as essential guidance for managing expectations and shaping the project's development. They provide stakeholders with a realistic understanding of what the project can achieve within its technical constraints.
