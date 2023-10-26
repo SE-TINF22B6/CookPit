@@ -161,7 +161,7 @@ Implement password recovery/reset functionality in case users forget their passw
 
 **Use Case Diagram**
 
-![Login Use Case Diagram](https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/activity-dragram-login.png)
+![Login Use Case Diagram](https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/activity-diagramm-login.png)
 
 **UI mockups**
 
