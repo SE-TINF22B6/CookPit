@@ -63,8 +63,10 @@ The search bar in the website enables users to input specific keywords, initiati
 
 2. As a user, I want to see clear and relevant search results when I submit a query, ensuring that the most pertinent content appears at the top of the results list.
 
+**UI mockups**
 
-> - **UI mockups**
+![Login Mockup](https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/SRS%20Images/Mockups/FavoritesMockup.png)
+
 > - **UML behavior diagrams** and necessary text specification
 
 
@@ -112,7 +114,10 @@ Users can create an account by providing basic information such as username, ema
 2. As a visitor, I want the registration process to be simple and intuitive, allowing me to sign up with my email address and create a secure password without unnecessary complications.
 
 
-> - **UI mockups**
+**UI mockups**
+
+![Login Mockup](https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/SRS%20Images/Mockups/SignUpMockup.png)
+
 > - **UML behavior diagrams** and necessary text specification
 
 
@@ -209,7 +214,10 @@ Enable users to change their password and update account settings (e.g., email p
 2. As a user, I want to edit my profile information, including my name, email address, and profile picture, allowing me to keep my details up-to-date.
 
 
-> - **UI mockups**
+**UI mockups**
+
+![Login Mockup](https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/SRS%20Images/Mockups/MenuMockup.png)
+
 > - **UML behavior diagrams** and necessary text specification
 
 
@@ -251,7 +259,11 @@ Implement folders or categories within the saved recipes section for better orga
 **User stories**
 1.As a user, I want to be able to save my favorite recipes to a designated section on the website, allowing me to easily find and access them later.
 
-> - **UI mockups**
+**UI mockups**
+
+![Login Mockup](https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/SRS%20Images/Mockups/FavoritesMockup.png)
+
+
 > - **UML behavior diagrams** and necessary text specification
 
 
@@ -292,7 +304,10 @@ User-submitted recipes, photos, and cooking tips, fostering a sense of community
 
 2. As a culinary expert, I want the option to submit cooking tips, techniques, and video tutorials, sharing my knowledge with others and enhancing the learning experience of users.
 
-> - **UI mockups**
+**UI mockups**
+
+![Login Mockup](https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/SRS%20Images/Mockups/MenuMockup.png)
+
 > - **UML behavior diagrams** and necessary text specification
 
 
@@ -332,7 +347,10 @@ Implement folders or categories within the saved recipes section for better orga
 **User stories**
 1.As a user, I want to be able to save my favorite recipes to a designated section on the website, allowing me to easily find and access them later.
 
-> - **UI mockups**
+**UI mockups**
+
+![Login Mockup](https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/SRS%20Images/Mockups/FavoritesMockup.png)
+
 > - **UML behavior diagrams** and necessary text specification
 
 
@@ -366,7 +384,7 @@ Removal Option: Users have the option to remove recipes from their favorites. If
 
 
 
-#### 2.7  Saved recipes / Use Case 6
+#### 2.7  OpenAI API Integration / Use Case 6
 The functional requirement of linking a cooking website to the OpenAI API is to enable users to receive AI-generated recipe suggestions, enhancing their culinary experience with creative and personalized cooking ideas.
 
 **User stories**
