@@ -67,7 +67,11 @@ The search bar in the website enables users to input specific keywords, initiati
 
 ![Login Mockup](https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/SRS%20Images/Mockups/FavoritesMockup.png)
 
-> - **UML behavior diagrams** and necessary text specification
+**UML behavior diagrams**
+
+![Login Mockup](https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/Usecase_Diagramm.png)
+
+UML Diagram of the oeverview of the system.
 
 
 **Preconditions**
@@ -117,8 +121,6 @@ Users can create an account by providing basic information such as username, ema
 **UI mockups**
 
 ![Login Mockup](https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/SRS%20Images/Mockups/SignUpMockup.png)
-
-> - **UML behavior diagrams** and necessary text specification
 
 
 **Preconditions**
@@ -172,7 +174,6 @@ Implement password recovery/reset functionality in case users forget their passw
 
 ![Login Mockup](https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/SRS%20Images/LoginMockup.png)
 
-> - **UML behavior diagrams** and necessary text specification
 
 
 **Preconditions**
@@ -218,7 +219,6 @@ Enable users to change their password and update account settings (e.g., email p
 
 ![Login Mockup](https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/SRS%20Images/Mockups/MenuMockup.png)
 
-> - **UML behavior diagrams** and necessary text specification
 
 
 **Preconditions**
@@ -264,7 +264,6 @@ Implement folders or categories within the saved recipes section for better orga
 ![Login Mockup](https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/SRS%20Images/Mockups/FavoritesMockup.png)
 
 
-> - **UML behavior diagrams** and necessary text specification
 
 
 **Preconditions**
@@ -308,7 +307,7 @@ User-submitted recipes, photos, and cooking tips, fostering a sense of community
 
 ![Login Mockup](https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/SRS%20Images/Mockups/MenuMockup.png)
 
-> - **UML behavior diagrams** and necessary text specification
+
 
 
 **Preconditions**
@@ -351,7 +350,6 @@ Implement folders or categories within the saved recipes section for better orga
 
 ![Login Mockup](https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/SRS%20Images/Mockups/FavoritesMockup.png)
 
-> - **UML behavior diagrams** and necessary text specification
 
 
 **Preconditions**
@@ -391,8 +389,7 @@ The functional requirement of linking a cooking website to the OpenAI API is to 
 1. As a Home Cook I want to receive AI-generated recipe recommendations for each day of the week.
 2. As a User I want to access AI-generated recipe suggestions to discover new and exciting dishes.
 
-> - **UI mockups**
-> - **UML behavior diagrams** and necessary text specification
+
 
 
 **Preconditions**
