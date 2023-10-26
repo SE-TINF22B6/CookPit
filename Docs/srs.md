@@ -159,6 +159,9 @@ Implement password recovery/reset functionality in case users forget their passw
 
 2. As a user, I want to receive clear and informative error messages if I enter incorrect login credentials, guiding me on how to rectify the issue and successfully log in.
 
+**Use Case Diagram**
+
+![Login Use Case Diagram](https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/activity-dragram-login.png)
 
 **UI mockups**
 
