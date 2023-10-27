@@ -1,9 +1,18 @@
+import { Route, Routes } from 'react-router-dom';
+import Header from './components/Header';
 import './styles/Home.css';
 
-function App() {
+function Home() {
+
+
   return (
-   <h1>hello</h1>
+    <>
+      <Header />
+      <Routes>
+          {/* <Route path='/' element={<some component />} /> */}
+      </Routes>
+    </>
   );
 }
 
-export default App;
+export default Home;
