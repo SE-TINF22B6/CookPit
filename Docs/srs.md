@@ -202,6 +202,10 @@ Implement password recovery/reset functionality in case users forget their passw
 
 **Estimated efforts:** Low efforts
 
+We have also done a two other activity diagramms. In our SRS we have only looked at this digram in detail. you can find our other diagrams under the links: 
+https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/ViewRecipe_activityDiagramm.png
+https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/UploadRecipe_activityDiagram.png
+
 
 
 
