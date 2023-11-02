@@ -8,6 +8,11 @@ In this Software Requirements Specification (SRS) document, we describe the deta
 
 The primary audience comprises home cooks hailing from a wide spectrum of skill levels. With this diversity in mind, our objective is to construct an intuitive and user-friendly digital environment. This means ensuring that not only is the website easy to navigate, but it's also a delightful and informative hub for anyone with a passion for cooking. 
 
+To avoid overcrwoding this documents, many diagrams will not be added directly here. You can check all the diagrams related to this project in the following link:
+https://github.com/SE-TINF22B6/CookPit/tree/main/Docs/SRS%20Images
+
+There you can find sequence, activity and usecase diagrams. 
+
 #### 1.2 Scope
 
 This SRS document provides an exhaustive exploration of both the functional and non-functional requisites essential for the successful realization of the entire system. The scope of this document cover the whole project, but also it extends its purview to encompass specifications for various constituent modules that collectively constitute this software. 
