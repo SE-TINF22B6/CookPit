@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
+// import Login from './components/Login'
 import './styles/Home.css';
 
 function Home() {
@@ -8,9 +9,10 @@ function Home() {
   return (
     <>
       <Header />
-      <Routes>
+      {/* <Login /> */}
+      {/* <Routes> */}
           {/* <Route path='/' element={<some component />} /> */}
-      </Routes>
+      {/* </Routes> */}
     </>
   );
 }

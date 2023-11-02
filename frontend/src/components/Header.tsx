@@ -3,6 +3,7 @@ import '../styles/Header.css';
 import icon_heart_black from '../img/icon_heart_black.png'
 
 export default function Header() {
+
   return (
     <header>
       <div className="menu_btn_wrapper"></div>
@@ -16,7 +17,10 @@ export default function Header() {
         <button id='favourite_recipes'>
           <img src={icon_heart_black} alt="favourite recipes" />
         </button>
-        <button>Login</button>
+        <button id='login_btn'>Login</button>
+        {/* <Modal>
+          
+        </Modal> */}
         <div id="language_selection">EN</div>
       </div>
     </header>
