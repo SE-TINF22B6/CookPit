@@ -49,3 +49,6 @@ To create a more sophisticated recipe generation system, you can consider the fo
 When using AI to generate content, it's important to ensure that the generated recipes are safe, healthy, and align with dietary restrictions. Additionally, it's essential to address ethical concerns related to content accuracy and quality.
 
 By incorporating the OpenAI API into your website for recipe generation, you can offer an interactive and engaging culinary experience for your users, making your platform a valuable resource for cooking enthusiasts and food lovers.
+
+A sequence diagram, of this usecase you can find here: https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/SRS%20Images/sequence-diagram-api.png
+
