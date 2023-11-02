@@ -6,7 +6,9 @@ export default function Header() {
 
   return (
     <header>
-      <div className="menu_btn_wrapper"></div>
+      <div className="menu_btn_wrapper">
+        tmp content
+      </div>
 
       <div className="brand_name_wrapper">
         <div id="brand_name">CookPit</div>
