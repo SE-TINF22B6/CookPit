@@ -427,7 +427,7 @@ The functional requirement of linking a cooking website to the OpenAI API is to 
 - <ins> Reduced Search Effort:</ins> Users experience reduced effort in searching for recipes, as the AI system streamlines the recipe discovery process.
 
 Here you can see one exampel of a sequence diagram, where the user interacts with the OpenAI application: <br>
-![sequence-diagram-openai](https://github.com/SE-TINF22B6/CookPit/assets/123726577/29fc1120-54ea-4b30-83c7-b5cdbe060c7c)
+![sequence-diagram-openai](https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/SRS%20Images/sequence-diagram-api.png)
 
 
 **Estimated efforts:** Medium efforts
