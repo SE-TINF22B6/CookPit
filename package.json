@@ -2,7 +2,7 @@
   "name": "cookpit",
   "version": "1.0.0",
   "description": "Cockpit is a Web-Application for Cooking recipes. On our website you can upload recipes and share them with the communinity. <br>\r We want to use ChatGPT for recipe recommendation and a map API for the nearest supermarkets.",
-  "main": "index.js",  
+  "main": "index.js",
   "proxy": "http://localhost:3001",
   "scripts": {
     "start": "node server/index.js"
@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "react-router-dom": "^6.18.0"
   }
 }
