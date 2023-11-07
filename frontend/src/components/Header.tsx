@@ -6,9 +6,33 @@ export default function Header() {
 
   return (
     <header>
-      <div className="menu_btn_wrapper">
-        tmp content
-      </div>
+      <nav className="menu_btn_wrapper">
+        <input className="checkbox" type="checkbox" id='menu_checkbox'/>
+        <label htmlFor="menu_checkbox" id='menu_label'>
+          <div className="hamburger_lines">
+            <span className="line line1"></span>
+            <span className="line line2"></span>
+            <span className="line line3"></span>
+          </div>  
+        </label>
+        <div className="menu_items">
+          <div className="menu_items_wrapper">
+            <li><a href="#">Cake</a></li>
+            <li><a href="#">Biscuit</a></li>
+            <li><a href="#">Waffles</a></li>
+            <div className="separation_line"></div>
+            <li><a href="#">Show all recipes</a></li>
+            <li><a href="#">Upload a recipe</a></li>
+            <li><a href="#">Show my recipes</a></li>
+            <div className="separation_line"></div>
+            <li><a href="#">Konto</a></li>
+            <div className="separation_line"></div>
+            <li><a href="#">Imprint</a></li>
+            <li><a href="#">GDPR</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </div>
+        </div>
+      </nav>
 
       <div className="brand_name_wrapper">
         <div id="brand_name">CookPit</div>
@@ -20,9 +44,7 @@ export default function Header() {
           <img src={icon_heart_black} alt="favourite recipes" />
         </button>
         <button id='login_btn'>Login</button>
-        {/* <Modal>
-          
-        </Modal> */}
+
         <div id="language_selection">EN</div>
       </div>
     </header>
