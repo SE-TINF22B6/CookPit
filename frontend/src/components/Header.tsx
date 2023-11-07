@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../styles/Header.css';
 import icon_heart_black from '../img/icon_heart_black.png'
 
@@ -16,7 +16,9 @@ export default function Header() {
           </div>  
         </label>
         <div className="menu_items">
-          <div className="menu_items_wrapper">
+          <div className="menu_items_wrapper" id='miw'>
+            <li><a href="#">Overview</a></li>
+            <div className="separation_line"></div>
             <li><a href="#">Cake</a></li>
             <li><a href="#">Biscuit</a></li>
             <li><a href="#">Waffles</a></li>
@@ -25,7 +27,7 @@ export default function Header() {
             <li><a href="#">Upload a recipe</a></li>
             <li><a href="#">Show my recipes</a></li>
             <div className="separation_line"></div>
-            <li><a href="#">Konto</a></li>
+            <li><a href="#">Account</a></li>
             <div className="separation_line"></div>
             <li><a href="#">Imprint</a></li>
             <li><a href="#">GDPR</a></li>
