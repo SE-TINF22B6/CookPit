@@ -4,6 +4,11 @@ import icon_heart_black from '../img/icon_heart_black.png'
 
 export default function Header() {
 
+  function setLanguage(language:HTMLElement) {
+    const activeLanguage = document.getElementById("language_selection");
+    activeLanguage!.innerText = language.innerText;
+  }
+
   return (
     <header>
       <nav className="menu_btn_wrapper">
@@ -48,6 +53,10 @@ export default function Header() {
         <button id='login_btn'>Login</button>
 
         <div id="language_selection">EN</div>
+        <div className="lang_wrapper">
+          <div onClick={() => setLanguage(document.getElementById("lang_en")!)} id="lang_en">EN</div>
+          <div onClick={() => setLanguage(document.getElementById("lang_de")!)} id="lang_de">DE</div>
+        </div>
       </div>
     </header>
   )

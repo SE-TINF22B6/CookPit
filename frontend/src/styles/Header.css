@@ -9,8 +9,6 @@ header {
   font-family: Jomhuria;
   font-size: 80px;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-  background-color: rgb(243, 216, 255);
 }
 
 .menu_btn_wrapper {
@@ -164,7 +162,7 @@ input[type="checkbox"]:checked + #menu_label .hamburger_lines .line3 {
   display: flex;
   gap: 40px;
   align-items: center;
-
+  position: relative;
   height: 100%;
   padding-top: 8px;
 }
@@ -195,4 +193,29 @@ input[type="checkbox"]:checked + #menu_label .hamburger_lines .line3 {
 #language_selection {
   height: 46px;
   line-height: 54px;
+}
+
+#language_selection:hover ~ .lang_wrapper {
+  z-index: 0;
+  display: block;
+}
+
+.lang_wrapper:hover {
+  z-index: 0;
+  display: block;
+}
+
+.lang_wrapper {
+  position: absolute;
+  top: 90px;
+  right: 4px;
+  z-index: -10;
+  display: none;
+  cursor: pointer;
+
+  height: 32px;
+  line-height: 32px;
+  font-family: Poppins;
+  font-size: 34px;
+  text-shadow: none;
 }
