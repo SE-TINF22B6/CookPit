@@ -177,7 +177,7 @@ input[type="checkbox"]:checked + #menu_label .hamburger_lines .line3 {
 }
 
 #favourite_recipes:hover > img{
-  content:url('../img/icon_heart_red.png');
+  content:url('../../img/icon_heart_red.png');
 }
 
 #login_btn {
