@@ -1,5 +1,5 @@
 #oval1 {
-    position: fixed;
+    position: absolute;
     left: 0px;
     width: 150px; 
     height: 800px; 
@@ -8,6 +8,7 @@
     border-top-right-radius: 200px;
     box-shadow: 
          0px -10px 15px -10px black;
+    transform: scale()
  }
  #oval2 {
     position: fixed;
