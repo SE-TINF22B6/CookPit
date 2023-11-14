@@ -58,6 +58,6 @@ export default function Header() {
           <div onClick={() => setLanguage(document.getElementById("lang_de")!)} id="lang_de">DE</div>
         </div>
       </div>
-    </header>
+    </header> 
   )
 }
