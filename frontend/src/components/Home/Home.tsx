@@ -9,8 +9,8 @@ function Home() {
 
   return (
     <>
+     <Background />
       <Header />
-      <Background />
       {/* <Login /> */}
       {/* <Routes> */}
           {/* <Route path='/' element={<some component />} /> */}

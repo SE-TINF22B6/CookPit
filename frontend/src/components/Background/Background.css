@@ -1,6 +1,8 @@
 #oval1 {
-    position: absolute;
-    left: 0%;
+    position: fixed;
+    display: flex;
+    left: 0px;
+    top: 350px;
     width: 150px; 
     height: 100%; 
     background: #ffafaf;
@@ -13,6 +15,7 @@
  #oval2 {
     position: fixed;
     left:150px;
+    top: 350px;
     width: 150px; 
     height: 100%; 
     background: #ff9595;
@@ -24,6 +27,7 @@
  #oval3 {
     position: fixed;
     left: 300px;
+    top: 350px;
     width: 150px; 
     height: 100%; 
     background: #ffafaf;
@@ -35,6 +39,7 @@
  #oval4 {
     position: fixed;
     left: 450px;
+    top: 350px;
     width: 150px; 
     height: 100%; 
     background: #ff9595;
@@ -46,6 +51,7 @@
  #oval5 {
     position: fixed;
     left: 600px;
+    top: 350px;
     width: 150px; 
     height: 100%; 
     background:#ffafaf;
@@ -57,6 +63,7 @@
  #oval6 {
     position: fixed;
     left: 750px;
+    top: 350px;
     width: 150px; 
     height: 100%; 
     background: #ff9595;
@@ -68,6 +75,7 @@
  #oval7 {
     position: fixed;
     left: 900px;
+    top: 350px;
     width: 150px; 
     height: 100%; 
     background: #ffafaf;
@@ -79,6 +87,7 @@
  #oval8 {
     position: fixed;
     left: 1050px;
+    top: 350px;
     width: 150px; 
     height: 100%; 
     background: #ff9595;
@@ -90,6 +99,7 @@
  #oval9 {
     position: fixed;
     left: 1200px;
+    top: 350px;
     width: 150px; 
     height: 100%; 
     background:#ffafaf;
@@ -101,6 +111,7 @@
  #oval10 {
     position: fixed;
     left: 1350px;
+    top: 350px;
     width: 150px; 
     height: 100%; 
     background: #ff9595;
@@ -112,6 +123,7 @@
  #oval11 {
     position: fixed;
     left: 1500px;
+    top: 350px;
     width: 150px; 
     height: 100%; 
     background:#ffafaf;
@@ -123,6 +135,7 @@
  } #oval12 {
     position: fixed;
     left: 1650px;
+    top: 350px;
     width: 150px; 
     height: 100%; 
     background: #ff9595;
@@ -134,6 +147,7 @@
  #oval13 {
     position: fixed;
     left: 1800px;
+    top: 350px;
     width: 150px; 
     height: 100%; 
     background:#ffafaf;
