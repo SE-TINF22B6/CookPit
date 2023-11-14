@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import '../styles/Header.css';
-import icon_heart_black from '../img/icon_heart_black.png'
+import '../Header/Header.css';
+import icon_heart_black from '../../img/icon_heart_black.png'
 
 export default function Header() {
 
