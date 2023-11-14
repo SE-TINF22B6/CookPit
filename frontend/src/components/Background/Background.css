@@ -1,8 +1,8 @@
 #oval1 {
     position: absolute;
-    left: 0px;
+    left: 0%;
     width: 150px; 
-    height: 800px; 
+    height: 100%; 
     background: #ffafaf;
     border-top-left-radius: 200px;
     border-top-right-radius: 200px;
@@ -12,9 +12,9 @@
  }
  #oval2 {
     position: fixed;
-    left: 150px;
+    left:150px;
     width: 150px; 
-    height: 800px; 
+    height: 100%; 
     background: #ff9595;
     border-top-left-radius: 200px;
     border-top-right-radius: 200px;
@@ -25,7 +25,7 @@
     position: fixed;
     left: 300px;
     width: 150px; 
-    height: 800px; 
+    height: 100%; 
     background: #ffafaf;
     border-top-left-radius: 200px;
     border-top-right-radius: 200px;
@@ -36,7 +36,7 @@
     position: fixed;
     left: 450px;
     width: 150px; 
-    height: 800px; 
+    height: 100%; 
     background: #ff9595;
     border-top-left-radius: 200px;
     border-top-right-radius: 200px;
@@ -47,7 +47,7 @@
     position: fixed;
     left: 600px;
     width: 150px; 
-    height: 800px; 
+    height: 100%; 
     background:#ffafaf;
     border-top-left-radius: 200px;
     border-top-right-radius: 200px;
@@ -58,7 +58,7 @@
     position: fixed;
     left: 750px;
     width: 150px; 
-    height: 800px; 
+    height: 100%; 
     background: #ff9595;
     border-top-left-radius: 200px;
     border-top-right-radius: 200px;
@@ -69,7 +69,7 @@
     position: fixed;
     left: 900px;
     width: 150px; 
-    height: 800px; 
+    height: 100%; 
     background: #ffafaf;
     border-top-left-radius: 200px;
     border-top-right-radius: 200px;
@@ -80,7 +80,7 @@
     position: fixed;
     left: 1050px;
     width: 150px; 
-    height: 800px; 
+    height: 100%; 
     background: #ff9595;
     border-top-left-radius: 200px;
     border-top-right-radius: 200px;
@@ -91,7 +91,7 @@
     position: fixed;
     left: 1200px;
     width: 150px; 
-    height: 800px; 
+    height: 100%; 
     background:#ffafaf;
     border-top-left-radius: 200px;
     border-top-right-radius: 200px;
@@ -102,7 +102,7 @@
     position: fixed;
     left: 1350px;
     width: 150px; 
-    height: 800px; 
+    height: 100%; 
     background: #ff9595;
     border-top-left-radius: 200px;
     border-top-right-radius: 200px;
@@ -113,7 +113,7 @@
     position: fixed;
     left: 1500px;
     width: 150px; 
-    height: 800px; 
+    height: 100%; 
     background:#ffafaf;
     border-top-left-radius: 200px;
     border-top-right-radius: 200px;
@@ -124,7 +124,7 @@
     position: fixed;
     left: 1650px;
     width: 150px; 
-    height: 800px; 
+    height: 100%; 
     background: #ff9595;
     border-top-left-radius: 200px;
     border-top-right-radius: 200px;
@@ -135,7 +135,7 @@
     position: fixed;
     left: 1800px;
     width: 150px; 
-    height: 800px; 
+    height: 100%; 
     background:#ffafaf;
     border-top-left-radius: 200px;
     border-top-right-radius: 200px;
