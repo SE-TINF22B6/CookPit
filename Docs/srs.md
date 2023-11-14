@@ -433,6 +433,10 @@ Here you can see one exampel of a sequence diagram, where the user interacts wit
 **Estimated efforts:** Medium efforts
 
 
+#### 2.8  Identified classes / Class diagram
+
+
+
 ### 3. Nonfunctional requirements
 
 > [!IMPORTANT]  
