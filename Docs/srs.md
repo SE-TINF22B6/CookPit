@@ -435,6 +435,46 @@ Here you can see one exampel of a sequence diagram, where the user interacts wit
 
 #### 2.8  Identified classes / Class diagram
 
+# CookPit Class Diagram Explanation
+
+## User:
+
+- The central class that represents a user of the cooking website.
+- Has subclasses "Guest" and "Admin" to represent the different roles of the users.
+- Contains methods and attributes that are common to all users.
+
+## Guest:
+
+- A subclass of "User", represents a non-registered user.
+- Has access to basic functions such as browsing recipes but cannot perform special actions reserved for registered users.
+
+## Admin:
+
+- A subclass of "User", represents an administrator of the website.
+- Has extended rights, such as adding or deleting recipes, managing user accounts, etc.
+
+## Recipe:
+
+- Represents a recipe and contains all relevant information such as ingredients, preparation steps, ratings, etc.
+- May have methods for editing or displaying recipe details.
+
+## Ingredient:
+
+- A class that represents an ingredient used in a recipe.
+- May contain information such as the name, quantity, units, etc.
+
+## Role:
+
+- A class that defines the different roles in the system, e.g., "Guest" and "Admin".
+- May possibly contain authorizations and responsibilities associated with each role.
+
+## GUI (Graphical User Interface):
+
+- Represents the graphical user interface of the website.
+- May contain methods for displaying user interactions and receiving user actions.
+
+The class diagram will show the relationships between these classes, such as the fact that "User" is a general class, "Guest" and "Admin" are subclasses of "User," and that a "Recipe" contains ingredients. It will also show the associations and possible methods between these classes to model the functionality of the cooking website.
+
 
 
 ### 3. Nonfunctional requirements
