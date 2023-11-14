@@ -475,7 +475,7 @@ Here you can see one exampel of a sequence diagram, where the user interacts wit
 
 The class diagram will show the relationships between these classes, such as the fact that "User" is a general class, "Guest" and "Admin" are subclasses of "User," and that a "Recipe" contains ingredients. It will also show the associations and possible methods between these classes to model the functionality of the cooking website.
 
-
+![class-diagram](https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/SRS%20Images/ClassDiagramm_CookPit.png)
 
 ### 3. Nonfunctional requirements
 
