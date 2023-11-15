@@ -1,0 +1,30 @@
+#searchBoxContainer{
+    margin: auto;
+    margin-top: 20%;
+    position: relative;
+    width: 400px;
+    height: 70px;
+    border: 4px solid white;
+    padding: 0px 10px;
+    border-radius: 50px;
+    background-color:white;
+}
+#serachElementsContainer{
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+#searchInput{
+    border: none;
+    height: 100%;
+    width: 100%;
+    padding: 20px 5px;
+    border-radius: 50px;
+    font-size: 18px;
+    color: Black;
+    font-weight: 500;
+}
+#searchInput:focus{
+    outline: none;
+}

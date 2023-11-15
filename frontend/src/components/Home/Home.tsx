@@ -3,6 +3,7 @@ import Header from '../Header/Header';
 // import Login from './components/Login'
 import '../Home/Home.css';
 import Background from '../Background/Background';
+import Body from '../SearchSite/SearchSite';
 
 function Home() {
 
@@ -11,6 +12,7 @@ function Home() {
     <>
      <Background />
       <Header />
+      <Body />
       {/* <Login /> */}
       {/* <Routes> */}
           {/* <Route path='/' element={<some component />} /> */}
