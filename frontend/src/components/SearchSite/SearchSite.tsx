@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import '../SearchSite/SearchSite.css';
+import icon_search from '../SearchSite/baseline_search_black_24dp.png'
 
 
 
@@ -17,7 +18,9 @@ export default function Body(){
                 <input type="text" placeholder='Search' id='searchInput'  />
             </td>
             <td>
-                <a href="#"></a>
+                <a id='searchIcon' href="#">
+                <img src={icon_search} alt="#"/>
+                </a>
             </td>
         </tr>
     </table>

@@ -10,7 +10,7 @@
     background-color:white;
 }
 #serachElementsContainer{
-    width: 100%;
+    width: 130%;
     height: 100%;
     vertical-align: middle;
 }
@@ -18,7 +18,7 @@
 #searchInput{
     border: none;
     height: 100%;
-    width: 100%;
+    width: 130%;
     padding: 20px 5px;
     border-radius: 50px;
     font-size: 18px;
@@ -27,4 +27,11 @@
 }
 #searchInput:focus{
     outline: none;
+}
+#searchIcon{
+    position: relative;
+    font-size: 26;
+    color: black;
+    left: 170%;
+    top: 5px;;
 }
