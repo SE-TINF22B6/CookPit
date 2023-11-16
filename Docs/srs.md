@@ -505,6 +505,10 @@ This is a very important table in our project. It contains fields as the name, i
  ## ImageXRecipe
   This works as a cross table for N:N relations. This has a foreign key to the Recipe table and Image table. This allows to set the images a given recipe. It has a third field named favourite. This allows to set one single favourite picture that is the one that will show in the preview of the recipe.
 
+-- Note: All the tables have a serial id, except the cross tables. They rely on a compound key made of the two foreign keys.
+
+Find the ![database-diagram](https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/SRS%20Images/ClassDiagramm_CookPit.png)
+
 
 ### 3. Nonfunctional requirements
 
