@@ -477,6 +477,35 @@ The class diagram will show the relationships between these classes, such as the
 
 ![class-diagram](https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/SRS%20Images/ClassDiagramm_CookPit.png)
 
+
+# CookPit Entity Relationship (Database) Diagram Explanation
+In this section we explain the different tables of our PostgreSQL databse and how the tables relate to each other.
+
+## User
+As the name implies, this table will store the data of the user. It contains important information like the username, password, description and picture. The picture is a foreign key to another table that manages that.
+
+## Recipe
+This is a very important table in our project. It contains fields as the name, id, description, servings, preparation time, cooking time, calories, creation date and rating. It has a foreign key to the User table to manage the author. It also points to the Images table to add images to the recipe. It stores the list of ingredients as a JSON.
+
+ ## Image
+ This table is quite simple. It only contains the name and file location of the image.
+
+ ## Category
+ This category is also a small table. It has the fields of name and description of the category.
+
+ ## Comment
+ This table is very useful. Allows a better community interaction and engagement. It contains the comment itself (the text) and the posting date. In addition, it has a foreign key to the User table to get who published that comment. In addition, it also has a foreign key to the Recipe table to know to which recipe is this comment related.
+
+ ## FavoriteRecipes
+ This works as a cross table for N:N relations. This has a foreign key to the Recipe table and User table. This allows to have a register of which recipes a user has liked.
+
+ ## CategoryXRecipe
+ This works as a cross table for N:N relations. This has a foreign key to the Recipe table and Category table. This allows to new the categories of a given recipe.
+
+ ## ImageXRecipe
+  This works as a cross table for N:N relations. This has a foreign key to the Recipe table and Image table. This allows to set the images a given recipe. It has a third field named favourite. This allows to set one single favourite picture that is the one that will show in the preview of the recipe.
+
+
 ### 3. Nonfunctional requirements
 
 > [!IMPORTANT]  
