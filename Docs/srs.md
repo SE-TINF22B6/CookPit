@@ -507,7 +507,7 @@ This is a very important table in our project. It contains fields as the name, i
 
 -- Note: All the tables have a serial id, except the cross tables. They rely on a compound key made of the two foreign keys.
 
-Find the ![database-diagram](https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/SRS%20Images/ClassDiagramm_CookPit.png)
+Find the ![database-diagram](https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/SRS%20Images/Recipe%20Website%20DB%20Model.png)
 
 
 ### 3. Nonfunctional requirements
