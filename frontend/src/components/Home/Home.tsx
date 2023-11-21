@@ -1,22 +1,21 @@
 import { Route, Routes } from 'react-router-dom';
 import Header from '../Header/Header';
-// import Login from './components/Login'
 import '../Home/Home.css';
 import Background from '../Background/Background';
-import Body from '../SearchSite/SearchSite';
+import SearchSite from '../SearchSite/SearchSite';
+import OpenAI from '../openai/OpenAI';
 
 function Home() {
 
 
   return (
     <>
-     <Background />
+      <Background />
       <Header />
-      <Body />
-      {/* <Login /> */}
-      {/* <Routes> */}
-          {/* <Route path='/' element={<some component />} /> */}
-      {/* </Routes> */}
+      <Routes>
+          <Route path='/' element={<SearchSite />} />
+          <Route path='/recipe-maker' element={<OpenAI />} />
+      </Routes>
     </>
   );
 }

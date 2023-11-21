@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import '../Header/Header.css';
 import icon_heart_black from '../../img/icon_heart_black.png'
+import { Link } from 'react-router-dom';
+import CustomLink from '../CustomLink/CustomLink';
 
 export default function Header() {
 
@@ -22,21 +24,22 @@ export default function Header() {
         </label>
         <div className="menu_items">
           <div className="menu_items_wrapper" id='miw'>
-            <li><a href="#">Overview</a></li>
+            <CustomLink to={"/"} children={"Overview"}/>
             <div className="separation_line"></div>
-            <li><a href="#">Cake</a></li>
-            <li><a href="#">Biscuit</a></li>
-            <li><a href="#">Waffles</a></li>
+            <CustomLink to={"/cake"} children={"Cake"}/>
+            <CustomLink to={"/biscuit"} children={"Biscuit"}/>
+            <CustomLink to={"/waffles"} children={"Waffles"}/>
             <div className="separation_line"></div>
-            <li><a href="#">Show all recipes</a></li>
-            <li><a href="#">Upload a recipe</a></li>
-            <li><a href="#">Show my recipes</a></li>
+            <CustomLink to={"/show-all-recipes"} children={"Show all recipes"}/>
+            <CustomLink to={"/recipe-maker"} children={"Recipe maker"}/>
+            <CustomLink to={"/upload-recipe"} children={"Upload a recipe"}/>
+            <CustomLink to={"/my-recipe"} children={"Show my recipes"}/>
             <div className="separation_line"></div>
-            <li><a href="#">Account</a></li>
+            <CustomLink to={"/account"} children={"Account"}/>
             <div className="separation_line"></div>
-            <li><a href="#">Imprint</a></li>
-            <li><a href="#">GDPR</a></li>
-            <li><a href="#">Terms of Service</a></li>
+            <CustomLink to={"/imprint"} children={"Imprint"}/>
+            <CustomLink to={"/general-data-protection-regulation"} children={"GDPR"}/>
+            <CustomLink to={"/terms-of-service"} children={"Terms of Service"}/>
           </div>
         </div>
       </nav>
