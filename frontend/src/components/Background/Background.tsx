@@ -10,11 +10,6 @@ export default function Background(){
       }
   return (
 <body>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
     <div id="oval1"></div>
     <div id="oval2"></div>
     <div id="oval3"></div>
