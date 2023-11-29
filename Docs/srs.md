@@ -629,15 +629,17 @@ The non-functional requirement of testability in a cooking website underscores t
 
 **Postconditions**
 
-- <ins> AI Recipe Suggestions Available:</ins> Users of the cooking website can access AI-generated recipe suggestions based on their preferences and needs.
+- <ins> Successful Execution of Test Cases:</ins> All defined test cases have been successfully executed, covering various aspects of the cooking website, including recipe searching, user interactions, performance benchmarks, and security considerations.
 
-- <ins> User Personalization:</ins> Users receive recipe suggestions that are tailored to their dietary preferences, dietary restrictions, and other relevant information stored in their user profiles.
+- <ins> Test Data Integrity:</ins> The integrity of test data is maintained throughout the testing process. Any data modifications or interactions during testing do not compromise the consistency and accuracy of the test data, ensuring reliable and repeatable test results.
 
-- <ins> Diverse Recipe Content:</ins> The website offers a wider variety of recipe options, including new and creative dishes, thereby enhancing the user's culinary experience.
+- <ins> Automation Test Scripts Completion:</ins> Automated test scripts have been successfully executed, providing efficient regression testing capabilities. The completion of automation test scripts ensures rapid and consistent testing of critical functionalities, contributing to overall test coverage.
 
-- <ins> Enhanced Meal Planning:</ins> Users can easily plan their meals with AI-generated recipe recommendations, and they may have the option to add these recipes to their meal plans and shopping lists.
+- <ins> Documentation of Test Results:</ins> Comprehensive documentation of test results is available. This documentation includes detailed reports on test outcomes, identified issues, and any necessary follow-up actions. Testers can use this information to communicate results effectively with development teams and stakeholders.
 
-- <ins> Reduced Search Effort:</ins> Users experience reduced effort in searching for recipes, as the AI system streamlines the recipe discovery process.
+- <ins> Collaboration Insights:</ins> Effective collaboration between testing and development teams has resulted in meaningful insights. Any identified issues or challenges have been communicated, facilitating a collaborative approach to resolving potential bugs, improving features, and enhancing overall system quality.
+
+- <ins> Version Control Integrity:</ins> The integrity of the version control system is maintained. Any necessary rollbacks or reversions have been executed successfully, ensuring that the codebase is aligned with the intended version for testing and future development. 
 
 
 **Estimated efforts:** Medium efforts
@@ -645,41 +647,43 @@ The non-functional requirement of testability in a cooking website underscores t
 
 
 #### 3.4 Security
-The functional requirement of linking a cooking website to the OpenAI API is to enable users to receive AI-generated recipe suggestions, enhancing their culinary experience with creative and personalized cooking ideas.
+The non-functional requirement of security in a cooking website is paramount to establishing a trustworthy and protected online culinary platform. Security measures within this context involve safeguarding user data, ensuring secure authentication mechanisms, and protecting against potential cyber threats. This requirement encompasses the implementation of robust encryption protocols to secure data in transit and at rest, safeguarding sensitive user information such as personal details and payment data. Furthermore, secure user authentication and authorization mechanisms, including multi-factor authentication, bolster the website's defenses against unauthorized access. Regular security audits, vulnerability assessments, and proactive monitoring contribute to the continuous identification and mitigation of potential security risks. By prioritizing security in its non-functional requirements, a cooking website can inspire user confidence, foster a safe online cooking community, and mitigate the risk of data breaches or unauthorized access to sensitive information.
 
 
 **User stories**
-1. As a Home Cook I want to receive AI-generated recipe recommendations for each day of the week.
-2. As a User I want to access AI-generated recipe suggestions to discover new and exciting dishes.
+1. As a user, I want the cooking website to prioritize security, ensuring the protection of my account details. This includes robust password policies, the option for multi-factor authentication, and secure storage practices to prevent unauthorized access and safeguard my personal information.
+2. As a user who engages in online transactions, I expect the cooking website to prioritize security measures during payment processes. Secure and encrypted payment gateways, adherence to Payment Card Industry Data Security Standard (PCI DSS), and clear communication about transaction security instill confidence in the safety of my financial information.
 
 
 **Preconditions**
 
-- <ins> OpenAI API Integration:</ins> The OpenAI API should be successfully integrated into the cooking website's infrastructure, and the necessary API credentials should be obtained and configured.
+- <ins> Secure Development Practices:</ins> The development teams follow secure coding practices and principles. This includes regular training for developers on security best practices, secure code reviews, and adherence to industry standards for preventing common vulnerabilities such as SQL injection, cross-site scripting (XSS), and cross-site request forgery (CSRF).
 
-- <ins> Stable Internet Connection:</ins> Users accessing the website should have a stable internet connection to send requests to the OpenAI API and receive recipe suggestions in a timely manner.
+- <ins> Access Control Policies:</ins> The cooking website has well-defined access control policies in place. Access to sensitive information and critical functionalities is restricted based on user roles and responsibilities. Access controls are regularly reviewed and updated as necessary to maintain a secure environment.
+Regular Security Audits and Assessments:
 
-- <ins> User Authentication:</ins> The website should have a user authentication system in place, ensuring that users are logged in before they can access AI-generated recipe suggestions.
+- <ins> Precondition:</ins> The website undergoes regular security audits and assessments conducted by internal or external security experts. These assessments help identify potential vulnerabilities, assess the effectiveness of implemented security measures, and guide the implementation of necessary improvements.
 
-- <ins> Recipe Database:</ins> The website should have a database of recipes or access to recipe data that the AI can use as a reference when generating suggestions.
+- <ins> Encrypted Communication Protocols:</ins> The cooking website ensures that all communication between users and the website, as well as between server components, is encrypted using secure protocols such as HTTPS. This helps protect sensitive information during data in transit and enhances overall communication security.
 
-- <ins> AI Model and API Availability:</ins> The OpenAI API, including the specific AI model used for generating recipe suggestions, should be available and operational.
+- <ins> Secure Authentication Mechanisms:</ins> The website employs secure authentication mechanisms, such as strong password policies, multi-factor authentication (MFA), and secure password storage practices. These measures ensure that user accounts are protected from unauthorized access attempts.
 
 
 **Postconditions**
 
-- <ins> AI Recipe Suggestions Available:</ins> Users of the cooking website can access AI-generated recipe suggestions based on their preferences and needs.
+- <ins>Effective Access Controls in Place:</ins> The cooking website has successfully implemented and maintained effective access controls, ensuring that only authorized users have access to sensitive information and critical functionalities. Access controls are regularly reviewed and updated as needed to address evolving security requirements.
 
-- <ins> User Personalization:</ins> Users receive recipe suggestions that are tailored to their dietary preferences, dietary restrictions, and other relevant information stored in their user profiles.
+- <ins> Continuous Regulatory Compliance:</ins> The website consistently adheres to legal and regulatory requirements related to data protection, privacy, and online transactions. Compliance is regularly reviewed and updated to align with changes in regulations, ensuring ongoing adherence to industry standards.
 
-- <ins> Diverse Recipe Content:</ins> The website offers a wider variety of recipe options, including new and creative dishes, thereby enhancing the user's culinary experience.
+- <ins> No Identified Security Vulnerabilities:</ins> Regular security audits and assessments confirm that no critical security vulnerabilities exist within the cooking website. Any identified vulnerabilities are promptly addressed through remediation efforts, ensuring a proactive stance against potential security threats.
 
-- <ins> Enhanced Meal Planning:</ins> Users can easily plan their meals with AI-generated recipe recommendations, and they may have the option to add these recipes to their meal plans and shopping lists.
+- <ins> Secure Communication Channels:</ins> All communication channels between users and the website, as well as between server components, remain secure. Encrypted communication protocols, such as HTTPS, are consistently enforced to protect sensitive information during data transmission.
 
-- <ins> Reduced Search Effort:</ins> Users experience reduced effort in searching for recipes, as the AI system streamlines the recipe discovery process.
+- <ins> No Incidents of Unauthorized Access:</ins> The website has experienced no incidents of unauthorized access to user accounts or sensitive information. The secure authentication mechanisms, including strong password policies and multi-factor authentication, effectively prevent unauthorized access attempts.
 
+- <ins> Successful Incident Responses:</ins> In the event of a security incident, the incident response plan is executed successfully. The website's response team follows established procedures for communication, investigation, and mitigation, minimizing the impact of the incident and preventing recurrence.
 
-**Estimated efforts:** Medium efforts
+**Estimated efforts:** High efforts
 
 
 #### 3.5 Usability
