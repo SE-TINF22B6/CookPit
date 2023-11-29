@@ -557,31 +557,31 @@ In the cooking website, non-functional performance requirements play a pivotal r
 - <ins> Successful Load Testing Outcomes:</ins> Load testing results confirm that the cooking website can handle an increased load, surpassing the specified target (e.g., 1.5 times the expected peak traffic). The website remains responsive, ensuring a positive user experience during periods of high demand.
 
 
-
-
 **Estimated efforts:** Medium efforts
 
 
 #### 3.2 Modifiability
-The functional requirement of linking a cooking website to the OpenAI API is to enable users to receive AI-generated recipe suggestions, enhancing their culinary experience with creative and personalized cooking ideas.
+The non-functional requirement of modifiability in a cooking website addresses the platform's flexibility and ease of adaptation to changes over time. This encompasses the website's capability to undergo modifications, updates, and enhancements without causing significant disruptions to its functionality. Modifiability is crucial for accommodating evolving user needs, incorporating new features, and seamlessly integrating improvements in response to technological advancements or shifts in culinary trends. This requirement necessitates a well-organized and modular architecture, allowing developers to make changes efficiently while minimizing the risk of unintended side effects. A highly modifiable cooking website ensures that it remains agile and responsive to emerging requirements, fostering a dynamic and user-centric online culinary experience.
 
 
 **User stories**
-1. As a Home Cook I want to receive AI-generated recipe recommendations for each day of the week.
-2. As a User I want to access AI-generated recipe suggestions to discover new and exciting dishes.
+1. As a website administrator, I want the cooking platform to be easily modifiable so that I can seamlessly add new features such as interactive cooking tutorials, advanced search capabilities, or collaborative cooking projects to enhance the overall user experience without disrupting existing functionalities..
+2. As a user who utilizes cooking tools and gadgets, I want the cooking website to be modifiable to seamlessly integrate with new and innovative cooking technologies. This ensures that I can benefit from the latest tools and techniques without experiencing disruptions or compatibility issues.
 
 
 **Preconditions**
 
-- <ins> OpenAI API Integration:</ins> The OpenAI API should be successfully integrated into the cooking website's infrastructure, and the necessary API credentials should be obtained and configured.
+- <ins> Flexible Architecture:</ins> The cooking website assumes an underlying architecture designed with modifiability in mind. The system architecture should be modular and loosely coupled, allowing for independent modifications to different components without causing cascading effects on other parts of the system.
 
-- <ins> Stable Internet Connection:</ins> Users accessing the website should have a stable internet connection to send requests to the OpenAI API and receive recipe suggestions in a timely manner.
+- <ins>Version Control System in Place:</ins> The website assumes the use of a version control system (e.g., Git) to manage and track changes to the codebase. This ensures that modifications can be tracked, rolled back if necessary, and collaboratively worked on by development teams without disruptions.
 
-- <ins> User Authentication:</ins> The website should have a user authentication system in place, ensuring that users are logged in before they can access AI-generated recipe suggestions.
+- <ins>Clear Documentation:</ins> The cooking website assumes the availability of clear and comprehensive documentation outlining the system's architecture, coding standards, and best practices. This documentation serves as a reference for developers, enabling them to understand the system's structure and make modifications efficiently.
 
-- <ins> Recipe Database:</ins> The website should have a database of recipes or access to recipe data that the AI can use as a reference when generating suggestions.
+- <ins>Testing Environment Ready:</ins> A dedicated testing environment is available to validate modifications before they are deployed to the production environment. This ensures that any potential issues or conflicts resulting from the modifications can be identified and addressed without impacting the live website.
 
-- <ins> AI Model and API Availability:</ins> The OpenAI API, including the specific AI model used for generating recipe suggestions, should be available and operational.
+- <ins> Backup and Recovery Procedures:</ins> The cooking website assumes the existence of robust backup and recovery procedures. Before modifications are made, a reliable backup of the current system should be in place, enabling quick recovery in case unforeseen issues arise during or after the modification process.
+  
+- <ins> Development Team Collaboration:</ins> Effective collaboration among development teams is assumed. Developers should communicate and coordinate effectively, sharing insights and updates to ensure a cohesive approach to modifications without conflicting changes.
 
 
 **Postconditions**
@@ -601,7 +601,7 @@ The functional requirement of linking a cooking website to the OpenAI API is to 
 
 
 
-#### 3.2´3 Testability
+#### 3.3 Testability
 The functional requirement of linking a cooking website to the OpenAI API is to enable users to receive AI-generated recipe suggestions, enhancing their culinary experience with creative and personalized cooking ideas.
 
 
