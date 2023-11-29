@@ -723,41 +723,45 @@ The non-functional requirement of usability in a cooking website focuses on ensu
 **Estimated efforts:** Medium efforts
 
 #### 3.6  Integrability
-The functional requirement of linking a cooking website to the OpenAI API is to enable users to receive AI-generated recipe suggestions, enhancing their culinary experience with creative and personalized cooking ideas.
+The non-functional aspect of integrability in a cooking website presents a significant challenge in user experience and functionality. Integrability issues could arise from incompatible APIs or systems, hindering seamless connections with external platforms or services, such as shopping carts, recipe databases, or social media sharing functionalities. This limitation impacts the website's ability to smoothly integrate with various tools, reducing its versatility and hindering users' ability to access a comprehensive cooking experience. It might lead to disjointed workflows, frustrating users who expect a cohesive platform for recipe discovery, ingredient procurement, and culinary exploration. Addressing integrability concerns becomes pivotal for enhancing user satisfaction and ensuring a more holistic culinary journey on the website.
 
 
 **User stories**
-1. As a Home Cook I want to receive AI-generated recipe recommendations for each day of the week.
-2. As a User I want to access AI-generated recipe suggestions to discover new and exciting dishes.
+1. As a frequent user, I want the website to seamlessly connect with my social media accounts so that I can easily share my favorite recipes and culinary achievements with my friends and followers. I expect the integrability to work smoothly without any disruptions, allowing me to showcase my cooking journey effortlessly.
+
+2. As a user who loves exploring new recipes, I expect the website to integrate with online grocery platforms for easy ingredient shopping. I want to click on a recipe and have the option to add all the required ingredients directly to my preferred shopping cart for a hassle-free purchasing experience. This integration would save me time and make the cooking process more convenient.
 
 
 **Preconditions**
 
-- <ins> OpenAI API Integration:</ins> The OpenAI API should be successfully integrated into the cooking website's infrastructure, and the necessary API credentials should be obtained and configured.
+- <ins> Clear API Documentation:</ins> A precondition for successful integrability is having comprehensive and well-documented APIs. The website should ensure that its APIs are thoroughly documented, providing developers with clear instructions, endpoints, parameters, and authentication methods required for seamless integration.
 
-- <ins> Stable Internet Connection:</ins> Users accessing the website should have a stable internet connection to send requests to the OpenAI API and receive recipe suggestions in a timely manner.
 
-- <ins> User Authentication:</ins> The website should have a user authentication system in place, ensuring that users are logged in before they can access AI-generated recipe suggestions.
+- <ins> Compatibility Standards:</ins> The website should establish compatibility standards and protocols to ensure that external systems or platforms intending to integrate can meet the necessary requirements. This could involve adhering to specific data formats, security protocols, or technology standards for smooth interoperability.
 
-- <ins> Recipe Database:</ins> The website should have a database of recipes or access to recipe data that the AI can use as a reference when generating suggestions.
 
-- <ins> AI Model and API Availability:</ins> The OpenAI API, including the specific AI model used for generating recipe suggestions, should be available and operational.
+- <ins> Stable Infrastructure:</ins> The website's own infrastructure and systems should be stable and reliable. It's crucial to ensure that the website's servers, databases, and hosting services are robust enough to handle integration processes without performance issues or downtimes.
+
+
+- <ins> Authentication and Security Measures:</ins> Integrating external systems should prioritize security. Implementing secure authentication methods, such as OAuth or API keys, and following best practices for data encryption and protection are preconditions for integrations to safeguard user data and maintain trust.
+
+
+- <ins> User Consent and Control:</ins> Preparing the website with mechanisms that prioritize user consent and control over data shared or accessed during integrations is vital. Users should have clear options to authorize or revoke access to their information within the integrated systems.
 
 
 **Postconditions**
 
 - <ins> AI Recipe Suggestions Available:</ins> Users of the cooking website can access AI-generated recipe suggestions based on their preferences and needs.
+Improved User Experience: Users should experience an enhancement in their interaction with the website. Post-implementation, users should find it easier to access integrated functionalities, such as seamless social media sharing, streamlined ingredient procurement, or synchronized smart kitchen device usage, contributing to a more enjoyable and efficient cooking experience.
 
-- <ins> User Personalization:</ins> Users receive recipe suggestions that are tailored to their dietary preferences, dietary restrictions, and other relevant information stored in their user profiles.
+- <ins> Data Security and Compliance:</ins> Post-integration, it's crucial to confirm that the security measures implemented during integration are effectively safeguarding user data. The postcondition involves ensuring that user data shared across integrated systems is protected, maintaining compliance with relevant privacy regulations and standards.
 
-- <ins> Diverse Recipe Content:</ins> The website offers a wider variety of recipe options, including new and creative dishes, thereby enhancing the user's culinary experience.
+- <ins> Performance and Stability:</ins> The website's performance and stability should remain intact or show improvement post-integration. Conducting performance tests and monitoring the website's response times, uptime, and overall stability ensures that the integrations haven't negatively impacted the website's core functionalities or speed.
 
-- <ins> Enhanced Meal Planning:</ins> Users can easily plan their meals with AI-generated recipe recommendations, and they may have the option to add these recipes to their meal plans and shopping lists.
+- <ins> User Feedback and Adoption:</ins> Gathering user feedback post-integration is crucial. Positive user feedback, increased engagement with the integrated features, and higher adoption rates among users indicate the successful implementation of integrations, demonstrating that they add tangible value to the cooking website.
 
-- <ins> Reduced Search Effort:</ins> Users experience reduced effort in searching for recipes, as the AI system streamlines the recipe discovery process.
-
-
-**Estimated efforts:** Medium efforts
+- <ins> Scalability and Maintenance:</ins> Postconditions involve confirming that the integrations are scalable and maintainable. Future updates or enhancements should not disrupt the existing integrations, and the framework should be adaptable to accommodate evolving technology or additional integrations without significant redevelopment efforts.
+**Estimated efforts:** High efforts
 
 ### 4. Technical constraints
 This sections specifies any major constraints, assumptions or dependencies.
