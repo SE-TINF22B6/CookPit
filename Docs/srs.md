@@ -518,122 +518,51 @@ By addressing these NFRs, the cooking website can provide a valuable and enjoyab
 
 Following this non quality requirements will ensure that the website will meet the necessities of the user. It is not only important to make sure that the planned functional requirements are covered, but also to meet the outline of the non functional requirements to achieve an app that is highly usable in the real world.
 
-#### 2.7  OpenAI API Integration / Use Case 6
-The functional requirement of linking a cooking website to the OpenAI API is to enable users to receive AI-generated recipe suggestions, enhancing their culinary experience with creative and personalized cooking ideas.
+
+#### 3.1  Performance
+In the cooking website, non-functional performance requirements play a pivotal role in the user experience. These requirements ensure that the website operates efficiently. A paramount consideration is response time, with the expectation that pages load swiftly, particularly those featuring recipes, fostering user engagement.
 
 
 **User stories**
-1. As a Home Cook I want to receive AI-generated recipe recommendations for each day of the week.
-2. As a User I want to access AI-generated recipe suggestions to discover new and exciting dishes.
+1. As a user, I want the cooking website to load recipe pages quickly so that I can access information promptly and efficiently. This way, I can navigate through recipes seamlessly without experiencing delays, enabling a smooth and enjoyable cooking experience.
+2. As a user, I want the cooking website to support multiple users interacting with various features concurrently. This includes searching for recipes, viewing cooking tips, and participating in community discussions. This way, I can engage with the website alongside other users without encountering delays or disruptions.
 
 
 **Preconditions**
 
-- <ins> OpenAI API Integration:</ins> The OpenAI API should be successfully integrated into the cooking website's infrastructure, and the necessary API credentials should be obtained and configured.
+- <ins> Stable Network Connection:</ins> The cooking website assumes a stable and reliable network connection for users. Users are expected to have a consistent and uninterrupted internet connection to ensure seamless access to the website's content.
+  
+- <ins> Up-to-Date Web Browsers:</ins> Users are required to access the cooking website using up-to-date and supported web browsers. The website assumes that users have browsers that are compatible with the latest web standards, ensuring optimal performance and a consistent user experience.
+  
+- <ins> Adequate Device Resources:</ins> Users must access the cooking website from devices with sufficient resources, including processing power, memory, and storage. Inadequate device resources may affect the website's ability to load quickly and respond promptly to user interactions.
 
-- <ins> Stable Internet Connection:</ins> Users accessing the website should have a stable internet connection to send requests to the OpenAI API and receive recipe suggestions in a timely manner.
+- <ins> Server Availability:</ins> The performance of the cooking website is contingent upon the availability and proper functioning of the hosting servers. The servers must be operational and responsive to user requests to meet the performance expectations outlined in the non-functional requirements.
 
-- <ins> User Authentication:</ins> The website should have a user authentication system in place, ensuring that users are logged in before they can access AI-generated recipe suggestions.
+- <ins> User Traffic within Expected Range:</ins> The website's performance expectations are based on an anticipated range of user traffic. Extreme fluctuations or unexpected spikes in user activity may impact performance, and the non-functional requirements are designed to accommodate traffic within the specified parameters.
 
-- <ins> Recipe Database:</ins> The website should have a database of recipes or access to recipe data that the AI can use as a reference when generating suggestions.
-
-- <ins> AI Model and API Availability:</ins> The OpenAI API, including the specific AI model used for generating recipe suggestions, should be available and operational.
 
 
 **Postconditions**
 
-- <ins> AI Recipe Suggestions Available:</ins> Users of the cooking website can access AI-generated recipe suggestions based on their preferences and needs.
+- <ins> Achieved Response Time Targets:</ins> The cooking website consistently meets the specified response time targets, ensuring that pages, especially those containing recipes, load within the defined time frame (e.g., 3 seconds). Users experience quick and responsive interactions with the content.
+  
+- <ins> Scalability Validation:</ins> The website demonstrates scalability by successfully handling increased traffic during peak times without significant degradation in performance. It maintains responsiveness and user satisfaction even as the user base grows or experiences sudden surges in activity.
+  
+- <ins> Concurrency Maintenance:</ins> The cooking website effectively supports multiple users concurrently interacting with various features, ensuring a smooth and uninterrupted user experience. Users can simultaneously search for recipes, view content, and engage in community discussions without noticeable performance issues.
+  
+- <ins> High Reliability and Availability:</ins> The website achieves and maintains high reliability, as evidenced by its uptime exceeding the defined threshold (e.g., 99.9%). Users can access the cooking website consistently, with minimal downtime for maintenance or unexpected issues affecting availability.
+  
+- <ins> Optimized Resource Utilization:</ins> The cooking website optimally utilizes server resources, with CPU and memory usage consistently within acceptable limits. Effective resource management ensures that the website operates efficiently without unnecessary strain on the infrastructure.
+  
+- <ins> Successful Load Testing Outcomes:</ins> Load testing results confirm that the cooking website can handle an increased load, surpassing the specified target (e.g., 1.5 times the expected peak traffic). The website remains responsive, ensuring a positive user experience during periods of high demand.
 
-- <ins> User Personalization:</ins> Users receive recipe suggestions that are tailored to their dietary preferences, dietary restrictions, and other relevant information stored in their user profiles.
 
-- <ins> Diverse Recipe Content:</ins> The website offers a wider variety of recipe options, including new and creative dishes, thereby enhancing the user's culinary experience.
-
-- <ins> Enhanced Meal Planning:</ins> Users can easily plan their meals with AI-generated recipe recommendations, and they may have the option to add these recipes to their meal plans and shopping lists.
-
-- <ins> Reduced Search Effort:</ins> Users experience reduced effort in searching for recipes, as the AI system streamlines the recipe discovery process.
 
 
 **Estimated efforts:** Medium efforts
 
 
-#### 3.1  OpenAI API Integration
-The functional requirement of linking a cooking website to the OpenAI API is to enable users to receive AI-generated recipe suggestions, enhancing their culinary experience with creative and personalized cooking ideas.
-
-
-**User stories**
-1. As a Home Cook I want to receive AI-generated recipe recommendations for each day of the week.
-2. As a User I want to access AI-generated recipe suggestions to discover new and exciting dishes.
-
-
-**Preconditions**
-
-- <ins> OpenAI API Integration:</ins> The OpenAI API should be successfully integrated into the cooking website's infrastructure, and the necessary API credentials should be obtained and configured.
-
-- <ins> Stable Internet Connection:</ins> Users accessing the website should have a stable internet connection to send requests to the OpenAI API and receive recipe suggestions in a timely manner.
-
-- <ins> User Authentication:</ins> The website should have a user authentication system in place, ensuring that users are logged in before they can access AI-generated recipe suggestions.
-
-- <ins> Recipe Database:</ins> The website should have a database of recipes or access to recipe data that the AI can use as a reference when generating suggestions.
-
-- <ins> AI Model and API Availability:</ins> The OpenAI API, including the specific AI model used for generating recipe suggestions, should be available and operational.
-
-
-**Postconditions**
-
-- <ins> AI Recipe Suggestions Available:</ins> Users of the cooking website can access AI-generated recipe suggestions based on their preferences and needs.
-
-- <ins> User Personalization:</ins> Users receive recipe suggestions that are tailored to their dietary preferences, dietary restrictions, and other relevant information stored in their user profiles.
-
-- <ins> Diverse Recipe Content:</ins> The website offers a wider variety of recipe options, including new and creative dishes, thereby enhancing the user's culinary experience.
-
-- <ins> Enhanced Meal Planning:</ins> Users can easily plan their meals with AI-generated recipe recommendations, and they may have the option to add these recipes to their meal plans and shopping lists.
-
-- <ins> Reduced Search Effort:</ins> Users experience reduced effort in searching for recipes, as the AI system streamlines the recipe discovery process.
-
-
-**Estimated efforts:** Medium efforts
-
-
-#### 2.7  OpenAI API Integration
-The functional requirement of linking a cooking website to the OpenAI API is to enable users to receive AI-generated recipe suggestions, enhancing their culinary experience with creative and personalized cooking ideas.
-
-
-**User stories**
-1. As a Home Cook I want to receive AI-generated recipe recommendations for each day of the week.
-2. As a User I want to access AI-generated recipe suggestions to discover new and exciting dishes.
-
-
-**Preconditions**
-
-- <ins> OpenAI API Integration:</ins> The OpenAI API should be successfully integrated into the cooking website's infrastructure, and the necessary API credentials should be obtained and configured.
-
-- <ins> Stable Internet Connection:</ins> Users accessing the website should have a stable internet connection to send requests to the OpenAI API and receive recipe suggestions in a timely manner.
-
-- <ins> User Authentication:</ins> The website should have a user authentication system in place, ensuring that users are logged in before they can access AI-generated recipe suggestions.
-
-- <ins> Recipe Database:</ins> The website should have a database of recipes or access to recipe data that the AI can use as a reference when generating suggestions.
-
-- <ins> AI Model and API Availability:</ins> The OpenAI API, including the specific AI model used for generating recipe suggestions, should be available and operational.
-
-
-**Postconditions**
-
-- <ins> AI Recipe Suggestions Available:</ins> Users of the cooking website can access AI-generated recipe suggestions based on their preferences and needs.
-
-- <ins> User Personalization:</ins> Users receive recipe suggestions that are tailored to their dietary preferences, dietary restrictions, and other relevant information stored in their user profiles.
-
-- <ins> Diverse Recipe Content:</ins> The website offers a wider variety of recipe options, including new and creative dishes, thereby enhancing the user's culinary experience.
-
-- <ins> Enhanced Meal Planning:</ins> Users can easily plan their meals with AI-generated recipe recommendations, and they may have the option to add these recipes to their meal plans and shopping lists.
-
-- <ins> Reduced Search Effort:</ins> Users experience reduced effort in searching for recipes, as the AI system streamlines the recipe discovery process.
-
-
-**Estimated efforts:** Medium efforts
-
-
-
-#### 3.2  OpenAI API Integration
+#### 3.2 Modifiability
 The functional requirement of linking a cooking website to the OpenAI API is to enable users to receive AI-generated recipe suggestions, enhancing their culinary experience with creative and personalized cooking ideas.
 
 
@@ -672,7 +601,7 @@ The functional requirement of linking a cooking website to the OpenAI API is to 
 
 
 
-#### 3.3  OpenAI API Integration
+#### 3.2´3 Testability
 The functional requirement of linking a cooking website to the OpenAI API is to enable users to receive AI-generated recipe suggestions, enhancing their culinary experience with creative and personalized cooking ideas.
 
 
@@ -710,7 +639,8 @@ The functional requirement of linking a cooking website to the OpenAI API is to 
 **Estimated efforts:** Medium efforts
 
 
-#### 3.4  OpenAI API Integration
+
+#### 3.4 Security
 The functional requirement of linking a cooking website to the OpenAI API is to enable users to receive AI-generated recipe suggestions, enhancing their culinary experience with creative and personalized cooking ideas.
 
 
@@ -747,7 +677,8 @@ The functional requirement of linking a cooking website to the OpenAI API is to 
 
 **Estimated efforts:** Medium efforts
 
-#### 3.5  OpenAI API Integration
+
+#### 3.5 Usability
 The functional requirement of linking a cooking website to the OpenAI API is to enable users to receive AI-generated recipe suggestions, enhancing their culinary experience with creative and personalized cooking ideas.
 
 
@@ -784,8 +715,7 @@ The functional requirement of linking a cooking website to the OpenAI API is to 
 
 **Estimated efforts:** Medium efforts
 
-
-#### 3.6  OpenAI API Integration
+#### 3.6  Integrability
 The functional requirement of linking a cooking website to the OpenAI API is to enable users to receive AI-generated recipe suggestions, enhancing their culinary experience with creative and personalized cooking ideas.
 
 
@@ -821,7 +751,6 @@ The functional requirement of linking a cooking website to the OpenAI API is to 
 
 
 **Estimated efforts:** Medium efforts
-
 
 ### 4. Technical constraints
 This sections specifies any major constraints, assumptions or dependencies.
