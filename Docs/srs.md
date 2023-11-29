@@ -687,39 +687,38 @@ Regular Security Audits and Assessments:
 
 
 #### 3.5 Usability
-The functional requirement of linking a cooking website to the OpenAI API is to enable users to receive AI-generated recipe suggestions, enhancing their culinary experience with creative and personalized cooking ideas.
+The non-functional requirement of usability in a cooking website focuses on ensuring an intuitive, efficient, and enjoyable user experience for individuals of varying culinary expertise. Usability encompasses the website's overall design, navigation, and functionality, aiming to simplify the process of discovering, accessing, and engaging with culinary content. This requirement emphasizes clear and visually appealing interfaces, straightforward navigation paths, and easily understandable features, fostering a positive interaction between users and the platform. Whether users are searching for recipes, participating in cooking forums, or exploring new cooking techniques, a highly usable cooking website enhances accessibility, encourages user engagement, and accommodates the diverse needs and preferences of its audience, ultimately contributing to a satisfying and user-friendly culinary journey.
 
 
 **User stories**
-1. As a Home Cook I want to receive AI-generated recipe recommendations for each day of the week.
-2. As a User I want to access AI-generated recipe suggestions to discover new and exciting dishes.
+1. As a user, I want the cooking website to have high usability, ensuring a seamless recipe discovery experience. This involves an intuitive search interface, clear categorization, and filters that allow me to easily find recipes based on ingredients, cuisine, dietary preferences, or cooking difficulty levels, enhancing the overall efficiency of my culinary exploration.
+2. As a user browsing recipes, I expect the cooking website to prioritize usability in recipe navigation. Clear and concise recipe layouts, well-organized ingredient lists, and step-by-step instructions with visually appealing images contribute to an intuitive cooking experience, allowing me to follow recipes effortlessly.
 
 
 **Preconditions**
 
-- <ins> OpenAI API Integration:</ins> The OpenAI API should be successfully integrated into the cooking website's infrastructure, and the necessary API credentials should be obtained and configured.
+- <ins> Clear User Interface Design Standards:</ins> The cooking website adheres to clear and consistent user interface design standards. A well-defined design system ensures that users encounter a cohesive and predictable visual experience throughout the website, enhancing overall usability.
 
-- <ins> Stable Internet Connection:</ins> Users accessing the website should have a stable internet connection to send requests to the OpenAI API and receive recipe suggestions in a timely manner.
+- <ins> User Persona and Use Case Understanding:</ins> The development team has a comprehensive understanding of user personas and common use cases. Knowledge of the target audience's preferences, behaviors, and expectations ensures that the website is designed to meet the specific needs of its users, contributing to enhanced usability.
 
-- <ins> User Authentication:</ins> The website should have a user authentication system in place, ensuring that users are logged in before they can access AI-generated recipe suggestions.
+- <ins> Usability Testing Framework in Place:</ins> The cooking website incorporates a usability testing framework. This involves the availability of a testing environment, testing protocols, and a diverse group of users for conducting usability testing sessions. Regular testing sessions ensure ongoing improvements based on user feedback.
 
-- <ins> Recipe Database:</ins> The website should have a database of recipes or access to recipe data that the AI can use as a reference when generating suggestions.
-
-- <ins> AI Model and API Availability:</ins> The OpenAI API, including the specific AI model used for generating recipe suggestions, should be available and operational.
+- <ins> Cross-Browser and Device Compatibility:</ins> The website is designed to be compatible with various web browsers and devices. Cross-browser and device testing ensure that users have a consistent and user-friendly experience, regardless of their choice of browser or device
 
 
 **Postconditions**
 
-- <ins> AI Recipe Suggestions Available:</ins> Users of the cooking website can access AI-generated recipe suggestions based on their preferences and needs.
+- <ins> Reduced User Errors and Frustration:</ins> Usability improvements contribute to a reduction in user errors and frustration. Users encounter fewer obstacles, experience fewer errors in navigation or interactions, and are less likely to express frustration with the platform, resulting in a smoother and more enjoyable experience.
 
-- <ins> User Personalization:</ins> Users receive recipe suggestions that are tailored to their dietary preferences, dietary restrictions, and other relevant information stored in their user profiles.
+- <ins> Increased User Engagement Metrics:</ins> Usability enhancements are reflected in increased user engagement metrics. Key performance indicators, such as time spent on the website, the number of recipes saved or shared, and participation in community activities, demonstrate that users are actively and positively engaging with the platform.
 
-- <ins> Diverse Recipe Content:</ins> The website offers a wider variety of recipe options, including new and creative dishes, thereby enhancing the user's culinary experience.
+- <ins> Enhanced Task Completion Rates:</ins> Usability improvements contribute to enhanced task completion rates. Users can efficiently complete tasks, such as finding recipes, interacting with community features, and managing their profiles, leading to higher user satisfaction and overall platform effectiveness.
+  
+- <ins> Positive Usability Testing Outcomes:</ins>  Usability testing sessions validate the effectiveness of implemented usability features. Testing outcomes indicate that users navigate the website with ease, accomplish tasks successfully, and express positive sentiments regarding the improved usability of the platform.
 
-- <ins> Enhanced Meal Planning:</ins> Users can easily plan their meals with AI-generated recipe recommendations, and they may have the option to add these recipes to their meal plans and shopping lists.
+- <ins> Consistent User Interface Experience:</ins> The cooking website ensures a consistent user interface experience. Users encounter a uniform and familiar interface design across different sections of the website, reinforcing predictability and ease of use.
 
-- <ins> Reduced Search Effort:</ins> Users experience reduced effort in searching for recipes, as the AI system streamlines the recipe discovery process.
-
+- <ins> High Accessibility Standards Adherence:</ins> The website adheres to high accessibility standards, as reflected in positive evaluations from accessibility audits. Compliance with accessibility guidelines ensures that users with diverse abilities can access and navigate the platform seamlessly.
 
 **Estimated efforts:** Medium efforts
 
