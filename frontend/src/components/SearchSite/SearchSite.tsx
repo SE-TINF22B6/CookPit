@@ -25,5 +25,9 @@ export default function Body(){
         </tr>
     </table>
 </div>
+<br />
+<br />
+<br />
+<div id='placeholder'></div>
 </body>
   )}

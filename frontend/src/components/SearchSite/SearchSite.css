@@ -35,3 +35,10 @@
     left: 170%;
     top: 5px;;
 }
+#placeholder{
+    width: 20%;
+    height: 300px;
+    background-color: white;
+    position: relative;
+    margin: auto;
+}
