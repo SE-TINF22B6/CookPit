@@ -3,16 +3,19 @@
   "version": "1.0.0",
   "description": "Cockpit is a Web-Application for Cooking recipes. On our website you can upload recipes and share them with the communinity. <br>\r We want to use ChatGPT for recipe recommendation and a map API for the nearest supermarkets.",
   "main": "index.js",
-  "main": "index.js",
+  "type": "module",
   "proxy": "http://localhost:3001",
   "scripts": {
-    "start": "node server/index.js"
+    "start": "node server/index.cjs"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "openai": "^4.20.1",
     "react-router-dom": "^6.17.0"
   }
 }
