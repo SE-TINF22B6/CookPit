@@ -3,7 +3,7 @@
     display: flex;
     left: 0px;
     top: 350px;
-    width: 150px; 
+    width: 10%; 
     height: 100%; 
     background: #ffafaf;
     border-top-left-radius: 200px;
@@ -14,9 +14,9 @@
  }
  #oval2 {
     position: fixed;
-    left:150px;
     top: 350px;
-    width: 150px; 
+    left: 10%;
+    width: 10%; 
     height: 100%; 
     background: #ff9595;
     border-top-left-radius: 200px;
@@ -26,9 +26,9 @@
  }
  #oval3 {
     position: fixed;
-    left: 300px;
+    left: 20%;
     top: 350px;
-    width: 150px; 
+    width: 10%; 
     height: 100%; 
     background: #ffafaf;
     border-top-left-radius: 200px;
@@ -38,9 +38,9 @@
  }
  #oval4 {
     position: fixed;
-    left: 450px;
+    left: 30%;
     top: 350px;
-    width: 150px; 
+    width: 10%; 
     height: 100%; 
     background: #ff9595;
     border-top-left-radius: 200px;
@@ -50,9 +50,9 @@
  }
  #oval5 {
     position: fixed;
-    left: 600px;
+    left: 40%;
     top: 350px;
-    width: 150px; 
+    width: 10%; 
     height: 100%; 
     background:#ffafaf;
     border-top-left-radius: 200px;
@@ -62,9 +62,9 @@
  }
  #oval6 {
     position: fixed;
-    left: 750px;
+    left: 50%;
     top: 350px;
-    width: 150px; 
+    width: 10%; 
     height: 100%; 
     background: #ff9595;
     border-top-left-radius: 200px;
@@ -74,9 +74,9 @@
  }
  #oval7 {
     position: fixed;
-    left: 900px;
+    left: 60%;
     top: 350px;
-    width: 150px; 
+    width: 10%; 
     height: 100%; 
     background: #ffafaf;
     border-top-left-radius: 200px;
@@ -86,9 +86,9 @@
  }
  #oval8 {
     position: fixed;
-    left: 1050px;
+    left: 70%;
     top: 350px;
-    width: 150px; 
+    width: 10%; 
     height: 100%; 
     background: #ff9595;
     border-top-left-radius: 200px;
@@ -98,9 +98,9 @@
  }
  #oval9 {
     position: fixed;
-    left: 1200px;
+    left: 80%;
     top: 350px;
-    width: 150px; 
+    width: 10%; 
     height: 100%; 
     background:#ffafaf;
     border-top-left-radius: 200px;
@@ -110,50 +110,13 @@
  }
  #oval10 {
     position: fixed;
-    left: 1350px;
+    left: 90%;
     top: 350px;
-    width: 150px; 
+    width: 10%; 
     height: 100%; 
     background: #ff9595;
     border-top-left-radius: 200px;
     border-top-right-radius: 200px;
     box-shadow: 
          0px -11px 15px -10px black;
- }
- #oval11 {
-    position: fixed;
-    left: 1500px;
-    top: 350px;
-    width: 150px; 
-    height: 100%; 
-    background:#ffafaf;
-    border-top-left-radius: 200px;
-    border-top-right-radius: 200px;
-    box-shadow: 
-         0px -11px 15px -10px black;
-    
- } #oval12 {
-    position: fixed;
-    left: 1650px;
-    top: 350px;
-    width: 150px; 
-    height: 100%; 
-    background: #ff9595;
-    border-top-left-radius: 200px;
-    border-top-right-radius: 200px;
-    box-shadow: 
-         0px -11px 15px -10px black;
- }
- #oval13 {
-    position: fixed;
-    left: 1800px;
-    top: 350px;
-    width: 150px; 
-    height: 100%; 
-    background:#ffafaf;
-    border-top-left-radius: 200px;
-    border-top-right-radius: 200px;
-    box-shadow: 
-         0px -11px 15px -10px black;
-    
  }
