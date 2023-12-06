@@ -2,7 +2,7 @@
     
 }
 
-.openPopup {
+.btnopenPopup {
     color: #000000;
     z-index: 100;
     border: transparent;
@@ -15,6 +15,7 @@
     height: 40px;
     width: 120px;
 }
+
 .outer {
     margin: 0;
     padding: 0;
@@ -37,7 +38,7 @@
     backdrop-filter: blur(10px);
     color: #000000;
     border: solid;
-    border-color: #ffffff;
+    border-color: #7c7c7c;
     border-radius: 10px;
     visibility: hidden;
 }
@@ -45,6 +46,17 @@
 .wrapper h1{
     font-size: 36px;
     text-align: center;
+}
+
+.closePopup {
+    position: relative;
+    left: 370px;
+    top: -70px;
+    color: red;
+    border: none;
+    background: none;
+    font-size: 36px;
+    cursor: pointer;
 }
 
 .wrapper .input-box{

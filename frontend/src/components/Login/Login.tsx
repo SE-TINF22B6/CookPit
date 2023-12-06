@@ -6,11 +6,12 @@ import icon_password from '../../img/icon_password.png'
 function Login() {
   return ( 
     <div className='container'>
-        <button type="submit" className="openPopup">test</button>
+        <button type="submit" className="btnopenPopup">test</button>
         <div className="outer">
         <div className="wrapper" id='divOne'> 
             <form action="">
             <h1>Login</h1>
+            <button className="closePopup">X</button>
             <div className="input-box">
                 <input type="text" placeholder="Username" required/>
                 <img src={icon_user} alt="User" />     
