@@ -23,7 +23,7 @@
     border: solid;
     border-color: #ffffff;
     border-radius: 10px;
-    visibility: hidden;
+    visibility: visible;
 }
 
 .wrapper h1{
