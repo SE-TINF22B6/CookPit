@@ -28,6 +28,10 @@ export default function Body(){
 <br />
 <br />
 <br />
-<div id='placeholder'></div>
+<div id='mainArea'>
+<div id='arrowLeft'></div>
+<div id='placeholder' > here can be your recipe</div> 
+<div id='arrowRight'>Hi</div>
+</div>
 </body>
   )}
