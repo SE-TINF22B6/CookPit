@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import '../Header/Header.css';
 import icon_heart_black from '../../img/icon_heart_black.png'
 import { Link } from 'react-router-dom';

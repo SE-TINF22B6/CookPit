@@ -13,7 +13,7 @@ function Home() {
     <>
       <Background />
       <Header />
-      <Login />
+      < Login />
       <Routes>
           <Route path='/' element={<SearchSite />} />
           <Route path='/recipe-maker' element={<OpenAI />} />
