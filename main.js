@@ -1,8 +1,6 @@
 import OpenAI from "openai";
 
-//Nutzung der api kostet Geld!!
-//ausführen bisland durch node openai-test.js
-const openai = new OpenAI({ apiKey: 'api key here' });
+const openai = new OpenAI();
 
 async function main() {
   const completion = await openai.chat.completions.create({

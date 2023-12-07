@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import '../Header/Header.css';
-import icon_heart_black from '../../img/icon_heart_black.png'
+import icon_heart_black from '../../img/icon_heart_black.png';
 import { Link } from 'react-router-dom';
 import CustomLink from '../CustomLink/CustomLink';
 
-export default function Header() {
+interface HeaderProps {
+  onToggleLogin?: () => void;
+}
 
-  function setLanguage(language:HTMLElement) {
+const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
+  function setLanguage(language: HTMLElement) {
     const activeLanguage = document.getElementById("language_selection");
     activeLanguage!.innerText = language.innerText;
   }
@@ -53,7 +56,7 @@ export default function Header() {
         <button id='favourite_recipes'>
           <img src={icon_heart_black} alt="favourite recipes" />
         </button>
-        <button id='login_btn'>Login</button>
+        <button id='login_btn' onClick={onToggleLogin}>Login</button>
 
         <div id="language_selection">EN</div>
         <div className="lang_wrapper">
@@ -64,3 +67,5 @@ export default function Header() {
     </header> 
   )
 }
+
+export default Header;
