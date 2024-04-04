@@ -17,8 +17,8 @@ function Home() {
   return (
     <>
       <Background />
-      <Header />
-      <Login />
+      <Header onToggleLogin={toggleLoginVisibility} />
+      {loginVisible && <Login />}
       <Routes>
           <Route path='/' element={<SearchSite />} />
           <Route path='/recipe-maker' element={<OpenAI />} />
