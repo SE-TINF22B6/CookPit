@@ -1,0 +1,37 @@
+
+#template{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    gap: 30px;
+    top: 200px;
+}
+#inputBox{
+    position: relative;
+    width: 250px;
+}
+#inputBox input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 5px;
+    outline: none;
+    color: black;
+    font-size: 1em;
+}
+#inputBox span{
+    position: absolute;
+    left: 0;
+    top: -35px;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 1em;
+    color: black;
+    text-transform: uppercase; 
+ }
+#blocker1{
+    width:500px;
+}
+
