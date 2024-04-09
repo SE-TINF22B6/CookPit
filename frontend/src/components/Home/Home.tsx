@@ -4,8 +4,9 @@ import "../Home/Home.css";
 import Background from "../Background/Background";
 import Login from "../Login/Login";
 import SearchSite from "../SearchSite/SearchSite";
-import OpenAICall from "../openai/OpenAICall";
+import OpenAI from "../openai/OpenAI";
 import React, { useState } from "react";
+import RecipeUpload from "../recipeUpload/recipeUpload";
 
 function Home() {
   const [loginVisible, setLoginVisible] = useState(false);
@@ -16,12 +17,12 @@ function Home() {
 
   return (
     <>
-      <Background />
+      {/*<Background />*/}
       <Header onToggleLogin={toggleLoginVisibility} />
       {loginVisible && <Login />}
       <Routes>
         <Route path="/" element={<SearchSite />} />
-        <Route path="/recipe-maker" element={<OpenAICall />} />
+        <Route path="/recipe-maker" element={<OpenAI />} />
       </Routes>
     </>
   );
