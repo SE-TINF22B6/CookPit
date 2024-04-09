@@ -4,7 +4,7 @@ import "../Home/Home.css";
 import Background from "../Background/Background";
 import Login from "../Login/Login";
 import SearchSite from "../SearchSite/SearchSite";
-import OpenAI from "../openai/OpenAI";
+import OpenAI from "../openai/OpenAICall";
 import React, { useState } from "react";
 import RecipeUpload from "../recipeUpload/recipeUpload";
 
@@ -17,7 +17,7 @@ function Home() {
 
   return (
     <>
-      {/*<Background />*/}
+      {/* <Background /> */}
       <Header onToggleLogin={toggleLoginVisibility} />
       {loginVisible && <Login />}
       <Routes>
