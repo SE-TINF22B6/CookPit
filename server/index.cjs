@@ -1,70 +1,26 @@
-require('dotenv').config();
-const cors = require('cors');
-
 const express = require("express");
-const bodyParser = require('body-parser');
-
+const app = express();
 const PORT = process.env.PORT || 3001;
 
-const app = express();
+const cors = require("cors");
+app.use(cors());
 
-
-app.use(cors({
-  origin: 'http://localhost:3000',
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true,
-  optionsSuccessStatus: 204,
-}));
+const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 
-app.post('/recipe-maker', async (req, res) => {
-  const userMessage = req.body.message;
-  const gptPrefabMessage = 'Please create me a real recipe ONLY containing the following ingredient: ' + {userMessage};
-  
+app.post("/recipe-maker", async (req, res) => {
+  console.log("Empfangene Daten:", req.body);
   try {
-    const result = await callOpenAIAPI(gptPrefabMessage);
-    console.log(res.json({ result }));
+    const importedModule = await import("./openai-test.mjs");
+    const { callOpenAIapi } = importedModule;
+    const result = await callOpenAIapi(req.body);
+    res.json({ result });
   } catch (error) {
-    console.error('Error:', error.message);
-    res.status(500).json({ error: 'Internal Server Error' });
+    console.error("Fehler beim Importieren:", error);
+    res.status(500).send("Interner Serverfehler");
   }
 });
 
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
-
-//openai api call
-async function callOpenAIAPI(message) {
-  const apiKey = process.env.OPENAI_API_KEY;
-  var userPrompt="";
-
-  await fetch(
-    `https://api.openai.com/v1/completions`),
-    {
-        body: JSON.stringify({model: "gpt-3.5-turbo",
-        "messages": [
-            {
-              role: "system",
-              content: userPrompt,            
-            },
-            {
-              role: "user",
-              content: message,            
-            },
-          ],
-        method: "POST",
-        headers: {
-            "content-type": "application/json",
-            Authorization: "Bearer " +  apiKey,
-        },
-          }
-      ).then((response) => {
-          if (response.ok) {
-              response.json().then((json) => {
-                  terminal.echo(json);
-                  console.log(json['choices'][0]['message']['content']);
-              });
-          }
-      })
-  }}
