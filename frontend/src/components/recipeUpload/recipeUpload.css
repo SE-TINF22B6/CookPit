@@ -6,8 +6,8 @@
     min-height: 100vh;
     flex-direction: column;
     gap: 30px;
-    top: 200px;
 }
+
 #inputBox{
     position: relative;
     width: 250px;
@@ -34,4 +34,23 @@
 #blocker1{
     width:500px;
 }
-
+.imageUpload{
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+   
+}
+.uploadImageLabel{
+    display: block;
+    width: 200px;
+    background: blue;
+    color: white;
+    padding: 12px;
+    margin: 10px auto;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#input-file{
+    display: none;
+}
