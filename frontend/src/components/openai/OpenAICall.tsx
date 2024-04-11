@@ -19,7 +19,7 @@ export default function OpenAICall() {
           Make me a recipe
         </button>
       </div>
-      <div id="return">test</div>
+      <div id="return"></div>
     </div>
   );
 }
