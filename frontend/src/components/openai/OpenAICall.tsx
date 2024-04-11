@@ -1,29 +1,32 @@
 import React, { useState } from "react";
+import './OpenAI.css';
 
 export default function OpenAICall() {
   const [getUserInput, setUserInput] = useState("");
 
   return (
-    <div id="openai_wrapper">
-      <input
-        type="text"
-        value={getUserInput}
-        onChange={(event) => {
-          setUserInput(event.target.value);
-        }}
-        placeholder="Enter your ingredients"
-      />
-      <button onClick={() => handleClick(getUserInput)}>
-        Make me a recipe
-      </button>
-      <div id="return"></div>
+    <div className="wrapperT">
+      <div id="openai_wrapper">
+        <input
+          type="text"
+          value={getUserInput}
+          onChange={(event) => {
+            setUserInput(event.target.value);
+          }}
+          placeholder="Enter your ingredients"
+          />
+        <button onClick={() => handleClick(getUserInput)}>
+          Make me a recipe
+        </button>
+      </div>
+      <div id="return">test</div>
     </div>
   );
 }
 
 const handleClick = async (userInput: string) => {
   const returnDiv = document.getElementById("return");
-  if (userInput == "") {
+  if (userInput === "") {
     returnDiv!.textContent = "";
   } else {
   try {
