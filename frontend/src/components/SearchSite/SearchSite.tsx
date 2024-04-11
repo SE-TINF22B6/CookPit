@@ -29,24 +29,9 @@ export default function Body(){
 <br />
 <br />
 <div id='mainArea'>
-<div id='arrowLeft'>left</div>
-
-<div id='products'>
-
-<div id='left' > 
-    left product
-    <img src="" alt="" />
-</div>
-
-
-<div id='middle' > middle ptoduct</div>
-
-
-<div id='right' > right product </div> 
-
-</div>
-
-<div id='arrowRight'>right </div>
+<div id='arrowLeft'></div>
+<div id='placeholder' > here can be your recipe</div> 
+<div id='arrowRight'>Hi</div>
 </div>
 </body>
   )}
