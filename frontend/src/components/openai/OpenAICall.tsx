@@ -16,11 +16,16 @@ export default function OpenAICall() {
       <button onClick={() => handleClick(getUserInput)}>
         Make me a recipe
       </button>
+      <div id="return"></div>
     </div>
   );
 }
 
 const handleClick = async (userInput: string) => {
+  const returnDiv = document.getElementById("return");
+  if (userInput == "") {
+    returnDiv!.textContent = "";
+  } else {
   try {
     const response = await fetch("http://localhost:3001/recipe-maker", {
       method: "POST",
@@ -33,7 +38,9 @@ const handleClick = async (userInput: string) => {
     });
     const responseData = await response.json(); // Parse response body as JSON
     console.log(responseData); // Server response
+    returnDiv!.textContent = responseData.result;
   } catch (error) {
     console.error("Error sending data:", error);
   }
+}
 };
