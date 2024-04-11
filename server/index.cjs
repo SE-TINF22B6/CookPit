@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3001;
+const KEY = process.env.OPENAI_API_KEY;
 
 const cors = require("cors");
 app.use(cors());
@@ -13,7 +14,7 @@ app.post("/recipe-maker", async (req, res) => {
   try {
     const importedModule = await import("./openai-test.mjs");
     const { callOpenAIapi } = importedModule;
-    const result = await callOpenAIapi(req.body);
+    const result = await callOpenAIapi(req.body, KEY);
     res.json({ result });
   } catch (error) {
     console.error("Fehler beim Importieren:", error);
