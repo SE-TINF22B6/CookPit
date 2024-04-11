@@ -1,0 +1,185 @@
+
+#template{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    gap: 30px;
+}
+#heading{
+    position: relative;
+    width: 550px;
+}
+#discription{
+    position: relative;
+    width: 550px;
+    height: 550px;
+}
+#discription input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 5px;
+    outline: none;
+    color: black;
+    font-size: 1em;
+    height: 500px;
+}
+#discription span{
+    position: absolute;
+    left: 0;
+    top: -35px;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 1em;
+    color: black;
+    text-transform: uppercase; 
+}
+#ingredient{
+    position: relative;
+    width: 250px;
+}
+#amount{
+    position: relative;
+    width: 150px;
+}
+#format{
+    position: relative;
+    width: 100px;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 5px;
+    outline: none;
+    color: black;
+    font-size: 1em;
+}
+#format span{
+    position: absolute;
+    left: 0;
+    top: -35px;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 1em;
+    color: black;
+    text-transform: uppercase; 
+ }
+#heading input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 5px;
+    outline: none;
+    color: black;
+    font-size: 1em;
+}
+#heading span{
+    position: absolute;
+    left: 0;
+    top: -35px;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 1em;
+    color: black;
+    text-transform: uppercase; 
+}
+#ingredient input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 5px;
+    outline: none;
+    color: black;
+    font-size: 1em;
+}
+#ingredient span{
+    position: absolute;
+    left: 0;
+    top: -35px;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 1em;
+    color: black;
+    text-transform: uppercase; 
+ }
+ #amount input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 5px;
+    outline: none;
+    color: black;
+    font-size: 1em;
+}
+#amount span{
+    position: absolute;
+    left: 0;
+    top: -35px;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 1em;
+    color: black;
+    text-transform: uppercase; 
+ }
+#blocker1{
+    width:500px;
+}
+.imageUpload{
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+   
+}
+.uploadImageLabel{
+    display: block;
+    width: 200px;
+    background: blue;
+    color: white;
+    padding: 12px;
+    margin: 10px auto;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.addOneMoreIngredient{
+    display: block;
+    width: 200px;
+    background: blue;
+    color: white;
+    padding: 12px;
+    margin: 10px auto;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#input-file{
+    display: none;
+}
+.tabelspace{
+    width: 10px;
+}
+.discription{
+    position: relative;
+    width: 550px;
+}
+.discription textarea{ 
+    rows:30;
+    columns: auto;
+    height: 250px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 5px;
+    outline: none;
+    color: black;
+    font-size: 1em;
+}
+.discriptionSpan{
+    position: absolute;
+    left: 0;
+    top: -35px;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 1em;
+    color: black;
+    text-transform: uppercase; 
+}
