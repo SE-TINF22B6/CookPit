@@ -15,7 +15,7 @@ function Login(){
   const [passwordReg, setPasswordReg] = useState('');
   
   const register = () => {
-    Axios.post("/login", {
+    Axios.post("http://localhost:3001/login", {
       username: usernameReg,
       password: passwordReg,
     }).then((response) => {

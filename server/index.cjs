@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 const KEY = process.env.OPENAI_API_KEY;
 
 const cors = require("cors");
@@ -68,7 +68,7 @@ app.listen(PORT, () => {
     let password = req.body.password;
   
     console.log(username);
-    
+
     db.run("INSERT INTO account (username, password) VALUES (?, ?)",
       [username, password],
       (err, result) => {
