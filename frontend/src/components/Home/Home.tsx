@@ -18,7 +18,7 @@ function Home() {
 
   return (
     <>
-       <Background /> 
+      <Background /> 
       <Header onToggleLogin={toggleLoginVisibility} />
       {loginVisible && <Login />}
       <Routes>
