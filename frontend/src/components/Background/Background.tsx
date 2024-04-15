@@ -10,7 +10,7 @@ export default function Background(){
       }
   return (
 <body>
-  <table> <tr>
+  <table className='background'> <tr>
    <td><div id="oval1"></div> </td> 
    <td><div id="oval2"></div></td> 
    <td> <div id="oval3"></div></td> 

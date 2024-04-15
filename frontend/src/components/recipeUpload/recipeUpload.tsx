@@ -31,6 +31,14 @@ export default function Body(){
     <div id='blocker1'></div>
         <div id='blocker1'></div>
         <div id='blocker1'></div>
+        <div id='blocker1'></div>
+        <div id='blocker1'></div>
+        <div id='blocker1'></div>
+        <div id='blocker1'></div>
+        <div id='blocker1'></div>
+        <div id='blocker1'></div>
+        <div id='blocker1'></div>
+        <div id='blocker1'></div>
 
         <div id="heading" >
             <input type="text"/>
@@ -157,7 +165,7 @@ export default function Body(){
     </div>
     <div id='blocker1'></div>
     <div id='blocker1'></div>
-    
+
         <div className='discription'><textarea>Discription</textarea>
         <span className='discriptionSpan'>Discription</span>
         </div>
