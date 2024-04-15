@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 const KEY = process.env.OPENAI_API_KEY;
 
 const cors = require("cors");
@@ -45,7 +45,7 @@ app.listen(PORT, () => {
               console.error("Fehler beim Erstellen der Tabelle: " + err.message);
           } else {
               console.log("Tabelle erfolgreich erstellt.");
-              insertData(); 
+              //insertData(); 
           }
       });
   }
@@ -63,17 +63,21 @@ app.listen(PORT, () => {
   }*/
   
   // Register in DB
-
-  app.post('http://localhost:3000/?', (req, res) => {
-
-    let username = req.body.username
-    let password = req.body.password
-
-    console.log(username);
+  app.post("/login", (req, res) => {
+    let username = req.body.username;
+    let password = req.body.password;
   
-    db.query("INSERT INTO account (username, password) VALUES (?, ?)",
+    console.log(username);
+    
+    db.run("INSERT INTO account (username, password) VALUES (?, ?)",
       [username, password],
-        (err, result) => {
-          console.log(err);
-        });
-    });
+      (err, result) => {
+        if (err) {
+          console.error("Fehler beim Einfügen von Daten: " + err.message);
+          res.status(500).send("Interner Serverfehler");
+        } else {
+          console.log("Daten erfolgreich eingefügt.");
+          res.status(200).send("Erfolgreich registriert.");
+        }
+      });
+  });
