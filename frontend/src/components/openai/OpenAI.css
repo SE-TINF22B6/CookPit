@@ -1,16 +1,29 @@
-.wrapperT {
-    height: calc(100vh - 120px);
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+#box_wrapper_wrapper {
+  height: calc(100vh - 120px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#return {
-    min-height: 250px;
-    max-height: 550px;
-    min-width: 200px;
-    max-width: 1200px;
-    padding-top: 15px;
+#box_wrapper {
+  display: flex;
+  justify-content: center;
+  height: 500px;
+  border: solid 2px black;
+}
+
+#left {
+  width: 350px;
+  background-color: aliceblue;
+}
+
+#right {
+  width: 500px;
+  padding: 12px 20px;
+}
+
+#input {
+  border: none;
+  outline: none;
+  height: 40px;
 }
