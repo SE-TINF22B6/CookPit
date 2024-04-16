@@ -42,7 +42,7 @@
     align-items: center;*/
     margin: auto;
     position: relative;
-    border-style: solid;
+    border-style: none;
     border-color: rgb(0, 0, 0);
     display: flex;
 }
@@ -78,15 +78,70 @@
     border-radius: 10px;
 }
 
+#picture_Left{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin: auto;    
+    border-radius: 10px;
+}
+
+#footerleft{
+    width: 20%;
+    height: 20%;
+    left: -20px;
+    top: -75px;
+    position: relative;
+    border-radius: 10px;
+    background-color: rgb(252, 89, 116);
+    opacity: 85%;
+    color: white;
+    
+}
+
+#footerleft h4{
+    left: 5px;
+    color: white;
+    padding: 5px;
+}
+
 #middle{
     width: 20%;
     top: 25%;
     height: 50%;
     background-color: white;
+    position: relative;   
+    border-radius: 10px;
+    
+}
+
+#picture_Middle{
+    width: 100%;
+    
+    height: 100%;
+    background-color: white;
     position: relative;
     margin: auto;    
     border-radius: 10px;
+}
+
+#footermiddle{
+    width: 20%;
+    height: 20%;
+    left: -20px;
+    top: -75px;
+    position: relative;
+    border-radius: 10px;
+    background-color: rgb(252, 89, 116);
+    opacity: 85%;
+    color: white;
     
+}
+
+#footermiddle h4{
+    left: 5px;
+    color: white;
+    padding: 5px;
 }
 
 #right{
@@ -99,19 +154,108 @@
     border-radius: 10px;
 }
 
+#picture_Right{
+    width: 100%;
+    
+    height: 100%;
+    background-color: white;
+    position: relative;
+    margin: auto;    
+    border-radius: 10px;
+}
+
+#footerright{
+    width: 20%;
+    height: 20%;
+    left: -20px;
+    top: -75px;
+    position: relative;
+    border-radius: 10px;
+    background-color: rgb(252, 89, 116);
+    opacity: 85%;
+    color: white;
+    
+}
+
+#footerright h4{
+    left: 5px;
+    color: white;
+    padding: 5px;
+}
+
 #arrowLeft{
     float: left;
     top: 50%;
     width: 5%;
     height: 50px;
-    background-color: rgb(255, 255, 255);
+    color: white;
+    /*background-color: rgb(255, 255, 255);*/
     position: relative;
 }
+
 #arrowRight{
     float: right;
     top: 50%;
     width: 5%;
     height: 50px;
-    background-color: rgb(255, 255, 255);
+    color: white;
+    /*background-color: rgb(255, 255, 255);*/
     position: relative;
 }
+
+#arrleft {
+    position: relative;
+    top: -270px;
+    left: 5%;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    border-style: none;
+    margin: 15px;
+    transition: 0.4s ease;
+    background-color: transparent;
+}
+
+#arrleft:hover{
+    box-shadow: 0px 0px 2px 2px rgb(255, 255, 255);
+}
+
+#arrleft div{
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    border-top: 8px solid rgb(255, 255, 255);
+    border-left: 8px solid rgb(255, 255, 255);
+    transform: rotate(315deg);
+    left: 18px;
+    top: 18px;
+}
+
+#arrright {
+    position: relative;
+    top: -280px;
+    left: 75%;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    border-style: none;
+    margin: 15px;
+    transition: 0.4s ease;
+    background-color: transparent;
+}
+
+#arrright:hover{
+    box-shadow: 0px 0px 2px 2px rgb(255, 255, 255);
+}
+
+#arrright div{
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    border-top: 8px solid rgb(255, 255, 255);
+    border-left: 8px solid rgb(255, 255, 255);
+    transform: rotate(135deg);
+    left: 0px;
+    top: 18px;
+}
+
