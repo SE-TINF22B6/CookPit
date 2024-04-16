@@ -37,9 +37,9 @@
 }
 #mainArea{
     width: 70%;
-    height: 40%;
-    justify-content: center;
-    align-items: center;
+    height: 500px;
+    /*justify-content: center;
+    align-items: center;*/
     margin: auto;
     position: relative;
     border-style: solid;
