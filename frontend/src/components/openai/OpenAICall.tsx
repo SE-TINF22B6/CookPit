@@ -1,8 +1,47 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./OpenAI.css";
+import ListItem from "./../ListItem/ListItem";
 
 export default function OpenAICall() {
   const [getUserInput, setUserInput] = useState("");
+  const [ingredients, setIngredients] = useState<string[]>([]);
+
+  const showArry = () => {
+    console.log(ingredients);
+  };
+
+  const clearArray = () => {
+    setIngredients([]);
+  };
+
+  // eventListenerFunctions
+  function handleKeyPress(event: KeyboardEvent) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      const newIngredient = (
+        document.getElementById("input") as HTMLInputElement
+      ).value;
+      if (newIngredient) {
+        setIngredients([...ingredients, newIngredient]);
+      }
+    }
+  }
+
+  function handleButtonClick() {
+    const newIngredient = (document.getElementById("input") as HTMLInputElement)
+      .value;
+    if (newIngredient) {
+      setIngredients([...ingredients, newIngredient]);
+    }
+  }
+
+  // eventListeners
+  document.getElementById("input")?.addEventListener("keydown", handleKeyPress);
+  document
+    .getElementById("addIngredientButton")
+    ?.addEventListener("click", handleButtonClick);
+
+  const close = () => {};
 
   return (
     <div id="box_wrapper_wrapper">
@@ -17,9 +56,17 @@ export default function OpenAICall() {
             }}
             placeholder="Enter your ingredients"
           />
+          <button id="addIngredientButton">Add Ingredient</button>
+          <button onClick={() => showArry()}>show array</button>
+          <button onClick={() => clearArray()}>clear array</button>
           <button onClick={() => handleClick(getUserInput)}>
             Make me a recipe
           </button>
+          <div id="ingredients">
+            {ingredients.map((item, index) => (
+              <ListItem closeFunc={close} key={index} name={item} id={index} />
+            ))}
+          </div>
         </div>
         <div id="right">
           <div id="return"></div>
