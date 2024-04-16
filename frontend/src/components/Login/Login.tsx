@@ -1,44 +1,57 @@
-import React from 'react';
 import '../Login/Login.css';
+import React, { useState } from "react";
 import icon_user from '../../img/icon_user.png';
 import icon_password from '../../img/icon_password.png';
+import Axios from 'axios';
 
-const Login: React.FC = () => {
+
+function Login(){
+  const [isToggled, setIsToggled] = useState(false);
+  const handleToggle = () => {
+    setIsToggled(!isToggled);
+  };
+
+  const [usernameReg, setUsernameReg] = useState('');
+  const [passwordReg, setPasswordReg] = useState('');
+  
+  const register = () => {
+    Axios.post("http://localhost:3001/login", {
+      username: usernameReg,
+      password: passwordReg,
+    }).then((response) => {
+      console.log(response);
+    });
+  };
+  
+ // const message = isToggled === true ? <p>Don't have an account? Register now</p> : <p>ficke</p>;
+  
   return (
     <div className="outer">
       <div className="wrapper" id="divOne">
-        <form action="">
+        
           <h1>Login</h1>
           <div className="input-box">
-            <input type="text" placeholder="Username" required />
+            <input type="text" placeholder="Username" onChange={(e) => { setUsernameReg(e.target.value); }} />
             <img src={icon_user} alt="User" />
           </div>
           <div className="input-box">
-            <input type="password" placeholder="Password" required />
+            <input type="password" placeholder="Password" onChange={(e) => { setPasswordReg(e.target.value); }} />
             <img src={icon_password} alt="Password" />
           </div>
-
+  
           <div className="remember-forgot">
             <label>
               <input type="checkbox" /> Remember me
             </label>
-            <a href="#"> Forgot password? </a>
+            <a href=""> Forgot password? </a>
           </div>
-
-          <button type="submit" className="btn">
-            {' '}
-            Login{' '}
+          <button type="submit" className="btn" onClick={register}>
+            Login
           </button>
-
-          <div className="register-link">
-            <p>
-              Don't have an account? <a href="#">Register now</a>
-            </p>
-          </div>
-        </form>
+          <div className="register-link"></div>
       </div>
     </div>
   );
-};
-
-export default Login;
+  };
+  export default Login;
+  
