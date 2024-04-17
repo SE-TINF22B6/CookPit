@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./OpenAI.css";
 import ListItem from "./../ListItem/ListItem";
 
@@ -25,7 +25,9 @@ export default function OpenAICall() {
       ).value;
       if (newIngredient) {
         setIngredients([...ingredients, newIngredient]);
-        setUserInput("");
+        setTimeout(function () {
+          setUserInput("");
+        }, 10);
       }
     }
   }
@@ -35,7 +37,9 @@ export default function OpenAICall() {
       .value;
     if (newIngredient) {
       setIngredients([...ingredients, newIngredient]);
-      setUserInput("");
+      setTimeout(function () {
+        setUserInput("");
+      }, 10);
     }
   }
 
@@ -52,9 +56,7 @@ export default function OpenAICall() {
 
   const handleClick = async (userInput: string[]) => {
     setLoading(true); // Start loading
-    // const returnDiv = document.getElementById("return");
     if (userInput.length === 0) {
-      // returnDiv!.textContent = "";
       setRetDiv("");
       setLoading(false); // Stop loading
     } else {
@@ -70,7 +72,6 @@ export default function OpenAICall() {
         });
         const responseData = await response.json(); // Parse response body as JSON
         console.log(responseData); // Server response
-        // returnDiv!.textContent = responseData.result;
         setRetDiv(responseData.result);
       } catch (error) {
         console.error("Error sending data:", error);
