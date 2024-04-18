@@ -8,14 +8,18 @@ import { response } from 'express';
 
 function Login(){
 
-  let [LoginStatus, setLoginStatus] = useState ('');
+  const [LoginStatus, setLoginStatus] = useState ('');
+  const [isToggled, setIsToggled] = useState(false);
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   const registeruser = () => {
     Axios.post("http://localhost:3001/register", {
       username: username,
       password: password,
     }).then((response) => {
-      console.log(response);
+      console.log(response.data.loginmessage);
+      setLoginStatus(response.data.loginmessage)
     });
   };
 
@@ -24,20 +28,13 @@ function Login(){
       username: username,
       password: password,
     }).then((response) => {
-      console.log(response);
-      if (response.data.loginmessagge) {
-        setLoginStatus(response.data.message)
-
-      }
-    })
-  }
-
-  const [isToggled, setIsToggled] = useState(false);
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+      console.log(response.data.loginmessage); 
+      setLoginStatus(response.data.loginmessage)
+    })}
   
   const handleToggle = () => {
     setIsToggled(!isToggled);
+    setLoginStatus("");
   };
 
   let ueberschrift;
@@ -55,24 +52,24 @@ function Login(){
       <div className="wrapper" id="divOne">
           <h1>{ueberschrift}</h1>
           <div className="input-box">
-            <input type="text" placeholder="Username" onChange={(e) => { setUsername(e.target.value); }} />
+            <input type="text" placeholder="  Username" onChange={(e) => { setUsername(e.target.value); }} />
             <img src={icon_user} alt="User" />
           </div>
           <div className="input-box">
-            <input type="password" placeholder="Password" onChange={(e) => { setPassword(e.target.value); }} />
+            <input type="password" placeholder="  Password" onChange={(e) => { setPassword(e.target.value); }} />
             <img src={icon_password} alt="Password" />
           </div> 
-          <div className="remember-forgot">
-            <label>
-              <input type="checkbox" onClick = {handleToggle}/> Remember me
+          <div className="labels-container">
+            <label onClick={handleToggle}>
+              Registrieren
             </label>
-            <a> Forgot password? </a>
+            <label> Passwort vergessen? </label>
           </div>
           <button type="submit" className="btn" onClick={clickevent}>
             {ueberschrift}
           </button>
           <div className="register-link"></div>
-          <h1>{LoginStatus}</h1>
+          {LoginStatus}
       </div>
     </div>
   );

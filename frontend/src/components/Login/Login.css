@@ -121,18 +121,25 @@
     font-weight: 600;
 }
 
-.wrapper .register-link{
-    font-size: 14.5px;
-    text-align: center;
+
+.register-link {
+    font-size: 15px;
+    text-align: center; 
     margin-top: 20px;
+    justify-content: space-between
 }
 
-.register-link p a{
-    color: #000000;
-    text-decoration: none;
-    font-weight: 600;
-}
+.labels-container {
+    display: flex;
+    justify-content: space-between; 
+  }
+  
+  .labels-container label {
+    flex-grow: 0; 
+    padding: 0 10px;
+  }
 
-.register-link p a:hover{
-    text-decoration: underline;
-}
+  .labels-container label:hover {
+    color: rgb(28, 167, 15);
+    cursor: pointer; 
+  }
