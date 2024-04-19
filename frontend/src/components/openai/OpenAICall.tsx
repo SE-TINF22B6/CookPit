@@ -16,38 +16,21 @@ export default function OpenAICall() {
     setIngredients([]);
   };
 
-  // eventListenerFunctions
-  function handleKeyPress(event: KeyboardEvent) {
-    if (event.key === "Enter") {
-      event.preventDefault();
-      const newIngredient = (
-        document.getElementById("input") as HTMLInputElement
-      ).value;
-      if (newIngredient) {
-        setIngredients([...ingredients, newIngredient]);
-        setTimeout(function () {
-          setUserInput("");
-        }, 10);
+  function handleKeyPress(event: string) {
+    if (event === "Enter") {
+      if (getUserInput) {
+        setIngredients([...ingredients, getUserInput]);
+        setUserInput("");
       }
     }
   }
 
   function handleButtonClick() {
-    const newIngredient = (document.getElementById("input") as HTMLInputElement)
-      .value;
-    if (newIngredient) {
-      setIngredients([...ingredients, newIngredient]);
-      setTimeout(function () {
-        setUserInput("");
-      }, 10);
+    if (getUserInput) {
+      setIngredients([...ingredients, getUserInput]);
+      setUserInput("");
     }
   }
-
-  // eventListeners
-  document.getElementById("input")?.addEventListener("keydown", handleKeyPress);
-  document
-    .getElementById("addIngredientButton")
-    ?.addEventListener("click", handleButtonClick);
 
   const closeArray = (id: number) => {
     const updatedIngredients = ingredients.filter((_, index) => index !== id);
@@ -91,9 +74,12 @@ export default function OpenAICall() {
             onChange={(event) => {
               setUserInput(event.target.value);
             }}
+            onKeyDown={(event) => handleKeyPress(event.key)}
             placeholder="Enter your ingredients"
           />
-          <button id="addIngredientButton">Add Ingredient</button>
+          <button onClick={() => handleButtonClick()} id="addIngredientButton">
+            Add Ingredient
+          </button>
           <button onClick={() => showArry()}>show array</button>
           <button onClick={() => clearArray()}>clear array</button>
           <button onClick={() => handleClick(ingredients)}>
