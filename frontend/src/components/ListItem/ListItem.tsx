@@ -1,4 +1,5 @@
 import React from "react";
+import "./ListItem.css";
 
 type ListItemProps = {
   name: string;
@@ -12,11 +13,9 @@ export default function ListItem({ name, id, closeFunc }: ListItemProps) {
   };
 
   return (
-    <div>
-      <div className="text">
-        {name} - {id}
-      </div>
+    <li id="list_item_wrapper">
+      <div id="text">{name}</div>
       <button onClick={close}>X</button>
-    </div>
+    </li>
   );
 }
