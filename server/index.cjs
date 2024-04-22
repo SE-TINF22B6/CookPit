@@ -59,23 +59,6 @@ function insertData() {
       });
   }
 
-/*function checkUser(username) {
-  db.get("SELECT * FROM account WHERE username = ?",
-    [username],
-    (err, row) => {
-      if (err) {
-        console.error("Fehler beim Ausführen der Abfrage:", err);
-        return;
-      }
-      if (row) {
-        console.error("Nutzer existiert bereits");
-      } else {
-        console.log("Nutzer existiert nicht");
-      }
-    }
-  );
-}*/
-
 // Register in DB
 app.post("/register", (req, res) => {
   let username = req.body.username;
@@ -84,21 +67,25 @@ app.post("/register", (req, res) => {
   db.run("INSERT INTO account (username, password) VALUES (?, ?)",
     [username, password],
     (err, result) => {
-      if (err) {
-        console.error("Fehler beim Einfügen von Daten: " + err.message);
-        res.status(500).send("Interner Serverfehler");
+      if (err && err.code === 'SQLITE_CONSTRAINT') {
+        console.error("Benutzername bereits vorhanden:", err.message);
+        res.send({loginmessage: "Benutzername bereits vorhanden"})
+      } else if (err) {
+        console.error("Fehler beim Einfügen der Daten:", err.message);
+        res.status(500).send("Interner Serverfehler.");
       } else {
         console.log("Daten erfolgreich eingefügt.");
-        res.status(200).send("Erfolgreich registriert.");
+        res.send({loginmessage: "Benutzer erfolgreich erstellt"})
       }
     });
 });
 
 // Login
 app.post("/login", (req, res) => {
+
   let username = req.body.username;
   let password = req.body.password;
-  
+
   db.get("SELECT * FROM account WHERE username = ? AND password = ?",
     [username, password],
     (err, result) => {
