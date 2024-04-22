@@ -1,0 +1,138 @@
+
+.btnopenPopup {
+    color: #000000;
+    z-index: 100;
+    border: transparent;
+    color: transparent;
+    background: none;
+    top: -75px;
+    /*left: 73%;*/
+    right: -83.5%;
+    position: relative;
+    height: 40px;
+    width: 120px;
+}
+
+.outer {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.outer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 10vh;
+    z-index:100;
+    visibility: false;
+}
+
+.wrapper {
+    width: 420px;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    color: #000000;
+    border: solid;
+    border-color: #7c7c7c;
+    border-radius: 10px;
+    visibility: visible;
+}
+
+.wrapper h1{
+    font-size: 36px;
+    text-align: center;
+}
+
+.closePopup {
+    position: relative;
+    left: 370px;
+    top: -70px;
+    color: red;
+    border: none;
+    background: none;
+    font-size: 36px;
+    cursor: pointer;
+}
+
+.wrapper .input-box{
+    position: relative;
+    width: 95%;
+    left: 5px;
+    height: 40px;
+    margin: 30px 0;
+}
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: #ff9595;
+    border: none;
+    outline: none;
+    border: 2px solid black;
+    border-radius: 40px;
+    font-size: 16px;
+}
+
+.input-box input::placeholder{
+    color: #000000;
+}
+
+.input-box img{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-40%);
+}
+
+.wrapper .remember-forgot{
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin-right: 3px;
+}
+
+.remember-forgot label input{
+    accent-color: #000000;
+    margin-right: 3px;
+}
+
+.remember-forgot a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover{
+    text-decoration: underline;
+}
+
+.wrapper .btn{
+    width: 100%;
+    height: 45px;
+    background: #ff9595;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+
+.wrapper .register-link{
+    font-size: 14.5px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.register-link p a{
+    color: #000000;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link p a:hover{
+    text-decoration: underline;
+}
