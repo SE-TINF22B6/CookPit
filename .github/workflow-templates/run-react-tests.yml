@@ -1,0 +1,26 @@
+name: run-react-tests
+
+on:
+  push:
+    branches:
+      - main  # Change this to your main branch
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # You can choose a different runner if needed
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 18  # Change this to your desired Node.js version
+
+    - name: Install dependencies
+      run: npm install  # Or 'yarn install' if you use Yarn
+
+    - name: Run tests
+      run: npm test  # Or 'yarn test' if you use Yarn
+
