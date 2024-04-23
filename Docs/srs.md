@@ -437,6 +437,7 @@ Here you can see one exampel of a sequence diagram, where the user interacts wit
 Users can post their own recipes on CookPit and present their latest recipe to the community.
 
 **User stories**
+
 1.As a user, I want to be able to upload my favorite recipes to a designated section on the website, allowing me to easily share and upload them to the website.
 
 **UI mockups**
