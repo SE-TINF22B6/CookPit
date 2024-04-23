@@ -432,8 +432,48 @@ Here you can see one exampel of a sequence diagram, where the user interacts wit
 
 **Estimated efforts:** Medium efforts
 
+#### 2.8  Upload a recipe/ Use Case 7
 
-#### 2.8  Identified classes / Class diagram
+Users can post their own recipes on CookPit and present their latest recipe to the community.
+
+**User stories**
+1.As a user, I want to be able to upload my favorite recipes to a designated section on the website, allowing me to easily share and upload them to the website.
+
+**UI mockups**
+
+![Login Mockup](https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/SRS%20Images/CookPit_RecipeUpload.png)
+
+
+
+**Preconditions**
+
+- <ins>User Authentication:</ins> Users must be logged into their accounts on the cooking website to access and utilize the Recipeupload feature. This ensures that only authorized users can add recipes to the website.
+
+- <ins>Recipe Standard:</ins> The recipes that users want to upload must be agreed to our recipe agreement on the website. Users cannot upload recipes if the recipes are not confirmed.
+- 
+- <ins>Internet Connection:</ins> Users must have an active internet connection to access the cooking website and utilize the Upload feature, enabling real-time interaction with the website's database.
+
+- <ins>User Interface Loaded:</ins> The user interface elements, including the recipe pages and the Upload button/icon, must be properly loaded and visible on the webpage.
+
+- <ins>Session Continuity:</ins> Users' login sessions must be active and continuous. If a session has expired, users need to log in again before accessing the Upload feature.
+
+
+**Postconditions**
+
+- <ins>Uploaded Recipes:</ins> After uploading a recipe, the system records the user's action, associating the new recipe with the user's and saving it in the database.
+
+- <ins>User Interface Update:</ins> The user interface reflects the change, displaying a visual indicator, signifying that  user's has uploaded a recipe.
+
+- <ins>Your Recipes List Update:</ins> The selected recipe is added to the user's upload list, which can be accessed via the user's profile or a dedicated "Your Recipe" section on the website.
+
+
+Removal Option: Users have the option to remove recipes from their uploads. If a recipe is removed, the system updates the recipe list and user interface accordingly.
+
+
+**Estimated efforts:** High efforts
+
+
+#### 2.9  Identified classes / Class diagram
 
 # CookPit Class Diagram Explanation
 
