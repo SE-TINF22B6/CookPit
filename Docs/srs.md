@@ -72,9 +72,6 @@ The search bar in the website enables users to input specific keywords, initiati
 
 ![Login Mockup](https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/SRS%20Images/Mockups/FavoritesMockup.png)
 
-**UML behavior diagrams**
-
-![Login Mockup](https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/Usecase_Diagramm.png)
 
 UML Diagram of the oeverview of the system.
 
@@ -177,7 +174,7 @@ Implement password recovery/reset functionality in case users forget their passw
 
 **UI mockups**
 
-![Login Mockup](https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/SRS%20Images/LoginMockup.png)
+![Login Mockup](https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/SRS%20Images/Mockups/LoginMockup.png)
 
 
 
@@ -208,8 +205,8 @@ Implement password recovery/reset functionality in case users forget their passw
 **Estimated efforts:** Low efforts
 
 **We have also done a two other activity diagramms. In our SRS we have only looked at this digram in detail. you can find our other diagrams under the links:** <br>
-https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/ViewRecipe_activityDiagramm.png
-https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/UploadRecipe_activityDiagram.png
+https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/SRS%20Images/ViewRecipe_activityDiagramm.png
+https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/SRS%20Images/UploadRecipe_activityDiagram.png
 
 
 
