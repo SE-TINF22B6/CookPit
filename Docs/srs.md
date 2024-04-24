@@ -545,17 +545,261 @@ This is a very important table in our project. It contains fields as the name, i
 
 -- Note: All the tables have a serial id, except the cross tables. They rely on a compound key made of the two foreign keys.
 
-Find the ![database-diagram](https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/SRS%20Images/ClassDiagramm_CookPit.png)
+Find the ![database-diagram](https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/SRS%20Images/Recipe%20Website%20DB%20Model.png)
 
 
 ### 3. Nonfunctional requirements
 
-> [!IMPORTANT]  
-> It is not necessary to cover all of the following categories, but focus on what your project will implement.  
-> If some nonfunctional requirements are described as user stories in your backlog, add their **links** in this section, or any information to guide the reader find them in your backlog, such as a **label** of those relevant user stories.
+Non-functional requirements (NFRs) outline how the cooking website should operate, defining its quality attributes and ensuring a positive user experience. These requirements encompass aspects like performance, scalability, usability, security, and accessibility.
 
-> Categories: Usability, Reliability, Performance, Efficiency, Integrity, Maintainability, Flexibility, Testability, Reusability, Security.  
+By addressing these NFRs, the cooking website can provide a valuable and enjoyable experience for its users, fostering a thriving online culinary community.
 
+Following this non quality requirements will ensure that the website will meet the necessities of the user. It is not only important to make sure that the planned functional requirements are covered, but also to meet the outline of the non functional requirements to achieve an app that is highly usable in the real world.
+
+
+#### 3.1  Performance
+In the cooking website, non-functional performance requirements play a pivotal role in the user experience. These requirements ensure that the website operates efficiently. A paramount consideration is response time, with the expectation that pages load swiftly, particularly those featuring recipes, fostering user engagement.
+
+
+**User stories**
+1. As a user, I want the cooking website to load recipe pages quickly so that I can access information promptly and efficiently. This way, I can navigate through recipes seamlessly without experiencing delays, enabling a smooth and enjoyable cooking experience.
+2. As a user, I want the cooking website to support multiple users interacting with various features concurrently. This includes searching for recipes, viewing cooking tips, and participating in community discussions. This way, I can engage with the website alongside other users without encountering delays or disruptions.
+
+
+**Preconditions**
+
+- <ins> Stable Network Connection:</ins> The cooking website assumes a stable and reliable network connection for users. Users are expected to have a consistent and uninterrupted internet connection to ensure seamless access to the website's content.
+  
+- <ins> Up-to-Date Web Browsers:</ins> Users are required to access the cooking website using up-to-date and supported web browsers. The website assumes that users have browsers that are compatible with the latest web standards, ensuring optimal performance and a consistent user experience.
+  
+- <ins> Adequate Device Resources:</ins> Users must access the cooking website from devices with sufficient resources, including processing power, memory, and storage. Inadequate device resources may affect the website's ability to load quickly and respond promptly to user interactions.
+
+- <ins> Server Availability:</ins> The performance of the cooking website is contingent upon the availability and proper functioning of the hosting servers. The servers must be operational and responsive to user requests to meet the performance expectations outlined in the non-functional requirements.
+
+- <ins> User Traffic within Expected Range:</ins> The website's performance expectations are based on an anticipated range of user traffic. Extreme fluctuations or unexpected spikes in user activity may impact performance, and the non-functional requirements are designed to accommodate traffic within the specified parameters.
+
+
+
+**Postconditions**
+
+- <ins> Achieved Response Time Targets:</ins> The cooking website consistently meets the specified response time targets, ensuring that pages, especially those containing recipes, load within the defined time frame (e.g., 3 seconds). Users experience quick and responsive interactions with the content.
+  
+- <ins> Scalability Validation:</ins> The website demonstrates scalability by successfully handling increased traffic during peak times without significant degradation in performance. It maintains responsiveness and user satisfaction even as the user base grows or experiences sudden surges in activity.
+  
+- <ins> Concurrency Maintenance:</ins> The cooking website effectively supports multiple users concurrently interacting with various features, ensuring a smooth and uninterrupted user experience. Users can simultaneously search for recipes, view content, and engage in community discussions without noticeable performance issues.
+  
+- <ins> High Reliability and Availability:</ins> The website achieves and maintains high reliability, as evidenced by its uptime exceeding the defined threshold (e.g., 99.9%). Users can access the cooking website consistently, with minimal downtime for maintenance or unexpected issues affecting availability.
+  
+- <ins> Optimized Resource Utilization:</ins> The cooking website optimally utilizes server resources, with CPU and memory usage consistently within acceptable limits. Effective resource management ensures that the website operates efficiently without unnecessary strain on the infrastructure.
+  
+- <ins> Successful Load Testing Outcomes:</ins> Load testing results confirm that the cooking website can handle an increased load, surpassing the specified target (e.g., 1.5 times the expected peak traffic). The website remains responsive, ensuring a positive user experience during periods of high demand.
+
+
+**Estimated efforts:** Medium efforts
+
+
+#### 3.2 Modifiability
+The non-functional requirement of modifiability in a cooking website addresses the platform's flexibility and ease of adaptation to changes over time. This encompasses the website's capability to undergo modifications, updates, and enhancements without causing significant disruptions to its functionality. Modifiability is crucial for accommodating evolving user needs, incorporating new features, and seamlessly integrating improvements in response to technological advancements or shifts in culinary trends. This requirement necessitates a well-organized and modular architecture, allowing developers to make changes efficiently while minimizing the risk of unintended side effects. A highly modifiable cooking website ensures that it remains agile and responsive to emerging requirements, fostering a dynamic and user-centric online culinary experience.
+
+
+**User stories**
+1. As a website administrator, I want the cooking platform to be easily modifiable so that I can seamlessly add new features such as interactive cooking tutorials, advanced search capabilities, or collaborative cooking projects to enhance the overall user experience without disrupting existing functionalities..
+2. As a user who utilizes cooking tools and gadgets, I want the cooking website to be modifiable to seamlessly integrate with new and innovative cooking technologies. This ensures that I can benefit from the latest tools and techniques without experiencing disruptions or compatibility issues.
+
+
+**Preconditions**
+
+- <ins> Flexible Architecture:</ins> The cooking website assumes an underlying architecture designed with modifiability in mind. The system architecture should be modular and loosely coupled, allowing for independent modifications to different components without causing cascading effects on other parts of the system.
+
+- <ins>Version Control System in Place:</ins> The website assumes the use of a version control system (e.g., Git) to manage and track changes to the codebase. This ensures that modifications can be tracked, rolled back if necessary, and collaboratively worked on by development teams without disruptions.
+
+- <ins>Clear Documentation:</ins> The cooking website assumes the availability of clear and comprehensive documentation outlining the system's architecture, coding standards, and best practices. This documentation serves as a reference for developers, enabling them to understand the system's structure and make modifications efficiently.
+
+- <ins>Testing Environment Ready:</ins> A dedicated testing environment is available to validate modifications before they are deployed to the production environment. This ensures that any potential issues or conflicts resulting from the modifications can be identified and addressed without impacting the live website.
+
+- <ins> Backup and Recovery Procedures:</ins> The cooking website assumes the existence of robust backup and recovery procedures. Before modifications are made, a reliable backup of the current system should be in place, enabling quick recovery in case unforeseen issues arise during or after the modification process.
+  
+- <ins> Development Team Collaboration:</ins> Effective collaboration among development teams is assumed. Developers should communicate and coordinate effectively, sharing insights and updates to ensure a cohesive approach to modifications without conflicting changes.
+
+
+**Postconditions**
+
+- <ins> Stable System Operation:</ins> The cooking website operates stably after modifications, with all existing functionalities performing as expected. Users can navigate the platform, access recipes, and engage in community activities without encountering unexpected errors or disruptions.
+
+- <ins> Compatibility Across Browsers and Devices:</ins> The modified cooking website maintains compatibility across various web browsers and devices. Users experience a consistent and reliable interface, ensuring that the modifications do not negatively impact the user experience on different platforms.
+
+- <ins> Verified Version Control:</ins> The modifications have been appropriately managed through the version control system, ensuring that the changes are tracked, documented, and can be rolled back if necessary. The version control history reflects the details of the modifications made to the codebase.
+
+- <ins> Validation in Testing Environment:</ins> Before deployment, the modifications were successfully validated in the testing environment. Testing has confirmed that the changes do not introduce new bugs or conflicts with existing features, providing confidence in the reliability of the modified system.
+
+- <ins> User Notification and Communication:</ins> Users have been appropriately notified of the modifications, and communication channels have been utilized to provide information about the changes. Users are aware of any new features or improvements, contributing to a transparent and informed user community.
+
+- <ins> Compliance with Documentation:</ins> The modifications adhere to the documented architecture, coding standards, and best practices outlined in the system's documentation. Developers have followed the established guidelines, ensuring consistency and maintainability in the modified codebase.
+
+
+**Estimated efforts:** Medium efforts
+
+
+
+#### 3.3 Testability
+The non-functional requirement of testability in a cooking website underscores the need for a platform that can be effectively and comprehensively tested. This involves creating an environment where developers and quality assurance teams can systematically evaluate the website's functionalities, features, and performance. A testable cooking website should offer clear and well-documented test cases, ensuring that various aspects, from recipe searching and user interactions to backend processes, can be examined thoroughly. This requirement promotes the implementation of automated testing frameworks, allowing for efficient regression testing as the website evolves. A highly testable cooking website contributes to a robust quality assurance process, enabling the identification of potential issues, bugs, or performance bottlenecks early in the development cycle and ensuring a reliable and error-free user experience.
+
+
+**User stories**
+1. As a QA tester, I want the cooking website to be testable, with comprehensive test cases covering various scenarios related to recipe searching. This includes testing different search queries, filters, and sorting options to ensure accurate and efficient results, providing users with a seamless recipe discovery experience.
+2. As a QA tester, I want the cooking website to be testable for performance and load scenarios. This includes conducting tests to assess how the website performs under various loads, ensuring that it can handle peak traffic without degrading in performance and maintaining responsiveness during high-demand periods.
+
+
+**Preconditions**
+
+- <ins> Access to Testing Environments:</ins> Testing teams have access to dedicated testing environments that mirror the production environment. These environments should accurately replicate the conditions under which the cooking website operates, allowing for realistic and comprehensive testing.
+
+- <ins> Availability of Test Data:</ins> The testing environment is populated with relevant and diverse test data, including a variety of recipes, user profiles, and interaction scenarios. Test data should be representative of actual usage patterns to ensure realistic testing scenarios.
+
+- <ins> Testing Tools and Frameworks:</ins> The necessary testing tools and frameworks, including automation tools, are available and configured. Testers should have access to tools that facilitate efficient testing, automation of repetitive tasks, and generation of test reports for comprehensive analysis.
+
+- <ins> Well-Defined Test Cases:</ins> Testers have access to well-defined and up-to-date test cases that cover various aspects of the cooking website, including recipe searching, user interactions, performance benchmarks, and security considerations. These test cases serve as a guide for systematic and comprehensive testing.
+
+- <ins> Documentation of System Functionality:</ins> There is comprehensive documentation outlining the functionality and features of the cooking website. Testers rely on this documentation to understand the expected behavior of the system and to design test cases that align with the defined functionalities.
+
+- <ins> Collaboration with Development Teams:</ins> There is effective collaboration between testing and development teams. Testers should have open communication channels with developers to discuss changes, updates, and potential issues, ensuring a coordinated effort in maintaining and enhancing testability.
+
+
+**Postconditions**
+
+- <ins> Successful Execution of Test Cases:</ins> All defined test cases have been successfully executed, covering various aspects of the cooking website, including recipe searching, user interactions, performance benchmarks, and security considerations.
+
+- <ins> Test Data Integrity:</ins> The integrity of test data is maintained throughout the testing process. Any data modifications or interactions during testing do not compromise the consistency and accuracy of the test data, ensuring reliable and repeatable test results.
+
+- <ins> Automation Test Scripts Completion:</ins> Automated test scripts have been successfully executed, providing efficient regression testing capabilities. The completion of automation test scripts ensures rapid and consistent testing of critical functionalities, contributing to overall test coverage.
+
+- <ins> Documentation of Test Results:</ins> Comprehensive documentation of test results is available. This documentation includes detailed reports on test outcomes, identified issues, and any necessary follow-up actions. Testers can use this information to communicate results effectively with development teams and stakeholders.
+
+- <ins> Collaboration Insights:</ins> Effective collaboration between testing and development teams has resulted in meaningful insights. Any identified issues or challenges have been communicated, facilitating a collaborative approach to resolving potential bugs, improving features, and enhancing overall system quality.
+
+- <ins> Version Control Integrity:</ins> The integrity of the version control system is maintained. Any necessary rollbacks or reversions have been executed successfully, ensuring that the codebase is aligned with the intended version for testing and future development. 
+
+
+**Estimated efforts:** Medium efforts
+
+
+
+#### 3.4 Security
+The non-functional requirement of security in a cooking website is paramount to establishing a trustworthy and protected online culinary platform. Security measures within this context involve safeguarding user data, ensuring secure authentication mechanisms, and protecting against potential cyber threats. This requirement encompasses the implementation of robust encryption protocols to secure data in transit and at rest, safeguarding sensitive user information such as personal details and payment data. Furthermore, secure user authentication and authorization mechanisms, including multi-factor authentication, bolster the website's defenses against unauthorized access. Regular security audits, vulnerability assessments, and proactive monitoring contribute to the continuous identification and mitigation of potential security risks. By prioritizing security in its non-functional requirements, a cooking website can inspire user confidence, foster a safe online cooking community, and mitigate the risk of data breaches or unauthorized access to sensitive information.
+
+
+**User stories**
+1. As a user, I want the cooking website to prioritize security, ensuring the protection of my account details. This includes robust password policies, the option for multi-factor authentication, and secure storage practices to prevent unauthorized access and safeguard my personal information.
+2. As a user who engages in online transactions, I expect the cooking website to prioritize security measures during payment processes. Secure and encrypted payment gateways, adherence to Payment Card Industry Data Security Standard (PCI DSS), and clear communication about transaction security instill confidence in the safety of my financial information.
+
+
+**Preconditions**
+
+- <ins> Secure Development Practices:</ins> The development teams follow secure coding practices and principles. This includes regular training for developers on security best practices, secure code reviews, and adherence to industry standards for preventing common vulnerabilities such as SQL injection, cross-site scripting (XSS), and cross-site request forgery (CSRF).
+
+- <ins> Access Control Policies:</ins> The cooking website has well-defined access control policies in place. Access to sensitive information and critical functionalities is restricted based on user roles and responsibilities. Access controls are regularly reviewed and updated as necessary to maintain a secure environment.
+Regular Security Audits and Assessments:
+
+- <ins> Precondition:</ins> The website undergoes regular security audits and assessments conducted by internal or external security experts. These assessments help identify potential vulnerabilities, assess the effectiveness of implemented security measures, and guide the implementation of necessary improvements.
+
+- <ins> Encrypted Communication Protocols:</ins> The cooking website ensures that all communication between users and the website, as well as between server components, is encrypted using secure protocols such as HTTPS. This helps protect sensitive information during data in transit and enhances overall communication security.
+
+- <ins> Secure Authentication Mechanisms:</ins> The website employs secure authentication mechanisms, such as strong password policies, multi-factor authentication (MFA), and secure password storage practices. These measures ensure that user accounts are protected from unauthorized access attempts.
+
+
+**Postconditions**
+
+- <ins>Effective Access Controls in Place:</ins> The cooking website has successfully implemented and maintained effective access controls, ensuring that only authorized users have access to sensitive information and critical functionalities. Access controls are regularly reviewed and updated as needed to address evolving security requirements.
+
+- <ins> Continuous Regulatory Compliance:</ins> The website consistently adheres to legal and regulatory requirements related to data protection, privacy, and online transactions. Compliance is regularly reviewed and updated to align with changes in regulations, ensuring ongoing adherence to industry standards.
+
+- <ins> No Identified Security Vulnerabilities:</ins> Regular security audits and assessments confirm that no critical security vulnerabilities exist within the cooking website. Any identified vulnerabilities are promptly addressed through remediation efforts, ensuring a proactive stance against potential security threats.
+
+- <ins> Secure Communication Channels:</ins> All communication channels between users and the website, as well as between server components, remain secure. Encrypted communication protocols, such as HTTPS, are consistently enforced to protect sensitive information during data transmission.
+
+- <ins> No Incidents of Unauthorized Access:</ins> The website has experienced no incidents of unauthorized access to user accounts or sensitive information. The secure authentication mechanisms, including strong password policies and multi-factor authentication, effectively prevent unauthorized access attempts.
+
+- <ins> Successful Incident Responses:</ins> In the event of a security incident, the incident response plan is executed successfully. The website's response team follows established procedures for communication, investigation, and mitigation, minimizing the impact of the incident and preventing recurrence.
+
+**Estimated efforts:** High efforts
+
+
+#### 3.5 Usability
+The non-functional requirement of usability in a cooking website focuses on ensuring an intuitive, efficient, and enjoyable user experience for individuals of varying culinary expertise. Usability encompasses the website's overall design, navigation, and functionality, aiming to simplify the process of discovering, accessing, and engaging with culinary content. This requirement emphasizes clear and visually appealing interfaces, straightforward navigation paths, and easily understandable features, fostering a positive interaction between users and the platform. Whether users are searching for recipes, participating in cooking forums, or exploring new cooking techniques, a highly usable cooking website enhances accessibility, encourages user engagement, and accommodates the diverse needs and preferences of its audience, ultimately contributing to a satisfying and user-friendly culinary journey.
+
+
+**User stories**
+1. As a user, I want the cooking website to have high usability, ensuring a seamless recipe discovery experience. This involves an intuitive search interface, clear categorization, and filters that allow me to easily find recipes based on ingredients, cuisine, dietary preferences, or cooking difficulty levels, enhancing the overall efficiency of my culinary exploration.
+2. As a user browsing recipes, I expect the cooking website to prioritize usability in recipe navigation. Clear and concise recipe layouts, well-organized ingredient lists, and step-by-step instructions with visually appealing images contribute to an intuitive cooking experience, allowing me to follow recipes effortlessly.
+
+
+**Preconditions**
+
+- <ins> Clear User Interface Design Standards:</ins> The cooking website adheres to clear and consistent user interface design standards. A well-defined design system ensures that users encounter a cohesive and predictable visual experience throughout the website, enhancing overall usability.
+
+- <ins> User Persona and Use Case Understanding:</ins> The development team has a comprehensive understanding of user personas and common use cases. Knowledge of the target audience's preferences, behaviors, and expectations ensures that the website is designed to meet the specific needs of its users, contributing to enhanced usability.
+
+- <ins> Usability Testing Framework in Place:</ins> The cooking website incorporates a usability testing framework. This involves the availability of a testing environment, testing protocols, and a diverse group of users for conducting usability testing sessions. Regular testing sessions ensure ongoing improvements based on user feedback.
+
+- <ins> Cross-Browser and Device Compatibility:</ins> The website is designed to be compatible with various web browsers and devices. Cross-browser and device testing ensure that users have a consistent and user-friendly experience, regardless of their choice of browser or device
+
+
+**Postconditions**
+
+- <ins> Reduced User Errors and Frustration:</ins> Usability improvements contribute to a reduction in user errors and frustration. Users encounter fewer obstacles, experience fewer errors in navigation or interactions, and are less likely to express frustration with the platform, resulting in a smoother and more enjoyable experience.
+
+- <ins> Increased User Engagement Metrics:</ins> Usability enhancements are reflected in increased user engagement metrics. Key performance indicators, such as time spent on the website, the number of recipes saved or shared, and participation in community activities, demonstrate that users are actively and positively engaging with the platform.
+
+- <ins> Enhanced Task Completion Rates:</ins> Usability improvements contribute to enhanced task completion rates. Users can efficiently complete tasks, such as finding recipes, interacting with community features, and managing their profiles, leading to higher user satisfaction and overall platform effectiveness.
+  
+- <ins> Positive Usability Testing Outcomes:</ins>  Usability testing sessions validate the effectiveness of implemented usability features. Testing outcomes indicate that users navigate the website with ease, accomplish tasks successfully, and express positive sentiments regarding the improved usability of the platform.
+
+- <ins> Consistent User Interface Experience:</ins> The cooking website ensures a consistent user interface experience. Users encounter a uniform and familiar interface design across different sections of the website, reinforcing predictability and ease of use.
+
+- <ins> High Accessibility Standards Adherence:</ins> The website adheres to high accessibility standards, as reflected in positive evaluations from accessibility audits. Compliance with accessibility guidelines ensures that users with diverse abilities can access and navigate the platform seamlessly.
+
+**Estimated efforts:** Medium efforts
+
+#### 3.6  Integrability
+The non-functional aspect of integrability in a cooking website presents a significant challenge in user experience and functionality. Integrability issues could arise from incompatible APIs or systems, hindering seamless connections with external platforms or services, such as shopping carts, recipe databases, or social media sharing functionalities. This limitation impacts the website's ability to smoothly integrate with various tools, reducing its versatility and hindering users' ability to access a comprehensive cooking experience. It might lead to disjointed workflows, frustrating users who expect a cohesive platform for recipe discovery, ingredient procurement, and culinary exploration. Addressing integrability concerns becomes pivotal for enhancing user satisfaction and ensuring a more holistic culinary journey on the website.
+
+
+**User stories**
+1. As a frequent user, I want the website to seamlessly connect with my social media accounts so that I can easily share my favorite recipes and culinary achievements with my friends and followers. I expect the integrability to work smoothly without any disruptions, allowing me to showcase my cooking journey effortlessly.
+
+2. As a user who loves exploring new recipes, I expect the website to integrate with online grocery platforms for easy ingredient shopping. I want to click on a recipe and have the option to add all the required ingredients directly to my preferred shopping cart for a hassle-free purchasing experience. This integration would save me time and make the cooking process more convenient.
+
+
+**Preconditions**
+
+- <ins> Clear API Documentation:</ins> A precondition for successful integrability is having comprehensive and well-documented APIs. The website should ensure that its APIs are thoroughly documented, providing developers with clear instructions, endpoints, parameters, and authentication methods required for seamless integration.
+
+
+- <ins> Compatibility Standards:</ins> The website should establish compatibility standards and protocols to ensure that external systems or platforms intending to integrate can meet the necessary requirements. This could involve adhering to specific data formats, security protocols, or technology standards for smooth interoperability.
+
+
+- <ins> Stable Infrastructure:</ins> The website's own infrastructure and systems should be stable and reliable. It's crucial to ensure that the website's servers, databases, and hosting services are robust enough to handle integration processes without performance issues or downtimes.
+
+
+- <ins> Authentication and Security Measures:</ins> Integrating external systems should prioritize security. Implementing secure authentication methods, such as OAuth or API keys, and following best practices for data encryption and protection are preconditions for integrations to safeguard user data and maintain trust.
+
+
+- <ins> User Consent and Control:</ins> Preparing the website with mechanisms that prioritize user consent and control over data shared or accessed during integrations is vital. Users should have clear options to authorize or revoke access to their information within the integrated systems.
+
+
+**Postconditions**
+
+- <ins> AI Recipe Suggestions Available:</ins> Users of the cooking website can access AI-generated recipe suggestions based on their preferences and needs.
+Improved User Experience: Users should experience an enhancement in their interaction with the website. Post-implementation, users should find it easier to access integrated functionalities, such as seamless social media sharing, streamlined ingredient procurement, or synchronized smart kitchen device usage, contributing to a more enjoyable and efficient cooking experience.
+
+- <ins> Data Security and Compliance:</ins> Post-integration, it's crucial to confirm that the security measures implemented during integration are effectively safeguarding user data. The postcondition involves ensuring that user data shared across integrated systems is protected, maintaining compliance with relevant privacy regulations and standards.
+
+- <ins> Performance and Stability:</ins> The website's performance and stability should remain intact or show improvement post-integration. Conducting performance tests and monitoring the website's response times, uptime, and overall stability ensures that the integrations haven't negatively impacted the website's core functionalities or speed.
+
+- <ins> User Feedback and Adoption:</ins> Gathering user feedback post-integration is crucial. Positive user feedback, increased engagement with the integrated features, and higher adoption rates among users indicate the successful implementation of integrations, demonstrating that they add tangible value to the cooking website.
+
+- <ins> Scalability and Maintenance:</ins> Postconditions involve confirming that the integrations are scalable and maintainable. Future updates or enhancements should not disrupt the existing integrations, and the framework should be adaptable to accommodate evolving technology or additional integrations without significant redevelopment efforts.
+**Estimated efforts:** High efforts
 
 ### 4. Technical constraints
 This sections specifies any major constraints, assumptions or dependencies.
