@@ -1,16 +1,85 @@
-.wrapperT {
-    height: calc(100vh - 120px);
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+:root {
+  --main-border-color: #ccc;
 }
 
-#return {
-    min-height: 250px;
-    max-height: 550px;
-    min-width: 200px;
-    max-width: 1200px;
-    padding-top: 15px;
+#outer_wrapper {
+  height: calc(100vh - 120px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#inner_wrapper {
+  background-color: rgb(255, 228, 228);
+  height: 500px;
+  width: 800px;
+  display: flex;
+  border: 1px solid var(--main-border-color);
+  position: relative;
+}
+
+#left_half {
+  width: 300px;
+  border-right: 1px solid var(--main-border-color);
+}
+
+#input_wrapper {
+  border-bottom: 1px solid var(--main-border-color);
+  display: flex;
+}
+
+#input_wrapper input {
+  height: 49px;
+  width: calc(75% - 40px);
+  padding: 0;
+  border: none;
+  outline: none;
+  padding-left: 40px;
+  font-size: 15px;
+}
+
+#input_wrapper button,
+#create_recipe_wrapper button,
+#btn-container button {
+  height: 49px;
+  border: none;
+  font-size: 15px;
+}
+
+#input_wrapper button {
+  width: 25%;
+}
+
+#create_recipe_wrapper button {
+  width: 100%;
+}
+
+#list {
+  height: 400px;
+  margin: 0;
+  padding: 0;
+  scroll-snap-type: y mandatory;
+  overscroll-behavior-y: contain;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#create_recipe_wrapper {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  height: 49px;
+  border-top: 1px solid var(--main-border-color);
+}
+
+#right_half {
+  width: 500px;
+  padding: 12px 20px;
+  overflow-y: scroll;
+}
+
+#downloadPdf {
+  position: absolute;
+  top: 12px;
+  right: 12px;
 }

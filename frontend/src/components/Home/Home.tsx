@@ -8,7 +8,6 @@ import OpenAI from "../openai/OpenAICall";
 import React, { useState } from "react";
 import RecipeUpload from "../recipeUpload/recipeUpload";
 
-
 function Home() {
   const [loginVisible, setLoginVisible] = useState(false);
 
@@ -18,14 +17,15 @@ function Home() {
 
   return (
     <>
-      { <Background /> }
+
+      <Background /> 
+
       <Header onToggleLogin={toggleLoginVisibility} />
       {loginVisible && <Login />}
       <Routes>
         <Route path="/" element={<SearchSite />} />
         <Route path="/recipe-maker" element={<OpenAI />} />
         <Route path="/upload-recipe" element={<RecipeUpload />} />
-
       </Routes>
     </>
   );

@@ -34,6 +34,7 @@ export default function Body(){
 <br />
 <br />
 
+
 <div id='mainArea'>
     
     {/*<div id='arrowLeft'><VscChevronLeft /></div>*/}
@@ -75,6 +76,7 @@ export default function Body(){
         </div>
         
         {/*<div id='arrowRight'><VscChevronRight /> </div>*/}
+
 </div>
 <button id='arrleft'> <div></div> </button>
 <button id='arrright'> <div></div> </button>

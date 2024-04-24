@@ -57,7 +57,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
           <img src={icon_heart_black} alt="favourite recipes" />
         </button>
         <button id='login_btn' onClick={onToggleLogin}>Login</button>
-
+        
         <div id="language_selection">EN</div>
         <div className="lang_wrapper">
           <div onClick={() => setLanguage(document.getElementById("lang_en")!)} id="lang_en">EN</div>
