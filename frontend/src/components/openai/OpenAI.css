@@ -15,6 +15,7 @@
   width: 800px;
   display: flex;
   border: 1px solid var(--main-border-color);
+  position: relative;
 }
 
 #left_half {
@@ -38,7 +39,8 @@
 }
 
 #input_wrapper button,
-#create_recipe_wrapper button {
+#create_recipe_wrapper button,
+#btn-container button {
   height: 49px;
   border: none;
   font-size: 15px;
@@ -74,4 +76,10 @@
   width: 500px;
   padding: 12px 20px;
   overflow-y: scroll;
+}
+
+#downloadPdf {
+  position: absolute;
+  top: 12px;
+  right: 12px;
 }
