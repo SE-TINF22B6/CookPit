@@ -38,6 +38,7 @@
 #mainArea{
     width: 70%;
     height: 500px;
+    top: 20%;
     /*justify-content: center;
     align-items: center;*/
     margin: auto;
@@ -61,6 +62,7 @@
     border-style: none;
     border-color: rgb(0, 0, 0);
     display: flex;
+    max-width: 1000px;
 }
 
 #products div{
@@ -205,8 +207,8 @@
 
 #arrleft {
     position: relative;
-    top: -270px;
-    left: 5%;
+    top: -280px;
+    left: 8%;
     height: 80px;
     width: 80px;
     border-radius: 50%;
