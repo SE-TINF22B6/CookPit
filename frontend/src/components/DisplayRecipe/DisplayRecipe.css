@@ -1,0 +1,71 @@
+#display_recipe_wrapper {
+    height: 320px;
+    width: 270px;
+    border-radius: 10px;
+    position: relative;
+}
+
+#display_recipe_wrapper img {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    object-fit:cover;
+}
+
+#display_recipe_footer {
+    color: white;
+    position: absolute;
+    bottom: 0;
+    height: 65px;
+    width: calc(100% - 20px);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #db3c71b9;
+    padding: 0 10px;
+}
+
+#recipe_title {
+    font-size: 26px;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    overflow:hidden;
+    white-space: nowrap;
+}
+
+.hover-text:hover .tooltip-text {
+    visibility: visible;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    position: absolute;
+    z-index: 1;
+    width: auto;
+    color: white;
+    font-size: 14px;
+    background-color: #db3c71b9;
+    border-radius: 10px;
+    padding: 10px 15px 8px 15px;
+    margin-left: 4px;
+    top: -40px;
+    left: 0px;
+}
+
+#sec_row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#save_to_favourite_recipes {
+    position: absolute;
+    top: 6px;
+    right: 4px;
+    border: none;
+    background: none;
+    height: 32px;
+}
+
+#save_to_favourite_recipes:hover > img{
+    content:url('../../img/icon_heart_red.png');
+  }

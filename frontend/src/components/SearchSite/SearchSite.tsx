@@ -8,6 +8,7 @@ import { BsClock } from "react-icons/bs";
 import { AiOutlineStar } from "react-icons/ai";
 import { VscChevronLeft } from "react-icons/vsc";
 import { VscChevronRight } from "react-icons/vsc";
+import DisplayRecipe from '../DisplayRecipe/DisplayRecipe';
 
 export default function Body(){
     function setLanguage(language:HTMLElement) {
@@ -31,9 +32,15 @@ export default function Body(){
             </table>
         </div>
 
-        <div id='mainArea'>
+        <div id="display_recipes_wrapper">
+            <DisplayRecipe img={left} title={'Pfannkuchen mit Obst'} rating={4} time={5}/>
+            <DisplayRecipe img={middle} title={'Donuts'} rating={4} time={63}/>
+            <DisplayRecipe img={right} title={'Schokoladenkuchen'} rating={3} time={16}/>
+        </div>
+
+        {/* <div id='mainArea'>
             
-            {/* <div id='arrowLeft'><VscChevronLeft /></div> */}
+            <div id='arrowLeft'><VscChevronLeft /></div>
 
                 <div id='products'>
 
@@ -71,9 +78,9 @@ export default function Body(){
 
                 </div>
                 
-                {/* <div id='arrowRight'><VscChevronRight /> </div> */}
+                <div id='arrowRight'><VscChevronRight /> </div>
 
-        </div>
+        </div> */}
         <button id='arrleft'> <div></div> </button>
         <button id='arrright'> <div></div> </button>
     </div>
