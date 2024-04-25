@@ -133,12 +133,12 @@ input[type="checkbox"]:checked + #menu_label .hamburger_lines .line3 {
 }
 
 .brand_name_wrapper {
+  position: absolute;
+  left: calc(50% - 116px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  height: 100%;
 }
 
 #brand_name {

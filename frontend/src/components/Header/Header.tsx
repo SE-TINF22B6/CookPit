@@ -58,11 +58,11 @@ const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
         </button>
         <button id='login_btn' onClick={onToggleLogin}>Login</button>
         
-        <div id="language_selection">EN</div>
+        {/* <div id="language_selection">EN</div>
         <div className="lang_wrapper">
           <div onClick={() => setLanguage(document.getElementById("lang_en")!)} id="lang_en">EN</div>
           <div onClick={() => setLanguage(document.getElementById("lang_de")!)} id="lang_de">DE</div>
-        </div>
+        </div> */}
       </div>
     </header> 
   )
