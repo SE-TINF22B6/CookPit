@@ -10,28 +10,25 @@ export default function Body(){
         activeLanguage!.innerText = language.innerText;}
     
   return (
-<body>
-<div id='searchBoxContainer'>
-    <table id='searchElementsContainer'>
-        <tr>
-            <td>
-                <input type="text" placeholder='Search' id='searchInput'  />
-            </td>
-            <td>
-                <a id='searchIcon' href="#">
-                <img src={icon_search} alt="#"/>
-                </a>
-            </td>
-        </tr>
-    </table>
-</div>
-<br />
-<br />
-<br />
-<div id='mainArea'>
-<div id='arrowLeft'></div>
-<div id='placeholder' > here can be your recipe</div> 
-<div id='arrowRight'>Hi</div>
-</div>
-</body>
+    <div id='wrapper'>
+        <div id='searchBoxContainer'>
+            <table id='searchElementsContainer'>
+                <tr>
+                    <td>
+                        <input type="text" placeholder='Search' id='searchInput'  />
+                    </td>
+                    <td>
+                        <a id='searchIcon' href="#">
+                        <img src={icon_search} alt="#"/>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id='mainArea'>
+            <div id='arrowLeft'></div>
+            <div id='placeholder' > here can be your recipe</div> 
+            <div id='arrowRight'>Hi</div>
+        </div>
+    </div>
   )}
