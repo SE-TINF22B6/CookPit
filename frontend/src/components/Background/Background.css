@@ -3,13 +3,16 @@
      --sec-bg-color: #ff9595;
    }
 
+#root {
+     height: 100%;
+}
+
 #oval_wrapper {
      display: flex;
      position: absolute;
      top: 120px;
      z-index: -1;
-     /* height: calc(100% - 120px); */
-     height: 100%;
+     height: calc(100% - 120px);
      width: 100vw;
 }
 
