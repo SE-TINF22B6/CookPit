@@ -2,6 +2,7 @@
 ## Software Architecture Documentation
 ### 1. Introduction
 #### 1.1 Overview
+**selling points of our architecture design**
 - Modularity and Separation of Concerns: We can separate different aspects of our application, such as presentation, business logic, and data access, into distinct layers. This makes our codebase more modular, easier to understand, maintain, and scale.
 - Scalability: By separating concerns, we can scale different layers independently. For example, if our application experiences increased traffic, we can scale the presentation layer separately from the data access layer.
 - Reusability: Each layer can be reused independently. For instance, our presentation layer can be reused across different interfaces (web, mobile), which promotes code reusability and reduces duplication. Its easier to deploy our application to different screensizes.
