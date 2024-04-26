@@ -16,22 +16,43 @@
 #### 1.3 References
 > A complete list of all documents referenced -- hyperlinks to those documents.
 
-### 2. Architecture tactics
-> Reference your architecturally significant requirements from Semester 3.
-> Revise your architecture tactics from Semester 3.
+### 2. Architecture Tactics
+#### Architecturally Significant Requirements (ASRs) from Semester 3:
+1. **Performance** Ensure that the application can handle a high volume of concurrent users without significant degradation in response time.
+2. **Security** Implement robust security measures to protect user data and prevent unauthorized access.
+3. **Scalability** Design the system to easily scale up.
+4. **Maintainability**  Structure the codebase in a way that facilitates ease of maintenance, updates, and bug fixes. 
+5. **CUstomer needs** Ensure compatibility with various customer need to reach a wider audience.
+6. **Usability** Design a user-friendly interface that enhances the overall user experience and encourages engagement.
 
-### 3. Architecture design
-> This section specifies the architecture design in various views.
-> Minimum requirement:
-> - sequence diagram on a component level and necessary description
-> - component diagrams and/or package diagrams, and necessary description
+#### Revised Architecture Tactics:
+1. **Performance Optimization**
+2. **dAuthentication**
+3. **Load Balancing**
+4. **Code Modularity**
+5. **API Design**
+6. **User Feedback**
 
+### 3. Architecture Design
 #### 3.1 Overview 
-> A summary of the architecture design -- highlights.  
+The architecture of CookPit is designed to address the aforementioned requirements and constraints while providing a scalable, maintainable, and secure platform for users to interact with. At its core, CookPit follows a layered architecture pattern, by using react. This promotes modularity, reusability, and flexibility within the system.
 
-#### 3.2 Runtime view (Tips: https://docs.arc42.org/section-6/)
+#### 3.2 Runtime View
+(TODO)
 
-#### 3.3 Deployment view (Tips: https://docs.arc42.org/section-7/)
+**Description:**
+The sequence diagram illustrates the interaction between various components during a typical user interaction with CookPit. It depicts the flow of control and data as a user performs actions such as browsing recipes, adding items to their shopping cart, and checking out.
 
-#### 3.4 ... ...
+#### 3.3 Deployment View
+(TODO)
+
+**Description:**
+The deployment diagram depicts the physical deployment of CookPit components across different servers and environments. It illustrates how the presentation layer, business logic layer, and data access layer are distributed and interconnected to form the complete system. Additionally, it highlights the use of load balancers, databases, and external services to ensure scalability, reliability, and performance.
+
+#### 3.4 Component Diagram
+(TODO)
+**Description:**
+The component diagram provides a high-level overview of the structural organization of CookPit components. It delineates the various modules and subsystems that constitute the application, along with their interconnections and dependencies. Key components such as user interface modules, business logic components, and data access layers are identified, showcasing the layered architecture of the system.
+
+#### 3.5 ... (Continue with other views as necessary)
 
