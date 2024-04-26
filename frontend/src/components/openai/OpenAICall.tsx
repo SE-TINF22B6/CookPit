@@ -107,9 +107,9 @@ export default function OpenAICall() {
                   setUserInput(event.target.value);
                 }}
                 onKeyDown={(event) => handleKeyPress(event.key)}
-                placeholder="Enter your ingredients"
+                placeholder="Zutaten hier eingeben"
               />
-              <button onClick={() => handleButtonClick()}>Add</button>
+              <button onClick={() => handleButtonClick()}>hinzufügen</button>
             </div>
             <div>
               <ul id="list">
@@ -124,7 +124,9 @@ export default function OpenAICall() {
               </ul>
             </div>
             <div id="create_recipe_wrapper">
-              <button onClick={() => handleClick(ingredients)}>create</button>
+              <button onClick={() => handleClick(ingredients)}>
+                Rezept erstellen
+              </button>
             </div>
           </div>
           <div id="right_half">
