@@ -107,9 +107,9 @@ export default function OpenAICall() {
                   setUserInput(event.target.value);
                 }}
                 onKeyDown={(event) => handleKeyPress(event.key)}
-                placeholder="Enter your ingredients"
+                placeholder="Zutaten hier eingeben"
               />
-              <button onClick={() => handleButtonClick()}>Add</button>
+              <button onClick={() => handleButtonClick()}>hinzufügen</button>
             </div>
             <div>
               <ul id="list">
@@ -124,11 +124,21 @@ export default function OpenAICall() {
               </ul>
             </div>
             <div id="create_recipe_wrapper">
-              <button onClick={() => handleClick(ingredients)}>create</button>
+              <button onClick={() => handleClick(ingredients)}>
+                Rezept erstellen
+              </button>
             </div>
           </div>
           <div id="right_half">
-            <div>{loading ? "Loading..." : retDiv}</div>
+            <div>
+              {loading ? (
+                <div id="test">
+                  <div className="spinner-border" role="status"></div>
+                </div>
+              ) : (
+                retDiv
+              )}
+            </div>
           </div>
           <button id="downloadPdf" onClick={() => downloadPdf(retPdf, pdfName)}>
             <svg
@@ -143,6 +153,16 @@ export default function OpenAICall() {
               <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z" />
             </svg>
           </button>
+          <div id="how_to_use" className="hover-text">
+            ?
+            <span id="tooltip">
+              Gebe zunächst all deine Zutaten einzeln in die Eingabe ein.
+              Anschließend klickst du auf "Rezept erstellen". Daraufhin wird
+              basierend auf deiner erstellten Zutatenliste ein Rezept für dich
+              erstellt. Über das Downloadsymbol kannst du dir das Rezept als
+              PDF-Datei abspeichern.
+            </span>
+          </div>
         </div>
       </div>
     </>
