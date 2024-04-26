@@ -157,8 +157,6 @@ input[type="checkbox"]:checked + #menu_label .hamburger_lines .line3 {
   font-size: 36px;
 }
 
-
-
 .utility_wrapper {
   display: flex;
   gap: 40px;
@@ -177,8 +175,8 @@ input[type="checkbox"]:checked + #menu_label .hamburger_lines .line3 {
   text-decoration: none;
 }
 
-#favourite_recipes:hover > img{
-  content:url('../../img/icon_heart_red.png');
+#favourite_recipes:hover > img {
+  content: url("../../img/icon_heart_red.png");
 }
 
 #login_btn {
