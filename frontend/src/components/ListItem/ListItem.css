@@ -1,7 +1,15 @@
 #text {
-  width: 200px;
-  padding-right: 20px;
+  width: 220px;
   overflow-wrap: break-word;
+}
+
+#list_item_wrapper button {
+  border: none;
+  background: none;
+}
+
+#list_item_wrapper button:hover {
+  font-weight: 600;
 }
 
 #list_item_wrapper:first-child {

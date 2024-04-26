@@ -30,7 +30,7 @@
 
 #input_wrapper input {
   height: 49px;
-  width: calc(75% - 40px);
+  width: 75%;
   padding: 0;
   border: none;
   outline: none;
@@ -82,4 +82,6 @@
   position: absolute;
   top: 12px;
   right: 12px;
+  border: none;
+  background: none;
 }

@@ -13,7 +13,7 @@ export default function OpenAICall() {
 
   function handleKeyPress(event: string) {
     if (event === "Enter") {
-      if (getUserInput) {
+      if (getUserInput && getUserInput.length > 1) {
         setIngredients([...ingredients, getUserInput]);
         setUserInput("");
       }
@@ -21,7 +21,7 @@ export default function OpenAICall() {
   }
 
   function handleButtonClick() {
-    if (getUserInput) {
+    if (getUserInput && getUserInput.length > 1) {
       setIngredients([...ingredients, getUserInput]);
       setUserInput("");
     }
@@ -50,7 +50,7 @@ export default function OpenAICall() {
         });
         const responseData = await response.json(); // Parse response body as JSON
         console.log(responseData); // Server response
-        setRetPdf(responseData.result)
+        setRetPdf(responseData.result);
         const formattedText = responseData.result
           .split("\n")
           .map(
@@ -77,7 +77,6 @@ export default function OpenAICall() {
           );
         setRetDiv(formattedText);
         setPdfName(formattedText[0].props.children[0]);
-
       } catch (error) {
         console.error("Error sending data:", error);
       }
@@ -87,11 +86,13 @@ export default function OpenAICall() {
 
   const doc = new jsPDF();
   const maxWidth = 160;
-  const downloadPdf = (text:string, name:string) => {
-    const splitText = doc.splitTextToSize(text, maxWidth);
-    doc.text(splitText, 10, 10);
-    doc.save(name+".pdf");
-  }
+  const downloadPdf = (text: string, name: string) => {
+    if (text != "") {
+      const splitText = doc.splitTextToSize(text, maxWidth);
+      doc.text(splitText, 10, 10);
+      doc.save(name + ".pdf");
+    }
+  };
 
   return (
     <>
@@ -130,10 +131,17 @@ export default function OpenAICall() {
             <div>{loading ? "Loading..." : retDiv}</div>
           </div>
           <button id="downloadPdf" onClick={() => downloadPdf(retPdf, pdfName)}>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-download" viewBox="0 0 16 16">
-            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
-            <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
-          </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="currentColor"
+              className="bi bi-download"
+              viewBox="0 0 16 16"
+            >
+              <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5" />
+              <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z" />
+            </svg>
           </button>
         </div>
       </div>
