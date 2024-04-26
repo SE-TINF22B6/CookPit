@@ -82,32 +82,42 @@ export default function Body() {
         </div>
       </div>
 
-      <div id="display_recipes_outer_wrapper">
-        <button onClick={handleLeftArrowClick} className="arrow" id="arrleft">
-          <div id="inner_left_arrow"></div>
-        </button>
-
-        <div id="display_recipes_wrapper">
-          <AliceCarousel
-            mouseTracking
-            items={items}
-            autoPlay
-            autoPlayInterval={4000}
-            disableDotsControls
-            disableButtonsControls
-            infinite
-            responsive={{
-              0: { items: 1 },
-              768: { items: 3 },
-            }}
-            paddingLeft={17}
-            ref={carouselRef}
-          />
+      <div id="display_recipes_outer_outer_wrapper">
+        <div id="h_wrapper">
+          <h3>Unsere Empfehlungen</h3>
         </div>
+        <div id="display_recipes_outer_wrapper">
+          <button onClick={handleLeftArrowClick} className="arrow" id="arrleft">
+            <div id="inner_left_arrow"></div>
+          </button>
 
-        <button onClick={handleRightArrowClick} className="arrow" id="arrright">
-          <div id="inner_right_arrow"></div>
-        </button>
+          <div id="display_recipes_wrapper">
+            <AliceCarousel
+              mouseTracking
+              items={items}
+              autoPlay
+              autoPlayInterval={4000}
+              disableDotsControls
+              disableButtonsControls
+              infinite
+              responsive={{
+                0: { items: 1 },
+                768: { items: 3 },
+              }}
+              paddingLeft={17}
+              paddingRight={0}
+              ref={carouselRef}
+            />
+          </div>
+
+          <button
+            onClick={handleRightArrowClick}
+            className="arrow"
+            id="arrright"
+          >
+            <div id="inner_right_arrow"></div>
+          </button>
+        </div>
       </div>
     </div>
   );
