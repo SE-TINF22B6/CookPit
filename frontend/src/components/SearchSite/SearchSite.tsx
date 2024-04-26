@@ -1,18 +1,66 @@
-import React, { useState } from "react";
 import "../SearchSite/SearchSite.css";
-import icon_search from "../SearchSite/baseline_search_black_24dp.png";
 import left from "../../img/Pfannkuchen.png";
 import middle from "../../img/Donut.png";
 import right from "../../img/Schokokuchen.png";
-import { VscChevronLeft } from "react-icons/vsc";
-import { VscChevronRight } from "react-icons/vsc";
 import DisplayRecipe from "../DisplayRecipe/DisplayRecipe";
+import "bootstrap/dist/css/bootstrap.min.css";
+import AliceCarousel, { Link } from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
+import { MouseEvent, useRef } from "react";
 
 export default function Body() {
-  function setLanguage(language: HTMLElement) {
-    const activeLanguage = document.getElementById("language_selection");
-    activeLanguage!.innerText = language.innerText;
-  }
+  const items = [
+    <DisplayRecipe
+      img={left}
+      title={"Pfannkuchen mit Obst"}
+      rating={4}
+      time={5}
+    />,
+    <DisplayRecipe
+      img={middle}
+      title={"Streuseldonuts"}
+      rating={4}
+      time={63}
+    />,
+    <DisplayRecipe
+      img={right}
+      title={"Schokoladenkuchen"}
+      rating={3}
+      time={16}
+    />,
+    <DisplayRecipe
+      img={left}
+      title={"2Pfannkuchen mit Obst"}
+      rating={4}
+      time={5}
+    />,
+    <DisplayRecipe
+      img={middle}
+      title={"2Streuseldonuts"}
+      rating={4}
+      time={63}
+    />,
+    <DisplayRecipe
+      img={right}
+      title={"2Schokoladenkuchen"}
+      rating={3}
+      time={16}
+    />,
+  ];
+
+  const carouselRef = useRef<AliceCarousel>(null);
+
+  const handleLeftArrowClick = () => {
+    if (carouselRef.current) {
+      carouselRef.current.slidePrev();
+    }
+  };
+
+  const handleRightArrowClick = () => {
+    if (carouselRef.current) {
+      carouselRef.current.slideNext();
+    }
+  };
 
   return (
     <div id="wrapper">
@@ -35,27 +83,29 @@ export default function Body() {
       </div>
 
       <div id="display_recipes_outer_wrapper">
-        <button className="arrow" id="arrleft">
+        <button onClick={handleLeftArrowClick} className="arrow" id="arrleft">
           <div id="inner_left_arrow"></div>
         </button>
 
         <div id="display_recipes_wrapper">
-          <DisplayRecipe
-            img={left}
-            title={"Pfannkuchen mit Obst"}
-            rating={4}
-            time={5}
-          />
-          <DisplayRecipe img={middle} title={"Donuts"} rating={4} time={63} />
-          <DisplayRecipe
-            img={right}
-            title={"Schokoladenkuchen"}
-            rating={3}
-            time={16}
+          <AliceCarousel
+            mouseTracking
+            items={items}
+            autoPlay
+            autoPlayInterval={4000}
+            disableDotsControls
+            disableButtonsControls
+            infinite
+            responsive={{
+              0: { items: 1 },
+              768: { items: 3 },
+            }}
+            paddingLeft={17}
+            ref={carouselRef}
           />
         </div>
 
-        <button className="arrow" id="arrright">
+        <button onClick={handleRightArrowClick} className="arrow" id="arrright">
           <div id="inner_right_arrow"></div>
         </button>
       </div>
