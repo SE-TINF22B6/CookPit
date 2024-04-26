@@ -78,6 +78,13 @@
   overflow-y: scroll;
 }
 
+#test {
+  height: calc(500px - 26px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #downloadPdf {
   position: absolute;
   top: 12px;

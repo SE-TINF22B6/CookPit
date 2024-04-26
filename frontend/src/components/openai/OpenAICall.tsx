@@ -128,7 +128,15 @@ export default function OpenAICall() {
             </div>
           </div>
           <div id="right_half">
-            <div>{loading ? "Loading..." : retDiv}</div>
+            <div>
+              {loading ? (
+                <div id="test">
+                  <div className="spinner-border" role="status"></div>
+                </div>
+              ) : (
+                retDiv
+              )}
+            </div>
           </div>
           <button id="downloadPdf" onClick={() => downloadPdf(retPdf, pdfName)}>
             <svg
