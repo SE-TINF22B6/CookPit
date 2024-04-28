@@ -19,3 +19,7 @@ The daily will be based on regular communication on Discord. <br>
 Frontend - Boostsrap and React.js <br>
 Backend - Node.js and OpenAI api <br>
 Database - PostgreSQL
+
+# SRS
+
+You can check our software requirement specification [here](https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/srs.md)
