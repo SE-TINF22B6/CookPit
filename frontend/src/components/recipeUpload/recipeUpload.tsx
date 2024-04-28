@@ -69,6 +69,33 @@ export default function Body(){
           <input type="text" id="headingTop" name="headingTop" />
         </div>
 
+       
+        <div className='recipeInfo'>
+        <div className="form-groupCategory">
+          <label htmlFor="headingTop">Category</label>
+          <input type="text" id="headingTop" name="headingTop" />
+        </div>
+        <div className="form-groupTimeEffort">
+          <label htmlFor="headingTop">Time effort</label>
+          <input type="text" id="headingTop" name="headingTop" />
+        </div>
+        <div className="rating">
+            <input value="5" name="rate" id="star5" type="radio"/>
+            <label title="text" htmlFor="star5"></label>
+            <input value="4" name="rate" id="star4" type="radio"/>
+            <label title="text" htmlFor="star4"></label>
+            <input value="3" name="rate" id="star3" type="radio"/>
+            <label title="text" htmlFor="star3"></label>
+            <input value="2" name="rate" id="star2" type="radio"/>
+            <label title="text" htmlFor="star2"></label>
+            <input value="1" name="rate" id="star1" type="radio"/>
+            <label title="text" htmlFor="star1"></label>
+        </div>
+        
+        </div>
+
+
+        
        {/* <div id="heading" >
               <input type="text"/>
               <span>Heading</span>
@@ -139,14 +166,41 @@ export default function Body(){
         </th>
          
     </table> 
-  <label className='uploadImageLabel' htmlFor="input-file">Upload Image</label> */}
+    <label className='uploadImageLabel' htmlFor="input-file">Upload Image</label> */}
    <div id='blocker1'></div>
    <div id='blocker1'></div>
    <div id='blocker1'></div>
-    <div>
+
+
+   <div className="form-groupIngredient">
+          <label htmlFor="ingredientInput">Ingredients</label>
+          <input type="text" id="ingredientInput" name="ingredientInput" />
+          <label htmlFor='ingredientInput'>1</label>
+          <input type="text" id="ingredientInput" name="ingredientInput" />
+          <label htmlFor='ingredientInput'>2</label>
+          <input type="text" id="ingredientInput" name="ingredientInput" />
+          <label htmlFor='ingredientInput'>3</label>
+          <input type="text" id="ingredientInput" name="ingredientInput" />
+          <label htmlFor='ingredientInput'>4</label>
+          <input type="text" id="ingredientInput" name="ingredientInput" />
+          <label htmlFor='ingredientInput'>5</label>
+          <input type="text" id="ingredientInput" name="ingredientInput" />
+          <label htmlFor='ingredientInput'>6</label>
+          <input type="text" id="ingredientInput" name="ingredientInput" />
+          <label htmlFor='ingredientInput'>7</label>
+          <input type="text" id="ingredientInput" name="ingredientInput" />
+          <label htmlFor='ingredientInput'>8</label>
+          <input type="text" id="ingredientInput" name="ingredientInput" />
+          <label htmlFor='ingredientInput'>9</label>
+          <input type="text" id="ingredientInput" name="ingredientInput" />
+          <label htmlFor='ingredientInput'>10</label>
+
+        </div>
+    {/*<div>
       <table>
         <thead>
           <tr>
+            
             <th>Ingredient</th>
             <th className='tabelspace'></th>
             <th className='tabelspace'></th>
@@ -218,9 +272,9 @@ export default function Body(){
         </tbody>
       </table>
       </div>
-    <button className='addOneMoreIngredient' onClick={addIngredientField}>Add Ingredient</button>
-    <div id='blocker1'></div>
-    <div id='blocker1'></div>
+    <button className='addOneMoreIngredient' onClick={addIngredientField}>Add Ingredient</button>*/}
+        <div id='blocker1'></div>
+        <div id='blocker1'></div>
 
         <div className='discription'><textarea>Discription</textarea>
         <span className='discriptionSpan'>Discription</span>
@@ -228,10 +282,8 @@ export default function Body(){
 
         
         <button className='addOneMoreIngredient' onClick={addIngredientField}>Add Ingredient</button>
-        <div id='blocker1'></div>
-        <div id='blocker1'></div>
-        <div id='blocker1'></div>
-        <div id='blocker1'></div>
+       
+      
     </div> 
     </div>
 </body>
