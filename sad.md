@@ -35,19 +35,47 @@
 
 ### 3. Architecture Design
 #### 3.1 Overview 
-The architecture of CookPit is designed to address the aforementioned requirements and constraints while providing a scalable, maintainable, and secure platform for users to interact with. At its core, CookPit follows a layered architecture pattern, by using react. This promotes modularity, reusability, and flexibility within the system.
 
-#### 3.2 Runtime View
-(TODO)
+The architecture of CookPit is meticulously crafted to cater to the aforementioned requirements and constraints, all the while providing users with a scalable, maintainable, and secure platform for seamless interactions. At its nucleus, CookPit adheres to a layered architecture pattern, leveraging the power of React. This strategic choice champions modularity, reusability, and adaptability within the system.
+
+By embracing React as its cornerstone for the user interface, CookPit achieves a pristine separation of concerns between presentation and logic. This not only streamlines development and maintenance efforts but also empowers developers to create and reuse individual components with utmost efficiency.
+
+Moreover, the stratified architecture of CookPit fosters enhanced scalability. With its clear segregation into distinct layers, resources are optimally utilized, mitigating bottlenecks even amidst burgeoning user traffic. This becomes paramount in ensuring smooth performance, especially as the user base expands.
+
+The modular design, facilitated by the layered pattern and utilization of React, equips CookPit to swiftly adapt to changes and novel requirements. New features seamlessly integrate into the existing framework, allowing for agile responsiveness to evolving demands.
+
+
+#### 3.2 Runtime View Diagramm
+
+![image](https://github.com/SE-TINF22B6/CookPit/assets/123726577/07451297-575a-4e16-adb3-50cd5f44ffca)
+
+
 
 **Description:**
-The sequence diagram illustrates the interaction between various components during a typical user interaction with CookPit. It depicts the flow of control and data as a user performs actions such as browsing recipes, adding items to their shopping cart, and checking out.
+The  diagram illustrates the interaction between various components during a typical user interaction with CookPit. It depicts the flow of control and data as a user performs actions such as browsing on the website.
+
+1.  State management components: These components are responsible for managing the state of the user interface. They can be Redux Store or other state management solutions, for example.
+
+2.  Data Fetching Components: These components are responsible for retrieving data from the API endpoints and can process GraphQL queries, for example.
+
+3.  Database: Here, the database is represented as a separate entity to emphasize the separation of backend services and the database.
+
+4.  Backend Logic: This layer represents the logic that the backend services implement in order to execute the system's business logic.
 
 #### 3.3 Deployment View
-(TODO)
+![image](https://github.com/SE-TINF22B6/CookPit/assets/123726577/79729fa3-0d7c-42da-9488-065f1166f531)
+
 
 **Description:**
-The deployment diagram depicts the physical deployment of CookPit components across different servers and environments. It illustrates how the presentation layer, business logic layer, and data access layer are distributed and interconnected to form the complete system. Additionally, it highlights the use of load balancers, databases, and external services to ensure scalability, reliability, and performance.
+The deployment diagram depicts the physical deployment of CookPit components across different servers and environments. It illustrates how the  layerers and data access layer are distributed and interconnected to form the complete system.
+
+1.  Internet: The entry point for user requests.
+2.  Load balancer: Distributes the incoming data traffic evenly across the web servers in order to distribute the load and improve reliability.
+3.  Firewall: Additional security measures to protect against cyber attacks
+4.  Web server: Receives user requests and forwards them to the application server cluster.
+5.  Application Server Cluster: Consists of multiple nodes that host the Cookpit application and execute the business logic. These nodes are organised in a cluster to ensure scalability and reliability.
+6.  Service nodes: Each node in the cluster hosts specific services provided by Cookpit.
+
 
 #### 3.4 Component Diagram
 (TODO)
