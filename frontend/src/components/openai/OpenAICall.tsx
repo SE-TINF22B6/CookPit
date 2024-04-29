@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./OpenAI.css";
 import ListItem from "./../ListItem/ListItem";
 import jsPDF from "jspdf";
+import axios from "axios";
 
 export default function OpenAICall() {
   const [getUserInput, setUserInput] = useState("");
@@ -10,6 +11,9 @@ export default function OpenAICall() {
   const [retDiv, setRetDiv] = useState("");
   const [retPdf, setRetPdf] = useState("");
   const [pdfName, setPdfName] = useState("");
+  const [results, setResults] = useState<
+    { text: string; isIngredient: boolean }[]
+  >([]);
 
   function handleKeyPress(event: string) {
     if (event === "Enter") {

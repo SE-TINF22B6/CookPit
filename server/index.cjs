@@ -11,7 +11,7 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 
 app.post("/recipe-maker", async (req, res) => {
-  console.log("Empfangene Daten:", req.body);
+  console.log("[openai] Empfangene Daten:", req.body);
   try {
     const importedModule = await import("./openai-test.mjs");
     const { callOpenAIapi } = importedModule;

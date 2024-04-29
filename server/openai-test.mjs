@@ -8,7 +8,9 @@ async function callOpenAIapi(userInput, key) {
   const input =
     "Erstelle mir ein Rezept aus den folgenden Zutaten: " +
     userInput.message +
-    " Schreibe einen Namen für das Rezept (ohne 'Name des Rezepts' davor zu schreiben), die Zutatenliste inklusive der Mengenangaben sowie die einzelnen Schritte jeweils in eine neue Zeile.";
+    ` Schreibe einen Namen für das Rezept (ohne 'Name des Rezepts' davor zu schreiben), 
+    die Zutatenliste inklusive der Mengenangaben sowie die einzelnen Schritte jeweils in eine neue Zeile.
+    Wenn ein Wort in den Zutaten kein Lebensmittel sein sollte, entferne es aus dem Rezept.`;
   const completion = await openai.chat.completions.create({
     messages: [
       {
