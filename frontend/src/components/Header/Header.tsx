@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../Header/Header.css";
 import icon_heart_black from "../../img/icon_heart_black.png";
 import { Link } from "react-router-dom";
@@ -9,16 +9,11 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
-  function setLanguage(language: HTMLElement) {
-    const activeLanguage = document.getElementById("language_selection");
-    activeLanguage!.innerText = language.innerText;
-  }
-
   return (
     <header>
       <nav className="menu_btn_wrapper">
-        <input className="checkbox" type="checkbox" id="menu_checkbox" />
-        <label htmlFor="menu_checkbox" id="menu_label">
+        <input className="checkbox" type="checkbox" id="menu-checkbox" />
+        <label htmlFor="menu-checkbox" id="menu_label">
           <div className="hamburger_lines">
             <span className="line line1"></span>
             <span className="line line2"></span>

@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+  back-end:
+    build:
+      context: node
+    container_name: back-end
+    working_dir: /home/web/CookPit
+    networks:
+      - node-network
+    volumes:
+      - ./node:/home/web/CookPit
+      - /home/web/CookPit/node_modules
+    tty: true
+    ports:
+      - "3001:3001"
+    command: npm  start
+
+  front-end:
+    build:
+      context: react
+    container_name: front-end
+    working_dir: /home/web/CookPit/frontend
+    networks:
+      - node-network
+    volumes:
+      - ./react:/home/web/CookPit/frontend
+      - /home/web/CookPit/frontend/node_modules
+    tty: true
+    ports:
+      - "3000:3000"
+    command: npm start
+
+networks:
+  node-network:
+    driver: bridge
