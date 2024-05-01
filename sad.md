@@ -82,7 +82,7 @@ The deployment diagram depicts the physical deployment of CookPit components acr
 
  ## Overview:
 The component diagram for the cooking website "Cookpit" illustrates its high-level architecture, showcasing the various components and their interactions. Cookpit is built using React for the frontend, utilizes a SQL database for data storage, and incorporates the ChatGPT API for recipe generation.
-![image][https://github.com/SE-TINF22B6/CookPit/assets/123726577/07451297-575a-4e16-adb3-50cd5f44ffca]
+![image](https://github.com/SE-TINF22B6/CookPit/assets/123726577/07451297-575a-4e16-adb3-50cd5f44ffca)
 ## Components
 1. **Client-Side Components**:
    - **User Interface Components**: React components responsible for rendering the website's interface, including features such as navigation bars, recipe cards, and search functionalities.
