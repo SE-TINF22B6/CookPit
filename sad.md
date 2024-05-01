@@ -84,13 +84,19 @@ The deployment diagram depicts the physical deployment of CookPit components acr
 The component diagram for the cooking website "Cookpit" illustrates its high-level architecture, showcasing the various components and their interactions. Cookpit is built using React for the frontend, utilizes a SQL database for data storage, and incorporates the ChatGPT API for recipe generation.
 ![image](https://github.com/SE-TINF22B6/CookPit/assets/123726577/07451297-575a-4e16-adb3-50cd5f44ffca)
 ## Components
-1. **Client-Side Components**:
-   - **User Interface Components**: React components responsible for rendering the website's interface, including features such as navigation bars, recipe cards, and search functionalities.
+1. **Frontend Components**:
+   - **User Interface Components**: React components responsible for rendering the website's interface, including features such as navigation bars, recipe cards, and search functionalities. The main features for the user are the SearchEngine for searching a recipe, the RecipeCreation to create an new recipe, the Favorites feature to safe recipes as favorites and the Authentication or the login to save the favorite recipes of a specific user.
 
 2. **Server-Side Components**:
-   - **Application Server**: Manages server-side logic, handling client requests, processing data, and interfacing with external APIs.
-   - **Database Server**: Hosts a SQL database storing essential data such as user profiles, recipes, and user-generated content.
-   - **ChatGPT API Integration**: Represents the integration with the ChatGPT API for generating recipes using AI.
+   - **Application Server**: The implemented API manages the requests made from the user and creates the connection to the actual OpenAI API which then works with the given data and sends a recipe with the requested ingredient back to our API for the user to be shown. 
+   - **User**: The Backend also handles the Authentication of users, to validate the users information and to provide all user specific data such as the own recipes and the favorites.
+   
+3. **OpenAI API**:
+   - **OpenAI API Integration**: Represents the integration with the ChatGPT API for generating recipes using AI.
+  
+4. **Database**:
+   -**Recipe**: The Database manages all recipes saved. This provides the function to search for a specific recipe or to show a user his own or favorits recipes in connection with the user validation.
+   -**User**: The Authentication is also using the Database to validate users and to release user specific data. 
 
 ## Communication Channels
 1. **Client-Server Communication**:
