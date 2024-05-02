@@ -10,6 +10,8 @@
 ### 3. Test Plan
 > This section outlines the specific testing tasks, timelines, and resources required to achieve the testing objectives.
 
+![Rough Test File](https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/Test%20Plan.md)
+
 ### 4. Test Cases
 > This section details the specific test cases that were executed, including their pass/fail status and any defects found during testing. (You may link to the repository of your use cases.)
 
