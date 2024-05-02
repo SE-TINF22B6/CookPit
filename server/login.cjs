@@ -2,9 +2,9 @@
     const sqlite3 = require('sqlite3').verbose();
     const database = require('./database.cjs');
 
-
     function loginserver (app) {
         const db = database();
+        const dbcreate = dbcrete();
         let username;
         let password;
         // Registrieren

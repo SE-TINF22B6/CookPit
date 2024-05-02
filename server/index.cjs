@@ -26,6 +26,7 @@ app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
 
+//Database init
 const database = require ('./database.cjs')
 database(app);
 

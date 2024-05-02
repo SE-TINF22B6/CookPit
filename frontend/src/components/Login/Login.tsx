@@ -38,12 +38,16 @@ function Login(){
   };
 
   let ueberschrift;
+  let ueberschrift2;
   let clickevent;
   if (isToggled === false) {
     ueberschrift = "Login";
+    ueberschrift2 = "Registrieren"
     clickevent = loginuser;
+    
   } else {
     ueberschrift = "Registrieren";
+    ueberschrift2= "Login"
     clickevent = registeruser;
   }
 
@@ -61,7 +65,7 @@ function Login(){
           </div> 
           <div className="labels-container">
             <label onClick={handleToggle}>
-              Registrieren
+              {ueberschrift2}
             </label>
             <label> Passwort vergessen? </label>
           </div>
