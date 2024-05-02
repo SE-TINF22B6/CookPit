@@ -8,9 +8,17 @@
 > This section describes the overall approach to testing, including the testing methodology, testing types, and testing techniques used. Highlight which automatic testing tools/frameworks are used for your project. 
 
 ### 3. Test Plan
-> This section outlines the specific testing tasks, timelines, and resources required to achieve the testing objectives.
+**Which type of tests do you plan to run?**
+> - unit tests
+> - integration tests
+> - validation tests
 
-![Rough Test File](https://github.com/SE-TINF22B6/CookPit/blob/main/Docs/Test%20Plan.md)
+**Which automatic testing tool(s) are you going to use?**
+> - Github Actions
+
+**How to manage your test cases? Can you trace which test cases are**
+passed/failed based on which version of your source code/deployment?
+> - yes
 
 ### 4. Test Cases
 > This section details the specific test cases that were executed, including their pass/fail status and any defects found during testing. (You may link to the repository of your use cases.)
