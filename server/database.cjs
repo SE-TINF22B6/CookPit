@@ -3,32 +3,26 @@ const sqlite3 = require('sqlite3').verbose();
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
 const jwtkey = crypto.randomBytes(32).toString('hex');
-console.log(jwtkey);
+const dbcreate = require('./Database/db-create.cjs');
 
 
 function Database(app) {
 
+    //init database
     const db = new sqlite3.Database('./account.db', sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, (err) => {
         if (err) {
             console.error("Fehler beim Öffnen der Datenbank: " + err.message);
         } else {
             console.log("Datenbank erfolgreich geöffnet.");
-            //createTables();
+            dbcreate();
         }
       });
 
+    //function for hasing passwords
     function hashPassword(password) {
         const hash = crypto.createHash('sha256');
         hash.update(password);
         return hash.digest('hex'); // Rückgabe des gehashten Passworts als Hexadezimalzeichenfolge
-    }
-
-    function createTables() {
-        db.run(`CREATE TABLE Image (
-            id_image INTEGER PRIMARY KEY AUTOINCREMENT, -- Unique identifier for an image
-            file_location TEXT, -- Path or URL of the image file
-            name TEXT -- Name of the image
-        )`);
     }
 
     // Register in DB
@@ -86,4 +80,4 @@ function Database(app) {
         };
 }
 
-module.exports = Database;
+module.exports = Database, Database.db, sqlite3;

@@ -1,3 +1,8 @@
+const database = require("../database.cjs")
+let db = database.db
+const sqlite3 = require('sqlite3').verbose();
+
+
 function dbcreate(){
 
     // Table to store images
