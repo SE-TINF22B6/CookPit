@@ -3,22 +3,26 @@
 
 ### 1. Introduction
 > This section provides an overview of the software testing process and the scope of the testing activities.
+> The software testing process is crucial for quality assurance and meeting requirements. It involves planning, execution, and verification of tests to ensure that the software is error-free and meets expectations. This process includes various types of tests such as functional, non-functional, integration, and system tests, as well as regression tests. The goal is to identify and fix potential issues early on to ensure reliable and user-friendly software. We would like to implement background tests that are carried out in certain time cycles or manually to check the functionality of our website.
 > 
 ### 2. Test Strategy
-> This section describes the overall approach to testing, including the testing methodology, testing types, and testing techniques used. Highlight which automatic testing tools/frameworks are used for your project. 
+> In our project, we adopt a comprehensive approach to testing, encompassing various methodologies, types, and techniques to ensure the robustness and reliability of our software. We want to work with a cyclical testing methodology that integrates testing into the entire development cycle. This ensures that potential problems are recognised and resolved at an early stage, leading to smoother development and higher quality results.
 
 ### 3. Test Plan
 **Which type of tests do you plan to run?**
-> - unit tests
-> - integration tests
-> - validation tests
+> - Unit Testing (React Components): Given that we utilize React for our frontend development, we prioritize unit testing of our components. For this purpose, we employ JUnit, a widely-used testing framework, to rigorously test the functionality and behavior of individual components.
+> - Integration Testing: In addition to unit testing, we conduct integration testing to validate the interaction and collaboration between various components of our software system. Integration tests ensure that individual components work seamlessly together as a unified system. We employ tools like Jest and Enzyme for integration testing of our React components, ensuring that they integrate correctly and function as expected within the broader application environment.
+> - Validation Testing: Validation testing is essential for verifying that our software meets the specified requirements and satisfies the needs of its stakeholders. This type of testing focuses on validating the behavior and performance of the software against the established criteria. For our project, we employ a combination of manual validation testing and automated validation scripts to ensure that the software delivers the intended functionality and adheres to user expectations.
+> -  Backend Testing (GitHub Actions): To ensure the stability and functionality of our backend systems, we implement automated backend testing using GitHub Actions. This allows us to seamlessly integrate testing into our continuous integration and deployment pipeline, ensuring that any changes to the backend code are thoroughly tested before deployment.
+> -  OpenAI API Testing: Additionally, we conduct thorough testing of our integration with the OpenAI API. This involves validating that the API functions as expected and delivers the intended results. We assess various scenarios, including input validation and output accuracy, to ensure that our integration meets our requirements and delivers a seamless user experience.
 
 **Which automatic testing tool(s) are you going to use?**
-> - Github Actions
+> - For our tetsings we want to implement Github Actions, which will automatically test our code after release. we also want to run the test even if a running version of our website is already online.
+> - JUnit for testing Java programmes
 
 **How to manage your test cases? Can you trace which test cases are**
 passed/failed based on which version of your source code/deployment?
-> - yes
+> - In our project, test cases are organized by functionality. Each test case is documented with objectives, steps, and expected results. We use version control for changes and prioritize tests based on criticality. Traceability links to requirements ensure comprehensive coverage. Test results are recorded systematically for generating insightful reports. These practices ensure efficient testing and high-quality software delivery.
 
 ### 4. Test Cases
 > This section details the specific test cases that were executed, including their pass/fail status and any defects found during testing. (You may link to the repository of your use cases.)
