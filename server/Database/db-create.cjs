@@ -1,9 +1,16 @@
 const database = require("../database.cjs")
-let db = database.db
 const sqlite3 = require('sqlite3').verbose();
 
 
 function dbcreate(){
+
+    const db = new sqlite3.Database('./account.db', sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, (err) => {
+        if (err) {
+            console.error("Fehler beim Öffnen der Datenbank: " + err.message);
+        } else {
+            console.log("Datenbank erfolgreich geöffnet.");
+        }
+      });
 
     // Table to store images
     db.run(`CREATE TABLE Image (

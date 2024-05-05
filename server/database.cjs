@@ -3,7 +3,7 @@ const sqlite3 = require('sqlite3').verbose();
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
 const jwtkey = crypto.randomBytes(32).toString('hex');
-const dbcreate = require('./Database/db-create.cjs');
+
 
 
 function Database(app) {
@@ -14,7 +14,6 @@ function Database(app) {
             console.error("Fehler beim Öffnen der Datenbank: " + err.message);
         } else {
             console.log("Datenbank erfolgreich geöffnet.");
-            dbcreate();
         }
       });
 
@@ -50,7 +49,8 @@ function Database(app) {
             }
         });
     }
-
+    let user = ""
+    let userstate = false;
     // Login
     app.post("/login", (req, res) => {
         let username = req.body.username;
@@ -71,6 +71,8 @@ function Database(app) {
                         const token = jwt.sign({ username: username }, jwtkey, {expiresIn: "24h"} );
                         res.send({ loginmessage: "Erfolgreich eingeloggt" });
                         console.log('User "' + username + '" eingeloggt');
+                        user=username;
+                        userstate=true;
                     } else {
                         res.send({ loginmessage: "Der Nutzername stimmt nicht mit dem Passwort überein" });
                         console.log('User "' + username + '" existiert nicht');
@@ -78,6 +80,13 @@ function Database(app) {
                 }
             );
         };
+    app.post("/getlogin", (req, res) => {
+        if(userstate=true){
+            res.send({loginmessage: user})
+        } else {
+            res.send({loginmessage: ""})
+        }
+        })
 }
 
-module.exports = Database, Database.db, sqlite3;
+module.exports = Database;

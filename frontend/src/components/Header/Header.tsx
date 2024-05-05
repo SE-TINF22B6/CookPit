@@ -1,17 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../Header/Header.css';
 import icon_heart_black from '../../img/icon_heart_black.png';
 import { Link } from 'react-router-dom';
 import CustomLink from '../CustomLink/CustomLink';
+import Axios from 'axios';
+import { response } from 'express';
 
 interface HeaderProps {
-  onToggleLogin?: () => void;
+  onToggleLogin?: (toggleState: boolean) => void;
 }
 
 const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
+  useEffect(() => {
+      Axios.post("http://localhost:3001/getlogin", {})
+        .then((response) => {
+          console.log(response.data.loginmessage);
+          setUsername(response.data.loginmessage);
+        }) })
+
+
+
   function setLanguage(language: HTMLElement) {
     const activeLanguage = document.getElementById("language_selection");
     activeLanguage!.innerText = language.innerText;
+  }
+  const [penner, setpenner] = useState('');
+  const [username, setUsername] = useState('');
+  let userbutton;
+  if (username==='') {
+    userbutton="2222";
+  } else{
+    userbutton=username;
   }
 
   return (
@@ -56,8 +75,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
         <button id='favourite_recipes'>
           <img src={icon_heart_black} alt="favourite recipes" />
         </button>
-        <button id='login_btn' onClick={onToggleLogin}>Login</button>
-        
+        <button id='login_btn' onClick={() => onToggleLogin && onToggleLogin(false)}>{userbutton}{penner}</button>
         <div id="language_selection">EN</div>
         <div className="lang_wrapper">
           <div onClick={() => setLanguage(document.getElementById("lang_en")!)} id="lang_en">EN</div>
