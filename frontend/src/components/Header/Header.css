@@ -53,6 +53,24 @@ header {
   height: 100%;
 }
 
+@media only screen and (max-width: 1160px) {
+  #brand_name div {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 920px) {
+  .seperator {
+    margin: 0 10px;
+  }
+}
+
+@media only screen and (max-width: 860px) {
+  #brand_name div {
+    display: block;
+  }
+}
+
 .utility_wrapper {
   display: flex;
   gap: 40px;
