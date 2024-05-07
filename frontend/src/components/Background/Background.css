@@ -20,11 +20,11 @@
 
 .oval {
   background-color: var(--main-bg-color);
-  height: calc(100% - 80px);
+  height: calc(100% - 100px);
   width: 130px;
   border-top-left-radius: 200px;
   border-top-right-radius: 200px;
-  box-shadow: inset 0px 12px 5px -4px rgba(84, 84, 84, 0.23);
+  box-shadow: inset 0px 8px 5px -4px rgba(53, 53, 53, 0.37);
 }
 
 .oval:nth-child(2n) {
