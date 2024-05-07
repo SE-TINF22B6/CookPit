@@ -1,9 +1,11 @@
 header {
+  background-color: red;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  height: 120px;
+  height: 80px;
   padding: 0px 40px;
 
   font-family: Jomhuria;

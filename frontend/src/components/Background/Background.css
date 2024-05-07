@@ -3,23 +3,25 @@
   --sec-bg-color: #ff9595;
 }
 
-#root {
+#background_wrapper {
   height: 100%;
-}
+  width: 100%;
 
-#oval_wrapper {
-  display: flex;
-  position: fixed;
-  top: 120px;
   z-index: -1;
-  height: calc(100% - 120px);
-  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
 }
 
 .oval {
   background-color: var(--main-bg-color);
-  height: 100%;
-  width: 180px;
+  height: calc(100% - 80px);
+  width: 130px;
   border-top-left-radius: 200px;
   border-top-right-radius: 200px;
   box-shadow: inset 0px 12px 5px -4px rgba(84, 84, 84, 0.23);
@@ -27,4 +29,28 @@
 
 .oval:nth-child(2n) {
   background-color: var(--sec-bg-color);
+}
+
+@media only screen and (max-width: 401px) {
+  .oval {
+    width: 76px;
+  }
+}
+
+@media only screen and (min-width: 402px) and (max-width: 768px) {
+  .oval {
+    width: 100px;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .oval {
+    width: 110px;
+  }
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1440px) {
+  .oval {
+    width: 120px;
+  }
 }

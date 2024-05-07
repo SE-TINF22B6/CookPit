@@ -17,16 +17,15 @@ function Home() {
 
   return (
     <>
+      <Background />
 
-      <Background /> 
-
-      <Header onToggleLogin={toggleLoginVisibility} />
+      {/* <Header onToggleLogin={toggleLoginVisibility} />
       {loginVisible && <Login />}
       <Routes>
         <Route path="/" element={<SearchSite />} />
         <Route path="/recipe-maker" element={<OpenAI />} />
         <Route path="/upload-recipe" element={<RecipeUpload />} />
-      </Routes>
+      </Routes> */}
     </>
   );
 }
