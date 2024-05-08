@@ -80,13 +80,21 @@ function Database(app) {
                 }
             );
         };
-    app.post("/getlogin", (req, res) => {
+        let loginmessage;
+        app.post("/getlogin", (req, res) => {
         if(userstate=true){
-            res.send({loginmessage: user})
-        } else {
-            res.send({loginmessage: ""})
+            loginmessage = user;
+            res.send({loginmessage})
         }
         })
+
+        app.post("/logout", (req, res) => {
+            if(userstate=true){
+                loginmessage="";
+                res.send({loginmessage})
+                console.log("User ausgeloggt")
+            }
+            })
 }
 
 module.exports = Database;

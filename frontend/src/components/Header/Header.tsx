@@ -18,20 +18,38 @@ const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
           setUsername(response.data.loginmessage);
         }) })
 
-
-
   function setLanguage(language: HTMLElement) {
     const activeLanguage = document.getElementById("language_selection");
     activeLanguage!.innerText = language.innerText;
   }
-  const [penner, setpenner] = useState('');
+  const logout = () => {
+    Axios.post("http://localhost:3001/logout", {})
+        .then((response) => {
+            console.log(response.data.logoutmessage);
+            setUsername(response.data.logoutmessage);
+        })
+}
+
+
   const [username, setUsername] = useState('');
   let userbutton;
+  let Kontobutton;
   if (username==='') {
-    userbutton="2222";
+    userbutton="Login";
+    Kontobutton= <button id='login_btn' onClick={() => onToggleLogin && onToggleLogin(false)}>{userbutton}</button>
   } else{
     userbutton=username;
+    Kontobutton= <div className="dropdown">
+    <span>{username}</span>
+    <div className="dropdown-content">
+      <a href="#">Option 1</a>
+      <a href="#">Option 2</a>
+      <a href="#">Option 3</a>
+      <a href="#" onClick={logout} >Logout</a>
+    </div>
+  </div>
   }
+  
 
   return (
     <header>
@@ -75,7 +93,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
         <button id='favourite_recipes'>
           <img src={icon_heart_black} alt="favourite recipes" />
         </button>
-        <button id='login_btn' onClick={() => onToggleLogin && onToggleLogin(false)}>{userbutton}{penner}</button>
+        {Kontobutton}
         <div id="language_selection">EN</div>
         <div className="lang_wrapper">
           <div onClick={() => setLanguage(document.getElementById("lang_en")!)} id="lang_en">EN</div>
