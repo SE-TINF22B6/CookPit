@@ -32,7 +32,7 @@ header {
   display: block;
   height: 44px;
   width: 56px;
-  position: absolute;
+  position: fixed;
   top: 38px;
   left: 38px;
   z-index: 2;
@@ -88,9 +88,10 @@ input[type="checkbox"]:checked + #menu_label .hamburger_lines .line3 {
 }
 
 .menu_items {
+  z-index: 1;
   width: 360px;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: -360px;
   background: rgba(255, 255, 255, 0.8);
@@ -133,12 +134,12 @@ input[type="checkbox"]:checked + #menu_label .hamburger_lines .line3 {
 }
 
 .brand_name_wrapper {
+  position: absolute;
+  left: calc(50% - 116px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  height: 100%;
 }
 
 #brand_name {
@@ -155,8 +156,6 @@ input[type="checkbox"]:checked + #menu_label .hamburger_lines .line3 {
 
   font-size: 36px;
 }
-
-
 
 .utility_wrapper {
   display: flex;
@@ -176,8 +175,8 @@ input[type="checkbox"]:checked + #menu_label .hamburger_lines .line3 {
   text-decoration: none;
 }
 
-#favourite_recipes:hover > img{
-  content:url('../../img/icon_heart_red.png');
+#favourite_recipes:hover > img {
+  content: url("../../img/icon_heart_red.png");
 }
 
 #login_btn {

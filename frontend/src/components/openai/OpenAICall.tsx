@@ -1,16 +1,23 @@
 import React, { useState } from "react";
 import "./OpenAI.css";
 import ListItem from "./../ListItem/ListItem";
+import jsPDF from "jspdf";
+import axios from "axios";
 
 export default function OpenAICall() {
   const [getUserInput, setUserInput] = useState("");
   const [ingredients, setIngredients] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   const [retDiv, setRetDiv] = useState("");
+  const [retPdf, setRetPdf] = useState("");
+  const [pdfName, setPdfName] = useState("");
+  const [results, setResults] = useState<
+    { text: string; isIngredient: boolean }[]
+  >([]);
 
   function handleKeyPress(event: string) {
     if (event === "Enter") {
-      if (getUserInput) {
+      if (getUserInput && getUserInput.length > 1) {
         setIngredients([...ingredients, getUserInput]);
         setUserInput("");
       }
@@ -18,7 +25,7 @@ export default function OpenAICall() {
   }
 
   function handleButtonClick() {
-    if (getUserInput) {
+    if (getUserInput && getUserInput.length > 1) {
       setIngredients([...ingredients, getUserInput]);
       setUserInput("");
     }
@@ -47,7 +54,7 @@ export default function OpenAICall() {
         });
         const responseData = await response.json(); // Parse response body as JSON
         console.log(responseData); // Server response
-        // const formattedText = responseData.result.replace(/\n/g, "<br>");
+        setRetPdf(responseData.result);
         const formattedText = responseData.result
           .split("\n")
           .map(
@@ -73,10 +80,21 @@ export default function OpenAICall() {
             )
           );
         setRetDiv(formattedText);
+        setPdfName(formattedText[0].props.children[0]);
       } catch (error) {
         console.error("Error sending data:", error);
       }
       setLoading(false); // Stop loading
+    }
+  };
+
+  const doc = new jsPDF();
+  const maxWidth = 160;
+  const downloadPdf = (text: string, name: string) => {
+    if (text != "") {
+      const splitText = doc.splitTextToSize(text, maxWidth);
+      doc.text(splitText, 10, 10);
+      doc.save(name + ".pdf");
     }
   };
 
@@ -93,9 +111,9 @@ export default function OpenAICall() {
                   setUserInput(event.target.value);
                 }}
                 onKeyDown={(event) => handleKeyPress(event.key)}
-                placeholder="Enter your ingredients"
+                placeholder="Zutaten hier eingeben"
               />
-              <button onClick={() => handleButtonClick()}>Add</button>
+              <button onClick={() => handleButtonClick()}>hinzufügen</button>
             </div>
             <div>
               <ul id="list">
@@ -110,11 +128,44 @@ export default function OpenAICall() {
               </ul>
             </div>
             <div id="create_recipe_wrapper">
-              <button onClick={() => handleClick(ingredients)}>create</button>
+              <button onClick={() => handleClick(ingredients)}>
+                Rezept erstellen
+              </button>
             </div>
           </div>
           <div id="right_half">
-            <div>{loading ? "Loading..." : retDiv}</div>
+            <div>
+              {loading ? (
+                <div id="test">
+                  <div className="spinner-border" role="status"></div>
+                </div>
+              ) : (
+                retDiv
+              )}
+            </div>
+          </div>
+          <button id="downloadPdf" onClick={() => downloadPdf(retPdf, pdfName)}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="currentColor"
+              className="bi bi-download"
+              viewBox="0 0 16 16"
+            >
+              <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5" />
+              <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z" />
+            </svg>
+          </button>
+          <div id="how_to_use" className="hover-text">
+            ?
+            <span id="tooltip">
+              Gebe zunächst all deine Zutaten einzeln in die Eingabe ein.
+              Anschließend klickst du auf "Rezept erstellen". Daraufhin wird
+              basierend auf deiner erstellten Zutatenliste ein Rezept für dich
+              erstellt. Über das Downloadsymbol kannst du dir das Rezept als
+              PDF-Datei abspeichern.
+            </span>
           </div>
         </div>
       </div>
