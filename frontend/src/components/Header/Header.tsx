@@ -2,7 +2,6 @@ import React from "react";
 import "../Header/Header.css";
 import icon_heart_black from "../../img/icon_heart_black.png";
 import brand_logo from "../../img/chef-svgrepo-com.svg";
-import Menu from "../Menu/Menu";
 import { Link } from "react-router-dom";
 
 interface HeaderProps {
@@ -12,8 +11,6 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
   return (
     <header>
-      {/* <Menu /> */}
-
       <Link className="navigation" id="brand_name" to="/">
         <img src={brand_logo} alt="logo" />
         <div>CookPit</div>
