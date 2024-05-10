@@ -1,3 +1,9 @@
+@media only screen and (max-width: 800px) {
+  #list_item_wrapper {
+    max-width: 200px;
+  }
+}
+
 #text {
   width: 220px;
   overflow-wrap: break-word;

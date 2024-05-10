@@ -21,11 +21,12 @@ function Home() {
 
       <Header onToggleLogin={toggleLoginVisibility} />
       {loginVisible && <Login />}
-      {/* <Routes>
+      <Routes>
         <Route path="/" element={<SearchSite />} />
-        <Route path="/recipe-maker" element={<OpenAI />} />
-        <Route path="/upload-recipe" element={<RecipeUpload />} />
-      </Routes> */}
+        {/* <Route path="/rezept/alle" element={<??? />} /> */}
+        <Route path="/rezept/generator" element={<OpenAI />} />
+        <Route path="/rezept/hochladen" element={<RecipeUpload />} />
+      </Routes>
     </>
   );
 }

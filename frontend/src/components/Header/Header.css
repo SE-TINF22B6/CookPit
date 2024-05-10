@@ -65,9 +65,10 @@ header {
   }
 }
 
-@media only screen and (max-width: 860px) {
-  #brand_name div {
-    display: block;
+@media only screen and (max-width: 862px) {
+  header {
+    justify-content: space-between;
+    padding: 0 20px;
   }
 }
 
