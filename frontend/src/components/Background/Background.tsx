@@ -1,31 +1,46 @@
-import React, { useEffect, useState } from 'react'
-import '../Background/Background.css';
+import { useEffect } from "react";
+import "../Background/Background.css";
 
+export default function Background() {
+  useEffect(() => {
+    const handleResize = () => {
+      const winWidth = window.innerWidth;
+      const bgWrapper = document.getElementById("background_wrapper");
 
-export default function Background(){
+      //default width of pillar
+      let pillarWidth = 130;
 
-    function setLanguage(language:HTMLElement) {
-        const activeLanguage = document.getElementById("language_selection");
-        activeLanguage!.innerText = language.innerText;
+      if (winWidth <= 401) {
+        pillarWidth = 76;
+      } else if (winWidth <= 768) {
+        pillarWidth = 100;
+      } else if (winWidth <= 1024) {
+        pillarWidth = 110;
+      } else if (winWidth <= 1440) {
+        pillarWidth = 120;
       }
 
-     useEffect(() => {
-      let numOfPillar = Math.floor(window.innerWidth / 130);
-      const ovalWrapper = document.getElementById("oval_wrapper");
-      
-      // Clear existing divs
-      while (ovalWrapper?.firstChild) {
-        ovalWrapper.removeChild(ovalWrapper.firstChild);
+      let numOfPillar = Math.ceil(winWidth / pillarWidth);
+
+      while (bgWrapper?.firstChild) {
+        bgWrapper.removeChild(bgWrapper.firstChild);
       }
-  
+
       for (let index = 0; index < numOfPillar; index++) {
         const div = document.createElement("div");
         div.className = "oval";
-        ovalWrapper?.appendChild(div);
+        bgWrapper?.appendChild(div);
       }
-    }, []);
+    };
 
+    handleResize();
 
-  return (
-    <div id="oval_wrapper"></div>
-  )}
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  return <div id="background_wrapper"></div>;
+}

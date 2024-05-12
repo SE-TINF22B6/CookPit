@@ -2,11 +2,42 @@
   --main-border-color: #ccc;
 }
 
+@media only screen and (max-width: 862px) {
+  #inner_wrapper {
+    max-width: 800px;
+    min-width: 200px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  #right_half {
+    max-width: 500px;
+    min-width: 60px;
+  }
+
+  #input_wrapper {
+    flex-direction: column;
+  }
+
+  #input_wrapper button {
+    min-width: 100%;
+  }
+
+  #input_wrapper input {
+    min-width: 100%;
+  }
+
+  #list {
+    max-height: calc(400px - 49px);
+  }
+}
+
 #outer_wrapper {
   height: calc(100vh - 120px);
   display: flex;
   justify-content: center;
   align-items: center;
+  /* overflow-x: hidden; */
 }
 
 #inner_wrapper {
@@ -108,7 +139,7 @@
   visibility: hidden;
   position: absolute;
   z-index: 1;
-  width: 500px;
+  max-width: 500px;
   color: white;
   font-size: 14px;
   text-align: start;
@@ -117,8 +148,8 @@
   padding: 10px 15px 8px 15px;
   margin-left: 4px;
   /* zum verändern der Position */
-  top: -10px;
-  left: 30px;
+  top: 35px;
+  left: -450px;
 }
 
 #downloadPdf {
