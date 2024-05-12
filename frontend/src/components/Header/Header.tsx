@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "../Header/Header.css";
-import icon_heart_black from "../../img/icon_heart_black.png";
 import brand_logo from "../../img/chef-svgrepo-com.svg";
 import { Link } from "react-router-dom";
 import Drawer from "../Drawer/Drawer";
@@ -41,22 +40,13 @@ const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
             Rezept hochladen
           </Link>
           <div className="seperator">.</div>
-          <Link className="navigation" to="/konto">
-            Konto
-          </Link>
+          <button className="navigation" id="login_btn" onClick={onToggleLogin}>
+            Login
+          </button>
         </div>
       ) : (
-        <Drawer />
+        <Drawer onToggleLogin={onToggleLogin} />
       )}
-
-      {/* <div className="utility_wrapper">
-        <button id="favourite_recipes">
-          <img src={icon_heart_black} alt="favourite recipes" />
-        </button>
-        <button id="login_btn" onClick={onToggleLogin}>
-          Login
-        </button>
-      </div> */}
     </header>
   );
 };
