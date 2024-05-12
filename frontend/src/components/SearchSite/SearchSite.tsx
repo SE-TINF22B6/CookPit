@@ -102,9 +102,10 @@ export default function Body() {
               infinite
               responsive={{
                 0: { items: 1 },
-                768: { items: 3 },
+                796: { items: 2 },
+                1079: { items: 3 },
               }}
-              paddingLeft={17}
+              paddingLeft={16}
               paddingRight={0}
               ref={carouselRef}
             />

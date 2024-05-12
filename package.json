@@ -22,5 +22,8 @@
     "react-router-dom": "^6.17.0",
     "spacy": "^0.0.4",
     "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.24.1"
   }
 }
