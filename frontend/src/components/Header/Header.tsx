@@ -11,43 +11,61 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
-  useEffect(() => {
-      Axios.post("http://localhost:3001/getlogin", {})
-        .then((response) => {
-          console.log(response.data.loginmessage);
-          setUsername(response.data.loginmessage);
-        }) })
+  const [username, setUsername] = useState('');
+  
 
-  function setLanguage(language: HTMLElement) {
-    const activeLanguage = document.getElementById("language_selection");
-    activeLanguage!.innerText = language.innerText;
-  }
+  const getlogin = () => {
+    Axios.post("http://localhost:3001/getlogin", {})
+      .then((response) => {
+        console.log(response.data.loginmessage);
+        setUsername(response.data.loginmessage);
+      })
+      .catch((error) => {
+        console.error('Error while fetching login data:', error);
+      });
+  };
+
   const logout = () => {
     Axios.post("http://localhost:3001/logout", {})
-        .then((response) => {
-            console.log(response.data.logoutmessage);
-            setUsername(response.data.logoutmessage);
-        })
-}
+      .then((response) => {
+        console.log(response.data.logoutmessage);
+        setUsername("");
+      })
+      .catch((error) => {
+        console.error('Error while logging out:', error);
+      });
+  };
 
+  const handleLoginClick = () => {
+    getlogin();
+    if (onToggleLogin) {
+      onToggleLogin(false);
+    }
+  };
 
-  const [username, setUsername] = useState('');
+  const handleLogoutClick = () => {
+    logout();
+  };
+
   let userbutton;
   let Kontobutton;
-  if (username==='') {
-    userbutton="Login";
-    Kontobutton= <button id='login_btn' onClick={() => onToggleLogin && onToggleLogin(false)}>{userbutton}</button>
-  } else{
-    userbutton=username;
-    Kontobutton= <div className="dropdown">
-    <span>{username}</span>
-    <div className="dropdown-content">
-      <a href="#">Option 1</a>
-      <a href="#">Option 2</a>
-      <a href="#">Option 3</a>
-      <a href="#" onClick={logout} >Logout</a>
-    </div>
-  </div>
+
+  if (username === '') {
+    userbutton = "Login";
+    Kontobutton = <button id='login_btn' onClick={handleLoginClick}> {userbutton} </button>;
+  } else {
+    userbutton = username;
+    Kontobutton = (
+      <div className="dropdown">
+        <span>{username}</span>
+        <div className="dropdown-content">
+          <a href="#">Option 1</a>
+          <a href="#">Option 2</a>
+          <a href="#">Option 3</a>
+          <a onClick={handleLogoutClick}>Logout</a>
+        </div>
+      </div>
+    );
   }
   
 
@@ -95,10 +113,6 @@ const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
         </button>
         {Kontobutton}
         <div id="language_selection">EN</div>
-        <div className="lang_wrapper">
-          <div onClick={() => setLanguage(document.getElementById("lang_en")!)} id="lang_en">EN</div>
-          <div onClick={() => setLanguage(document.getElementById("lang_de")!)} id="lang_de">DE</div>
-        </div>
       </div>
     </header> 
   )

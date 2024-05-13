@@ -51,6 +51,7 @@ function Database(app) {
     }
     let user = ""
     let userstate = false;
+    let loginmessage;
     // Login
     app.post("/login", (req, res) => {
         let username = req.body.username;
@@ -69,7 +70,7 @@ function Database(app) {
                         return;
                     } else if (result) {
                         const token = jwt.sign({ username: username }, jwtkey, {expiresIn: "24h"} );
-                        res.send({ loginmessage: "Erfolgreich eingeloggt" });
+                        res.send({ loginmessage: "Erfolgreich eingeloggt", token });
                         console.log('User "' + username + '" eingeloggt');
                         user=username;
                         userstate=true;
@@ -80,21 +81,41 @@ function Database(app) {
                 }
             );
         };
-        let loginmessage;
-        app.post("/getlogin", (req, res) => {
-        if(userstate=true){
-            loginmessage = user;
+    app.post("/getlogin", (req, res) => {
+    if(userstate===true){
+        loginmessage = user;
+        res.send({loginmessage})
+    }})   
+    app.post("/logout", (req, res) => {
+        if(userstate===true){
+            user="";
+            loginmessage="";
             res.send({loginmessage})
+            console.log("User ausgeloggt")
         }
         })
 
-        app.post("/logout", (req, res) => {
-            if(userstate=true){
-                loginmessage="";
-                res.send({loginmessage})
-                console.log("User ausgeloggt")
+        function verifyToken(req, res, next) {
+            const token = req.headers.authorization;
+        
+            if (!token) {
+                return res.status(401).json({ message: 'Token is missing' });
             }
-            })
+        
+            // Verify token
+            jwt.verify(token, jwtKey, (err, decoded) => {
+                if (err) {
+                    return res.status(403).json({ message: 'Invalid token' });
+                }
+        
+                // Attach user information to request object
+                req.user = decoded;
+                next();
+            });
+        }
+
+
+
 }
 
 module.exports = Database;
