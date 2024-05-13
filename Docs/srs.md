@@ -842,3 +842,34 @@ The project cannot control changes in the market landscape, user preferences, or
 While the website aims to adhere to accessibility standards, achieving complete compliance with all regulations and guidelines may pose technical challenges.
 
 These technical limitations serve as essential guidance for managing expectations and shaping the project's development. They provide stakeholders with a realistic understanding of what the project can achieve within its technical constraints.
+
+#### 4.3 Nonfunctional Requirements Analysis
+
+##### Performance
+- The website should load within 3 seconds to ensure a smooth user experience.
+- Concurrent user capacity should be able to handle at least 1000 users at peak times without significant performance degradation.
+
+##### Scalability
+- The system should be scalable to accommodate a growing user base and increased activity levels over time.
+- It should be able to handle an increase in content and interactions without sacrificing performance.
+
+##### Reliability
+- The platform should have an uptime of 99.9% to ensure it is available to users whenever they need it.
+- Backup and recovery mechanisms should be in place to prevent data loss in case of system failure or unforeseen events.
+
+##### Security
+- User data should be encrypted to protect privacy and prevent unauthorized access.
+- Secure authentication mechanisms, such as multi-factor authentication, should be implemented to prevent unauthorized access to user accounts.
+
+##### Usability
+- The user interface should be intuitive and easy to navigate, catering to users with varying levels of technical proficiency.
+- Accessibility features should be incorporated to ensure the platform is usable by people with disabilities.
+
+##### Compatibility
+- The platform should be compatible with a wide range of devices and web browsers to ensure accessibility for all users.
+- It should also be responsive and optimized for both desktop and mobile devices.
+
+##### Maintainability
+- The codebase should be well-structured and documented to facilitate future maintenance and updates.
+- Modular design principles should be employed to allow for easy addition of new features and enhancements.
+
