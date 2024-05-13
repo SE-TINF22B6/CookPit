@@ -1,3 +1,9 @@
+body{
+  background-color: transparent;
+}
+
+
+
 #blockerTop{
     width: 300px;
     height: 300px;
@@ -12,9 +18,9 @@
     gap: 30px;
     width: 80%;
     margin: 0 auto;
-    backdrop-filter: blur(3px);
     padding: 20px;
     border-radius: 5px;
+    z-index: -1;
   
 }
 
