@@ -48,11 +48,7 @@ export default function Body(){
           }
         };
         
-        const [ingredients, setIngredients] = useState([{ ingredient: '', amount: '', unit: 'ml' }]);
 
-        const addIngredientField = () => {
-        setIngredients([...ingredients, { ingredient: '', amount: '', unit: 'ml' }]);
-  };
 
       
         
@@ -66,18 +62,18 @@ export default function Body(){
 
      <div className="form-group">
           <label htmlFor="headingTop">Header</label>
-          <input type="text" id="headingTop" name="headingTop" />
+          <input type="text" id="headingTop" name="Heading" />
         </div>
 
        
         <div className='recipeInfo'>
         <div className="form-groupCategory">
           <label htmlFor="headingTop">Category</label>
-          <input type="text" id="headingTop" name="headingTop" />
+          <input type="text" id="headingTop" name="Category" />
         </div>
         <div className="form-groupTimeEffort">
           <label htmlFor="headingTop">Time effort</label>
-          <input type="text" id="headingTop" name="headingTop" />
+          <input type="text" id="headingTop" name="Effort" />
         </div>
         <div className="rating">
             <input value="5" name="rate" id="star5" type="radio"/>
@@ -174,25 +170,25 @@ export default function Body(){
 
    <div className="form-groupIngredient">
           <label htmlFor="ingredientInput">Ingredients</label>
-          <input type="text" id="ingredientInput" name="ingredientInput" />
+          <input type="text" id="ingredientInput" name="Ingredient 1" />
           <label htmlFor='ingredientInput'>1</label>
-          <input type="text" id="ingredientInput" name="ingredientInput" />
+          <input type="text" id="ingredientInput" name="Ingredient 2" />
           <label htmlFor='ingredientInput'>2</label>
-          <input type="text" id="ingredientInput" name="ingredientInput" />
+          <input type="text" id="ingredientInput" name="Ingredient 3" />
           <label htmlFor='ingredientInput'>3</label>
-          <input type="text" id="ingredientInput" name="ingredientInput" />
+          <input type="text" id="ingredientInput" name="Ingredient 4" />
           <label htmlFor='ingredientInput'>4</label>
-          <input type="text" id="ingredientInput" name="ingredientInput" />
+          <input type="text" id="ingredientInput" name="Ingredient 5" />
           <label htmlFor='ingredientInput'>5</label>
-          <input type="text" id="ingredientInput" name="ingredientInput" />
+          <input type="text" id="ingredientInput" name="Ingredient 6" />
           <label htmlFor='ingredientInput'>6</label>
-          <input type="text" id="ingredientInput" name="ingredientInput" />
+          <input type="text" id="ingredientInput" name="Ingredient 7" />
           <label htmlFor='ingredientInput'>7</label>
-          <input type="text" id="ingredientInput" name="ingredientInput" />
+          <input type="text" id="ingredientInput" name="Ingredient 8" />
           <label htmlFor='ingredientInput'>8</label>
-          <input type="text" id="ingredientInput" name="ingredientInput" />
+          <input type="text" id="ingredientInput" name="Ingredient 9" />
           <label htmlFor='ingredientInput'>9</label>
-          <input type="text" id="ingredientInput" name="ingredientInput" />
+          <input type="text" id="ingredientInput" name="Ingredient 10" />
           <label htmlFor='ingredientInput'>10</label>
 
         </div>
@@ -276,12 +272,12 @@ export default function Body(){
         <div id='blocker1'></div>
         <div id='blocker1'></div>
 
-        <div className='discription'><textarea>Discription</textarea>
+        <div className='discription'><textarea name="Description">Discription</textarea>
         <span className='discriptionSpan'>Discription</span>
         </div>
 
         
-        <button className='addOneMoreIngredient' onClick={addIngredientField}>Add Ingredient</button>
+        <button className='addOneMoreIngredient'>Add Ingredient</button>
        
       
     </div> 
