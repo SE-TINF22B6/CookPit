@@ -45,6 +45,7 @@ export default function Body(){
               const croppedImageSrc = canvas.toDataURL();
               setUploadImageSrc(croppedImageSrc);
             };
+            
           }
         };
         
