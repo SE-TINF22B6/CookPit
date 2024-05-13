@@ -1,14 +1,13 @@
 import React, { useState, ChangeEvent } from 'react'
 import uploadImage from '../recipeUpload/image-upload.jpg';
 import '../recipeUpload/recipeUpload.css';
+import Axios from "axios";
 
 
 
 export default function Body(){
-    function setLanguage(language:HTMLElement) {
-        const activeLanguage = document.getElementById("language_selection");
-        activeLanguage!.innerText = language.innerText;}
         const [uploadImageSrc, setUploadImageSrc] = useState<string | null>(null);
+        const [picture, setpicture] = useState<string | null>(null);
 
         const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
           const file = event.target.files?.[0];
@@ -40,15 +39,46 @@ export default function Body(){
               const x = (500 - width) / 2;
               const y = (300 - height) / 2;
               ctx.drawImage(image, x, y, width, height);
-        
+
+
               // Konvertiere den Canvas in eine Daten-URL und setze das Bild
               const croppedImageSrc = canvas.toDataURL();
+              const base64 = croppedImageSrc.split(",")[1];
+              setpicture(base64);
               setUploadImageSrc(croppedImageSrc);
             };
             
           }
         };
+        // Speichern der Variabeln
+        const [header, setheader] = useState('');
+        const [category, setcategory] = useState('');
+        const [timeeffort, settimeeffort] = useState('');
+        const [stars, setstars] = useState("");
+        const [description, setdescription] = useState('');
+        const [ingredients, setIngredients] = useState(Array(10).fill(''));
         
+        const handleChange = (index: number, value: string) => {
+          const newIngredients = [...ingredients];
+          newIngredients[index] = value;
+          setIngredients(newIngredients);
+        };
+
+        const handleRatingChange = (e: ChangeEvent<HTMLInputElement>) => {
+          setstars(e.target.value);
+        };
+
+        const addrecipe = () => {
+          Axios.post("http://localhost:3001/addrecipe", {
+            recipeheader: header,
+            recipecategory: category,
+            recipetimeeffort: timeeffort,
+            recipestars: stars,
+            recipedescription: description,
+            recipepicture: picture
+          }).then((response) => {
+            console.log(response.data)
+          })};
 
 
       
@@ -63,30 +93,26 @@ export default function Body(){
 
      <div className="form-group">
           <label htmlFor="headingTop">Header</label>
-          <input type="text" id="headingTop" name="Heading" />
+          <input type="text" id="headingTop" name="Heading" onChange={(e) => { setheader(e.target.value); }} />
         </div>
 
        
         <div className='recipeInfo'>
         <div className="form-groupCategory">
           <label htmlFor="headingTop">Category</label>
-          <input type="text" id="headingTop" name="Category" />
+          <input type="text" id="headingTop" name="Category" onChange={(e) => { setcategory(e.target.value); }} />
         </div>
         <div className="form-groupTimeEffort">
           <label htmlFor="headingTop">Time effort</label>
-          <input type="text" id="headingTop" name="Effort" />
+          <input type="text" id="headingTop" name="Effort" onChange={(e) => { settimeeffort(e.target.value); }} />
         </div>
         <div className="rating">
-            <input value="5" name="rate" id="star5" type="radio"/>
-            <label title="text" htmlFor="star5"></label>
-            <input value="4" name="rate" id="star4" type="radio"/>
-            <label title="text" htmlFor="star4"></label>
-            <input value="3" name="rate" id="star3" type="radio"/>
-            <label title="text" htmlFor="star3"></label>
-            <input value="2" name="rate" id="star2" type="radio"/>
-            <label title="text" htmlFor="star2"></label>
-            <input value="1" name="rate" id="star1" type="radio"/>
-            <label title="text" htmlFor="star1"></label>
+          {[...Array(5)].map((_, index) => (
+            <React.Fragment key={index}>
+              <input value={5- index} name="rate" id={`star${5- index}`} type="radio" onChange={handleRatingChange} checked={stars === `${5- index}`} />
+              <label title={`${5- index} Sterne`} htmlFor={`star${5- index}`}></label>
+            </React.Fragment>
+          ))}
         </div>
         
         </div>
@@ -170,29 +196,20 @@ export default function Body(){
 
 
    <div className="form-groupIngredient">
-          <label htmlFor="ingredientInput">Ingredients</label>
-          <input type="text" id="ingredientInput" name="Ingredient 1" />
-          <label htmlFor='ingredientInput'>1</label>
-          <input type="text" id="ingredientInput" name="Ingredient 2" />
-          <label htmlFor='ingredientInput'>2</label>
-          <input type="text" id="ingredientInput" name="Ingredient 3" />
-          <label htmlFor='ingredientInput'>3</label>
-          <input type="text" id="ingredientInput" name="Ingredient 4" />
-          <label htmlFor='ingredientInput'>4</label>
-          <input type="text" id="ingredientInput" name="Ingredient 5" />
-          <label htmlFor='ingredientInput'>5</label>
-          <input type="text" id="ingredientInput" name="Ingredient 6" />
-          <label htmlFor='ingredientInput'>6</label>
-          <input type="text" id="ingredientInput" name="Ingredient 7" />
-          <label htmlFor='ingredientInput'>7</label>
-          <input type="text" id="ingredientInput" name="Ingredient 8" />
-          <label htmlFor='ingredientInput'>8</label>
-          <input type="text" id="ingredientInput" name="Ingredient 9" />
-          <label htmlFor='ingredientInput'>9</label>
-          <input type="text" id="ingredientInput" name="Ingredient 10" />
-          <label htmlFor='ingredientInput'>10</label>
-
+      <label htmlFor="ingredientInput">Ingredients</label>
+      {[...Array(10)].map((_, index) => (
+        <div key={index}>
+          <input
+            type="text"
+            id={`ingredientInput${index}`}
+            name={`Ingredient ${index + 1}`}
+            value={ingredients[index]}
+            onChange={(e) => handleChange(index, e.target.value)}
+          />
+          <label htmlFor={`ingredientInput${index}`}>{index + 1}</label>
         </div>
+      ))}
+    </div>
     {/*<div>
       <table>
         <thead>
@@ -273,12 +290,12 @@ export default function Body(){
         <div id='blocker1'></div>
         <div id='blocker1'></div>
 
-        <div className='discription'><textarea name="Description">Discription</textarea>
-        <span className='discriptionSpan'>Discription</span>
+        <div className='discription'><textarea name="Description" placeholder='Description' onChange={(e) => { setdescription(e.target.value); }}></textarea>
+        <span className='discriptionSpan'>Description</span>
         </div>
 
         
-        <button className='addOneMoreIngredient'>Add Ingredient</button>
+        <button className='addOneMoreIngredient'  onClick={addrecipe}>Add Ingredient</button>
        
       
     </div> 

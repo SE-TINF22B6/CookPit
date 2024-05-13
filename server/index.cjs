@@ -116,3 +116,37 @@ app.post("/login", (req, res) => {
     }
   );
 });
+
+function addrecipe(recipeheader, recipecategory, recipetimeeffort, recipestars, recipedescription) {
+  db.run(
+    "INSERT INTO account (recipeheader, recipecategory, recipetimeeffort, recipestars, recipedescription) VALUES (?, ?, ?, ?, ?)",
+    [recipeheader, recipecategory, recipetimeeffort, recipestars, recipedescription],
+    (err, result) => {
+      if (err && err.code === 'SQLITE_CONSTRAINT') {
+        console.error("Benutzername bereits vorhanden:", err.message);
+        res.send({loginmessage: "Benutzername bereits vorhanden"})
+      } else if (err) {
+        console.error("Fehler beim Einfügen der Daten:", err.message);
+        res.status(500).send("Interner Serverfehler.");
+      } else {
+        console.log("Daten erfolgreich eingefügt.");
+        res.send({loginmessage: "Benutzer erfolgreich erstellt"})
+      }
+    }
+  );
+}
+
+app.post("/addrecipe", (req, res) => {
+  const recipeheader = req.body.recipeheader;
+  const recipecategory = req.body.recipecategory;
+  const recipetimeeffort = req.body.recipetimeeffort;
+  const recipestars = req.body.recipestars;
+  const recipedescription = req.body.recipedescription
+  const recipepicture = req.body.recipepicture
+  console.log(recipeheader, recipecategory, recipetimeeffort,recipestars,recipedescription)
+  //addrecipe(recipeheader, recipecategory, recipetimeeffort,recipestars,recipedescription, recipepicture)
+  res.send({recipeheader, recipecategory, recipetimeeffort, recipestars, recipedescription, recipepicture})
+  }
+)
+
+
