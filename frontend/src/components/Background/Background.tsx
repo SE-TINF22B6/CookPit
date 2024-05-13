@@ -1,29 +1,46 @@
-import React, { useState } from 'react'
-import '../Background/Background.css';
+import { useEffect } from "react";
+import "../Background/Background.css";
 
+export default function Background() {
+  useEffect(() => {
+    const handleResize = () => {
+      const winWidth = window.innerWidth;
+      const bgWrapper = document.getElementById("background_wrapper");
 
-export default function Background(){
+      //default width of pillar
+      let pillarWidth = 130;
 
-    function setLanguage(language:HTMLElement) {
-        const activeLanguage = document.getElementById("language_selection");
-        activeLanguage!.innerText = language.innerText;
+      if (winWidth <= 401) {
+        pillarWidth = 76;
+      } else if (winWidth <= 768) {
+        pillarWidth = 100;
+      } else if (winWidth <= 1024) {
+        pillarWidth = 110;
+      } else if (winWidth <= 1440) {
+        pillarWidth = 120;
       }
-  return (
-<body>
-  <table className='background'> <tr>
-   <td><div id="oval1"></div> </td> 
-   <td><div id="oval2"></div></td> 
-   <td> <div id="oval3"></div></td> 
-   <td><div id="oval4"></div> </td> 
-   <td><div id="oval5"></div></td> 
-   <td><div id="oval6"></div></td> 
-   <td><div id="oval7"></div></td> 
-   <td><div id="oval8"></div></td> 
-   <td><div id="oval9"></div> </td> 
-   <td><div id="oval10"></div></td> 
-   <td><div id="oval11"></div></td> 
-   <td><div id="oval12"></div></td> 
-   <td><div id="oval13"></div></td> 
-    </tr></table>
-</body>
-  )}
+
+      let numOfPillar = Math.ceil(winWidth / pillarWidth);
+
+      while (bgWrapper?.firstChild) {
+        bgWrapper.removeChild(bgWrapper.firstChild);
+      }
+
+      for (let index = 0; index < numOfPillar; index++) {
+        const div = document.createElement("div");
+        div.className = "oval";
+        bgWrapper?.appendChild(div);
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  return <div id="background_wrapper"></div>;
+}

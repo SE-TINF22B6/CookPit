@@ -1,135 +1,56 @@
-.background{
-     height: 100%;
+:root {
+  --main-bg-color: #ffafaf;
+  --sec-bg-color: #ff9595;
 }
-#oval1 {
-     z-index: -1;
-    position: absolute;
-   
-    left: 0px;
-    top: 350px;
-    width: 10%; 
-    height: 100vh; 
-    background: #ffafaf;
-    border-top-left-radius: 200px;
-    border-top-right-radius: 200px;
-    box-shadow: 
-         0px -10px 15px -10px black;
-    transform: scale()
- }
- #oval2 {
-     z-index: -1;
-    position: absolute;
-    top: 350px;
-    left: 10%;
-    width: 10%; 
-    height: 100%; 
-    background: #ff9595;
-    border-top-left-radius: 200px;
-    border-top-right-radius: 200px;
-    box-shadow: 
-         2px -10px 15px -10px black;
- }
- #oval3 {
-     z-index: -1;
-    position: absolute;
-    left: 20%;
-    top: 350px;
-    width: 10%; 
-    height: 100%; 
-    background: #ffafaf;
-    border-top-left-radius: 200px;
-    border-top-right-radius: 200px;
-    box-shadow: 
-         0px -11px 15px -10px black;
- }
- #oval4 {
-     z-index: -1;
-    position: absolute;
-    left: 30%;
-    top: 350px;
-    width: 10%; 
-    height: 100%; 
-    background: #ff9595;
-    border-top-left-radius: 200px;
-    border-top-right-radius: 200px;
-    box-shadow: 
-         0px -11px 15px -10px black;
- }
- #oval5 {
-     z-index: -1;
-    position: absolute;
-    left: 40%;
-    top: 350px;
-    width: 10%; 
-    height: 100%; 
-    background:#ffafaf;
-    border-top-left-radius: 200px;
-    border-top-right-radius: 200px;
-    box-shadow: 
-         0px -11px 15px -10px black;
- }
- #oval6 {
-     z-index: -1;
-    position: absolute;
-    left: 50%;
-    top: 350px;
-    width: 10%; 
-    height: 100%; 
-    background: #ff9595;
-    border-top-left-radius: 200px;
-    border-top-right-radius: 200px;
-    box-shadow: 
-         0px -11px 15px -10px black;
- }
- #oval7 {
-     z-index: -1;
-    position: absolute;
-    left: 60%;
-    top: 350px;
-    width: 10%; 
-    height: 100%; 
-    background: #ffafaf;
-    border-top-left-radius: 200px;
-    border-top-right-radius: 200px;
-    box-shadow: 
-         0px -11px 15px -10px black;
- }
- #oval8 {
-     z-index: -1;
-    position: absolute;
-    left: 70%;
-    top: 350px;
-    width: 10%; 
-    height: 100%; 
-    background: #ff9595;
-    border-top-left-radius: 200px;
-    border-top-right-radius: 200px;
-    box-shadow: 
-         0px -11px 15px -10px black;
- }
- #oval9 {
-     z-index: -1;
-    position: absolute;
-    left: 80%;
-    top: 350px;
-    width: 10%; 
-    height: 100%; 
-    background:#ffafaf;
-    border-top-left-radius: 200px;
-    border-top-right-radius: 200px;
-    box-shadow: 
-         0px -11px 15px -10px black;
- }
- #oval10 {
-     z-index: -1;
-    position: absolute;
-    left: 90%;
-    top: 350px;
-    width: 10%; 
-    height: 100%; 
-    background: #ff9595;
-    border-top-left-radius: 200px;
-    border-top-right-radius: 200px;
-    box-shadow: 
-         0px -11px 15px -10px black;
- }
+
+#background_wrapper {
+  height: 100%;
+  width: 100%;
+
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.oval {
+  background-color: var(--main-bg-color);
+  height: calc(100% - 100px);
+  width: 130px;
+  border-top-left-radius: 200px;
+  border-top-right-radius: 200px;
+  box-shadow: inset 0px 8px 5px -4px rgba(53, 53, 53, 0.37);
+}
+
+.oval:nth-child(2n) {
+  background-color: var(--sec-bg-color);
+}
+
+@media only screen and (max-width: 401px) {
+  .oval {
+    width: 76px;
+  }
+}
+
+@media only screen and (min-width: 402px) and (max-width: 768px) {
+  .oval {
+    width: 100px;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .oval {
+    width: 110px;
+  }
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1440px) {
+  .oval {
+    width: 120px;
+  }
+}
