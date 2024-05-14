@@ -5,7 +5,11 @@ import icon_password from "../../img/icon_password.png";
 import Axios from "axios";
 import { IoClose } from "react-icons/io5";
 
-function Login(){
+interface LoginProps {
+  onToggleLogin?: () => void;
+}
+
+const Login: React.FC<LoginProps> = ({ onToggleLogin }) => {
 
   const [LoginStatus, setLoginStatus] = useState ('');
   const [isToggled, setIsToggled] = useState(false);
@@ -58,7 +62,9 @@ function Login(){
     <div className="outer">
       <div className="wrapper" id="divOne">
           <h1>{ueberschrift}</h1>
-          <IoClose size={35}/>
+          <div className="wrap">
+            <IoClose size={35} onClick={onToggleLogin} />
+          </div>
           <div className="input-box">
             <input type="text" placeholder="  Username" onChange={(e) => { setUsername(e.target.value); }} />
             <img src={icon_user} alt="User" />

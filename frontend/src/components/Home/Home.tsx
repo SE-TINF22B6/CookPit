@@ -20,10 +20,9 @@ function Home() {
       <Background />
 
       <Header onToggleLogin={toggleLoginVisibility} />
-      {loginVisible && <Login />}
+      {loginVisible && <Login onToggleLogin={toggleLoginVisibility} />}
       <Routes>
         <Route path="/" element={<SearchSite />} />
-        {/* <Route path="/rezept/alle" element={<??? />} /> */}
         <Route path="/rezept/generator" element={<OpenAI />} />
         <Route path="/rezept/hochladen" element={<RecipeUpload />} />
       </Routes>

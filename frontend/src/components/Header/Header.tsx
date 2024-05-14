@@ -14,6 +14,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
 
+
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -24,8 +25,6 @@ const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
   }, []);
 
   const [username, setUsername] = useState('');
-  
-
   const getlogin = () => {
     Axios.post("http://localhost:3001/getlogin", {})
       .then((response) => {
@@ -60,15 +59,15 @@ const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
   };
 
   let userbutton;
-  let Kontobutton;
-
+  let Kontobutton
   if (username === '') {
     userbutton = "Login";
-    Kontobutton =  <button className="navigation" id="login_btn" onClick={onToggleLogin}> {userbutton} </button>;
+    Kontobutton =  <button className="navigation" id="login_btn" onClick={handleLoginClick}> {userbutton} </button>;
   } else {
     userbutton = username;
     Kontobutton = (
-      <div className="dropdown">
+      <div className="navigation">
+        <div className="dropdown">
         <span>{username}</span>
         <div className="dropdown-content">
           <a href="#">Option 1</a>
@@ -76,6 +75,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
           <a href="#">Option 3</a>
           <a onClick={handleLogoutClick}>Logout</a>
         </div>
+       </div> 
       </div>  
     );
   }
@@ -111,4 +111,4 @@ const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
   );
 };
 
-export default Header;
+export default Header ;
