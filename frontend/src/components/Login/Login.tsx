@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import icon_user from "../../img/icon_user.png";
 import icon_password from "../../img/icon_password.png";
 import Axios from "axios";
-import { response } from "express";
+import { IoClose } from "react-icons/io5";
 
 function Login(){
 
@@ -58,6 +58,7 @@ function Login(){
     <div className="outer">
       <div className="wrapper" id="divOne">
           <h1>{ueberschrift}</h1>
+          <IoClose size={35}/>
           <div className="input-box">
             <input type="text" placeholder="  Username" onChange={(e) => { setUsername(e.target.value); }} />
             <img src={icon_user} alt="User" />

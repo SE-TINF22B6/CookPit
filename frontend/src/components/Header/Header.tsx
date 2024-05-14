@@ -5,13 +5,16 @@ import { Link } from "react-router-dom";
 import Drawer from "../Drawer/Drawer";
 import Axios from 'axios';
 import { response } from 'express';
+import { IoClose } from "react-icons/io5";
+
 
 interface HeaderProps {
-  onToggleLogin?: (toggleState: boolean) => void;
+  onToggleLogin?: () => void;
 }
 
 const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
 
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
@@ -48,7 +51,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
   const handleLoginClick = () => {
     getlogin();
     if (onToggleLogin) {
-      onToggleLogin(false);
+      onToggleLogin();
     }
   };
 
@@ -61,7 +64,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
 
   if (username === '') {
     userbutton = "Login";
-    Kontobutton = <button id='login_btn' onClick={handleLoginClick}> {userbutton} </button>;
+    Kontobutton =  <button className="navigation" id="login_btn" onClick={onToggleLogin}> {userbutton} </button>;
   } else {
     userbutton = username;
     Kontobutton = (
@@ -73,7 +76,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
           <a href="#">Option 3</a>
           <a onClick={handleLogoutClick}>Logout</a>
         </div>
-      </div>
+      </div>  
     );
   }
   
@@ -100,8 +103,6 @@ const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
           </Link>
           <div className="seperator">.</div>
           {Kontobutton}
-            Login
-          </button>
         </div>
       ) : (
         <Drawer onToggleLogin={onToggleLogin} />
