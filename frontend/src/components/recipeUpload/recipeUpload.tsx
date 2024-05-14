@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from 'react'
+import React, { useState, ChangeEvent, useEffect } from 'react'
 import uploadImage from '../recipeUpload/image-upload.jpg';
 import '../recipeUpload/recipeUpload.css';
 import Axios from "axios";
@@ -54,6 +54,7 @@ export default function Body(){
         const [header, setheader] = useState('');
         const [category, setcategory] = useState('');
         const [timeeffort, settimeeffort] = useState('');
+        const [calories, setcalories] = useState('');
         const [stars, setstars] = useState("");
         const [description, setdescription] = useState('');
         const [ingredients, setIngredients] = useState(Array(10).fill(''));
@@ -68,11 +69,14 @@ export default function Body(){
           setstars(e.target.value);
         };
 
+
+        
         const addrecipe = () => {
           Axios.post("http://localhost:3001/addrecipe", {
             recipeheader: header,
             recipecategory: category,
             recipetimeeffort: timeeffort,
+            recipecalories: calories,
             recipestars: stars,
             recipedescription: description,
             recipepicture: picture
@@ -80,7 +84,22 @@ export default function Body(){
             console.log(response.data)
           })};
 
+          const [counter, setCounter] = useState(1); // Hier wird der Anfangswert auf 1 gesetzt
 
+    const incrementCounter = () => {
+    setCounter(counter + 1); // Die Funktion erhöht den Counter um 1
+    };
+
+    const [currentDate, setCurrentDate] = useState(new Date().toLocaleDateString()); // Hier wird der Anfangswert auf das aktuelle Datum gesetzt
+
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setCurrentDate(new Date().toLocaleDateString()); // Die Funktion aktualisiert currentDate täglich
+      }, 1000 * 60 * 60 * 24); // Alle 24 Stunden aktualisieren
+  
+      return () => clearInterval(interval); // Aufräumen des Intervalls, wenn die Komponente unmountet wird
+    }, []);
+  
       
         
   return (
@@ -90,22 +109,36 @@ export default function Body(){
     <div id='template'>
     <div className="form-container">
  
-
+    <div className='recipeInfo'>
      <div className="form-group">
           <label htmlFor="headingTop">Header</label>
           <input type="text" id="headingTop" name="Heading" onChange={(e) => { setheader(e.target.value); }} />
         </div>
-
+        
+        <div className="form-groupDate">
+          <label htmlFor="headingTop">Date: {currentDate.toLocaleString()}</label>
+        </div>
        
+       
+       </div>
         <div className='recipeInfo'>
         <div className="form-groupCategory">
           <label htmlFor="headingTop">Category</label>
           <input type="text" id="headingTop" name="Category" onChange={(e) => { setcategory(e.target.value); }} />
         </div>
+
+      
+
         <div className="form-groupTimeEffort">
           <label htmlFor="headingTop">Time effort</label>
           <input type="text" id="headingTop" name="Effort" onChange={(e) => { settimeeffort(e.target.value); }} />
         </div>
+
+        <div className="form-groupCalories">
+          <label htmlFor="headingTop">Calories</label>
+          <input type="text" id="headingTop" name="Calories" onChange={(e) => { settimeeffort(e.target.value); }} />
+        </div>
+
         <div className="rating">
           {[...Array(5)].map((_, index) => (
             <React.Fragment key={index}>
@@ -128,68 +161,7 @@ export default function Body(){
       <label className='uploadImageLabel' htmlFor="input-file">Upload Image</label>
       <input id='input-file' type="file" accept='image/jpeg, image/png, image/jpg' onChange={handleFileChange} />
 
-        {/*<div className="form-container">
-      <form className="form">
-        <div className="form-group">
-          <label htmlFor="email">Company Email</label>
-          <input type="text" id="email" name="email" />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="email">Company Email</label>
-          <input type="text" id="email" name="email" />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="email">Company Email</label>
-          <input type="text" id="email" name="email" />
-        </div>
-        <div className="form-group">
-          <label htmlFor="textarea">How Can We Help You?</label>
-          <textarea name="textarea" id="textarea" >          </textarea>
-        </div>
-        <button className="form-submit-btn" type="submit">Submit</button>
-      </form>
-          </div>*/}
-     {/*} <img className='imageUpload' src={uploadImageSrc || uploadImage} id='picture-pic' alt="Uploaded" />
-      <label className='uploadImageLabel' htmlFor="input-file">Upload Image</label>
-      <input id='input-file' type="file" accept='image/jpeg, image/png, image/jpg' onChange={handleFileChange} />
-      <div id='blocker1'></div>
-        <div id='blocker1'></div>*/}
-      {/*<table>
-        <th> 
-          <div id="ingredient">
-            <input type="text"/>
-            <span>ingredient</span> 
-           </div>
-        </th>
-        <th className='tabelspace'></th>
-        <th className='tabelspace'></th>
-        <th> 
-          <div id="amount">
-            <input type="text"/>
-            <span>amount</span> 
-           </div>
-        </th>
-
-        <th className='tabelspace'></th>
-        <th className='tabelspace'></th>
-        <th> 
-        <select name="foramtation" id="format">
-    <optgroup label="Unit">
-      <option value="ml">ml</option>
-      <option value="l">liter</option>
-      <option value="gramm">gramm</option>
-      <option value="kg">kg</option>
-      <option value="peice">piece</option>
-
-    </optgroup>
-    <span>unit</span> 
-    </select>
-        </th>
-         
-    </table> 
-    <label className='uploadImageLabel' htmlFor="input-file">Upload Image</label> */}
+   
    <div id='blocker1'></div>
    <div id='blocker1'></div>
    <div id='blocker1'></div>
@@ -197,7 +169,7 @@ export default function Body(){
 
    <div className="form-groupIngredient">
       <label htmlFor="ingredientInput">Ingredients</label>
-      {[...Array(10)].map((_, index) => (
+      {[...Array(counter)].map((_, index) => (
         <div key={index}>
           <input
             type="text"
@@ -210,6 +182,8 @@ export default function Body(){
         </div>
       ))}
     </div>
+
+    <button className='addOneMoreIngredient'  onClick={incrementCounter}>Add Ingredient</button>
     {/*<div>
       <table>
         <thead>
