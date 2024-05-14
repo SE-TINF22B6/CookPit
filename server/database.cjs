@@ -30,12 +30,12 @@ function Database(app) {
         let password = req.body.password;
         password = hashPassword(password);
 
-        insertData(username, password, () => {
+        insertUser(username, password, () => {
             res.send({ loginmessage: "Benutzer erfolgreich erstellt" });
         });
     });
 
-    function insertData(username, password, callback) {
+    function insertUser(username, password, callback) {
         let sql = 'INSERT INTO account (username, password) VALUES (?, ?)';
         let params = [username, password];
         db.run(sql, params, function(err) {
@@ -93,7 +93,11 @@ function Database(app) {
             res.send({loginmessage})
             console.log("User ausgeloggt")
         }
-        })
+        });
+    app.post("/getallrecipe", (req, res) => {
+        getallrecipe(res);
+    });
+
 
         function verifyToken(req, res, next) {
             const token = req.headers.authorization;
@@ -113,9 +117,39 @@ function Database(app) {
                 next();
             });
         }
+        
+        function getallrecipe(res) {
+            db.all("SELECT * FROM recipe",
+            (err, results) => {
+                if (err) {
+                    console.log("Fehler:"+err)
+                    return;
+                } else if (results) {
+                    length = results.length
+                    res.send({results})
+                }
+            })
+        }
 
 
+        /*insertRecipe("BONGOTROMMLER", "A classic Italian pasta dish.", 15, 45)
+        insertRecipe("KARIMBENZEMA", "A spicy and flavorful curry.", 20, 30)
+        insertRecipe("GRILLED CHEDDAR ROBIN", "A simple and quick sandwich.", 5, 10)
 
-}
+        function insertRecipe(name, description, prep_time, cook_time) {
+            let sql = 'INSERT INTO recipe (name, description, prep_time, cook_time) VALUES (?, ?, ?, ?)';
+            let params = [name, description, prep_time, cook_time];
+            db.run(sql, params, function(err) {
+                if (err) {
+                    console.error("Fehler beim Einfügen von Daten: " + err.message);
+                } else {
+                    console.log(`Datensatz hinzugefügt mit der ID ${this.lastID}.`);
+                    if (typeof callback === 'function') {
+                        callback();
+                    }
+                }
+            });
+        }*/
+    }
 
 module.exports = Database;

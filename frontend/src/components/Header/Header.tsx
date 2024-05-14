@@ -58,11 +58,23 @@ const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
     logout();
   };
 
+  const getrecipes = () => {
+    Axios.post("http://localhost:3001/getallrecipe", {})
+      .then((response) => {
+        console.log(response.data.results.length);
+      })
+      .catch((error) => {
+        console.error('Error while logging out:', error);
+      });
+  };
+
+
+
   let userbutton;
   let Kontobutton
   if (username === '') {
     userbutton = "Login";
-    Kontobutton =  <button className="navigation" id="login_btn" onClick={handleLoginClick}> {userbutton} </button>;
+    Kontobutton =  <button className="navigation" id="login_btn" onClick={getrecipes}> {userbutton} </button>;
   } else {
     userbutton = username;
     Kontobutton = (
@@ -82,6 +94,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
   
 
   return (
+
     <header>
       <Link className="navigation" id="brand_name" to="/">
         <img src={brand_logo} alt="logo" />
