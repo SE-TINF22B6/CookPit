@@ -61,10 +61,13 @@ const Login: React.FC<LoginProps> = ({ onToggleLogin }) => {
   return (
     <div className="outer">
       <div className="wrapper" id="divOne">
-          <h1>{ueberschrift}</h1>
-          <div className="wrap">
-            <IoClose size={35} onClick={onToggleLogin} />
-          </div>
+          <h1>
+            {ueberschrift}
+            <IoClose size={35} className= "btnclose" onClick={onToggleLogin} />
+          </h1>
+          {/*<div className="wrap">
+            <IoClose size={35} className= "btnclose" onClick={onToggleLogin} />
+  </div>*/}
           <div className="input-box">
             <input type="text" placeholder="  Username" onChange={(e) => { setUsername(e.target.value); }} />
             <img src={icon_user} alt="User" />
@@ -77,13 +80,15 @@ const Login: React.FC<LoginProps> = ({ onToggleLogin }) => {
             <label onClick={handleToggle}>
               {ueberschrift2}
             </label>
-            <label> Passwort vergessen? </label>
+            {/*<label> Passwort vergessen? </label> */}
           </div>
           <button type="submit" className="btn" onClick={clickevent}>
             {ueberschrift}
           </button>
-          <div className="register-link"></div>
-          {LoginStatus}
+          
+          <div className="loginmsg">
+            {LoginStatus}
+          </div>
       </div>
     </div>
   );
