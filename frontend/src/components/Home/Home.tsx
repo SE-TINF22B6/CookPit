@@ -7,6 +7,7 @@ import SearchSite from "../SearchSite/SearchSite";
 import OpenAI from "../openai/OpenAICall";
 import React, { useState } from "react";
 import RecipeUpload from "../recipeUpload/recipeUpload";
+import AllRecipes from "../AllRecipes/AllRecipes";
 
 function Home() {
   const [loginVisible, setLoginVisible] = useState(false);
@@ -23,6 +24,7 @@ function Home() {
       {loginVisible && <Login onToggleLogin={toggleLoginVisibility} />}
       <Routes>
         <Route path="/" element={<SearchSite />} />
+        <Route path="/rezept/alle" element={<AllRecipes />} />
         <Route path="/rezept/generator" element={<OpenAI />} />
         <Route path="/rezept/hochladen" element={<RecipeUpload />} />
       </Routes>

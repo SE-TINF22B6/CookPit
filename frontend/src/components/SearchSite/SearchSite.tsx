@@ -63,6 +63,7 @@ export default function Body() {
   };
 
   return (
+    <div id="outer_wrapper">
     <div id="wrapper">
       <div id="search_box_out_wrapper">
         <div id="search_box_wrapper">
@@ -120,6 +121,7 @@ export default function Body() {
           </button>
         </div>
       </div>
+    </div>
     </div>
   );
 }
