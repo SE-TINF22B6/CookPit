@@ -36,8 +36,12 @@
   }
 }
 
+#root {
+  overflow: hidden;
+}
+
 #wrapper {
-  height: calc(100% - 270px);
+  /* height: calc(100% - 270px); */
   width: 100vw;
 }
 
@@ -46,7 +50,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 150px;
+  margin-top: 170px;
 }
 
 #search_box_wrapper {
@@ -77,7 +81,7 @@
 }
 
 #display_recipes_outer_outer_wrapper {
-  margin-top: 80px;
+  margin-top: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
