@@ -40,6 +40,34 @@
   overflow: hidden;
 }
 
+#search_box_out_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 150px;
+}
+
+#search_box_wrapper {
+  width: 600px;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.75);
+  border: white solid 4px;
+  border-radius: 200px;
+  box-shadow: 0px 2px 10px 3px #cfcfcfb9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+#search_box_wrapper input {
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 26px;
+  width: 88%;
+
 #outer_wrapper {
   position: absolute;
   bottom: 0;
@@ -55,6 +83,35 @@
   width: 100vw;
 }
 
+#search_box_wrapper button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+#display_recipes_outer_outer_wrapper {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#display_recipes_outer_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1040px;
+}
+
+#h_wrapper {
+  width: 1040px;
+}
+
+#h_wrapper h3 {
+  color: white;
+  font-style: italic;
+  font-weight: 800;
 #search_box_out_wrapper {
   display: flex;
   justify-content: center;
@@ -163,4 +220,40 @@
   border-top: 8px solid rgb(255, 255, 255);
   border-left: 8px solid rgb(255, 255, 255);
   transform: rotate(135deg);
+
+#inner_left_arrow {
+  position: absolute;
+  top: 20px;
+  left: 23px;
 }
+
+#inner_right_arrow {
+  position: absolute;
+  top: 20px;
+  right: 23px;
+}
+
+#arrleft:hover {
+  box-shadow: 0px 0px 2px 2px rgb(255, 255, 255);
+}
+
+#arrleft div {
+  height: 40px;
+  width: 40px;
+  border-top: 8px solid rgb(255, 255, 255);
+  border-left: 8px solid rgb(255, 255, 255);
+  transform: rotate(315deg);
+}
+
+#arrright:hover {
+  box-shadow: 0px 0px 2px 2px rgb(255, 255, 255);
+}
+
+#arrright div {
+  height: 40px;
+  width: 40px;
+  border-top: 8px solid rgb(255, 255, 255);
+  border-left: 8px solid rgb(255, 255, 255);
+  transform: rotate(135deg);
+}
+

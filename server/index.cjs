@@ -30,4 +30,3 @@ app.listen(PORT, () => {
 //Database init
 const database = require ('./database.cjs')
 database(app);
-

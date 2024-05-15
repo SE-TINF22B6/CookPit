@@ -24,12 +24,26 @@ header {
   font-size: 34px;
   text-decoration: none;
   color: black;
+.navigation {
+  height: 100%;
+  line-height: 106px;
+  font-size: 34px;
+  text-decoration: none;
+  color: black;
 }
 
 .navigation:hover {
   text-decoration: underline;
+.navigation:hover {
+  text-decoration: underline;
 }
 
+#brand_name img {
+  height: 66px;
+  margin-top: 18px;
+  margin-right: 3px;
+  border: solid 2px black;
+  border-radius: 5px;
 #brand_name img {
   height: 66px;
   margin-top: 18px;
@@ -42,8 +56,18 @@ header {
   height: 100%;
   line-height: 96px;
   font-size: 92px;
+#brand_name div {
+  height: 100%;
+  line-height: 96px;
+  font-size: 92px;
 }
 
+#brand_name {
+  height: 100%;
+  display: flex;
+}
+
+#brand_name:hover {
 #brand_name {
   height: 100%;
   display: flex;
@@ -54,10 +78,28 @@ header {
 }
 
 #nav_wrapper {
+#nav_wrapper {
   display: flex;
   height: 100%;
 }
 
+@media only screen and (max-width: 1160px) {
+  #brand_name div {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 920px) {
+  .seperator {
+    margin: 0 10px;
+  }
+}
+
+@media only screen and (max-width: 862px) {
+  header {
+    justify-content: space-between;
+    padding: 0 20px;
+  }
 @media only screen and (max-width: 1160px) {
   #brand_name div {
     display: none;
