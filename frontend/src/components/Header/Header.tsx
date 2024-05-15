@@ -74,7 +74,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
   let Kontobutton
   if (username === '') {
     userbutton = "Login";
-    Kontobutton =  <button className="navigation" id="login_btn" onClick={getrecipes}> {userbutton} </button>;
+    Kontobutton =  <button className="navigation" id="login_btn" onClick={handleLoginClick}> {userbutton} </button>;
   } else {
     userbutton = username;
     Kontobutton = (
