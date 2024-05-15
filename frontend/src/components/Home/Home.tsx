@@ -5,32 +5,41 @@ import Background from "../Background/Background";
 import Login from "../Login/Login";
 import SearchSite from "../SearchSite/SearchSite";
 import OpenAI from "../openai/OpenAICall";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import RecipeUpload from "../recipeUpload/recipeUpload";
-import Imprint from "../FAQ/FAQ";
 import AllRecipes from "../AllRecipes/AllRecipes";
+import axios from "axios";
+import { get } from "https";
 
 function Home() {
+
   const [loginVisible, setLoginVisible] = useState(false);
+  const [allRecipes, setAllRecipes] = useState([]);
 
   const toggleLoginVisibility = () => {
     setLoginVisible(!loginVisible);
   };
 
+  const getallrecipe = () => {
+    axios.post("http://localhost:3001/getallrecipe", {
+    }).then((response: { data: any; }) => {
+      setAllRecipes(response.data.results);
+    });
+  };
+
+  useEffect(() => {
+    getallrecipe();
+  }, []);
+
   return (
     <>
-      <Background />
-
       <Background />
 
       <Header onToggleLogin={toggleLoginVisibility} />
       {loginVisible && <Login onToggleLogin={toggleLoginVisibility} />}
       <Routes>
-        <Route path="/" element={<SearchSite />} />
+        <Route path="/" element={<SearchSite allRecipes={allRecipes}/>} />
         <Route path="/rezept/alle" element={<AllRecipes />} />
-        <Route path="/rezept/generator" element={<OpenAI />} />
-        <Route path="/rezept/hochladen" element={<RecipeUpload />} />
-        {/* <Route path="/rezept/alle" element={<??? />} /> */}
         <Route path="/rezept/generator" element={<OpenAI />} />
         <Route path="/rezept/hochladen" element={<RecipeUpload />} />
       </Routes>

@@ -1,115 +1,43 @@
 import "../SearchSite/SearchSite.css";
-import left from "../../img/Pfannkuchen.png";
-import middle from "../../img/Donut.png";
-import right from "../../img/Schokokuchen.png";
 import DisplayRecipe from "../DisplayRecipe/DisplayRecipe";
 import "bootstrap/dist/css/bootstrap.min.css";
-import AliceCarousel, { Link } from "react-alice-carousel";
+import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import { MouseEvent, useRef } from "react";
-import "../SearchSite/SearchSite.css";
-import left from "../../img/Pfannkuchen.png";
-import middle from "../../img/Donut.png";
-import right from "../../img/Schokokuchen.png";
-import DisplayRecipe from "../DisplayRecipe/DisplayRecipe";
-import "bootstrap/dist/css/bootstrap.min.css";
-import AliceCarousel, { Link } from "react-alice-carousel";
-import "react-alice-carousel/lib/alice-carousel.css";
-import { MouseEvent, useRef } from "react";
+import { useRef } from "react";
 
-export default function Body() {
-  const items = [
-    <DisplayRecipe
-      img={left}
-      title={"Pfannkuchen mit Obst"}
-      rating={4}
-      time={5}
-    />,
-    <DisplayRecipe
-      img={middle}
-      title={"Streuseldonuts"}
-      rating={4}
-      time={63}
-    />,
-    <DisplayRecipe
-      img={right}
-      title={"Schokoladenkuchen"}
-      rating={3}
-      time={16}
-    />,
-    <DisplayRecipe
-      img={left}
-      title={"2Pfannkuchen mit Obst"}
-      rating={4}
-      time={5}
-    />,
-    <DisplayRecipe
-      img={middle}
-      title={"2Streuseldonuts"}
-      rating={4}
-      time={63}
-    />,
-    <DisplayRecipe
-      img={right}
-      title={"2Schokoladenkuchen"}
-      rating={3}
-      time={16}
-    />,
-  ];
+export default function SearchSite({ allRecipes }: { allRecipes: any[] }) {
 
-  const carouselRef = useRef<AliceCarousel>(null);
-
-  const handleLeftArrowClick = () => {
-    if (carouselRef.current) {
-      carouselRef.current.slidePrev();
+  let best: Number[] = [];
+    for (let i = 0; i < allRecipes.length && best.length < 6; i++) {
+      if (allRecipes[i].rating >= 4.5) {
+        best.push(allRecipes[i]);
+      }
     }
-  };
 
-  const handleRightArrowClick = () => {
-    if (carouselRef.current) {
-      carouselRef.current.slideNext();
-    }
-  };
+  // algo für die empfhlungen - austauschen mit "items = allRecipes.map"
+  // const items = best.map((recipe) => {
+  //   const time = Number(recipe.cook_time) + Number(recipe.prep_time);
+  //   return (
+  //     <DisplayRecipe
+  //       img={recipe.img}
+  //       title={recipe.name}
+  //       rating={recipe.rating}
+  //       time={time}
+  //     />
+  //   );
+  // }
 
-export default function Body() {
-  const items = [
-    <DisplayRecipe
-      img={left}
-      title={"Pfannkuchen mit Obst"}
-      rating={4}
-      time={5}
-    />,
-    <DisplayRecipe
-      img={middle}
-      title={"Streuseldonuts"}
-      rating={4}
-      time={63}
-    />,
-    <DisplayRecipe
-      img={right}
-      title={"Schokoladenkuchen"}
-      rating={3}
-      time={16}
-    />,
-    <DisplayRecipe
-      img={left}
-      title={"2Pfannkuchen mit Obst"}
-      rating={4}
-      time={5}
-    />,
-    <DisplayRecipe
-      img={middle}
-      title={"2Streuseldonuts"}
-      rating={4}
-      time={63}
-    />,
-    <DisplayRecipe
-      img={right}
-      title={"2Schokoladenkuchen"}
-      rating={3}
-      time={16}
-    />,
-  ];
+  const items = allRecipes.map((recipe) => {  
+    const time = Number(recipe.cook_time) + Number(recipe.prep_time);
+    return (
+      <DisplayRecipe
+        img={recipe.img}
+        title={recipe.name}
+        rating={recipe.rating}
+        time={time}
+      />
+    );
+  });
 
   const carouselRef = useRef<AliceCarousel>(null);
 
@@ -127,7 +55,7 @@ export default function Body() {
 
   return (
     <div id="outer_wrapper">
-    <div id="wrapper">
+    <div id="i_wrapper">
       <div id="search_box_out_wrapper">
         <div id="search_box_wrapper">
           <input type="text" placeholder="Search..." />

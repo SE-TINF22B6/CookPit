@@ -5,18 +5,6 @@
   color: transparent;
   background: none;
   top: -75px;
-  /*left: 73%;*/
-  right: -83.5%;
-  position: relative;
-  height: 40px;
-  width: 120px;
-  color: #000000;
-  z-index: 100;
-  border: transparent;
-  color: transparent;
-  background: none;
-  top: -75px;
-  /*left: 73%;*/
   right: -83.5%;
   position: relative;
   height: 40px;
@@ -30,22 +18,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: calc(100vh - 100px);
-  /* top: calc(50% - 153px); */
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-  backdrop-filter: blur(2px);
-  background-color: #0000000c;
-  z-index: 100;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: calc(100vh - 100px);
-  /* top: calc(50% - 153px); */
+  height: 100%;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -55,12 +28,6 @@
 }
 
 .outer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 10vh;
-  z-index: 100;
-  visibility: false;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,14 +37,6 @@
 }
 
 .wrapper {
-  width: 420px;
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(10px);
-  color: #000000;
-  border: solid;
-  border-color: #7c7c7c;
-  border-radius: 10px;
-  visibility: visible;
   width: 420px;
   background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(10px);
@@ -113,22 +72,8 @@
   background: none;
   font-size: 36px;
   cursor: pointer;
-  position: relative;
-  left: 370px;
-  top: -70px;
-  color: red;
-  border: none;
-  background: none;
-  font-size: 36px;
-  cursor: pointer;
 }
 
-.wrapper .input-box {
-  position: relative;
-  width: 95%;
-  left: 5px;
-  height: 40px;
-  margin: 30px 0;
 .wrapper .input-box {
   position: relative;
   width: 95%;
@@ -146,28 +91,12 @@
   border: 2px solid black;
   border-radius: 40px;
   font-size: 16px;
-.input-box input {
-  width: 100%;
-  height: 100%;
-  background: #ff9595;
-  border: none;
-  outline: none;
-  border: 2px solid black;
-  border-radius: 40px;
-  font-size: 16px;
 }
 
 .input-box input::placeholder {
   color: #000000;
-.input-box input::placeholder {
-  color: #000000;
 }
 
-.input-box img {
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-40%);
 .input-box img {
   position: absolute;
   right: 20px;
@@ -180,16 +109,8 @@
   justify-content: space-between;
   font-size: 14.5px;
   margin-right: 3px;
-.wrapper .remember-forgot {
-  display: flex;
-  justify-content: space-between;
-  font-size: 14.5px;
-  margin-right: 3px;
 }
 
-.remember-forgot label input {
-  accent-color: #000000;
-  margin-right: 3px;
 .remember-forgot label input {
   accent-color: #000000;
   margin-right: 3px;
@@ -198,12 +119,8 @@
 .remember-forgot a {
   color: #000000;
   text-decoration: none;
-  color: #000000;
-  text-decoration: none;
 }
 
-.remember-forgot a:hover {
-  text-decoration: underline;
 .remember-forgot a:hover {
   text-decoration: underline;
 }

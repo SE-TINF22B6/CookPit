@@ -123,11 +123,5 @@ const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
     </header>
   );
 };
-      ) : (
-        <Drawer onToggleLogin={onToggleLogin} />
-      )}
-    </header>
-  );
-};
 
 export default Header ;
