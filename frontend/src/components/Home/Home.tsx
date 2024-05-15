@@ -21,7 +21,7 @@ function Home() {
       <Background />
 
       <Header onToggleLogin={toggleLoginVisibility} />
-      {loginVisible && <Login />}
+      {loginVisible && <Login onToggleLogin={toggleLoginVisibility} />}
       <Routes>
         <Route path="/" element={<SearchSite />} />
         <Route path="/rezept/alle" element={<AllRecipes />} />

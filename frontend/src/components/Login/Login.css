@@ -52,6 +52,17 @@
 .wrapper h1 {
   font-size: 36px;
   text-align: center;
+}zzzz
+
+.wrap {
+  position: absolute;
+  top: -20px;
+  }
+
+.btnclose{
+  position: relative;
+  left: 30%;
+  cursor: pointer;
 }
 
 .closePopup {
@@ -128,6 +139,16 @@
   font-size: 16px;
   color: #333;
   font-weight: 600;
+  padding: 10px;
+}
+
+.wrapper .btn:hover{
+  background-color: #ff9595;
+}
+
+.labels-container{
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .wrapper .register-link {
@@ -136,12 +157,17 @@
   margin-top: 20px;
 }
 
-.register-link p a {
-  color: #000000;
-  text-decoration: none;
-  font-weight: 600;
+.register-link p a{
+    color: #000000;
+    text-decoration: none;
+    font-weight: 600;
 }
 
-.register-link p a:hover {
-  text-decoration: underline;
+.register-link p a:hover{
+    text-decoration: underline;
+}
+
+.loginmsg{
+  padding: 10px;
+  text-align: center;
 }
