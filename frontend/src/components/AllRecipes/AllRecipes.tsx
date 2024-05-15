@@ -4,16 +4,9 @@ import './AllRecipes.css'
 export default function AllRecipes() {
   return (
     <div id='wrapper'>
-        <DisplayRecipe img={'1'} title={'2'} rating={0} time={0} />
-        <DisplayRecipe img={'1'} title={'2'} rating={0} time={0} />
-        <DisplayRecipe img={'1'} title={'2'} rating={0} time={0} />
-        <DisplayRecipe img={'1'} title={'2'} rating={0} time={0} />
-        <DisplayRecipe img={'1'} title={'2'} rating={0} time={0} />
-        <DisplayRecipe img={'1'} title={'2'} rating={0} time={0} />
-        <DisplayRecipe img={'1'} title={'2'} rating={0} time={0} />
-        <DisplayRecipe img={'1'} title={'2'} rating={0} time={0} />
-        <DisplayRecipe img={'1'} title={'2'} rating={0} time={0} />
-        <DisplayRecipe img={'1'} title={'2'} rating={0} time={0} />
+        {/* <button className='openOnClick' onClick={() => alert()}> */}
+            <DisplayRecipe img={'1'} title={'2'} rating={0} time={0} />
+        {/* </button> */}
     </div>
   )
 }
