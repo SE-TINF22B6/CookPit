@@ -119,18 +119,15 @@ app.post("/login", (req, res) => {
 
 function addrecipe(recipeheader, recipecategory, recipetimeeffort, recipestars, recipedescription) {
   db.run(
-    "INSERT INTO account (recipeheader, recipecategory, recipetimeeffort, recipestars, recipedescription) VALUES (?, ?, ?, ?, ?)",
-    [recipeheader, recipecategory, recipetimeeffort, recipestars, recipedescription],
+    "INSERT INTO recipe (recipeheader, recipecategory, recipetimeeffort, recipestars, recipedescription, recipeingredients) VALUES (?, ?, ?, ?, ?, ?)",
+    [recipeheader, recipecategory, recipetimeeffort, recipestars, recipedescription, recipeingredients],
     (err, result) => {
-      if (err && err.code === 'SQLITE_CONSTRAINT') {
-        console.error("Benutzername bereits vorhanden:", err.message);
-        res.send({loginmessage: "Benutzername bereits vorhanden"})
-      } else if (err) {
-        console.error("Fehler beim Einfügen der Daten:", err.message);
-        res.status(500).send("Interner Serverfehler.");
+      if (err) {
+        console.error("Fehler beim Einfügen des Rezepts"+ err);
+        res.send({message: err})
       } else {
-        console.log("Daten erfolgreich eingefügt.");
-        res.send({loginmessage: "Benutzer erfolgreich erstellt"})
+        console.error("Rezept erfolgreich eingefügt, ID");
+        res.send({result})
       }
     }
   );
@@ -143,9 +140,9 @@ app.post("/addrecipe", (req, res) => {
   const recipestars = req.body.recipestars;
   const recipedescription = req.body.recipedescription
   const recipepicture = req.body.recipepicture
-  console.log(recipeheader, recipecategory, recipetimeeffort,recipestars,recipedescription)
-  //addrecipe(recipeheader, recipecategory, recipetimeeffort,recipestars,recipedescription, recipepicture)
-  res.send({recipeheader, recipecategory, recipetimeeffort, recipestars, recipedescription, recipepicture})
+  const recipeingredients = req.body.recipeingredients
+  console.log(recipeheader, recipecategory, recipetimeeffort,recipestars,recipedescription, recipeingredients)
+  addrecipe(recipeheader, recipecategory, recipetimeeffort,recipestars,recipedescription, recipepicture)
   }
 )
 

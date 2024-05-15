@@ -2,107 +2,100 @@ import React, { useState, ChangeEvent, useEffect } from 'react'
 import uploadImage from '../recipeUpload/image-upload.jpg';
 import '../recipeUpload/recipeUpload.css';
 import Axios from "axios";
+import fs from 'fs';
 
 
 
 export default function Body(){
-        const [uploadImageSrc, setUploadImageSrc] = useState<string | null>(null);
-        const [picture, setpicture] = useState<string | null>(null);
 
-        const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-          const file = event.target.files?.[0];
-          if (file) {
-            const image = new Image();
-            image.src = URL.createObjectURL(file);
-        
-            image.onload = () => {
-              const canvas = document.createElement('canvas');
-              const ctx = canvas.getContext('2d')!;
-              canvas.width = 480;
-              canvas.height = 270;
-        
-              // Berechne das Seitenverhältnis des Bildes
-              const aspectRatio = image.width / image.height;
-        
-              let width = 500;
-              let height = 300;
-        
-              if (aspectRatio > 500 / 300) {
-                // Bild ist breiter als das Zielformat, daher muss die Höhe angepasst werden
-                width = 500 * aspectRatio;
-              } else {
-                // Bild ist höher als das Zielformat, daher muss die Breite angepasst werden
-                height = 300 / aspectRatio;
-              }
-        
-              // Zentriere das Bild auf dem Canvas und zeichne es
-              const x = (500 - width) / 2;
-              const y = (300 - height) / 2;
-              ctx.drawImage(image, x, y, width, height);
-
-
-              // Konvertiere den Canvas in eine Daten-URL und setze das Bild
-              const croppedImageSrc = canvas.toDataURL();
-              const base64 = croppedImageSrc.split(",")[1];
-              setpicture(base64);
-              setUploadImageSrc(croppedImageSrc);
-            };
-            
-          }
-        };
-        // Speichern der Variabeln
-        const [header, setheader] = useState('');
-        const [category, setcategory] = useState('');
-        const [timeeffort, settimeeffort] = useState('');
-        const [calories, setcalories] = useState('');
-        const [stars, setstars] = useState("");
-        const [description, setdescription] = useState('');
-        const [ingredients, setIngredients] = useState(Array(10).fill(''));
-        
-        const handleChange = (index: number, value: string) => {
-          const newIngredients = [...ingredients];
-          newIngredients[index] = value;
-          setIngredients(newIngredients);
-        };
-
-        const handleRatingChange = (e: ChangeEvent<HTMLInputElement>) => {
-          setstars(e.target.value);
-        };
-
-
-        
-        const addrecipe = () => {
-          Axios.post("http://localhost:3001/addrecipe", {
-            recipeheader: header,
-            recipecategory: category,
-            recipetimeeffort: timeeffort,
-            recipecalories: calories,
-            recipestars: stars,
-            recipedescription: description,
-            recipepicture: picture
-          }).then((response) => {
-            console.log(response.data)
-          })};
-
-          const [counter, setCounter] = useState(1); // Hier wird der Anfangswert auf 1 gesetzt
-
-    const incrementCounter = () => {
-    setCounter(counter + 1); // Die Funktion erhöht den Counter um 1
-    };
-
-    const [currentDate, setCurrentDate] = useState(new Date().toLocaleDateString()); // Hier wird der Anfangswert auf das aktuelle Datum gesetzt
-
-    useEffect(() => {
-      const interval = setInterval(() => {
-        setCurrentDate(new Date().toLocaleDateString()); // Die Funktion aktualisiert currentDate täglich
-      }, 1000 * 60 * 60 * 24); // Alle 24 Stunden aktualisieren
+  const [uploadImageSrc, setUploadImageSrc] = useState<string | null>(null);
+  const [picture, setpicture] = useState<string | null>(null);
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const image = new Image();
+      image.src = URL.createObjectURL(file);
   
-      return () => clearInterval(interval); // Aufräumen des Intervalls, wenn die Komponente unmountet wird
-    }, []);
+      image.onload = () => {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d')!;
+        canvas.width = 480;
+        canvas.height = 270;
   
+        // Berechne das Seitenverhältnis des Bildes
+        const aspectRatio = image.width / image.height;
+  
+        let width = 500;
+        let height = 300;
+  
+        if (aspectRatio > 500 / 300) {
+          // Bild ist breiter als das Zielformat, daher muss die Höhe angepasst werden
+          width = 500 * aspectRatio;
+        } else {
+          // Bild ist höher als das Zielformat, daher muss die Breite angepasst werden
+          height = 300 / aspectRatio;
+        }
+  
+        // Zentriere das Bild auf dem Canvas und zeichne es
+        const x = (500 - width) / 2;
+        const y = (300 - height) / 2;
+        ctx.drawImage(image, x, y, width, height);
+        // Konvertiere den Canvas in eine Daten-URL und setze das Bild
+        const croppedImageSrc = canvas.toDataURL();
+        const base64 = croppedImageSrc.split(",")[1];
+        setpicture(base64);
+        setUploadImageSrc(croppedImageSrc);
+    }
+  };
+  // Speichern der Variabeln
+  const [header, setheader] = useState('');
+  const [category, setcategory] = useState('');
+  const [timeeffort, settimeeffort] = useState('');
+  const [calories, setcalories] = useState('');
+  const [stars, setstars] = useState("");
+  const [description, setdescription] = useState('');
+  const [ingredients, setIngredients] = useState(Array(10).fill(''))
+  
+  const handleChange = (index: number, value: string) => {
+    const newIngredients = [...ingredients];
+    newIngredients[index] = value;
+    setIngredients(newIngredients);
+  };
+  const handleRatingChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setstars(e.target.value);
+  };
+  
+  const addrecipe = () => {
+    Axios.post("http://localhost:3001/addrecipe", {
+      recipeheader: header,
+      recipecategory: category,
+      recipetimeeffort: timeeffort,
+      recipecalories: calories,
+      recipestars: stars,
+      recipedescription: description,
+      recipepicture: picture,
+      recipeingredients: ingredients
+    }).then((response) => {
+      console.log(response.data)
+    })};
+
+  const [counter, setCounter] = useState(1); // Hier wird der Anfangswert auf 1 gesetzt
+  const incrementCounter = () => {
+  setCounter(counter + 1); // Die Funktion erhöht den Counter um 1
+  };
+  const [currentDate, setCurrentDate] = useState(new Date().toLocaleDateString()); // Hier wird der Anfangswert auf das aktuelle Datum gesetzt
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentDate(new Date().toLocaleDateString()); // Die Funktion aktualisiert currentDate täglich
+    }, 1000 * 60 * 60 * 24); // Alle 24 Stunden aktualisieren
+
+    return () => clearInterval(interval); // Aufräumen des Intervalls, wenn die Komponente unmountet wird
+  }, []);
+
+    
       
-        
-  return (
+return (
 <body>
  
     <div id='blockerTop'></div>
@@ -136,7 +129,7 @@ export default function Body(){
 
         <div className="form-groupCalories">
           <label htmlFor="headingTop">Calories</label>
-          <input type="text" id="headingTop" name="Calories" onChange={(e) => { settimeeffort(e.target.value); }} />
+          <input type="text" id="headingTop" name="Calories" onChange={(e) => { setcalories(e.target.value); }} />
         </div>
 
         <div className="rating">
@@ -269,7 +262,7 @@ export default function Body(){
         </div>
 
         
-        <button className='addOneMoreIngredient'  onClick={addrecipe}>Add Ingredient</button>
+        <button className='addOneMoreIngredient'  onClick={addrecipe}>Save Recipe</button>
        
       
     </div> 
