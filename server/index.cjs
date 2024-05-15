@@ -1,4 +1,5 @@
 require("dotenv").config();
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -30,4 +31,3 @@ app.listen(PORT, () => {
 //Database init
 const database = require ('./database.cjs')
 database(app);
-

@@ -7,6 +7,69 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import AliceCarousel, { Link } from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import { MouseEvent, useRef } from "react";
+import "../SearchSite/SearchSite.css";
+import left from "../../img/Pfannkuchen.png";
+import middle from "../../img/Donut.png";
+import right from "../../img/Schokokuchen.png";
+import DisplayRecipe from "../DisplayRecipe/DisplayRecipe";
+import "bootstrap/dist/css/bootstrap.min.css";
+import AliceCarousel, { Link } from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
+import { MouseEvent, useRef } from "react";
+
+export default function Body() {
+  const items = [
+    <DisplayRecipe
+      img={left}
+      title={"Pfannkuchen mit Obst"}
+      rating={4}
+      time={5}
+    />,
+    <DisplayRecipe
+      img={middle}
+      title={"Streuseldonuts"}
+      rating={4}
+      time={63}
+    />,
+    <DisplayRecipe
+      img={right}
+      title={"Schokoladenkuchen"}
+      rating={3}
+      time={16}
+    />,
+    <DisplayRecipe
+      img={left}
+      title={"2Pfannkuchen mit Obst"}
+      rating={4}
+      time={5}
+    />,
+    <DisplayRecipe
+      img={middle}
+      title={"2Streuseldonuts"}
+      rating={4}
+      time={63}
+    />,
+    <DisplayRecipe
+      img={right}
+      title={"2Schokoladenkuchen"}
+      rating={3}
+      time={16}
+    />,
+  ];
+
+  const carouselRef = useRef<AliceCarousel>(null);
+
+  const handleLeftArrowClick = () => {
+    if (carouselRef.current) {
+      carouselRef.current.slidePrev();
+    }
+  };
+
+  const handleRightArrowClick = () => {
+    if (carouselRef.current) {
+      carouselRef.current.slideNext();
+    }
+  };
 
 export default function Body() {
   const items = [

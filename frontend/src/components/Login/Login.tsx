@@ -1,4 +1,5 @@
 import "../Login/Login.css";
+import "../Login/Login.css";
 import React, { useState } from "react";
 import icon_user from "../../img/icon_user.png";
 import icon_password from "../../img/icon_password.png";
@@ -69,11 +70,11 @@ const Login: React.FC<LoginProps> = ({ onToggleLogin }) => {
             <IoClose size={35} className= "btnclose" onClick={onToggleLogin} />
   </div>*/}
           <div className="input-box">
-            <input type="text" placeholder="  Username" onChange={(e) => { setUsername(e.target.value); }} />
+            <input type="text" placeholder="Username" onChange={(e) => { setUsername(e.target.value); }} />
             <img src={icon_user} alt="User" />
           </div>
           <div className="input-box">
-            <input type="password" placeholder="  Password" onChange={(e) => { setPassword(e.target.value); }} />
+            <input type="password" placeholder="Password" onChange={(e) => { setPassword(e.target.value); }} />
             <img src={icon_password} alt="Password" />
           </div> 
           <div className="labels-container">
@@ -92,5 +93,8 @@ const Login: React.FC<LoginProps> = ({ onToggleLogin }) => {
       </div>
     </div>
   );
+}
+export default Login;
+
 }
 export default Login;

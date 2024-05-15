@@ -7,6 +7,7 @@ import SearchSite from "../SearchSite/SearchSite";
 import OpenAI from "../openai/OpenAICall";
 import React, { useState } from "react";
 import RecipeUpload from "../recipeUpload/recipeUpload";
+import Imprint from "../FAQ/FAQ";
 import AllRecipes from "../AllRecipes/AllRecipes";
 
 function Home() {
@@ -20,11 +21,16 @@ function Home() {
     <>
       <Background />
 
+      <Background />
+
       <Header onToggleLogin={toggleLoginVisibility} />
       {loginVisible && <Login onToggleLogin={toggleLoginVisibility} />}
       <Routes>
         <Route path="/" element={<SearchSite />} />
         <Route path="/rezept/alle" element={<AllRecipes />} />
+        <Route path="/rezept/generator" element={<OpenAI />} />
+        <Route path="/rezept/hochladen" element={<RecipeUpload />} />
+        {/* <Route path="/rezept/alle" element={<??? />} /> */}
         <Route path="/rezept/generator" element={<OpenAI />} />
         <Route path="/rezept/hochladen" element={<RecipeUpload />} />
       </Routes>

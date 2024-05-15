@@ -1,14 +1,13 @@
 import React, { useState, ChangeEvent } from 'react'
 import uploadImage from '../recipeUpload/image-upload.jpg';
 import '../recipeUpload/recipeUpload.css';
+import Axios from "axios";
 
 
 
 export default function Body(){
-    function setLanguage(language:HTMLElement) {
-        const activeLanguage = document.getElementById("language_selection");
-        activeLanguage!.innerText = language.innerText;}
         const [uploadImageSrc, setUploadImageSrc] = useState<string | null>(null);
+        const [picture, setpicture] = useState<string | null>(null);
 
         const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
           const file = event.target.files?.[0];
@@ -40,19 +39,47 @@ export default function Body(){
               const x = (500 - width) / 2;
               const y = (300 - height) / 2;
               ctx.drawImage(image, x, y, width, height);
-        
+
+
               // Konvertiere den Canvas in eine Daten-URL und setze das Bild
               const croppedImageSrc = canvas.toDataURL();
+              const base64 = croppedImageSrc.split(",")[1];
+              setpicture(base64);
               setUploadImageSrc(croppedImageSrc);
             };
+            
           }
         };
+        // Speichern der Variabeln
+        const [header, setheader] = useState('');
+        const [category, setcategory] = useState('');
+        const [timeeffort, settimeeffort] = useState('');
+        const [stars, setstars] = useState("");
+        const [description, setdescription] = useState('');
+        const [ingredients, setIngredients] = useState(Array(10).fill(''));
         
-        const [ingredients, setIngredients] = useState([{ ingredient: '', amount: '', unit: 'ml' }]);
+        const handleChange = (index: number, value: string) => {
+          const newIngredients = [...ingredients];
+          newIngredients[index] = value;
+          setIngredients(newIngredients);
+        };
 
-        const addIngredientField = () => {
-        setIngredients([...ingredients, { ingredient: '', amount: '', unit: 'ml' }]);
-  };
+        const handleRatingChange = (e: ChangeEvent<HTMLInputElement>) => {
+          setstars(e.target.value);
+        };
+
+        const addrecipe = () => {
+          Axios.post("http://localhost:3001/addrecipe", {
+            recipeheader: header,
+            recipecategory: category,
+            recipetimeeffort: timeeffort,
+            recipestars: stars,
+            recipedescription: description,
+            recipepicture: picture
+          }).then((response) => {
+            console.log(response.data)
+          })};
+
 
       
         
@@ -66,9 +93,32 @@ export default function Body(){
 
      <div className="form-group">
           <label htmlFor="headingTop">Header</label>
-          <input type="text" id="headingTop" name="headingTop" />
+          <input type="text" id="headingTop" name="Heading" onChange={(e) => { setheader(e.target.value); }} />
         </div>
 
+       
+        <div className='recipeInfo'>
+        <div className="form-groupCategory">
+          <label htmlFor="headingTop">Category</label>
+          <input type="text" id="headingTop" name="Category" onChange={(e) => { setcategory(e.target.value); }} />
+        </div>
+        <div className="form-groupTimeEffort">
+          <label htmlFor="headingTop">Time effort</label>
+          <input type="text" id="headingTop" name="Effort" onChange={(e) => { settimeeffort(e.target.value); }} />
+        </div>
+        <div className="rating">
+          {[...Array(5)].map((_, index) => (
+            <React.Fragment key={index}>
+              <input value={5- index} name="rate" id={`star${5- index}`} type="radio" onChange={handleRatingChange} checked={stars === `${5- index}`} />
+              <label title={`${5- index} Sterne`} htmlFor={`star${5- index}`}></label>
+            </React.Fragment>
+          ))}
+        </div>
+        
+        </div>
+
+
+        
        {/* <div id="heading" >
               <input type="text"/>
               <span>Heading</span>
@@ -139,14 +189,32 @@ export default function Body(){
         </th>
          
     </table> 
-  <label className='uploadImageLabel' htmlFor="input-file">Upload Image</label> */}
+    <label className='uploadImageLabel' htmlFor="input-file">Upload Image</label> */}
    <div id='blocker1'></div>
    <div id='blocker1'></div>
    <div id='blocker1'></div>
-    <div>
+
+
+   <div className="form-groupIngredient">
+      <label htmlFor="ingredientInput">Ingredients</label>
+      {[...Array(10)].map((_, index) => (
+        <div key={index}>
+          <input
+            type="text"
+            id={`ingredientInput${index}`}
+            name={`Ingredient ${index + 1}`}
+            value={ingredients[index]}
+            onChange={(e) => handleChange(index, e.target.value)}
+          />
+          <label htmlFor={`ingredientInput${index}`}>{index + 1}</label>
+        </div>
+      ))}
+    </div>
+    {/*<div>
       <table>
         <thead>
           <tr>
+            
             <th>Ingredient</th>
             <th className='tabelspace'></th>
             <th className='tabelspace'></th>
@@ -218,20 +286,18 @@ export default function Body(){
         </tbody>
       </table>
       </div>
-    <button className='addOneMoreIngredient' onClick={addIngredientField}>Add Ingredient</button>
-    <div id='blocker1'></div>
-    <div id='blocker1'></div>
+    <button className='addOneMoreIngredient' onClick={addIngredientField}>Add Ingredient</button>*/}
+        <div id='blocker1'></div>
+        <div id='blocker1'></div>
 
-        <div className='discription'><textarea>Discription</textarea>
-        <span className='discriptionSpan'>Discription</span>
+        <div className='discription'><textarea name="Description" placeholder='Description' onChange={(e) => { setdescription(e.target.value); }}></textarea>
+        <span className='discriptionSpan'>Description</span>
         </div>
 
         
-        <button className='addOneMoreIngredient' onClick={addIngredientField}>Add Ingredient</button>
-        <div id='blocker1'></div>
-        <div id='blocker1'></div>
-        <div id='blocker1'></div>
-        <div id='blocker1'></div>
+        <button className='addOneMoreIngredient'  onClick={addrecipe}>Add Ingredient</button>
+       
+      
     </div> 
     </div>
 </body>
