@@ -2,9 +2,6 @@ import React, { useState, ChangeEvent, useEffect } from 'react'
 import uploadImage from '../recipeUpload/image-upload.jpg';
 import '../recipeUpload/recipeUpload.css';
 import Axios from "axios";
-import fs from 'fs';
-
-
 
 export default function Body(){
 
@@ -105,7 +102,7 @@ export default function Body(){
     
       
 return (
-<body>
+<div id='upload_wrapper'>
  
     <div id='blockerTop'></div>
     <div id='template'>
@@ -186,83 +183,6 @@ return (
     </div>
 
     <button className='addOneMoreIngredient'  onClick={incrementCounter}>Add Ingredient</button>
-    {/*<div>
-      <table>
-        <thead>
-          <tr>
-            
-            <th>Ingredient</th>
-            <th className='tabelspace'></th>
-            <th className='tabelspace'></th>
-            <th>Amount</th>
-            <th className='tabelspace'></th>
-            <th className='tabelspace'></th>
-            <th className='tabelspace'></th>
-            <th className='tabelspace'></th>
-            <th>Unit</th>
-          </tr>
-        </thead>
-        <tbody>
-          {ingredients.map((ingredient, index) => (
-            <tr key={index}>
-              <td>
-                <div id="ingredient">
-                  <input
-                    type="text"
-                    value={ingredient.ingredient}
-                    onChange={(e) => {
-                      const newIngredients = [...ingredients];
-                      newIngredients[index].ingredient = e.target.value;
-                      setIngredients(newIngredients);
-                    }}
-                  />
-                </div>
-              </td>
-              <th className='tabelspace'></th>
-              <th className='tabelspace'></th>
-              <td>
-                <div id="amount">
-                  <input
-                    type="text"
-                    value={ingredient.amount}
-                    onChange={(e) => {
-                      const newIngredients = [...ingredients];
-                      newIngredients[index].amount = e.target.value;
-                      setIngredients(newIngredients);
-                    }}
-                  />
-                </div>
-              </td>
-              <th className='tabelspace'></th>
-              <th className='tabelspace'></th>
-              <th className='tabelspace'></th>
-              <th className='tabelspace'></th>
-              <td>
-                <div id="format">
-                  <select
-                    value={ingredient.unit}
-                    onChange={(e) => {
-                      const newIngredients = [...ingredients];
-                      newIngredients[index].unit = e.target.value;
-                      setIngredients(newIngredients);
-                    }}
-                  >
-                    <optgroup label="Unit">
-                      <option value="ml">ml</option>
-                      <option value="l">liter</option>
-                      <option value="gramm">gramm</option>
-                      <option value="kg">kg</option>
-                      <option value="peice">piece</option>
-                    </optgroup>
-                  </select>
-                </div>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      </div>
-    <button className='addOneMoreIngredient' onClick={addIngredientField}>Add Ingredient</button>*/}
         <div id='blocker1'></div>
         <div id='blocker1'></div>
 
@@ -276,5 +196,5 @@ return (
       
     </div> 
     </div>
-</body>
+</div>
 )};
