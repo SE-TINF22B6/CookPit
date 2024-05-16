@@ -5,7 +5,6 @@
   color: transparent;
   background: none;
   top: -75px;
-  /*left: 73%;*/
   right: -83.5%;
   position: relative;
   height: 40px;
@@ -19,8 +18,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: calc(100vh - 100px);
-  /* top: calc(50% - 153px); */
+  height: 100%;
   margin: 0;
   padding: 0;
   box-sizing: border-box;

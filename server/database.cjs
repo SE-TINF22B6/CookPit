@@ -3,10 +3,14 @@ const sqlite3 = require('sqlite3').verbose();
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
 const jwtkey = crypto.randomBytes(32).toString('hex');
+const multer = require('multer');
+const fs = require('fs')
 
 
 
 function Database(app) {
+    const storage = multer.memoryStorage();
+    const upload = multer({ storage: storage });
 
     //init database
     const db = new sqlite3.Database('./account.db', sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, (err) => {
@@ -61,26 +65,26 @@ function Database(app) {
         });
 
 
-        function login(username, password, res) {
-            db.get("SELECT * FROM account WHERE username = ? AND password = ?",
-                [username, password],
-                (err, result) => {
-                    if (err) {
-                        res.send({ loginmessage: err });
-                        return;
-                    } else if (result) {
-                        const token = jwt.sign({ username: username }, jwtkey, {expiresIn: "24h"} );
-                        res.send({ loginmessage: "Erfolgreich eingeloggt", token });
-                        console.log('User "' + username + '" eingeloggt');
-                        user=username;
-                        userstate=true;
-                    } else {
-                        res.send({ loginmessage: "Der Nutzername stimmt nicht mit dem Passwort überein" });
-                        console.log('User "' + username + '" existiert nicht');
-                    }
+    function login(username, password, res) {
+        db.get("SELECT * FROM account WHERE username = ? AND password = ?",
+            [username, password],
+            (err, result) => {
+                if (err) {
+                    res.send({ loginmessage: err });
+                    return;
+                } else if (result) {
+                    const token = jwt.sign({ username: username }, jwtkey, {expiresIn: "24h"} );
+                    res.send({ loginmessage: "Erfolgreich eingeloggt", token });
+                    console.log('User "' + username + '" eingeloggt');
+                    user=username;
+                    userstate=true;
+                } else {
+                    res.send({ loginmessage: "Der Nutzername stimmt nicht mit dem Passwort überein" });
+                    console.log('User "' + username + '" existiert nicht');
                 }
-            );
-        };
+            }
+        );
+    };
     app.post("/getlogin", (req, res) => {
     if(userstate===true){
         loginmessage = user;
@@ -99,57 +103,80 @@ function Database(app) {
     });
 
 
-        function verifyToken(req, res, next) {
-            const token = req.headers.authorization;
-        
-            if (!token) {
-                return res.status(401).json({ message: 'Token is missing' });
+    function verifyToken(req, res, next) {
+        const token = req.headers.authorization;
+    
+        if (!token) {
+            return res.status(401).json({ message: 'Token is missing' });
+        }
+    
+        // Verify token
+        jwt.verify(token, jwtKey, (err, decoded) => {
+            if (err) {
+                return res.status(403).json({ message: 'Invalid token' });
             }
-        
-            // Verify token
-            jwt.verify(token, jwtKey, (err, decoded) => {
-                if (err) {
-                    return res.status(403).json({ message: 'Invalid token' });
+    
+            // Attach user information to request object
+            req.user = decoded;
+            next();
+        });
+    }
+    
+    function getallrecipe(res) {
+        db.all("SELECT * FROM recipe",
+        (err, results) => {
+            if (err) {
+                console.log("Fehler:"+err)
+                return;
+            } else if (results) {
+                length = results.length
+                res.send({results})
+            }
+        })
+    }
+    function addrecipe(recipeheader, recipecategory, recipetimeeffort, recipestars, recipedescription, recipepicture, res) { 
+        db.run( "INSERT INTO Recipe (name, prep_time, rating, description, calories) VALUES (?, ?, ?, ?, ?)", 
+        [recipeheader, recipetimeeffort, recipestars, recipedescription, recipepicture], 
+        (err, result) => { 
+            if (err) { 
+                console.error(err.message); 
+                }   else    { 
+                    console.log(result)
+                    res.send({message: "Rezept erfolgreich eingefügt"})
                 }
-        
-                // Attach user information to request object
-                req.user = decoded;
-                next();
-            });
+            }
+        )
+    }
+            
+    app.post("/addrecipe", upload.single('recipepicture'), (req, res) => { 
+        const { recipeheader, recipecategory, recipetimeeffort, recipestars, recipedescription } = req.body;
+        let recipepicture = null
+        if (req.file) {
+            recipepicture = req.file.buffer.toString('base64');
         }
-        
-        function getallrecipe(res) {
-            db.all("SELECT * FROM recipe",
-            (err, results) => {
-                if (err) {
-                    console.log("Fehler:"+err)
-                    return;
-                } else if (results) {
-                    length = results.length
-                    res.send({results})
+        console.log(recipeheader, recipecategory, recipetimeeffort,recipestars,recipedescription) 
+        addrecipe(recipeheader, recipecategory, recipetimeeffort,recipestars,recipedescription, recipepicture, res) 
+    });
+
+
+
+    /*insertRecipe("BONGOTROMMLER", "A classic Italian pasta dish.", 15, 45)
+    insertRecipe("KARIMBENZEMA", "A spicy and flavorful curry.", 20, 30)
+    insertRecipe("GRILLED CHEDDAR ROBIN", "A simple and quick sandwich.", 5, 10)
+    function insertRecipe(name, description, prep_time, cook_time) {
+        let sql = 'INSERT INTO recipe (name, description, prep_time, cook_time) VALUES (?, ?, ?, ?)';
+        let params = [name, description, prep_time, cook_time];
+        db.run(sql, params, function(err) {
+            if (err) {
+                console.error("Fehler beim Einfügen von Daten: " + err.message);
+            } else {
+                console.log(`Datensatz hinzugefügt mit der ID ${this.lastID}.`);
+                if (typeof callback === 'function') {
+                    callback();
                 }
-            })
-        }
-
-
-        /*insertRecipe("BONGOTROMMLER", "A classic Italian pasta dish.", 15, 45)
-        insertRecipe("KARIMBENZEMA", "A spicy and flavorful curry.", 20, 30)
-        insertRecipe("GRILLED CHEDDAR ROBIN", "A simple and quick sandwich.", 5, 10)
-
-        function insertRecipe(name, description, prep_time, cook_time) {
-            let sql = 'INSERT INTO recipe (name, description, prep_time, cook_time) VALUES (?, ?, ?, ?)';
-            let params = [name, description, prep_time, cook_time];
-            db.run(sql, params, function(err) {
-                if (err) {
-                    console.error("Fehler beim Einfügen von Daten: " + err.message);
-                } else {
-                    console.log(`Datensatz hinzugefügt mit der ID ${this.lastID}.`);
-                    if (typeof callback === 'function') {
-                        callback();
-                    }
-                }
-            });
-        }*/
+            }
+        });
+    }*/
     }
 
 module.exports = Database;
