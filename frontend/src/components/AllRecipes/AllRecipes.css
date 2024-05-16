@@ -2,18 +2,15 @@
   height: calc(100% - 100px);
   width: 100vw;
   position: absolute;
-  bottom: 0;
+  top: 100px;
   padding: 70px 40px 0px 40px;
   display: flex;
   justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
 }
 
 #center_wrapper {
   display: flex;
-  justify-content: start;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
-  background-color: yellow;
 }
