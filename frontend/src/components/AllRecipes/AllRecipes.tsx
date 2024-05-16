@@ -1,19 +1,22 @@
-import DisplayRecipe from '../DisplayRecipe/DisplayRecipe'
-import './AllRecipes.css'
+import DisplayRecipe from "../DisplayRecipe/DisplayRecipe";
+import "./AllRecipes.css";
 
-export default function AllRecipes() {
+export default function AllRecipes({ allRecipes }: { allRecipes: any[] }) {
+  const items = allRecipes.map((recipe) => {
+    const time = Number(recipe.cook_time) + Number(recipe.prep_time);
+    return (
+      <DisplayRecipe
+        img={recipe.img}
+        title={recipe.name}
+        rating={recipe.rating}
+        time={time}
+      />
+    );
+  });
+
   return (
-    <div id='wrapper'>
-        <DisplayRecipe img={'1'} title={'2'} rating={0} time={0} />
-        <DisplayRecipe img={'1'} title={'2'} rating={0} time={0} />
-        <DisplayRecipe img={'1'} title={'2'} rating={0} time={0} />
-        <DisplayRecipe img={'1'} title={'2'} rating={0} time={0} />
-        <DisplayRecipe img={'1'} title={'2'} rating={0} time={0} />
-        <DisplayRecipe img={'1'} title={'2'} rating={0} time={0} />
-        <DisplayRecipe img={'1'} title={'2'} rating={0} time={0} />
-        <DisplayRecipe img={'1'} title={'2'} rating={0} time={0} />
-        <DisplayRecipe img={'1'} title={'2'} rating={0} time={0} />
-        <DisplayRecipe img={'1'} title={'2'} rating={0} time={0} />
+    <div id="wrapper">
+      <div id="center_wrapper">{items}</div>
     </div>
-  )
+  );
 }

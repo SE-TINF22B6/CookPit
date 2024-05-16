@@ -39,7 +39,7 @@ function Home() {
       {loginVisible && <Login onToggleLogin={toggleLoginVisibility} />}
       <Routes>
         <Route path="/" element={<SearchSite allRecipes={allRecipes}/>} />
-        <Route path="/rezept/alle" element={<AllRecipes />} />
+        <Route path="/rezept/alle" element={<AllRecipes allRecipes={allRecipes} />} />
         <Route path="/rezept/generator" element={<OpenAI />} />
         <Route path="/rezept/hochladen" element={<RecipeUpload />} />
       </Routes>
