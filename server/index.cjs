@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3001;
 const KEY = process.env.OPENAI_API_KEY;
 const cors = require("cors");
 const multer = require("multer");

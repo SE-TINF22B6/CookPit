@@ -1,6 +1,15 @@
-FROM node:7.7.2-alpine
+FROM node:21.7.2-alpine
+
 WORKDIR /home/web/CookPit/frontend
-COPY package.json .
-RUN npm install --quiet
+
+COPY package*.json ./
+
+RUN npm install
+
 COPY . .
-EXPOSE 3000
+
+ENV PORT=8080
+
+EXPOSE 8080
+
+CMD ["npm", "start"]
