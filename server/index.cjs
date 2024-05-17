@@ -1,18 +1,18 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 8080;
 const KEY = process.env.OPENAI_API_KEY;
 const cors = require("cors");
-const multer = require('multer');
-const fs = require('fs')
+const multer = require("multer");
+const fs = require("fs");
 app.use(cors());
 
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 
-app.use(express.json({ limit: '50mb' }));
-app.use(express.urlencoded({ limit: '50mb', extended: true }));
+app.use(express.json({ limit: "50mb" }));
+app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
 app.post("/recipe-maker", async (req, res) => {
   console.log("[openai] Empfangene Daten:", req.body);
@@ -33,5 +33,5 @@ app.listen(PORT, () => {
 });
 
 //Database init
-const database = require ('./database.cjs')
+const database = require("./database.cjs");
 database(app);
