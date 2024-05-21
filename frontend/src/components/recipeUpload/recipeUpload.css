@@ -1,5 +1,12 @@
-#upload_wrapper {
+body {
+  background: transparent;
+  overflow: auto;
+  padding-top: 8%;
+}
 
+#upload_wrapper {
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 #blockerTop{
@@ -19,7 +26,6 @@
     padding: 20px;
     border-radius: 5px;
     z-index: -1;
-  
 }
 
 #heading{
@@ -141,8 +147,8 @@
 }
 .imageUpload{
   
-    width: 100%;
-    height: 400px;
+    width: 40%;
+    height: 10%;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -154,7 +160,7 @@
     align-items: flex-start;
     justify-content: center;
     align-self: flex-start;
-        width: 100%;
+        width: 40%;
         padding: 1.3em 3em;
         font-size: 12px;
         text-transform: uppercase;
@@ -172,8 +178,8 @@
       }
       
       .uploadImageLabel:hover {
-        background-color: #23c483;
-        box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+        background-color: #ff9595;
+        box-shadow: 0px 15px 20px rgb(255, 152, 152);
         color: #fff;
         transform: translateY(-7px);
       }
@@ -281,9 +287,11 @@
 
   .form-container {
     width: 800px;
-    background: linear-gradient(white,white) padding-box,
+    /*background: linear-gradient(white,white) padding-box,
                 linear-gradient(145deg, #e81cff, #40c9ff) border-box;
     border: 2px solid transparent;
+    background-color: #ff9595;*/
+    backdrop-filter: blur(10px);
     padding: 32px 24px;
     font-size: 14px;
     font-family: inherit;
@@ -293,6 +301,7 @@
     gap: 20px;
     box-sizing: border-box;
     border-radius: 16px;
+
   }
   
   .form-container button:active {
@@ -365,12 +374,12 @@
   
   .form-container .form-group input:focus {
     outline: none;
-    border-color: #e81cff;
+    border-color: #ff9595;
   }
   
   .form-container .form-group textarea:focus {
     outline: none;
-    border-color: #e81cff;
+    border-color: #ff9595;
   }
   
   .form-container .form-submit-btn {
@@ -448,19 +457,19 @@
   
   .form-container .form-groupIngredient input:focus {
     outline: none;
-    border-color: #e81cff;
+    border-color: #ff9595;
   }
   
   .form-container .discription textarea:focus {
     outline: none;
-    border-color: #e81cff;
+    border-color: #ff9595;
   }
   .form-container .form-groupTimeEffort {
     display: flex;
     flex-direction: column;
     gap: 2px;
     margin-left: 20px;
-    
+    min-width: 45%;
   }
   
   .form-container .form-groupTimeEffort label {
@@ -491,7 +500,7 @@
   
   .form-container .form-groupTimeEffort input:focus {
     outline: none;
-    border-color: #e81cff;
+    border-color: #ff9595;
   }
 
   .form-container .form-groupCalories {
@@ -530,14 +539,14 @@
   
   .form-container .form-groupCalories input:focus {
     outline: none;
-    border-color: #e81cff;
+    border-color: #ff9595;
   }
   
   .form-container .form-groupCategory {
     display: flex;
     flex-direction: column;
     gap: 2px;
-    
+    min-width: 45%;
     
   }
   
@@ -569,7 +578,7 @@
   
   .form-container .form-groupCategory input:focus {
     outline: none;
-    border-color: #e81cff;
+    border-color: #ff9595;
   }
   
   
@@ -577,7 +586,7 @@
     margin-left: 40px;
     align-items: flex-end;
     align-self: flex-end;
-    
+    min-height: 10%;
   }
   .rating:not(:checked) > input {
     position: absolute;
@@ -612,9 +621,20 @@
     color: #ffa723;
   }
   
+  #wrapperInput {
+    width: 100%;
+    justify-content: center;
+  }
+
   .recipeInfo{
     display: flex;
+    max-width: 50%;
+    float: left;
   }
   
-  
+  #uploadPicture {
+    max-width: 50%;
+    float: right;
+    justify-content: right;
+  }
   
