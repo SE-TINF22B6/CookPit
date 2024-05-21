@@ -1,9 +1,14 @@
 header {
   display: flex;
   justify-content: space-around;
+  width: 100vw;
   height: 100px;
   font-family: Long Cang;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  background-color: white;
 }
 
 .seperator {
@@ -76,4 +81,33 @@ header {
   border: none;
   background: transparent;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 120px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
 }

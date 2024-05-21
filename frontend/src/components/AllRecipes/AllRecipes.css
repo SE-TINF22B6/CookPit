@@ -1,0 +1,11 @@
+#wrapper {
+    height: calc(100% - 100px);
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
+    padding: 70px 40px 0px 40px;
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
