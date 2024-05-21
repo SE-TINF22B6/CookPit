@@ -1,6 +1,5 @@
-#upload_wrapper {
-
-}
+body{overflow: auto;
+background-color: transparent;}
 
 #blockerTop{
     width: 300px;

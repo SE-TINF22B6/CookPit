@@ -102,7 +102,9 @@ export default function Body(){
     
       
 return (
-<div id='upload_wrapper'>
+<body>
+  
+
  
     <div id='blockerTop'></div>
     <div id='template'>
@@ -196,5 +198,5 @@ return (
       
     </div> 
     </div>
-</div>
+</body>
 )};
