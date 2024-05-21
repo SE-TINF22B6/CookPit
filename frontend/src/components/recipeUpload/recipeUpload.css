@@ -114,79 +114,81 @@ body {
     font-size: 1em;
 }
 #ingredient span{
-    position: absolute;
-    left: 0;
-    top: -35px;
-    padding: 10px;
-    pointer-events: none;
-    font-size: 1em;
-    color: black;
-    text-transform: uppercase; 
+  position: absolute;
+  left: 0;
+  top: -35px;
+  padding: 10px;
+  pointer-events: none;
+  font-size: 1em;
+  color: black;
+  text-transform: uppercase; 
  }
  #amount input{
-    width: 100%;
-    padding: 10px;
-    border: 1px solid;
-    border-radius: 5px;
-    outline: none;
-    color: black;
-    font-size: 1em;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid;
+  border-radius: 5px;
+  outline: none;
+  color: black;
+  font-size: 1em;
 }
 #amount span{
-    position: absolute;
-    left: 0;
-    top: -35px;
-    padding: 10px;
-    pointer-events: none;
-    font-size: 1em;
-    color: black;
-    text-transform: uppercase; 
- }
-#blocker1{
-    width:500px;
+  position: absolute;
+  left: 0;
+  top: -35px;
+  padding: 10px;
+  pointer-events: none;
+  font-size: 1em;
+  color: black;
+  text-transform: uppercase; 
 }
-.imageUpload{
-  
-    width: 40%;
-    height: 10%;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    align-self: flex-start;
+#blocker1{
+  width:500px;
+}
+.imageUpload{  
+  padding-left: 10%;
+  width: 40%;
+  height: 10%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  align-self: flex-start;
    
 }
 .uploadImageLabel{
   display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    align-self: flex-start;
-        width: 40%;
-        padding: 1.3em 3em;
-        font-size: 12px;
-        text-transform: uppercase;
-        letter-spacing: 2.5px;
-        font-weight: 500;
-        color: #000;
-        background-color: #717171;
-        border: none;
-        border-radius: 45px;
-        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease 0s;
-        cursor: pointer;
-        outline: none;
-        align-items: center;
-      }
+  position: relative;
+  left: 60%;
+  align-items: flex-start;
+  justify-content: center;
+  align-self: flex-start;
+    width: 30%;
+    padding: 1.3em 3em;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #717171;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    align-items: center;
+}
       
-      .uploadImageLabel:hover {
-        background-color: #ff9595;
-        box-shadow: 0px 15px 20px rgb(255, 152, 152);
-        color: #fff;
-        transform: translateY(-7px);
-      }
-      
-      .uploadImageLabel:active {
-        transform: translateY(-1px);
-      }
+.uploadImageLabel:hover {
+  background-color: #ff9595;
+  box-shadow: 0px 15px 20px rgb(255, 152, 152);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+.uploadImageLabel:active {
+  transform: translateY(-1px);
+}
 
 .addOneMoreIngredient {
   display: flex;
@@ -290,8 +292,9 @@ body {
     /*background: linear-gradient(white,white) padding-box,
                 linear-gradient(145deg, #e81cff, #40c9ff) border-box;
     border: 2px solid transparent;
-    background-color: #ff9595;*/
+    */
     backdrop-filter: blur(10px);
+    background-color: #ff9595;
     padding: 32px 24px;
     font-size: 14px;
     font-family: inherit;
@@ -318,6 +321,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 2px;
+    width: 50%;
+    justify-content: center;
   }
   
   .form-container .form-group label {
@@ -331,7 +336,7 @@ body {
   }
   
   .form-container .form-group input {
-    width: 290%;
+    width: 100%;
     padding: 12px 16px;
     border-radius: 80px;
     color: black;
@@ -339,12 +344,23 @@ body {
     background-color: #f4f4f4;
     border: 1px solid #414141;
   }
+
+  #form-header {
+    justify-content: center;
+    position: relative;
+    width: 50%;
+    float: left;
+  }
+
   .form-container .form-groupDate {
-    margin-left: 400px;
+    /*margin-left: 400px;
     align-items: flex-end;
     align-self: flex-end;
-    top: -8px;
+    top: -8px;*/
     position: relative;
+    float: right;
+    left: 165%;
+    top: -35%;
   }
   
   .form-container .form-groupDate label {
@@ -469,7 +485,7 @@ body {
     flex-direction: column;
     gap: 2px;
     margin-left: 20px;
-    min-width: 45%;
+    min-width: 30%;
   }
   
   .form-container .form-groupTimeEffort label {
@@ -546,7 +562,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 2px;
-    min-width: 45%;
+    min-width: 40%;
     
   }
   
@@ -581,13 +597,14 @@ body {
     border-color: #ff9595;
   }
   
-  
   .rating{
-    margin-left: 40px;
     align-items: flex-end;
     align-self: flex-end;
     min-height: 10%;
+    min-width: 40%;
+
   }
+
   .rating:not(:checked) > input {
     position: absolute;
     appearance: none;

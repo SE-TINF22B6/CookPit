@@ -108,6 +108,7 @@ return (
  
       <div className='recipeInfo'>
       <div className="form-group">
+  	    <div className='form-header'> 
             <label htmlFor="headingTop">Header</label>
             <input type="text" id="headingTop" name="Heading" onChange={(e) => { setheader(e.target.value); }} />
         </div>
@@ -115,7 +116,7 @@ return (
         <div className="form-groupDate">
             <label htmlFor="headingTop">Date: {currentDate.toLocaleString()}</label>
         </div>
-        
+      </div> 
         
       </div>
       <div className='wrapperInput'>
@@ -137,7 +138,9 @@ return (
             <input type="text" id="headingTop" name="Calories" onChange={(e) => { setcalories(e.target.value); }} />
           </div>*/}
           
+
           <div className="rating">
+          
             {[...Array(5)].map((_, index) => (
               <React.Fragment key={index}>
                 <input value={5- index} name="rate" id={`star${5- index}`} type="radio" onChange={handleRatingChange} checked={stars === `${5- index}`} />
@@ -154,18 +157,14 @@ return (
                 <input type="text"/>
                 <span>Heading</span>
             </div>*/}
-        <div id='blocker1'></div>
+        
         <div className='uploadpicture'>
           <img className='imageUpload' src={uploadImageSrc || uploadImage} id='picture-pic' alt="Uploaded" />
-        <label className='uploadImageLabel' htmlFor="input-file">Upload Image</label>
-        <input id='input-file' type="file" accept='image/jpeg, image/png, image/jpg' onChange={handleFileChange} />
-        </div>
+          </div>
       </div>
-      
-      <div id='blocker1'></div>
-      <div id='blocker1'></div>
-
-
+          <label className='uploadImageLabel' htmlFor="input-file">Upload Image</label>
+          <input id='input-file' type="file" accept='image/jpeg, image/png, image/jpg' onChange={handleFileChange} />
+          
       <div className="form-groupIngredient">
         <label htmlFor="ingredientInput">Ingredients</label>
         {[...Array(counter)].map((_, index) => (
