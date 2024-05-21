@@ -124,7 +124,7 @@ return (
         <div className="form-groupCategory">
           <label htmlFor="headingTop">Category</label>
           <input type="text" id="headingTop" name="Category" onChange={(e) => { setcategory(e.target.value); }} />
-        </div>
+        </div> 
 
       
 

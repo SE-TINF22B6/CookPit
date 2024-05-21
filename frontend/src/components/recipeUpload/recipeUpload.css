@@ -1,5 +1,5 @@
 #upload_wrapper {
-
+  overflow: auto;
 }
 
 #blockerTop{
@@ -19,7 +19,6 @@
     padding: 20px;
     border-radius: 5px;
     z-index: -1;
-  
 }
 
 #heading{
