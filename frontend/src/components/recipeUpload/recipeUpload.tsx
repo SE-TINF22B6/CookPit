@@ -3,11 +3,17 @@ import uploadImage from '../recipeUpload/image-upload.jpg';
 import '../recipeUpload/recipeUpload.css';
 import Axios from "axios";
 
-
-
 export default function Body(){
-        const [uploadImageSrc, setUploadImageSrc] = useState<string | null>(null);
-        const [picture, setpicture] = useState<string | null>(null);
+
+  const [uploadImageSrc, setUploadImageSrc] = useState<string | null>(null);
+  const [header, setheader] = useState('');
+  const [category, setcategory] = useState('');
+  const [timeEffort, settimeeffort] = useState('');
+  const [stars, setstars] = useState('');
+  const [description, setdescription] = useState('');
+  const [ingredients, setIngredients] = useState(Array(10).fill(''));
+  const [calories, setcalories] = useState('');
+  const [file, setFile] = useState<File | null>(null);
 
         const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
           const file = event.target.files?.[0];
@@ -54,7 +60,6 @@ export default function Body(){
         const [header, setheader] = useState('');
         const [category, setcategory] = useState('');
         const [timeeffort, settimeeffort] = useState('');
-        const [calories, setcalories] = useState('');
         const [stars, setstars] = useState("");
         const [description, setdescription] = useState('');
         const [ingredients, setIngredients] = useState(Array(10).fill(''));
@@ -69,14 +74,11 @@ export default function Body(){
           setstars(e.target.value);
         };
 
-
-        
         const addrecipe = () => {
           Axios.post("http://localhost:3001/addrecipe", {
             recipeheader: header,
             recipecategory: category,
             recipetimeeffort: timeeffort,
-            recipecalories: calories,
             recipestars: stars,
             recipedescription: description,
             recipepicture: picture
@@ -84,22 +86,7 @@ export default function Body(){
             console.log(response.data)
           })};
 
-          const [counter, setCounter] = useState(1); // Hier wird der Anfangswert auf 1 gesetzt
 
-    const incrementCounter = () => {
-    setCounter(counter + 1); // Die Funktion erhöht den Counter um 1
-    };
-
-    const [currentDate, setCurrentDate] = useState(new Date().toLocaleDateString()); // Hier wird der Anfangswert auf das aktuelle Datum gesetzt
-
-    useEffect(() => {
-      const interval = setInterval(() => {
-        setCurrentDate(new Date().toLocaleDateString()); // Die Funktion aktualisiert currentDate täglich
-      }, 1000 * 60 * 60 * 24); // Alle 24 Stunden aktualisieren
-  
-      return () => clearInterval(interval); // Aufräumen des Intervalls, wenn die Komponente unmountet wird
-    }, []);
-  
       
         
   return (
@@ -133,12 +120,6 @@ export default function Body(){
           <label htmlFor="headingTop">Time effort</label>
           <input type="text" id="headingTop" name="Effort" onChange={(e) => { settimeeffort(e.target.value); }} />
         </div>
-
-        <div className="form-groupCalories">
-          <label htmlFor="headingTop">Calories</label>
-          <input type="text" id="headingTop" name="Calories" onChange={(e) => { settimeeffort(e.target.value); }} />
-        </div>
-
         <div className="rating">
           {[...Array(5)].map((_, index) => (
             <React.Fragment key={index}>
@@ -182,8 +163,6 @@ export default function Body(){
         </div>
       ))}
     </div>
-
-    <button className='addOneMoreIngredient'  onClick={incrementCounter}>Add Ingredient</button>
     {/*<div>
       <table>
         <thead>
@@ -269,10 +248,10 @@ export default function Body(){
         </div>
 
         
-        <button className='addOneMoreIngredient'  onClick={addrecipe}>Add Ingredient</button>
+        <button className='addOneMoreIngredient'  onClick={addRecipe}>Save Recipe</button>
        
       
     </div> 
     </div>
-</body>
-  )}
+</div>
+)};
