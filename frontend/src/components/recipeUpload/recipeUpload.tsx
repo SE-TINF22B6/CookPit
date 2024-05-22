@@ -109,7 +109,7 @@ return (
       <div className='recipeInfo'>
       <div className="form-group">
   	    <div className='form-header'> 
-            <label htmlFor="headingTop">Header</label>
+            <label htmlFor="headingTop">Titel</label>
             <input type="text" id="headingTop" name="Heading" onChange={(e) => { setheader(e.target.value); }} />
         </div>
           
@@ -122,14 +122,14 @@ return (
       <div className='wrapperInput'>
         <div className='recipeInfo'>
         <div className="form-groupCategory">
-          <label htmlFor="headingTop">Category</label>
+          <label htmlFor="headingTop">Kategorie</label>
           <input type="text" id="headingTop" name="Category" onChange={(e) => { setcategory(e.target.value); }} />
         </div> 
 
       
 
         <div className="form-groupTimeEffort">
-          <label htmlFor="headingTop">Time effort</label>
+          <label htmlFor="headingTop">Zeitaufwand</label>
           <input type="text" id="headingTop" name="Effort" onChange={(e) => { settimeeffort(e.target.value); }} />
         </div>
 
@@ -162,11 +162,11 @@ return (
           <img className='imageUpload' src={uploadImageSrc || uploadImage} id='picture-pic' alt="Uploaded" />
           </div>
       </div>
-          <label className='uploadImageLabel' htmlFor="input-file">Upload Image</label>
+          <label className='uploadImageLabel' htmlFor="input-file">Bild hochladen</label>
           <input id='input-file' type="file" accept='image/jpeg, image/png, image/jpg' onChange={handleFileChange} />
           
       <div className="form-groupIngredient">
-        <label htmlFor="ingredientInput">Ingredients</label>
+        <label htmlFor="ingredientInput">Zutaten</label>
         {[...Array(counter)].map((_, index) => (
           <div key={index}>
             <input
@@ -181,16 +181,16 @@ return (
         ))}
       </div>
 
-      <button className='addOneMoreIngredient'  onClick={incrementCounter}>Add Ingredient</button>
+      <button className='addOneMoreIngredient'  onClick={incrementCounter}>Zutat hinzufügen</button>
       <div id='blocker1'></div>
       <div id='blocker1'></div>
 
       <div className='discription'><textarea name="Description" placeholder='Description' onChange={(e) => { setdescription(e.target.value); }}></textarea>
-        <span className='discriptionSpan'>Description</span>
+        <span className='discriptionSpan'>Beschreibung</span>
       </div>
 
           
-      <button className='addOneMoreIngredient'  onClick={addRecipe}>Save Recipe</button>
+      <button className='addOneMoreIngredient'  onClick={addRecipe}>Rezept speichern</button>
        
       
     </div> 
