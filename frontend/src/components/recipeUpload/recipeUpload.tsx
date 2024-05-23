@@ -3,7 +3,12 @@ import uploadImage from '../recipeUpload/image-upload.jpg';
 import '../recipeUpload/recipeUpload.css';
 import Axios from "axios";
 
-export default function Body(){
+interface UploadProps {
+  onToggleUpload?: () => void;
+}
+
+//export default function Body(){
+const Upload: React.FC<UploadProps> = ({ onToggleUpload }) => {
 
   const [uploadImageSrc, setUploadImageSrc] = useState<string | null>(null);
   const [header, setheader] = useState('');
@@ -12,8 +17,9 @@ export default function Body(){
   const [stars, setstars] = useState('');
   const [description, setdescription] = useState('');
   const [ingredients, setIngredients] = useState(Array(10).fill(''));
-  const [calories, setcalories] = useState('');
+  //const [calories, setcalories] = useState('');
   const [file, setFile] = useState<File | null>(null);
+
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0];
@@ -198,3 +204,4 @@ return (
 </body>
 
 )};
+export default Upload;

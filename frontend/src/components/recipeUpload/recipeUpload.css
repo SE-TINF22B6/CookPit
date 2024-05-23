@@ -1,8 +1,10 @@
-
 body {
   background: transparent;
   overflow: auto;
   padding-top: 8%;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+  position: relative;
 }
 
 #upload_wrapper {
@@ -294,6 +296,7 @@ body {
   */
   background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(10px);
+  z-index: 100;
   border: solid;
   border-color: #7c7c7c;
   border-radius: 10px;
