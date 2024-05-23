@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-body{overflow: auto;
-background-color: transparent;}
-=======
 body {
   background: transparent;
   overflow: auto;
@@ -12,7 +8,6 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
 }
->>>>>>> ddcdf1ca03cae289f98d58c3a9341fb3f62ff0a5
 
 #blockerTop{
     width: 300px;
