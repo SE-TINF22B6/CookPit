@@ -23,7 +23,7 @@ Here are our naming rules we want to establish and follow ind the futute:
 ![image](https://github.com/SE-TINF22B6/CookPit/assets/123726577/70931a4a-0136-4bd6-8fd7-3988ab0a07d4)
 
 
-#### Folder are written in uuper case
+#### Folder are written in uper case
 
   
 ![image](https://github.com/SE-TINF22B6/CookPit/assets/123726577/634b138a-ca4f-49c0-b14e-6b1df5416fd1)
