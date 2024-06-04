@@ -126,36 +126,38 @@ return (
         
       </div>
       <div className='wrapperInput'>
+        <div className='wrapperText'>
         <div className='recipeInfo'>
-        <div className="form-groupCategory">
-          <label htmlFor="headingTop">Kategorie</label>
-          <input type="text" id="headingTop" name="Category" onChange={(e) => { setcategory(e.target.value); }} />
-        </div> 
+          <div className="form-groupCategory">
+            <label htmlFor="headingTop">Kategorie</label>
+            <input type="text" id="headingTop" name="Category" onChange={(e) => { setcategory(e.target.value); }} />
+          </div> 
 
       
 
-        <div className="form-groupTimeEffort">
-          <label htmlFor="headingTop">Zeitaufwand</label>
-          <input type="text" id="headingTop" name="Effort" onChange={(e) => { settimeeffort(e.target.value); }} />
-        </div>
+          <div className="form-groupTimeEffort">
+            <label htmlFor="headingTop">Zeitaufwand</label>
+            <input type="text" id="headingTop" name="Effort" onChange={(e) => { settimeeffort(e.target.value); }} />
+          </div>
 
-        <div className="rating">
-          {[...Array(5)].map((_, index) => (
-            <React.Fragment key={index}>
-              <input value={5- index} name="rate" id={`star${5- index}`} type="radio" onChange={handleRatingChange} checked={stars === `${5- index}`} />
-              <label title={`${5- index} Sterne`} htmlFor={`star${5- index}`}></label>
-            </React.Fragment>
-          ))}
-        </div>
-        
+          </div> 
           
-          {/*<div className="form-groupCalories">
-            <label htmlFor="headingTop">Calories</label>
-            <input type="text" id="headingTop" name="Calories" onChange={(e) => { setcalories(e.target.value); }} />
-          </div>*/}
+            
+            {/*<div className="form-groupCalories">
+              <label htmlFor="headingTop">Calories</label>
+              <input type="text" id="headingTop" name="Calories" onChange={(e) => { setcalories(e.target.value); }} />
+            </div>*/}
         
           
         </div>
+         <div className="rating">
+            {[...Array(5)].map((_, index) => (
+              <React.Fragment key={index}>
+                <input value={5- index} name="rate" id={`star${5- index}`} type="radio" onChange={handleRatingChange} checked={stars === `${5- index}`} />
+                <label title={`${5- index} Sterne`} htmlFor={`star${5- index}`}></label>
+              </React.Fragment>
+            ))}
+          </div>
 
 
           
@@ -166,10 +168,10 @@ return (
         
         <div className='uploadpicture'>
           <img className='imageUpload' src={uploadImageSrc || uploadImage} id='picture-pic' alt="Uploaded" />
-          </div>
+        </div>
       </div>
-          <label className='uploadImageLabel' htmlFor="input-file">Bild hochladen</label>
-          <input id='input-file' type="file" accept='image/jpeg, image/png, image/jpg' onChange={handleFileChange} />
+      <label className='uploadImageLabel' htmlFor="input-file">Bild hochladen</label>
+      <input id='input-file' type="file" accept='image/jpeg, image/png, image/jpg' onChange={handleFileChange} />
           
       <div className="form-groupIngredient">
         <label htmlFor="ingredientInput">Zutaten</label>
