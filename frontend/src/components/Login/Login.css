@@ -23,7 +23,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(2px);
   background-color: #0000000c;
 }
 

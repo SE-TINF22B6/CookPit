@@ -2,8 +2,6 @@ body {
   background: transparent;
   overflow: auto;
   padding-top: 8%;
-  z-index: 100;
-  position: relative;
 }
 
 #upload_wrapper {
@@ -148,15 +146,19 @@ body {
   width:500px;
 }
 .imageUpload{  
+  padding-left: 10%;
   width: 40%;
   height: 10%;
-  padding-top: 5%;
-  padding-bottom: 2%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  align-self: flex-start;
+   
 }
 .uploadImageLabel{
   display: flex;
   position: relative;
-  min-width: 40%;
+  left: 60%;
   align-items: flex-start;
   justify-content: center;
   align-self: flex-start;
@@ -209,14 +211,6 @@ body {
       outline: none;
       align-items: center;
 }
-
-.addOneMoreIngredient:hover {
-  background-color: #ff9595;
-  box-shadow: 0px 15px 20px rgb(255, 152, 152);
-  color: #fff;
-  transform: translateY(-7px);
-}
-
 #input-file{
     display: none;
 }
@@ -225,16 +219,18 @@ body {
 }
 .discription{
     position: relative;
-    width: 100%;
+    width: 95%;
+    
 }
 .discription textarea{ 
+    rows:30;
     width: 100%;
-    height: 150px;
+    height: 400px;
     padding: 12px 16px;
     border-radius: 8px;
     color: black;
     font-family: inherit;
-    background-color: #ff9595;
+    background-color: #f4f4f4;
     border: 1px solid #414141;
 }
 .discriptionSpan{
@@ -261,411 +257,401 @@ body {
 }
 
 #format select {
-  width: 100%;
-  padding: 5px;
-  border: 1px solid #000;
-  font-size: 16px;
-  border-radius: 4px;
-  appearance: none;
-  -webkit-appearance: none;
-  background-color: #fff;
-  background-image: url("data:image/svg+xml;utf8,<svg fill='%23000' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>"), linear-gradient(to bottom, #f9f9f9, #f1f1f1);
-  background-position: right 10px center;
-  background-repeat: no-repeat;
-  background-size: 12px 12px;
-  cursor: pointer;
-}
-th, td {
-  border: none;
-  padding: 5px;
-  font-size: 16px;
-  font-weight: normal;
-  background-color: transparent;
-}
-
-th {
-  font-weight: bold;
-}
-
-
-
-
-
-.form-container {
-width: 60%;
-/*background: linear-gradient(white,white) padding-box,
-            linear-gradient(145deg, #e81cff, #40c9ff) border-box;
-border: 2px solid transparent;
-*/
-background: rgba(255, 255, 255, 0.5);
-backdrop-filter: blur(10px);
-z-index: 100;
-border: solid;
-border-color: #7c7c7c;
-border-radius: 10px;
-padding: 32px 24px;
-font-size: 14px;
-font-family: inherit;
-color: white;
-display: flex;
-flex-direction: column;
-gap: 20px;
-box-sizing: border-box;
-border-radius: 16px;
-
-}
-
-.form-container button:active {
-  scale: 0.95;
-}
-
-.form-container .form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.form-container .form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  width: 100%;
-  justify-content: center;
-}
-
-.form-container .form-group label {
-  display: block;
-  margin-bottom: 5px;
-  color: #717171;
-  font-weight: 700;
-  font-size: 16px;
-  text-transform: uppercase;
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #000;
+    font-size: 16px;
+    border-radius: 4px;
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: #fff;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%23000' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>"), linear-gradient(to bottom, #f9f9f9, #f1f1f1);
+    background-position: right 10px center;
+    background-repeat: no-repeat;
+    background-size: 12px 12px;
+    cursor: pointer;
+  }
+  th, td {
+    border: none;
+    padding: 5px;
+    font-size: 16px;
+    font-weight: normal;
+    background-color: transparent;
+  }
   
-}
-
-.form-container .form-group input {
-  width: 100%;
-  padding: 12px 16px;
-  border-radius: 80px;
-  color: black;
-  font-family: inherit;
-  background-color: #ff9595;
-  border: 1px solid #414141;
-}
-
-#form-header {
-  justify-content: center;
-  position: relative;
-  width: 100%;
-}
-
-#headingToptop{
-  max-width: 40%;
-}
-
-.form-container .form-groupDate {
-  position: relative;
-  padding-top: 5%;
-}
-
-.form-container .form-groupDate label {
-  display: block;
-  margin-bottom: 5px;
-  color: #717171;
-  font-weight: 700;
-  font-size: 16px;
-  text-transform: uppercase;
+  th {
+    font-weight: bold;
+  }
   
-}
-.form-container .form-group textarea {
-  width: 100%;
-  padding: 12px 16px;
-  border-radius: 8px;
-  resize: none;
-  color: #ff9595;
-  height: 96px;
-  border: 1px solid #414141;
-  background-color: transparent;
-  font-family: inherit;
-}
 
-.form-container .form-group input::placeholder {
-  opacity: 0.5;
-}
 
-.form-container .form-group input:focus {
-  outline: none;
-  border-color: #ff9595;
-}
 
-.form-container .form-group textarea:focus {
-  outline: none;
-  border-color: #ff9595;
-}
 
-.form-container .form-submit-btn {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  align-self: flex-start;
-  font-family: inherit;
-  color: #717171;
-  font-weight: 600;
-  width: 40%;
-  background: #313131;
-  border: 1px solid #414141;
-  padding: 12px 16px;
-  font-size: inherit;
-  gap: 8px;
-  margin-top: 8px;
-  cursor: pointer;
-  border-radius: 6px;
-}
+  .form-container {
+    width: 800px;
+    /*background: linear-gradient(white,white) padding-box,
+                linear-gradient(145deg, #e81cff, #40c9ff) border-box;
+    border: 2px solid transparent;
+    */
+    backdrop-filter: blur(10px);
+    background-color: #ff9595;
+    padding: 32px 24px;
+    font-size: 14px;
+    font-family: inherit;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-sizing: border-box;
+    border-radius: 16px;
 
-.form-container .form-submit-btn:hover {
-  background-color: #fff;
-  border-color: #fff;
-}
-
-.form-container .form-groupIngredient {
-  display: flex;
-  padding-top: 5%;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.form-container .form-groupIngredient label {
-  position: relative;
-  display: block;
-  margin-bottom: -5px;
-  color: #717171;
-  font-weight: 700;
-  font-size: 16px;
-  top: -35px;
-  left: 10px;
-  text-transform: uppercase;
-}
-
-.form-container .form-groupIngredient input {
-  width: 95%;
-  padding: 12px 16px;
-  border-radius: 80px;
-  left: 5%;
-  color: black;
-  font-family: inherit;
-  background-color: #ff9595;
-  border: 1px solid #414141;
-  align-items: flex-end;
-  justify-content: center;
-  align-self: flex-end;
-  position: relative;
-}
-
-.form-container .form-groupIngredient textarea {
-  width: 100%;
-  padding: 12px 16px;
-  border-radius: 8px;
-  resize: none;
-  color: #ff9595;
-  height: 96px;
-  border: 1px solid #414141;
-  background-color: transparent;
-  font-family: inherit;
-}
-
-.form-container .form-groupIngredient input::placeholder {
-  opacity: 0.5;
-}
-
-.form-container .form-groupIngredient input:focus {
-  outline: none;
-  border-color: #ff9595;
-}
-
-.form-container .discription textarea:focus {
-  outline: none;
-  border-color: #ff9595;
-}
-.form-container .form-groupTimeEffort {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  margin-left: 20px;
-  min-width: 30%;
-}
-
-.form-container .form-groupTimeEffort label {
-  display: block;
-  margin-bottom: 5px;
-  color: #717171;
-  font-weight: 700;
-  font-size: 16px;
-  text-transform: uppercase;
+  }
   
-}
-
-.form-container .form-groupTimeEffort input {
-  width: 100%;
-  padding: 3px 8px;
-  border-radius: 80px;
-  color: black;
-  font-family: inherit;
-  background-color: #ff9595;
-  border: 1px solid #414141;
-}
-
-
-
-.form-container .form-groupTimeEffort input::placeholder {
-  opacity: 0.5;
-}
-
-.form-container .form-groupTimeEffort input:focus {
-  outline: none;
-  border-color: #ff9595;
-}
-
-.form-container .form-groupCalories {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  margin-left: 20px;
+  .form-container button:active {
+    scale: 0.95;
+  }
   
-}
-
-.form-container .form-groupCalories label {
-  display: block;
-  margin-bottom: 5px;
-  color: #717171;
-  font-weight: 700;
-  font-size: 16px;
-  text-transform: uppercase;
+  .form-container .form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
   
-}
-
-.form-container .form-groupCalories input {
-  width: 100%;
-  padding: 3px 8px;
-  border-radius: 80px;
-  color: black;
-  font-family: inherit;
-  background-color: #f4f4f4;
-  border: 1px solid #414141;
-}
-
-
-
-.form-container .form-groupCalories input::placeholder {
-  opacity: 0.5;
-}
-
-.form-container .form-groupCalories input:focus {
-  outline: none;
-  border-color: #ff9595;
-}
-
-.form-container .form-groupCategory {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  min-width: 30%;
+  .form-container .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    width: 50%;
+    justify-content: center;
+  }
   
-}
-
-.form-container .form-groupCategory label {
-  display: block;
-  margin-bottom: 5px;
-  color: #717171;
-  font-weight: 700;
-  font-size: 16px;
-  text-transform: uppercase;
+  .form-container .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #717171;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    
+  }
   
-}
+  .form-container .form-group input {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 80px;
+    color: black;
+    font-family: inherit;
+    background-color: #f4f4f4;
+    border: 1px solid #414141;
+  }
 
-.form-container .form-groupCategory input {
-  width: 100%;
-  padding: 3px 8px;
-  border-radius: 80px;
-  color: black;
-  font-family: inherit;
-  background-color: #ff9595;
-  border: 1px solid #414141;
-}
+  #form-header {
+    justify-content: center;
+    position: relative;
+    width: 50%;
+    float: left;
+  }
 
+  .form-container .form-groupDate {
+    /*margin-left: 400px;
+    align-items: flex-end;
+    align-self: flex-end;
+    top: -8px;*/
+    position: relative;
+    float: right;
+    left: 165%;
+    top: -35%;
+  }
+  
+  .form-container .form-groupDate label {
+    display: block;
+    margin-bottom: 5px;
+    color: #717171;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    
+  }
+  .form-container .form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 8px;
+    resize: none;
+    color: #fff;
+    height: 96px;
+    border: 1px solid #414141;
+    background-color: transparent;
+    font-family: inherit;
+  }
+  
+  .form-container .form-group input::placeholder {
+    opacity: 0.5;
+  }
+  
+  .form-container .form-group input:focus {
+    outline: none;
+    border-color: #ff9595;
+  }
+  
+  .form-container .form-group textarea:focus {
+    outline: none;
+    border-color: #ff9595;
+  }
+  
+  .form-container .form-submit-btn {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    align-self: flex-start;
+    font-family: inherit;
+    color: #717171;
+    font-weight: 600;
+    width: 40%;
+    background: #313131;
+    border: 1px solid #414141;
+    padding: 12px 16px;
+    font-size: inherit;
+    gap: 8px;
+    margin-top: 8px;
+    cursor: pointer;
+    border-radius: 6px;
+  }
+  
+  .form-container .form-submit-btn:hover {
+    background-color: #fff;
+    border-color: #fff;
+  }
+  
+  .form-container .form-groupIngredient {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  
+  .form-container .form-groupIngredient label {
+    position: relative;
+    display: block;
+    margin-bottom: -5px;
+    color: #717171;
+    font-weight: 700;
+    font-size: 16px;
+    top: -35px;
+    left: 10px;
+    text-transform: uppercase;
+  }
+  
+  .form-container .form-groupIngredient input {
+    width: 95%;
+    padding: 12px 16px;
+    border-radius: 80px;
+    left: 5%;
+    color: black;
+    font-family: inherit;
+    background-color: #f4f4f4;
+    border: 1px solid #414141;
+    align-items: flex-end;
+    justify-content: center;
+    align-self: flex-end;
+    position: relative;
+  }
+  
+  .form-container .form-groupIngredient textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 8px;
+    resize: none;
+    color: #fff;
+    height: 96px;
+    border: 1px solid #414141;
+    background-color: transparent;
+    font-family: inherit;
+  }
+  
+  .form-container .form-groupIngredient input::placeholder {
+    opacity: 0.5;
+  }
+  
+  .form-container .form-groupIngredient input:focus {
+    outline: none;
+    border-color: #ff9595;
+  }
+  
+  .form-container .discription textarea:focus {
+    outline: none;
+    border-color: #ff9595;
+  }
+  .form-container .form-groupTimeEffort {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-left: 20px;
+    min-width: 30%;
+  }
+  
+  .form-container .form-groupTimeEffort label {
+    display: block;
+    margin-bottom: 5px;
+    color: #717171;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    
+  }
+  
+  .form-container .form-groupTimeEffort input {
+    width: 100%;
+    padding: 3px 8px;
+    border-radius: 80px;
+    color: black;
+    font-family: inherit;
+    background-color: #f4f4f4;
+    border: 1px solid #414141;
+  }
+  
+  
+  
+  .form-container .form-groupTimeEffort input::placeholder {
+    opacity: 0.5;
+  }
+  
+  .form-container .form-groupTimeEffort input:focus {
+    outline: none;
+    border-color: #ff9595;
+  }
 
+  .form-container .form-groupCalories {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-left: 20px;
+    
+  }
+  
+  .form-container .form-groupCalories label {
+    display: block;
+    margin-bottom: 5px;
+    color: #717171;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    
+  }
+  
+  .form-container .form-groupCalories input {
+    width: 100%;
+    padding: 3px 8px;
+    border-radius: 80px;
+    color: black;
+    font-family: inherit;
+    background-color: #f4f4f4;
+    border: 1px solid #414141;
+  }
+  
+  
+  
+  .form-container .form-groupCalories input::placeholder {
+    opacity: 0.5;
+  }
+  
+  .form-container .form-groupCalories input:focus {
+    outline: none;
+    border-color: #ff9595;
+  }
+  
+  .form-container .form-groupCategory {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 40%;
+    
+  }
+  
+  .form-container .form-groupCategory label {
+    display: block;
+    margin-bottom: 5px;
+    color: #717171;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    
+  }
+  
+  .form-container .form-groupCategory input {
+    width: 100%;
+    padding: 3px 8px;
+    border-radius: 80px;
+    color: black;
+    font-family: inherit;
+    background-color: #f4f4f4;
+    border: 1px solid #414141;
+  }
+  
+  
+  
+  .form-container .form-groupCategory input::placeholder {
+    opacity: 0.5;
+  }
+  
+  .form-container .form-groupCategory input:focus {
+    outline: none;
+    border-color: #ff9595;
+  }
+  
+  .rating{
+    align-items: flex-end;
+    align-self: flex-end;
+    min-height: 10%;
+    min-width: 40%;
 
-.form-container .form-groupCategory input::placeholder {
-  opacity: 0.5;
-}
+  }
 
-.form-container .form-groupCategory input:focus {
-  outline: none;
-  border-color: #ff9595;
-}
+  .rating:not(:checked) > input {
+    position: absolute;
+    appearance: none;
+  }
+  
+  .rating:not(:checked) > label {
+    float: right;
+    cursor: pointer;
+    font-size: 30px;
+    color: #666;
+  }
+  
+  .rating:not(:checked) > label:before {
+    content: '★';
+  }
+  
+  .rating > input:checked + label:hover,
+  .rating > input:checked + label:hover ~ label,
+  .rating > input:checked ~ label:hover,
+  .rating > input:checked ~ label:hover ~ label,
+  .rating > label:hover ~ input:checked ~ label {
+    color: #e58e09;
+  }
+  
+  .rating:not(:checked) > label:hover,
+  .rating:not(:checked) > label:hover ~ label {
+    color: #ff9e0b;
+  }
+  
+  .rating > input:checked ~ label {
+    color: #ffa723;
+  }
+  
+  #wrapperInput {
+    width: 100%;
+    justify-content: center;
+  }
 
-.rating{
-  align-items: flex-end;
-  align-self: flex-end;
-  min-height: 10%;
-  min-width: 150px;
-  position: relative;
-  padding-top: 3%;
-}
-
-.rating:not(:checked) > input {
-  position: absolute;
-  appearance: none;
-}
-
-.rating:not(:checked) > label {
-  float: right;
-  cursor: pointer;
-  font-size: 30px;
-  color: #666;
-}
-
-.rating:not(:checked) > label:before {
-  content: '★';
-}
-
-.rating > input:checked + label:hover,
-.rating > input:checked + label:hover ~ label,
-.rating > input:checked ~ label:hover,
-.rating > input:checked ~ label:hover ~ label,
-.rating > label:hover ~ input:checked ~ label {
-  color: #e58e09;
-}
-
-.rating:not(:checked) > label:hover,
-.rating:not(:checked) > label:hover ~ label {
-  color: #ff9e0b;
-}
-
-.rating > input:checked ~ label {
-  color: #ffa723;
-}
-
-#wrapperInput {
-  min-width: 50%;
-  justify-content: center;
-  position: absolute;
-  display: flex;
-}
-
-#wrapperText {
-  min-width: 50%;
-  position: relative;
-}
-
-.recipeInfo{
-  display: flex;
-  width: 80%;
-  justify-content: center;
-}
-
-#uploadPicture {
-  position: absolute;
-  padding-left: 50%;
-  padding-top: 5%;
-  justify-content: center;
-}
+  .recipeInfo{
+    display: flex;
+    max-width: 50%;
+    float: left;
+  }
+  
+  #uploadPicture {
+    max-width: 50%;
+    float: right;
+    justify-content: right;
+  }
+  
