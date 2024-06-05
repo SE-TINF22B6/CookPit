@@ -10,11 +10,9 @@ import { IoClose } from "react-icons/io5";
 
 interface HeaderProps {
   onToggleLogin?: () => void;
-  onToggleUpload?: () => void;
 }
 
-
-const Header: React.FC<HeaderProps> = ({ onToggleLogin, onToggleUpload }) => {
+const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
 
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -55,14 +53,6 @@ const Header: React.FC<HeaderProps> = ({ onToggleLogin, onToggleUpload }) => {
       onToggleLogin();
     }
   };
-  
-  const handleUploadClick = () => {
-    //getupload();
-    if (onToggleUpload) {
-      onToggleUpload();
-    }
-  };
-  
 
   const handleLogoutClick = () => {
     logout();
@@ -78,9 +68,6 @@ const Header: React.FC<HeaderProps> = ({ onToggleLogin, onToggleUpload }) => {
       });
   };
 
-
-  let Uploadbutton
-  Uploadbutton = <button className="navigation" id="login_btn" onClick={handleUploadClick}> Rezept hochladen</button>
 
 
   let userbutton;
@@ -124,10 +111,9 @@ const Header: React.FC<HeaderProps> = ({ onToggleLogin, onToggleUpload }) => {
             Rezeptgenerator
           </Link>
           <div className="seperator">.</div>
-          {/*<Link className="navigation" to="/rezept/hochladen">
+          <Link className="navigation" to="/rezept/hochladen">
             Rezept hochladen
-      </Link>*/}
-          {Uploadbutton}
+          </Link>
           <div className="seperator">.</div>
           {Kontobutton}
         </div>
