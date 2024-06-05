@@ -3,6 +3,7 @@ import Header from "../Header/Header";
 import "../Home/Home.css";
 import Background from "../Background/Background";
 import Login from "../Login/Login";
+import Upload from "../recipeUpload/recipeUpload";
 import SearchSite from "../SearchSite/SearchSite";
 import OpenAI from "../openai/OpenAICall";
 import React, { useEffect, useState } from "react";
@@ -15,9 +16,14 @@ function Home() {
 
   const [loginVisible, setLoginVisible] = useState(false);
   const [allRecipes, setAllRecipes] = useState([]);
+  const [uploadVisible, setUploadVisible] = useState(false);
 
   const toggleLoginVisibility = () => {
     setLoginVisible(!loginVisible);
+  };
+
+  const toggleUploadVisibility = () => {
+    setUploadVisible(!uploadVisible);
   };
 
   const getallrecipe = () => {
@@ -35,13 +41,14 @@ function Home() {
     <>
       <Background />
 
-      <Header onToggleLogin={toggleLoginVisibility} />
+      <Header onToggleLogin={toggleLoginVisibility} onToggleUpload={toggleUploadVisibility} />
       {loginVisible && <Login onToggleLogin={toggleLoginVisibility} />}
+      {uploadVisible && <Upload onToggleUpload={toggleUploadVisibility} />}
       <Routes>
         <Route path="/" element={<SearchSite allRecipes={allRecipes}/>} />
         <Route path="/rezept/alle" element={<AllRecipes allRecipes={allRecipes} />} />
         <Route path="/rezept/generator" element={<OpenAI />} />
-        <Route path="/rezept/hochladen" element={<RecipeUpload />} />
+        {/*<Route path="/rezept/hochladen" element={<RecipeUpload />} />*/}
       </Routes>
     </>
   );

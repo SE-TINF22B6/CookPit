@@ -3,7 +3,12 @@ import uploadImage from '../recipeUpload/image-upload.jpg';
 import '../recipeUpload/recipeUpload.css';
 import Axios from "axios";
 
-export default function Body(){
+interface UploadProps {
+  onToggleUpload?: () => void;
+}
+
+//export default function Body(){
+const Upload: React.FC<UploadProps> = ({ onToggleUpload }) => {
 
   const [uploadImageSrc, setUploadImageSrc] = useState<string | null>(null);
   const [header, setheader] = useState('');
@@ -12,8 +17,9 @@ export default function Body(){
   const [stars, setstars] = useState('');
   const [description, setdescription] = useState('');
   const [ingredients, setIngredients] = useState(Array(10).fill(''));
-  const [calories, setcalories] = useState('');
+  //const [calories, setcalories] = useState('');
   const [file, setFile] = useState<File | null>(null);
+
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0];
@@ -104,43 +110,45 @@ export default function Body(){
 return (
 <body>
   <div id='template'>
-    <div className="form-container">
- 
-      <div className='recipeInfo'>
+    <div className="form-container">   
       <div className="form-group">
   	    <div className='form-header'> 
-            <label htmlFor="headingTop">Header</label>
-            <input type="text" id="headingTop" name="Heading" onChange={(e) => { setheader(e.target.value); }} />
+            <label htmlFor="headingTop">Titel</label>
+            <input type="text" id="headingToptop" name="Heading" onChange={(e) => { setheader(e.target.value); }} />
+        
+      
+          {/*<div className="form-groupDate">
+              <label htmlFor="headingTop">Date: {currentDate.toLocaleString()}</label>
+          </div>*/}
         </div>
-          
-        <div className="form-groupDate">
-            <label htmlFor="headingTop">Date: {currentDate.toLocaleString()}</label>
-        </div>
-      </div> 
         
       </div>
       <div className='wrapperInput'>
+        <div className='wrapperText'>
         <div className='recipeInfo'>
           <div className="form-groupCategory">
-            <label htmlFor="headingTop">Category</label>
+            <label htmlFor="headingTop">Kategorie</label>
             <input type="text" id="headingTop" name="Category" onChange={(e) => { setcategory(e.target.value); }} />
-          </div>
-
-        
+          </div> 
+ 
+      
 
           <div className="form-groupTimeEffort">
-            <label htmlFor="headingTop">Time effort</label>
+            <label htmlFor="headingTop">Zeitaufwand</label>
             <input type="text" id="headingTop" name="Effort" onChange={(e) => { settimeeffort(e.target.value); }} />
           </div>
-          
-          {/*<div className="form-groupCalories">
-            <label htmlFor="headingTop">Calories</label>
-            <input type="text" id="headingTop" name="Calories" onChange={(e) => { setcalories(e.target.value); }} />
-          </div>*/}
-          
 
-          <div className="rating">
+           
           
+            
+            {/*<div className="form-groupCalories">
+              <label htmlFor="headingTop">Calories</label>
+              <input type="text" id="headingTop" name="Calories" onChange={(e) => { setcalories(e.target.value); }} />
+            </div>*/}
+        
+          
+      
+         <div className="rating">   
             {[...Array(5)].map((_, index) => (
               <React.Fragment key={index}>
                 <input value={5- index} name="rate" id={`star${5- index}`} type="radio" onChange={handleRatingChange} checked={stars === `${5- index}`} />
@@ -148,10 +156,8 @@ return (
               </React.Fragment>
             ))}
           </div>
-          
         </div>
-
-
+        </div>
           
         {/* <div id="heading" >
                 <input type="text"/>
@@ -160,13 +166,13 @@ return (
         
         <div className='uploadpicture'>
           <img className='imageUpload' src={uploadImageSrc || uploadImage} id='picture-pic' alt="Uploaded" />
-          </div>
-      </div>
-          <label className='uploadImageLabel' htmlFor="input-file">Upload Image</label>
-          <input id='input-file' type="file" accept='image/jpeg, image/png, image/jpg' onChange={handleFileChange} />
-          
+        </div>
+      
+      <label className='uploadImageLabel' htmlFor="input-file">Bild hochladen</label>
+      <input id='input-file' type="file" accept='image/jpeg, image/png, image/jpg' onChange={handleFileChange} />
+      </div>  
       <div className="form-groupIngredient">
-        <label htmlFor="ingredientInput">Ingredients</label>
+        <label htmlFor="ingredientInput">Zutaten</label>
         {[...Array(counter)].map((_, index) => (
           <div key={index}>
             <input
@@ -181,16 +187,16 @@ return (
         ))}
       </div>
 
-      <button className='addOneMoreIngredient'  onClick={incrementCounter}>Add Ingredient</button>
+      <button className='addOneMoreIngredient'  onClick={incrementCounter}>Zutat hinzufügen</button>
       <div id='blocker1'></div>
       <div id='blocker1'></div>
 
       <div className='discription'><textarea name="Description" placeholder='Description' onChange={(e) => { setdescription(e.target.value); }}></textarea>
-        <span className='discriptionSpan'>Description</span>
+        <span className='discriptionSpan'>Beschreibung</span>
       </div>
 
           
-      <button className='addOneMoreIngredient'  onClick={addRecipe}>Save Recipe</button>
+      <button className='addOneMoreIngredient'  onClick={addRecipe}>Rezept speichern</button>
        
       
     </div> 
@@ -198,3 +204,4 @@ return (
 </body>
 
 )};
+export default Upload;
