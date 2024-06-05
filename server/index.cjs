@@ -34,4 +34,7 @@ app.listen(PORT, () => {
 
 //Database init
 const database = require ('./database.cjs')
-database(app);
+//database(app);
+
+const databasecreate = require ("./Database/db-create.cjs");
+databasecreate();

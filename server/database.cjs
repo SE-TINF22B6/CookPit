@@ -13,7 +13,7 @@ function Database(app) {
     const upload = multer({ storage: storage });
 
     //init database
-    const db = new sqlite3.Database('./account.db', sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, (err) => {
+    const db = new sqlite3.Database('./database.db', sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, (err) => {
         if (err) {
             console.error("Fehler beim Öffnen der Datenbank: " + err.message);
         } else {
