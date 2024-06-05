@@ -3,7 +3,6 @@ body {
   overflow: auto;
   padding-top: 8%;
   z-index: 100;
-  backdrop-filter: blur(8px);
   position: relative;
 }
 
@@ -149,19 +148,15 @@ body {
   width:500px;
 }
 .imageUpload{  
-  padding-left: 10%;
-  width: 50%;
+  width: 40%;
   height: 10%;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  align-self: flex-start;
-  
+  padding-top: 5%;
+  padding-bottom: 2%;
 }
 .uploadImageLabel{
   display: flex;
   position: relative;
-  left: 60%;
+  min-width: 40%;
   align-items: flex-start;
   justify-content: center;
   align-self: flex-start;
@@ -214,6 +209,14 @@ body {
       outline: none;
       align-items: center;
 }
+
+.addOneMoreIngredient:hover {
+  background-color: #ff9595;
+  box-shadow: 0px 15px 20px rgb(255, 152, 152);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
 #input-file{
     display: none;
 }
@@ -326,7 +329,7 @@ border-radius: 16px;
   display: flex;
   flex-direction: column;
   gap: 2px;
-  width: 50%;
+  width: 100%;
   justify-content: center;
 }
 
@@ -353,19 +356,16 @@ border-radius: 16px;
 #form-header {
   justify-content: center;
   position: relative;
-  width: 50%;
-  float: left;
+  width: 100%;
+}
+
+#headingToptop{
+  max-width: 40%;
 }
 
 .form-container .form-groupDate {
-  /*margin-left: 400px;
-  align-items: flex-end;
-  align-self: flex-end;
-  top: -8px;*/
   position: relative;
-  float: right;
-  left: 165%;
-  top: -35%;
+  padding-top: 5%;
 }
 
 .form-container .form-groupDate label {
@@ -429,6 +429,7 @@ border-radius: 16px;
 
 .form-container .form-groupIngredient {
   display: flex;
+  padding-top: 5%;
   flex-direction: column;
   gap: 2px;
 }
@@ -567,7 +568,7 @@ border-radius: 16px;
   display: flex;
   flex-direction: column;
   gap: 2px;
-  min-width: 40%;
+  min-width: 30%;
   
 }
 
@@ -606,10 +607,9 @@ border-radius: 16px;
   align-items: flex-end;
   align-self: flex-end;
   min-height: 10%;
-  min-width: 100%;
+  min-width: 150px;
   position: relative;
-  padding-top: 10%;
-  right: 80%
+  padding-top: 3%;
 }
 
 .rating:not(:checked) > input {
@@ -659,13 +659,13 @@ border-radius: 16px;
 
 .recipeInfo{
   display: flex;
-  max-width: 50%;
-  float: left;
+  width: 80%;
+  justify-content: center;
 }
 
 #uploadPicture {
-  position: relative;
-  right: 50%;
-  width: 50%;
-  
+  position: absolute;
+  padding-left: 50%;
+  padding-top: 5%;
+  justify-content: center;
 }

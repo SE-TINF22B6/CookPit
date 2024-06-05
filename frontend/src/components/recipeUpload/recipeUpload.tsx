@@ -110,19 +110,17 @@ const Upload: React.FC<UploadProps> = ({ onToggleUpload }) => {
 return (
 <body>
   <div id='template'>
-    <div className="form-container">
- 
-      <div className='recipeInfo'>
+    <div className="form-container">   
       <div className="form-group">
   	    <div className='form-header'> 
             <label htmlFor="headingTop">Titel</label>
-            <input type="text" id="headingTop" name="Heading" onChange={(e) => { setheader(e.target.value); }} />
+            <input type="text" id="headingToptop" name="Heading" onChange={(e) => { setheader(e.target.value); }} />
+        
+      
+          {/*<div className="form-groupDate">
+              <label htmlFor="headingTop">Date: {currentDate.toLocaleString()}</label>
+          </div>*/}
         </div>
-          
-        <div className="form-groupDate">
-            <label htmlFor="headingTop">Date: {currentDate.toLocaleString()}</label>
-        </div>
-      </div> 
         
       </div>
       <div className='wrapperInput'>
@@ -132,7 +130,7 @@ return (
             <label htmlFor="headingTop">Kategorie</label>
             <input type="text" id="headingTop" name="Category" onChange={(e) => { setcategory(e.target.value); }} />
           </div> 
-
+ 
       
 
           <div className="form-groupTimeEffort">
@@ -140,7 +138,7 @@ return (
             <input type="text" id="headingTop" name="Effort" onChange={(e) => { settimeeffort(e.target.value); }} />
           </div>
 
-          </div> 
+           
           
             
             {/*<div className="form-groupCalories">
@@ -149,8 +147,8 @@ return (
             </div>*/}
         
           
-        </div>
-         <div className="rating">
+      
+         <div className="rating">   
             {[...Array(5)].map((_, index) => (
               <React.Fragment key={index}>
                 <input value={5- index} name="rate" id={`star${5- index}`} type="radio" onChange={handleRatingChange} checked={stars === `${5- index}`} />
@@ -158,8 +156,8 @@ return (
               </React.Fragment>
             ))}
           </div>
-
-
+        </div>
+        </div>
           
         {/* <div id="heading" >
                 <input type="text"/>
@@ -169,10 +167,10 @@ return (
         <div className='uploadpicture'>
           <img className='imageUpload' src={uploadImageSrc || uploadImage} id='picture-pic' alt="Uploaded" />
         </div>
-      </div>
+      
       <label className='uploadImageLabel' htmlFor="input-file">Bild hochladen</label>
       <input id='input-file' type="file" accept='image/jpeg, image/png, image/jpg' onChange={handleFileChange} />
-          
+      </div>  
       <div className="form-groupIngredient">
         <label htmlFor="ingredientInput">Zutaten</label>
         {[...Array(counter)].map((_, index) => (
