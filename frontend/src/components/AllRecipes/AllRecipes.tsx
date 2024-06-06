@@ -3,10 +3,11 @@ import "./AllRecipes.css";
 
 export default function AllRecipes({ allRecipes }: { allRecipes: any[] }) {
   const items = allRecipes.map((recipe) => {
+    const img = recipe.category;
     const time = Number(recipe.cook_time) + Number(recipe.prep_time);
     return (
       <DisplayRecipe
-        img={recipe.img}
+        img={recipe.category}
         title={recipe.name}
         rating={recipe.rating}
         time={time}
@@ -17,6 +18,8 @@ export default function AllRecipes({ allRecipes }: { allRecipes: any[] }) {
   return (
     <div id="wrapper">
       <div id="center_wrapper">{items}</div>
+
     </div>
+    
   );
 }

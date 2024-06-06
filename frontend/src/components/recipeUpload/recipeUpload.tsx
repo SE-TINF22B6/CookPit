@@ -15,6 +15,7 @@ export default function Body(){
   const [calories, setcalories] = useState('');
   const [file, setFile] = useState<File | null>(null);
 
+
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0];
     if (selectedFile) {
@@ -70,8 +71,11 @@ export default function Body(){
     formData.append('recipeheader', header);
     formData.append('recipecategory', category);
     formData.append('recipetimeeffort', timeEffort);
-    formData.append('recipestars', stars);
+    formData.append('reciperating', stars);
     formData.append('recipedescription', description);
+    formData.append('recipedate', currentDate);
+    //formData.append('id_author', idauthor);
+    //formData.append('recipeingredients', ingredients);
     if (file) {
         formData.append('recipepicture', file);
     }
