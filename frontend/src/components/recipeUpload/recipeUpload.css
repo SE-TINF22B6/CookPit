@@ -146,19 +146,18 @@ body {
   width:500px;
 }
 .imageUpload{  
-  padding-left: 10%;
-  width: 40%;
+  max-width: 30%;
   height: 10%;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   align-self: flex-start;
-   
+   float: right;
 }
 .uploadImageLabel{
   display: flex;
   position: relative;
-  left: 60%;
+  left: 70%;
   align-items: flex-start;
   justify-content: center;
   align-self: flex-start;
@@ -288,13 +287,13 @@ body {
 
 
   .form-container {
-    width: 800px;
+    width: 80%;
     /*background: linear-gradient(white,white) padding-box,
                 linear-gradient(145deg, #e81cff, #40c9ff) border-box;
     border: 2px solid transparent;
     */
+    background-color: transparent;
     backdrop-filter: blur(10px);
-    background-color: #ff9595;
     padding: 32px 24px;
     font-size: 14px;
     font-family: inherit;
@@ -304,7 +303,7 @@ body {
     gap: 20px;
     box-sizing: border-box;
     border-radius: 16px;
-
+    border-style: solid;
   }
   
   .form-container button:active {
@@ -601,7 +600,7 @@ body {
     align-items: flex-end;
     align-self: flex-end;
     min-height: 10%;
-    min-width: 40%;
+    min-width: 30%;
 
   }
 
@@ -645,12 +644,12 @@ body {
 
   .recipeInfo{
     display: flex;
-    max-width: 50%;
+    max-width: 70%;
     float: left;
   }
   
   #uploadPicture {
-    max-width: 50%;
+    min-width: 30%;
     float: right;
     justify-content: right;
   }
