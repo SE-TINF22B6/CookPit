@@ -11,9 +11,9 @@ export default function Body(){
   const [timeEffort, settimeeffort] = useState('');
   const [stars, setstars] = useState('');
   const [description, setdescription] = useState('');
-  const [ingredients, setIngredients] = useState(Array(10).fill(''));
-  const [calories, setcalories] = useState('');
+  const [ingredients, setIngredients] = useState<string[]>([]);
   const [file, setFile] = useState<File | null>(null);
+
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0];
@@ -67,11 +67,14 @@ export default function Body(){
   
   const addRecipe = () => {
     const formData = new FormData();
-    formData.append('recipeheader', header);
+    formData.append('recipename', header);
     formData.append('recipecategory', category);
-    formData.append('recipetimeeffort', timeEffort);
-    formData.append('recipestars', stars);
+    formData.append('recipetime', timeEffort);
+    formData.append('reciperating', stars);
     formData.append('recipedescription', description);
+    formData.append('recipecreationdate', currentDate);
+    // formData.append('id_author', idauthor);
+    formData.append('recipeingredients', JSON.stringify(ingredients)); // Serialize ingredients array
     if (file) {
         formData.append('recipepicture', file);
     }

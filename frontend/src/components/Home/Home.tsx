@@ -24,6 +24,7 @@ function Home() {
     axios.post("http://localhost:3001/getallrecipe", {
     }).then((response: { data: any; }) => {
       setAllRecipes(response.data.results);
+      console.log(response.data.results);
     });
   };
 
@@ -34,7 +35,6 @@ function Home() {
   return (
     <>
       <Background />
-
       <Header onToggleLogin={toggleLoginVisibility} />
       {loginVisible && <Login onToggleLogin={toggleLoginVisibility} />}
       <Routes>
