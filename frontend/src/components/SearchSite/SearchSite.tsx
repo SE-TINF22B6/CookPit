@@ -13,20 +13,11 @@ export default function SearchSite({ allRecipes }: { allRecipes: any[] }) {
     }
   }
 
-  // algo für die empfhlungen - austauschen mit "items = allRecipes.map"
-  // const items = best.map((recipe) => {
-  //   const time = Number(recipe.cook_time) + Number(recipe.prep_time);
-  //   return (
-  //     <DisplayRecipe
-  //       img={recipe.img}
-  //       title={recipe.name}
-  //       rating={recipe.rating}
-  //       time={time}
-  //     />
-  //   );
-  // }
+  const randomRecipes = allRecipes
+    .sort(() => Math.random() - Math.random())
+    .slice(0, 5);
 
-  const items = allRecipes.map((recipe) => {
+  const items = randomRecipes.map((recipe) => {
     const img = `data:image/jpeg;base64,${recipe.picture}`;
     return (
       <DisplayRecipe
