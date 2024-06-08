@@ -9,7 +9,6 @@ import React, { useEffect, useState } from "react";
 import RecipeUpload from "../recipeUpload/recipeUpload";
 import AllRecipes from "../AllRecipes/AllRecipes";
 import axios from "axios";
-import { get } from "https";
 
 function Home() {
 

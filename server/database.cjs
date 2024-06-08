@@ -100,7 +100,7 @@ function Database(app) {
         }
     });
 
-    app.get("/getallrecipe", (req, res) => {
+    app.post("/getallrecipe", (req, res) => {
         getallrecipe(res);
     });
 
