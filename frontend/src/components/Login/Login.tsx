@@ -32,7 +32,7 @@ const Login: React.FC<LoginProps> = ({ onToggleLogin }) => {
       password: password,
     }).then((response) => {
       console.log(response.data.loginmessage); 
-      setLoginStatus(response.data.loginmessage)
+      setLoginStatus(response.data.loginmessage);
       let token = response.data.token
       localStorage.setItem('token', token)
 

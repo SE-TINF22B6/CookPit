@@ -9,7 +9,6 @@ import React, { useEffect, useState } from "react";
 import RecipeUpload from "../recipeUpload/recipeUpload";
 import AllRecipes from "../AllRecipes/AllRecipes";
 import axios from "axios";
-import { get } from "https";
 
 function Home() {
   const [loginVisible, setLoginVisible] = useState(false);
@@ -24,6 +23,7 @@ function Home() {
       .post("http://localhost:3001/getallrecipe", {})
       .then((response: { data: any }) => {
         setAllRecipes(response.data.results);
+        console.log(response.data.results);
       });
   };
 
@@ -34,7 +34,6 @@ function Home() {
   return (
     <>
       <Background />
-
       <Header onToggleLogin={toggleLoginVisibility} />
       {loginVisible && <Login onToggleLogin={toggleLoginVisibility} />}
       <Routes>
