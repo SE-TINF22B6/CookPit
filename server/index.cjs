@@ -36,5 +36,8 @@ app.listen(PORT, () => {
 const database = require("./database.cjs");
 database(app);
 
-//const databasecreate = require("./Database/db-create.cjs")
-//databasecreate(app);
+let createdatabase = false;
+if (createdatabase===true) {
+  const databasecreate = require("./Database/db-create.cjs")
+databasecreate(app);
+}

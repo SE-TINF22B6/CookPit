@@ -100,7 +100,7 @@ function Database(app) {
         }
     });
 
-    app.post("/getallrecipe", (req, res) => {
+    app.get("/getallrecipe", (req, res) => {
         getallrecipe(res);
     });
 
@@ -134,9 +134,9 @@ function Database(app) {
         });
     }
 
-    function addrecipe(recipeheader, recipecategory, recipetimeeffort, reciperatings, recipedescription, recipepicture, res) {
-        db.run("INSERT INTO Recipe (name, description, time, id_author, ingredients, calories, creation_date, rating, category, picture) VALUES (?,?,?,?,?,?,?,?,?)",
-            [recipeheader, recipedescription, recipetimeeffort, recipeidauthor, recipeingredients, reicpecalories, recipecreation, reciperating, recipecategory, recipepicture],
+    function addrecipe(recipename, recipedescription, recipetime, recipeid_author, recipeingredients, recipecreationdate, reciperating, recipecategory, recipepicture, res) {
+        db.run("INSERT INTO Recipe (name, description, time, id_author, ingredients, creation_date, rating, category, picture) VALUES (?,?,?,?,?,?,?,?,?)",
+            [recipename, recipedescription, recipetime, recipeid_author, recipeingredients, recipecreationdate, reciperating, recipecategory, recipepicture],
             (err, result) => {
                 if (err) {
                     console.error(err.message);
@@ -148,13 +148,12 @@ function Database(app) {
     }
 
     app.post("/addrecipe", upload.single('recipepicture'), (req, res) => {
-        const { recipeheader, recipecategory, recipetimeeffort, recipestars, recipedescription } = req.body;
+        const { recipename, recipedescription, recipetime, recipeid_author, recipeingredients, recipecreationdate, reciperating, recipecategory } = req.body;
         let recipepicture = null;
         if (req.file) {
             recipepicture = req.file.buffer.toString('base64');
         }
-        console.log(recipeheader, recipecategory, recipetimeeffort, recipestars, recipedescription);
-        addrecipe(recipeheader, recipecategory, recipetimeeffort, reciperatings, recipedescription, recipepicture, res)
+        addrecipe(recipename, recipedescription, recipetime, recipeid_author, recipeingredients, recipecreationdate, reciperating, recipecategory, recipepicture, res)
     });
 }
 
