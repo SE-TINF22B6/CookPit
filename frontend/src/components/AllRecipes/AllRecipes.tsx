@@ -3,12 +3,11 @@ import "./AllRecipes.css";
 
 export default function AllRecipes({ allRecipes }: { allRecipes: any[] }) {
   const items = allRecipes.map((recipe) => {
-    // Assuming recipe.category contains the base64 string without the data:image prefix
-    const img = `data:image/jpeg;base64,${recipe.picture}`; // Adjust MIME type as needed
+    const img = `data:image/jpeg;base64,${recipe.picture}`; 
     const time = Number(recipe.cook_time) + Number(recipe.prep_time);
     return (
       <DisplayRecipe
-        key={recipe.id} // Make sure to use a unique key for each item
+        key={recipe.id}
         img={img}
         title={recipe.name}
         rating={recipe.rating}
