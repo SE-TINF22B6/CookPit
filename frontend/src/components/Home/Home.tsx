@@ -9,6 +9,7 @@ import React, { useEffect, useState } from "react";
 import RecipeUpload from "../recipeUpload/recipeUpload";
 import AllRecipes from "../AllRecipes/AllRecipes";
 import axios from "axios";
+import MyRecipe from "../MyRecipes/MyRecipes";
 
 function Home() {
   const [loginVisible, setLoginVisible] = useState(false);
@@ -44,6 +45,10 @@ function Home() {
         />
         <Route path="/rezept/generator" element={<OpenAI />} />
         <Route path="/rezept/hochladen" element={<RecipeUpload />} />
+        <Route
+          path="/rezept/meine"
+          element={<MyRecipe allRecipes={allRecipes} />}
+        />
       </Routes>
     </>
   );

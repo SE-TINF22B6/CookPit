@@ -21,7 +21,8 @@ export default function SearchSite({ allRecipes }: { allRecipes: any[] }) {
     const img = `data:image/jpeg;base64,${recipe.picture}`;
     return (
       <DisplayRecipe
-        key={recipe.id}
+        id_author={recipe.id_author}
+        key={recipe.id_recipe}
         img={img}
         title={recipe.name}
         rating={recipe.rating}

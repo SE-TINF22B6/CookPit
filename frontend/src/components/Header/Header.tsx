@@ -86,7 +86,15 @@ const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
       <Dropdown>
         <MenuButton className="navigation">{userbutton}</MenuButton>
         <Menu className="dropdown_item" slots={{ listbox: List }}>
-          <MenuItem>Meine Rezepte</MenuItem>
+          <Link
+            style={{
+              color: "black",
+              textDecoration: "none",
+            }}
+            to="/rezept/meine"
+          >
+            Meine Rezepte
+          </Link>
           <Divider />
           <MenuItem onClick={handleLogoutClick}>Log out</MenuItem>
         </Menu>

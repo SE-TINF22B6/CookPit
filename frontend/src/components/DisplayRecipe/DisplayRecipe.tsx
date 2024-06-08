@@ -21,7 +21,7 @@ import {
 } from "@mui/material";
 
 type DisplayRecipeProps = {
-  key: number;
+  id_author: number;
   img: string;
   title: string;
   rating: number;
@@ -33,7 +33,6 @@ type DisplayRecipeProps = {
 };
 
 export default function DisplayRecipe({
-  key,
   img,
   title,
   rating,
