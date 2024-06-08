@@ -3,18 +3,20 @@ import "../Header/Header.css";
 import brand_logo from "../../img/chef-svgrepo-com.svg";
 import { Link } from "react-router-dom";
 import Drawer from "../Drawer/Drawer";
-import Axios from 'axios';
-import { response } from 'express';
+import Axios from "axios";
+import { response } from "express";
 import { IoClose } from "react-icons/io5";
-
+import { Dropdown } from "@mui/base/Dropdown";
+import { MenuButton } from "@mui/base/MenuButton";
+import { Menu } from "@mui/base/Menu";
+import { MenuItem } from "@mui/base/MenuItem";
+import { Divider, List } from "@mui/material";
 
 interface HeaderProps {
   onToggleLogin?: () => void;
 }
 
 const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
-
-
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -24,7 +26,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState("");
   const getlogin = () => {
     Axios.post("http://localhost:3001/getlogin", {})
       .then((response) => {
@@ -32,7 +34,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
         setUsername(response.data.loginmessage);
       })
       .catch((error) => {
-        console.error('Error while fetching login data:', error);
+        console.error("Error while fetching login data:", error);
       });
   };
 
@@ -43,7 +45,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
         setUsername("");
       })
       .catch((error) => {
-        console.error('Error while logging out:', error);
+        console.error("Error while logging out:", error);
       });
   };
 
@@ -64,37 +66,35 @@ const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
         console.log(response.data.results.length);
       })
       .catch((error) => {
-        console.error('Error while logging out:', error);
+        console.error("Error while logging out:", error);
       });
   };
 
-
-
   let userbutton;
-  let Kontobutton
-  if (username === '') {
+  let Kontobutton;
+  if (username === "") {
     userbutton = "Login";
-    Kontobutton =  <button className="navigation" id="login_btn" onClick={handleLoginClick}> {userbutton} </button>;
+    Kontobutton = (
+      <button className="navigation" id="login_btn" onClick={handleLoginClick}>
+        {" "}
+        {userbutton}{" "}
+      </button>
+    );
   } else {
     userbutton = username;
     Kontobutton = (
-      <div className="navigation">
-        <div className="dropdown">
-        <span>{username}</span>
-        <div className="dropdown-content">
-          <a href="#">Option 1</a>
-          <a href="#">Option 2</a>
-          <a href="#">Option 3</a>
-          <a onClick={handleLogoutClick}>Logout</a>
-        </div>
-       </div> 
-      </div>  
+      <Dropdown>
+        <MenuButton className="navigation">{userbutton}</MenuButton>
+        <Menu className="dropdown_item" slots={{ listbox: List }}>
+          <MenuItem>Meine Rezepte</MenuItem>
+          <Divider />
+          <MenuItem onClick={handleLogoutClick}>Log out</MenuItem>
+        </Menu>
+      </Dropdown>
     );
   }
-  
 
   return (
-
     <header>
       <Link className="navigation" id="brand_name" to="/">
         <img src={brand_logo} alt="logo" />
@@ -124,4 +124,4 @@ const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
   );
 };
 
-export default Header ;
+export default Header;

@@ -24,10 +24,22 @@ header {
   font-size: 34px;
   text-decoration: none;
   color: black;
+  background: none;
+  border: none;
 }
 
 .navigation:hover {
   text-decoration: underline;
+}
+
+.dropdown_item {
+  cursor: pointer;
+  font-family: Long Cang;
+  font-size: 26px;
+  background-color: #f9f9f9;
+  padding: 0 8px;
+  border-radius: 12px;
+  border: black 1px solid;
 }
 
 #brand_name img {
@@ -93,7 +105,7 @@ header {
   position: absolute;
   background-color: #f9f9f9;
   min-width: 120px;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 

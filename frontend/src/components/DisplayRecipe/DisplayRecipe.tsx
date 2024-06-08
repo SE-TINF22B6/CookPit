@@ -25,10 +25,9 @@ type DisplayRecipeProps = {
   img: string;
   title: string;
   rating: number;
-  time: number;
+  time: string;
   description: string;
-  prepTime: string;
-  cookTime: string;
+  creation_date: string;
   ingredients: string;
   steps: string;
 };
@@ -39,9 +38,8 @@ export default function DisplayRecipe({
   title,
   rating,
   time,
+  creation_date,
   description,
-  prepTime,
-  cookTime,
   ingredients,
   steps,
 }: DisplayRecipeProps) {
@@ -199,17 +197,17 @@ export default function DisplayRecipe({
               <Grid container spacing={2} sx={{ mb: 2 }}>
                 <Grid item xs={6}>
                   <Typography variant="body2" color="text.secondary">
-                    Prep Time: {prepTime}
+                    Zeit: {time} min
                   </Typography>
                 </Grid>
                 <Grid item xs={6}>
                   <Typography variant="body2" color="text.secondary">
-                    Cook Time: {cookTime}
+                    Veröffentlichung: {creation_date}
                   </Typography>
                 </Grid>
               </Grid>
               <Typography variant="h6" component="div" gutterBottom>
-                Ingredients
+                Zutaten
               </Typography>
               <List>
                 {localIngredients.map((ingredient, index) => (
@@ -219,7 +217,7 @@ export default function DisplayRecipe({
                 ))}
               </List>
               <Typography variant="h6" component="div" gutterBottom>
-                Steps
+                Anleitung
               </Typography>
               <List>
                 {localSteps.map((step, index) => (
