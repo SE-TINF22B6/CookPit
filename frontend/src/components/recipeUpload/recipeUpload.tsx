@@ -12,6 +12,7 @@ export default function Body(){
   const [stars, setstars] = useState('');
   const [description, setdescription] = useState('');
   const [ingredients, setIngredients] = useState<string[]>([]);
+  const [steps, setSteps] = useState<string[]>([]);
   const [file, setFile] = useState<File | null>(null);
 
 
@@ -61,6 +62,14 @@ export default function Body(){
     newIngredients[index] = value;
     setIngredients(newIngredients);
   };
+
+  const handleStepChange = (index: number, value: string) => {
+    const newSteps = [...steps];
+    newSteps[index] = value;
+    setSteps(newSteps);
+  };
+
+
   const handleRatingChange = (e: ChangeEvent<HTMLInputElement>) => {
     setstars(e.target.value);
   };
@@ -72,9 +81,11 @@ export default function Body(){
     formData.append('recipetime', timeEffort);
     formData.append('reciperating', stars);
     formData.append('recipedescription', description);
+    formData.append('recipeingredients', JSON.stringify(ingredients));
+    formData.append('recipesteps', JSON.stringify(steps));
     formData.append('recipecreationdate', currentDate);
     // formData.append('id_author', idauthor);
-    formData.append('recipeingredients', JSON.stringify(ingredients)); // Serialize ingredients array
+
     if (file) {
         formData.append('recipepicture', file);
     }
@@ -92,6 +103,13 @@ export default function Body(){
   const incrementCounter = () => {
   setCounter(counter + 1); // Die Funktion erhöht den Counter um 1
   };
+
+  const [stepCounter, setStepCounter] = useState(1);
+  const incrementStepCounter = () => {
+    setStepCounter(stepCounter + 1);
+  };
+
+
   const [currentDate, setCurrentDate] = useState(new Date().toLocaleDateString()); // Hier wird der Anfangswert auf das aktuelle Datum gesetzt
 
   useEffect(() => {
@@ -154,7 +172,7 @@ return (
           
         </div>
 
-
+ 
           
         {/* <div id="heading" >
                 <input type="text"/>
@@ -167,7 +185,15 @@ return (
       </div>
           <label className='uploadImageLabel' htmlFor="input-file">Upload Image</label>
           <input id='input-file' type="file" accept='image/jpeg, image/png, image/jpg' onChange={handleFileChange} />
-          
+
+      <div className='discription'><textarea className= "discriptionInput" name="Description" placeholder='Description' onChange={(e) => { setdescription(e.target.value); }}></textarea>
+        <span className='discriptionSpan'>Description</span>
+      </div>
+
+      <button className='addOneMoreIngredient'  onClick={addRecipe}>Save Recipe</button>
+
+      <br />
+
       <div className="form-groupIngredient">
         <label htmlFor="ingredientInput">Ingredients</label>
         {[...Array(counter)].map((_, index) => (
@@ -187,15 +213,25 @@ return (
       <button className='addOneMoreIngredient'  onClick={incrementCounter}>Add Ingredient</button>
       <div id='blocker1'></div>
       <div id='blocker1'></div>
-
-      <div className='discription'><textarea name="Description" placeholder='Description' onChange={(e) => { setdescription(e.target.value); }}></textarea>
-        <span className='discriptionSpan'>Description</span>
-      </div>
-
-          
-      <button className='addOneMoreIngredient'  onClick={addRecipe}>Save Recipe</button>
-       
       
+      <div className="form-groupIngredient">
+        <label className="stepsLabel" htmlFor="ingredientInput">Steps</label>
+        {[...Array(stepCounter)].map((_, index) => (
+          <div key={index}>
+            <input
+              id={`stepInput${index}`}
+              name={`Step ${index + 1}`}
+              value={steps[index]}
+              onChange={(e) => handleStepChange(index, e.target.value)}
+            />
+            <label htmlFor={`ingredientInput${index}`}>{index + 1}</label>
+          </div>
+        ))}
+      </div>
+      <button className='addOneMoreIngredient' onClick={incrementStepCounter}>Add Step</button>
+      <br />
+
+    
     </div> 
   </div>
 </body>
