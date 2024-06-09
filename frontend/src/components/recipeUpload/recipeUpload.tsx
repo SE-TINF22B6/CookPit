@@ -181,7 +181,15 @@ return (
       </div>
           <label className='uploadImageLabel' htmlFor="input-file">Upload Image</label>
           <input id='input-file' type="file" accept='image/jpeg, image/png, image/jpg' onChange={handleFileChange} />
-          
+
+      <div className='discription'><textarea className= "discriptionInput" name="Description" placeholder='Description' onChange={(e) => { setdescription(e.target.value); }}></textarea>
+        <span className='discriptionSpan'>Description</span>
+      </div>
+
+      <button className='addOneMoreIngredient'  onClick={addRecipe}>Save Recipe</button>
+
+      <br />
+
       <div className="form-groupIngredient">
         <label htmlFor="ingredientInput">Ingredients</label>
         {[...Array(counter)].map((_, index) => (
@@ -219,12 +227,6 @@ return (
       <button className='addOneMoreIngredient' onClick={incrementStepCounter}>Add Step</button>
       <br />
 
-
-      <div className='discription'><textarea className= "discriptionInput" name="Description" placeholder='Description' onChange={(e) => { setdescription(e.target.value); }}></textarea>
-        <span className='discriptionSpan'>Description</span>
-      </div>
-
-      <button className='addOneMoreIngredient'  onClick={addRecipe}>Save Recipe</button>
     
     </div> 
   </div>
