@@ -164,3 +164,20 @@
   border-left: 8px solid rgb(255, 255, 255);
   transform: rotate(135deg);
 }
+
+#wrapper {
+  max-height: 20%;
+  width: 100vw;
+  position: absolute;
+  top: 100px;
+  padding: 70px 40px 0px 40px;
+  display: flex;
+  justify-content: center;
+}
+
+#center_wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
