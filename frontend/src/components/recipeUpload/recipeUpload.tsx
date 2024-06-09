@@ -201,33 +201,30 @@ return (
       <div id='blocker1'></div>
       <div id='blocker1'></div>
       
-      <br />
-          <div className="form-groupIngredient">
-            <label htmlFor="ingredientInput">Steps</label>
-            {[...Array(stepCounter)].map((_, index) => (
-              <div key={index}>
-                <input
-                  id={`stepInput${index}`}
-                  name={`Step ${index + 1}`}
-                  value={steps[index]}
-                  onChange={(e) => handleStepChange(index, e.target.value)}
-                />
-                <label htmlFor={`ingredientInput${index}`}>{index + 1}</label>
-              </div>
-            ))}
+      <div className="form-groupIngredient">
+        <label htmlFor="ingredientInput">Steps</label>
+        {[...Array(stepCounter)].map((_, index) => (
+          <div key={index}>
+            <input
+              id={`stepInput${index}`}
+              name={`Step ${index + 1}`}
+              value={steps[index]}
+              onChange={(e) => handleStepChange(index, e.target.value)}
+            />
+            <label htmlFor={`ingredientInput${index}`}>{index + 1}</label>
           </div>
-        <button className='addOneMoreIngredient' onClick={incrementStepCounter}>Add Step</button>
-        <br />
+        ))}
+      </div>
+      <button className='addOneMoreIngredient' onClick={incrementStepCounter}>Add Step</button>
+      <br />
 
 
       <div className='discription'><textarea className= "discriptionInput" name="Description" placeholder='Description' onChange={(e) => { setdescription(e.target.value); }}></textarea>
         <span className='discriptionSpan'>Description</span>
       </div>
 
-          
       <button className='addOneMoreIngredient'  onClick={addRecipe}>Save Recipe</button>
-       
-      
+    
     </div> 
   </div>
 </body>
