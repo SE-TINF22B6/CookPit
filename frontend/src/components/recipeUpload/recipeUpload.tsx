@@ -190,8 +190,6 @@ return (
         <span className='discriptionSpan'>Description</span>
       </div>
 
-      <button className='addOneMoreIngredient'  onClick={addRecipe}>Save Recipe</button>
-
       <br />
 
       <div className="form-groupIngredient">
@@ -230,7 +228,8 @@ return (
       </div>
       <button className='addOneMoreIngredient' onClick={incrementStepCounter}>Add Step</button>
       <br />
-
+      
+      <button className='addOneMoreIngredient'  onClick={addRecipe}>Save Recipe</button>
     
     </div> 
   </div>
