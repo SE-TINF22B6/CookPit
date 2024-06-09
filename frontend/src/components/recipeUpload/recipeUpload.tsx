@@ -2,6 +2,7 @@ import React, { useState, ChangeEvent, useEffect } from 'react'
 import uploadImage from '../recipeUpload/image-upload.jpg';
 import '../recipeUpload/recipeUpload.css';
 import Axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 export default function Body(){
 
@@ -120,7 +121,12 @@ export default function Body(){
     return () => clearInterval(interval); // Aufräumen des Intervalls, wenn die Komponente unmountet wird
   }, []);
 
-    
+    const navigate = useNavigate();
+  
+    const handleClick = () => {
+      navigate('/');
+    };
+   
       
 return (
 <body>
@@ -229,7 +235,7 @@ return (
       <button className='addOneMoreIngredient' onClick={incrementStepCounter}>Add Step</button>
       <br />
       
-      <button className='addOneMoreIngredient'  onClick={addRecipe}>Save Recipe</button>
+      <button className='addOneMoreIngredient'  onClick={() =>{addRecipe();handleClick()}}>Save Recipe</button>
     
     </div> 
   </div>
