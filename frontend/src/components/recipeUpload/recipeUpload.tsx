@@ -11,9 +11,8 @@ export default function Body(){
   const [timeEffort, settimeeffort] = useState('');
   const [stars, setstars] = useState('');
   const [description, setdescription] = useState('');
-  const [ingredients, setIngredients] = useState(Array(10).fill(''));
-  const [steps, setSteps] = useState(Array(10).fill(''));
-  //const [calories, setcalories] = useState('');
+  const [ingredients, setIngredients] = useState<string[]>([]);
+  const [steps, setSteps] = useState<string[]>([]);
   const [file, setFile] = useState<File | null>(null);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -81,6 +80,8 @@ export default function Body(){
     formData.append('recipetimeeffort', timeEffort);
     formData.append('recipestars', stars);
     formData.append('recipedescription', description);
+    formData.append('recipeingredients', JSON.stringify(ingredients));
+    formData.append('recipesteps', JSON.stringify(steps));
     if (file) {
         formData.append('recipepicture', file);
     }
@@ -202,7 +203,7 @@ return (
       <div id='blocker1'></div>
       
       <div className="form-groupIngredient">
-        <label htmlFor="ingredientInput">Steps</label>
+        <label className="stepsLabel" htmlFor="ingredientInput">Steps</label>
         {[...Array(stepCounter)].map((_, index) => (
           <div key={index}>
             <input

@@ -445,6 +445,7 @@ body {
     top: -35px;
     left: 10px;
     text-transform: uppercase;
+    width: 5%;
   }
   
   .form-container .form-groupIngredient input {
@@ -580,7 +581,6 @@ body {
     font-weight: 700;
     font-size: 16px;
     text-transform: uppercase;
-    
   }
   
   .form-container .form-groupCategory input {
@@ -662,3 +662,9 @@ body {
     justify-content: right;
   }
   
+#stepsLabel{
+  z-index: 1;
+  float: left;
+  width: 10%;
+  max-width: 10%;
+}
