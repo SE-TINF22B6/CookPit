@@ -1,7 +1,6 @@
 import DisplayRecipe from "../DisplayRecipe/DisplayRecipe";
-import "./AllRecipes.css";
 
-export default function AllRecipes({ allRecipes }: { allRecipes: any[] }) {
+export default function MyRecipes({ allRecipes }: { allRecipes: any[] }) {
   const items = allRecipes.map((recipe) => {
     const img = `data:image/jpeg;base64,${recipe.picture}`;
     return (

@@ -9,10 +9,9 @@ import React, { useEffect, useState } from "react";
 import RecipeUpload from "../recipeUpload/recipeUpload";
 import AllRecipes from "../AllRecipes/AllRecipes";
 import axios from "axios";
-import { get } from "https";
+import MyRecipe from "../MyRecipes/MyRecipes";
 
 function Home() {
-
   const [loginVisible, setLoginVisible] = useState(false);
   const [allRecipes, setAllRecipes] = useState([]);
 
@@ -21,10 +20,12 @@ function Home() {
   };
 
   const getallrecipe = () => {
-    axios.post("http://localhost:3001/getallrecipe", {
-    }).then((response: { data: any; }) => {
-      setAllRecipes(response.data.results);
-    });
+    axios
+      .post("http://localhost:3001/getallrecipe", {})
+      .then((response: { data: any }) => {
+        setAllRecipes(response.data.results);
+        console.log(response.data.results);
+      });
   };
 
   useEffect(() => {
@@ -34,14 +35,20 @@ function Home() {
   return (
     <>
       <Background />
-
       <Header onToggleLogin={toggleLoginVisibility} />
       {loginVisible && <Login onToggleLogin={toggleLoginVisibility} />}
       <Routes>
-        <Route path="/" element={<SearchSite allRecipes={allRecipes}/>} />
-        <Route path="/rezept/alle" element={<AllRecipes allRecipes={allRecipes} />} />
+        <Route path="/" element={<SearchSite allRecipes={allRecipes} />} />
+        <Route
+          path="/rezept/alle"
+          element={<AllRecipes allRecipes={allRecipes} />}
+        />
         <Route path="/rezept/generator" element={<OpenAI />} />
         <Route path="/rezept/hochladen" element={<RecipeUpload />} />
+        <Route
+          path="/rezept/meine"
+          element={<MyRecipe allRecipes={allRecipes} />}
+        />
       </Routes>
     </>
   );
