@@ -3,7 +3,8 @@ import DisplayRecipe from "../DisplayRecipe/DisplayRecipe";
 import "bootstrap/dist/css/bootstrap.min.css";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import { useRef } from "react";
+import { ChangeEvent, useRef } from "react";
+import React, { useState } from 'react';
 
 export default function SearchSite({ allRecipes }: { allRecipes: any[] }) {
   let best: Number[] = [];
@@ -12,6 +13,8 @@ export default function SearchSite({ allRecipes }: { allRecipes: any[] }) {
       best.push(allRecipes[i]);
     }
   }
+
+  let heading = "Unsere Empfehlungen"
 
   const randomRecipes = allRecipes
     .sort(() => Math.random() - Math.random())
@@ -49,13 +52,50 @@ export default function SearchSite({ allRecipes }: { allRecipes: any[] }) {
     }
   };
 
+  const [searchInput, setSearchInput] = useState<string>('');
+  const [filteredRecipes, setFilteredRecipes] = useState(allRecipes);
+  
+
+  const handleSearch = () => {
+    const filteredRecipes = allRecipes.filter(recipe =>
+      recipe.name.toLowerCase().includes(searchInput) 
+    );
+    
+    const items = filteredRecipes.map((recipe) => {
+      const img = `data:image/jpeg;base64,${recipe.picture}`;
+      return (
+        <DisplayRecipe
+          id_author={recipe.id_author}
+          key={recipe.id_recipe}
+          img={img}
+          title={recipe.name}
+          rating={recipe.rating}
+          time={recipe.time}
+          description={recipe.description}
+          creation_date={recipe.creation_date}
+          ingredients={recipe.ingredients}
+          steps={recipe.steps}
+        />
+      );
+    });
+
+    setFilteredRecipes(items);
+    heading = "Suchergebnisse"
+  };
+
+  const handleSearchInput = (event: ChangeEvent<HTMLInputElement>): void => {
+    setSearchInput(event.target.value);
+  };
+
+  
+
   return (
     <div id="outer_wrapper">
       <div id="i_wrapper">
         <div id="search_box_out_wrapper">
           <div id="search_box_wrapper">
-            <input type="text" placeholder="Search..." />
-            <button>
+            <input type="text" placeholder="Search..." value={searchInput} onChange={handleSearchInput}/>
+            <button onClick={handleSearch}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="32"
@@ -72,7 +112,7 @@ export default function SearchSite({ allRecipes }: { allRecipes: any[] }) {
 
         <div id="display_recipes_outer_outer_wrapper">
           <div id="h_wrapper">
-            <h3>Unsere Empfehlungen</h3>
+            <h3>{heading}</h3>
           </div>
           <div id="display_recipes_outer_wrapper">
             <button
