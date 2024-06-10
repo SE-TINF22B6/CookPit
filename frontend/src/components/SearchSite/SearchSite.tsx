@@ -14,7 +14,7 @@ export default function SearchSite({ allRecipes }: { allRecipes: any[] }) {
     }
   }
 
-  let heading = "Unsere Empfehlungen"
+  
 
   const randomRecipes = allRecipes
     .sort(() => Math.random() - Math.random())
@@ -54,14 +54,15 @@ export default function SearchSite({ allRecipes }: { allRecipes: any[] }) {
 
   const [searchInput, setSearchInput] = useState<string>('');
   const [filteredRecipes, setFilteredRecipes] = useState(allRecipes);
-  
+  const [heading, setHeading] = useState<string>("Unsere Empfehlungen");
+  const [recipes, setRecipes] = useState<string>("items");
 
   const handleSearch = () => {
     const filteredRecipes = allRecipes.filter(recipe =>
-      recipe.name.toLowerCase().includes(searchInput) 
+      recipe.name.toLowerCase().includes(searchInput.toLocaleLowerCase()) 
     );
     
-    const items = filteredRecipes.map((recipe) => {
+    const filtered = filteredRecipes.map((recipe) => {
       const img = `data:image/jpeg;base64,${recipe.picture}`;
       return (
         <DisplayRecipe
@@ -79,8 +80,9 @@ export default function SearchSite({ allRecipes }: { allRecipes: any[] }) {
       );
     });
 
-    setFilteredRecipes(items);
-    heading = "Suchergebnisse"
+    setFilteredRecipes(filtered);
+    setHeading("Suchergebnisse");
+    setRecipes("filtered");
   };
 
   const handleSearchInput = (event: ChangeEvent<HTMLInputElement>): void => {
@@ -126,7 +128,7 @@ export default function SearchSite({ allRecipes }: { allRecipes: any[] }) {
             <div id="display_recipes_wrapper">
               <AliceCarousel
                 mouseTracking
-                items={items}
+                items={recipes === "items" ? items : filteredRecipes}
                 autoPlay
                 autoPlayInterval={4000}
                 disableDotsControls
