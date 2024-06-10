@@ -73,28 +73,43 @@ export default function Body() {
   };
 
   const addRecipe = () => {
-    const formData = new FormData();
-    formData.append("recipename", header);
-    formData.append("recipecategory", category);
-    formData.append("recipetime", timeEffort);
-    formData.append("reciperating", stars);
-    formData.append("recipedescription", description);
-    formData.append("recipeingredients", JSON.stringify(ingredients));
-    formData.append("recipesteps", JSON.stringify(steps));
-    formData.append("recipecreationdate", currentDate);
-    // formData.append('id_author', idauthor);
+    if (
+      header.trim() &&
+      category.trim() &&
+      timeEffort.trim() &&
+      stars &&
+      description.trim() &&
+      ingredients.length > 0 &&
+      steps.length > 0 &&
+      file
+    ) {
+      const formData = new FormData();
+      formData.append("recipename", header);
+      formData.append("recipecategory", category);
+      formData.append("recipetime", timeEffort);
+      formData.append("reciperating", stars);
+      formData.append("recipedescription", description);
+      formData.append("recipeingredients", JSON.stringify(ingredients));
+      formData.append("recipesteps", JSON.stringify(steps));
+      formData.append("recipecreationdate", currentDate);
+      // formData.append('id_author', idauthor);
 
-    if (file) {
-      formData.append("recipepicture", file);
+      if (file) {
+        formData.append("recipepicture", file);
+      }
+
+      Axios.post("http://localhost:3001/addrecipe", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }).then((response) => {
+        console.log(response.data);
+      });
+
+      handleClick();
+    } else {
+      alert("Please fill out all fields");
     }
-
-    Axios.post("http://localhost:3001/addrecipe", formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    }).then((response) => {
-      console.log(response.data);
-    });
   };
 
   const [counter, setCounter] = useState(1); // Hier wird der Anfangswert auf 1 gesetzt
@@ -289,7 +304,7 @@ export default function Body() {
             className="addOneMoreIngredient"
             onClick={() => {
               addRecipe();
-              handleClick();
+              // handleClick();
             }}
           >
             Save Recipe

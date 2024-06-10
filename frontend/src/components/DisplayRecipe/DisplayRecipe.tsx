@@ -68,15 +68,16 @@ export default function DisplayRecipe({
   useEffect(() => {
     try {
       const parsedSteps = JSON.parse(steps);
+
       if (Array.isArray(parsedSteps)) {
         setLocalSteps(parsedSteps);
       } else {
-        console.error("Parsed ingredients is not an array");
+        console.error("Parsed steps is not an array");
       }
     } catch (error) {
-      console.error("Failed to parse ingredients:", error);
+      console.error("Failed to parse steps:", error);
     }
-  }, [ingredients]);
+  }, [steps]);
 
   const style = {
     position: "absolute" as "absolute",
