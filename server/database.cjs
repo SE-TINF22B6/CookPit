@@ -54,6 +54,7 @@ function Database(app) {
     let user = "";
     let userstate = false;
     let loginmessage;
+    let token;
 
     // Login
     app.post("/login", (req, res) => {
@@ -101,29 +102,6 @@ function Database(app) {
     });
 
     app.post("/getallrecipe", (req, res) => {
-        getallrecipe(res);
-    });
-
-    function verifyToken(req, res, next) {
-        const token = req.headers.authorization;
-
-        if (!token) {
-            return res.status(401).json({ message: 'Token is missing' });
-        }
-
-        // Verify token
-        jwt.verify(token, jwtKey, (err, decoded) => {
-            if (err) {
-                return res.status(403).json({ message: 'Invalid token' });
-            }
-
-            // Attach user information to request object
-            req.user = decoded;
-            next();
-        });
-    }
-
-    function getallrecipe(res) {
         db.all("SELECT * FROM recipe", (err, results) => {
             if (err) {
                 console.log("Fehler:" + err);
@@ -132,7 +110,30 @@ function Database(app) {
                 res.send({ results });
             }
         });
-    }
+    });
+
+    app.post("/getuserid", (req, res) => {
+        const username = req.body.username;
+        db.get("SELECT id_user FROM User WHERE username = ?", [username], (err, result) => {
+            if (err) {
+                console.log("Fehler:" + err);
+                return;
+            } else if (result) {
+                res.send({ result });
+                console.log("ID von " + username + " ist " + result.id_user);
+            }
+        });
+    });
+
+    app.post('/verifyToken', (req, res) => {
+        const { token } = req.body;
+        jwt.verify(token, jwtkey, (err, decoded) => {
+          if (err) {
+            return res.json({ isValid: false });
+          }
+          res.json({ isValid: true });
+        });
+      });
 
     function addrecipe(recipename, recipedescription, recipetime, recipeid_author, recipeingredients, recipecreationdate, reciperating, recipecategory, recipepicture, res) {
         db.run("INSERT INTO Recipe (name, description, time, id_author, ingredients, creation_date, rating, category, picture) VALUES (?,?,?,?,?,?,?,?,?)",

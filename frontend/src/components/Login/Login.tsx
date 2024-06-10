@@ -1,5 +1,5 @@
 import "../Login/Login.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import icon_user from "../../img/icon_user.png";
 import icon_password from "../../img/icon_password.png";
 import Axios from "axios";
@@ -7,11 +7,13 @@ import { IoClose } from "react-icons/io5";
 
 interface LoginProps {
   onToggleLogin?: () => void;
+  onData: (data: string) => void;	
 }
 
-const Login: React.FC<LoginProps> = ({ onToggleLogin }) => {
+const Login: React.FC<LoginProps> = ({ onToggleLogin, onData }) => {
+  const [childData, setChildData] = useState('');
 
-  const [LoginStatus, setLoginStatus] = useState ('');
+  const [LoginStatus, setLoginStatus] = useState('');
   const [isToggled, setIsToggled] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -22,7 +24,7 @@ const Login: React.FC<LoginProps> = ({ onToggleLogin }) => {
       password: password,
     }).then((response) => {
       console.log(response.data.loginmessage);
-      setLoginStatus(response.data.loginmessage)
+      setLoginStatus(response.data.loginmessage);
     });
   };
 
@@ -31,13 +33,20 @@ const Login: React.FC<LoginProps> = ({ onToggleLogin }) => {
       username: username,
       password: password,
     }).then((response) => {
+      setChildData(username);
+      onData(username);
       console.log(response.data.loginmessage); 
       setLoginStatus(response.data.loginmessage);
-      let token = response.data.token
-      localStorage.setItem('token', token)
+      localStorage.setItem('token', response.data.token);
+      if (onToggleLogin) {
+        onToggleLogin();
+      }
+    });
+  };
 
-
-    })}
+  useEffect(() => {
+    console.log(childData); // This will log whenever childData changes
+  }, [childData]);
   
   const handleToggle = () => {
     setIsToggled(!isToggled);
@@ -49,48 +58,43 @@ const Login: React.FC<LoginProps> = ({ onToggleLogin }) => {
   let clickevent;
   if (isToggled === false) {
     ueberschrift = "Login";
-    ueberschrift2 = "Registrieren"
+    ueberschrift2 = "Registrieren";
     clickevent = loginuser;
-    
   } else {
     ueberschrift = "Registrieren";
-    ueberschrift2= "Login"
+    ueberschrift2 = "Login";
     clickevent = registeruser;
   }
 
   return (
     <div className="outer">
       <div className="wrapper" id="divOne">
-          <h1>
-            {ueberschrift}
-            <IoClose size={35} className= "btnclose" onClick={onToggleLogin} />
-          </h1>
-          {/*<div className="wrap">
-            <IoClose size={35} className= "btnclose" onClick={onToggleLogin} />
-  </div>*/}
-          <div className="input-box">
-            <input type="text" placeholder="  Username" onChange={(e) => { setUsername(e.target.value); }} />
-            <img src={icon_user} alt="User" />
-          </div>
-          <div className="input-box">
-            <input type="password" placeholder="  Password" onChange={(e) => { setPassword(e.target.value); }} />
-            <img src={icon_password} alt="Password" />
-          </div> 
-          <div className="labels-container">
-            <label onClick={handleToggle}>
-              {ueberschrift2}
-            </label>
-            {/*<label> Passwort vergessen? </label> */}
-          </div>
-          <button type="submit" className="btn" onClick={clickevent}>
-            {ueberschrift}
-          </button>
-          
-          <div className="loginmsg">
-            {LoginStatus}
-          </div>
+        <h1>
+          {ueberschrift}
+          <IoClose size={35} className="btnclose" onClick={onToggleLogin} />
+        </h1>
+        <div className="input-box">
+          <input type="text" placeholder="  Username" onChange={(e) => setUsername(e.target.value)} />
+          <img src={icon_user} alt="User" />
+        </div>
+        <div className="input-box">
+          <input type="password" placeholder="  Password" onChange={(e) => setPassword(e.target.value)} />
+          <img src={icon_password} alt="Password" />
+        </div>
+        <div className="labels-container">
+          <label onClick={handleToggle}>
+            {ueberschrift2}
+          </label>
+        </div>
+        <button type="submit" className="btn" onClick={clickevent}>
+          {ueberschrift}
+        </button>
+        <div className="loginmsg">
+          {LoginStatus}
+        </div>
       </div>
     </div>
   );
 }
+
 export default Login;

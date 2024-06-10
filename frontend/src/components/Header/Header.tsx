@@ -4,8 +4,6 @@ import brand_logo from "../../img/chef-svgrepo-com.svg";
 import { Link } from "react-router-dom";
 import Drawer from "../Drawer/Drawer";
 import Axios from "axios";
-import { response } from "express";
-import { IoClose } from "react-icons/io5";
 import { Dropdown } from "@mui/base/Dropdown";
 import { MenuButton } from "@mui/base/MenuButton";
 import { Menu } from "@mui/base/Menu";
@@ -14,10 +12,13 @@ import { Divider, List } from "@mui/material";
 
 interface HeaderProps {
   onToggleLogin?: () => void;
+  username?: string;
+  emptyusername?: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
+const Header: React.FC<HeaderProps> = ({ onToggleLogin, username, emptyusername }) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
@@ -26,23 +27,14 @@ const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const [username, setUsername] = useState("");
-  const getlogin = () => {
-    Axios.post("http://localhost:3001/getlogin", {})
-      .then((response) => {
-        console.log(response.data.loginmessage);
-        setUsername(response.data.loginmessage);
-      })
-      .catch((error) => {
-        console.error("Error while fetching login data:", error);
-      });
-  };
 
   const logout = () => {
     Axios.post("http://localhost:3001/logout", {})
       .then((response) => {
-        console.log(response.data.logoutmessage);
-        setUsername("");
+        console.log(response.data.loginmessage);
+        if (emptyusername) {
+          emptyusername();
+        }
       })
       .catch((error) => {
         console.error("Error while logging out:", error);
@@ -50,25 +42,13 @@ const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
   };
 
   const handleLoginClick = () => {
-    getlogin();
     if (onToggleLogin) {
       onToggleLogin();
     }
   };
-
   const handleLogoutClick = () => {
     logout();
-  };
-
-  const getrecipes = () => {
-    Axios.post("http://localhost:3001/getallrecipe", {})
-      .then((response) => {
-        console.log(response.data.results.length);
-      })
-      .catch((error) => {
-        console.error("Error while logging out:", error);
-      });
-  };
+  }
 
   let userbutton;
   let Kontobutton;
@@ -76,8 +56,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
     userbutton = "Login";
     Kontobutton = (
       <button className="navigation" id="login_btn" onClick={handleLoginClick}>
-        {" "}
-        {userbutton}{" "}
+        {userbutton}
       </button>
     );
   } else {
@@ -101,7 +80,6 @@ const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
       </Dropdown>
     );
   }
-
   return (
     <header>
       <Link className="navigation" id="brand_name" to="/">
@@ -132,4 +110,4 @@ const Header: React.FC<HeaderProps> = ({ onToggleLogin }) => {
   );
 };
 
-export default Header;
+export default Header ;
