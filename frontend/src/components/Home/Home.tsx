@@ -47,7 +47,7 @@ function Home() {
         <Route path="/rezept/hochladen" element={<RecipeUpload />} />
         <Route
           path="/rezept/meine"
-          element={<MyRecipe allRecipes={allRecipes} />}
+          element={<MyRecipe allRecipes={allRecipes} id_author={""} />}
         />
       </Routes>
     </>

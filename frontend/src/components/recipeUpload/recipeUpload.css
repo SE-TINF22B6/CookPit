@@ -1,7 +1,8 @@
-body {
+#pls {
   background: transparent;
-  overflow: auto;
+  overflow-x: scroll;
   padding-top: 8%;
+  height: 100%;
 }
 
 #upload_wrapper {
@@ -9,119 +10,52 @@ body {
   overflow-y: auto;
 }
 
-#blockerTop{
-    width: 300px;
-    height: 300px;
-    justify-content: top;
+#blockerTop {
+  width: 300px;
+  height: 300px;
+  justify-content: top;
 }
-#template{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    flex-direction: column;
-    gap: 30px;
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 5px;
-    z-index: -1;
-}
-
-#heading{
-    position: relative;
-    width: 550px;
-}
-#discription{
-    position: relative;
-    width: 100%;
-    height: 10%;
+#template {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  gap: 30px;
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 5px;
+  z-index: -1;
 }
 
-#discriptionInput{
+#heading {
+  position: relative;
+  width: 550px;
+}
+#discription {
   position: relative;
   width: 100%;
   height: 10%;
-   
 }
 
-#discription input{
-    width: 100%;
-    padding: 10px;
-    border: 1px solid;
-    border-radius: 5px;
-    outline: none;
-    color: black;
-    font-size: 1em;
-    height: 10%;
+#discriptionInput {
+  position: relative;
+  width: 100%;
+  height: 10%;
 }
-#discription span{
-    position: absolute;
-    left: 0;
-    top: -35px;
-    padding: 10px;
-    pointer-events: none;
-    font-size: 1em;
-    color: black;
-    text-transform: uppercase; 
+
+#discription input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid;
+  border-radius: 5px;
+  outline: none;
+  color: black;
+  font-size: 1em;
+  height: 10%;
 }
-#ingredient{
-    position: relative;
-    width: 250px;
-}
-#amount{
-    position: relative;
-    width: 150px;
-}
-#format{
-    position: relative;
-    width: 100px;
-    padding: 10px;
-    border: 1px solid;
-    border-radius: 5px;
-    outline: none;
-    color: black;
-    font-size: 1em;
-}
-#format span{
-    position: absolute;
-    left: 0;
-    top: -35px;
-    padding: 10px;
-    pointer-events: none;
-    font-size: 1em;
-    color: black;
-    text-transform: uppercase; 
- }
-#heading input{
-    width: 100%;
-    padding: 10px;
-    border: 1px solid;
-    border-radius: 5px;
-    outline: none;
-    color: black;
-    font-size: 1em;
-}
-#heading span{
-    position: absolute;
-    left: 0;
-    top: -35px;
-    padding: 10px;
-    pointer-events: none;
-    font-size: 1em;
-    color: black;
-    text-transform: uppercase; 
-}
-#ingredient input{
-    width: 100%;
-    padding: 10px;
-    border: 1px solid;
-    border-radius: 5px;
-    outline: none;
-    color: black;
-    font-size: 1em;
-}
-#ingredient span{
+#discription span {
   position: absolute;
   left: 0;
   top: -35px;
@@ -129,9 +63,37 @@ body {
   pointer-events: none;
   font-size: 1em;
   color: black;
-  text-transform: uppercase; 
- }
- #amount input{
+  text-transform: uppercase;
+}
+#ingredient {
+  position: relative;
+  width: 250px;
+}
+#amount {
+  position: relative;
+  width: 150px;
+}
+#format {
+  position: relative;
+  width: 100px;
+  padding: 10px;
+  border: 1px solid;
+  border-radius: 5px;
+  outline: none;
+  color: black;
+  font-size: 1em;
+}
+#format span {
+  position: absolute;
+  left: 0;
+  top: -35px;
+  padding: 10px;
+  pointer-events: none;
+  font-size: 1em;
+  color: black;
+  text-transform: uppercase;
+}
+#heading input {
   width: 100%;
   padding: 10px;
   border: 1px solid;
@@ -140,7 +102,7 @@ body {
   color: black;
   font-size: 1em;
 }
-#amount span{
+#heading span {
   position: absolute;
   left: 0;
   top: -35px;
@@ -148,44 +110,82 @@ body {
   pointer-events: none;
   font-size: 1em;
   color: black;
-  text-transform: uppercase; 
+  text-transform: uppercase;
 }
-#blocker1{
-  width:500px;
+#ingredient input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid;
+  border-radius: 5px;
+  outline: none;
+  color: black;
+  font-size: 1em;
 }
-.imageUpload{  
+#ingredient span {
+  position: absolute;
+  left: 0;
+  top: -35px;
+  padding: 10px;
+  pointer-events: none;
+  font-size: 1em;
+  color: black;
+  text-transform: uppercase;
+}
+#amount input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid;
+  border-radius: 5px;
+  outline: none;
+  color: black;
+  font-size: 1em;
+}
+#amount span {
+  position: absolute;
+  left: 0;
+  top: -35px;
+  padding: 10px;
+  pointer-events: none;
+  font-size: 1em;
+  color: black;
+  text-transform: uppercase;
+}
+#blocker1 {
+  width: 500px;
+}
+.imageUpload {
   max-width: 30%;
   height: 10%;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   align-self: flex-start;
-   float: right;
+  float: right;
 }
-.uploadImageLabel{
+.uploadImageLabel {
   display: flex;
   position: relative;
   left: 70%;
   align-items: flex-start;
   justify-content: center;
   align-self: flex-start;
-    width: 30%;
-    padding: 1.3em 3em;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    font-weight: 500;
-    color: #000;
-    background-color: #717171;
-    border: none;
-    border-radius: 45px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease 0s;
-    cursor: pointer;
-    outline: none;
-    align-items: center;
+  width: 30%;
+  padding: 1.3em 3em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #717171;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  align-items: center;
 }
-      
+
 .uploadImageLabel:hover {
   background-color: #ff9595;
   box-shadow: 0px 15px 20px rgb(255, 152, 152);
@@ -202,56 +202,56 @@ body {
   align-items: flex-start;
   justify-content: center;
   align-self: flex-start;
-      width: 100%;
-      padding: 1.3em 3em;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 2.5px;
-      font-weight: 500;
-      color: #000;
-      background-color: #717171;
-      border: none;
-      border-radius: 45px;
-      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease 0s;
-      cursor: pointer;
-      outline: none;
-      align-items: center;
+  width: 100%;
+  padding: 1.3em 3em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #717171;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  align-items: center;
 }
-#input-file{
-    display: none;
+#input-file {
+  display: none;
 }
-.tabelspace{
-    width: 10px;
+.tabelspace {
+  width: 10px;
 }
-.discription{
-    position: relative;
-    width: 100%;
-    height: 10%;
+.discription {
+  position: relative;
+  width: 100%;
+  height: 10%;
 }
-.discription textarea{ 
-    rows:10;
-    width: 100%;
-    height: 20%;
-    padding: 12px 16px;
-    border-radius: 8px;
-    color: black;
-    font-family: inherit;
-    background-color: #f4f4f4;
-    border: 1px solid #414141;
+.discription textarea {
+  rows: 10;
+  width: 100%;
+  height: 20%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  color: black;
+  font-family: inherit;
+  background-color: #f4f4f4;
+  border: 1px solid #414141;
 }
-.discriptionSpan{
-    position: absolute;
-    left: 0;
-    top: -35px;
-    padding: 10px;
-    pointer-events: none;
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 5px;
-    color: #717171;
-    font-weight: 700;
-    font-size: 16px; 
+.discriptionSpan {
+  position: absolute;
+  left: 0;
+  top: -35px;
+  padding: 10px;
+  pointer-events: none;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 5px;
+  color: #717171;
+  font-weight: 700;
+  font-size: 16px;
 }
 #ingredient input[type="text"],
 #amount input[type="text"],
@@ -264,405 +264,390 @@ body {
 }
 
 #format select {
-    width: 100%;
-    padding: 5px;
-    border: 1px solid #000;
-    font-size: 16px;
-    border-radius: 4px;
-    appearance: none;
-    -webkit-appearance: none;
-    background-color: #fff;
-    background-image: url("data:image/svg+xml;utf8,<svg fill='%23000' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>"), linear-gradient(to bottom, #f9f9f9, #f1f1f1);
-    background-position: right 10px center;
-    background-repeat: no-repeat;
-    background-size: 12px 12px;
-    cursor: pointer;
-  }
-  th, td {
-    border: none;
-    padding: 5px;
-    font-size: 16px;
-    font-weight: normal;
-    background-color: transparent;
-  }
-  
-  th {
-    font-weight: bold;
-  }
-  
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #000;
+  font-size: 16px;
+  border-radius: 4px;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23000' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>"),
+    linear-gradient(to bottom, #f9f9f9, #f1f1f1);
+  background-position: right 10px center;
+  background-repeat: no-repeat;
+  background-size: 12px 12px;
+  cursor: pointer;
+}
+th,
+td {
+  border: none;
+  padding: 5px;
+  font-size: 16px;
+  font-weight: normal;
+  background-color: transparent;
+}
 
+th {
+  font-weight: bold;
+}
 
-
-
-  .form-container {
-    width: 80%;
-    /*background: linear-gradient(white,white) padding-box,
+.form-container {
+  width: 80%;
+  /*background: linear-gradient(white,white) padding-box,
                 linear-gradient(145deg, #e81cff, #40c9ff) border-box;
     border: 2px solid transparent;
     */
-    background-color: transparent;
-    backdrop-filter: blur(10px);
-    padding: 32px 24px;
-    font-size: 14px;
-    font-family: inherit;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    box-sizing: border-box;
-    border-radius: 16px;
-    border-style: solid;
-  }
-  
-  .form-container button:active {
-    scale: 0.95;
-  }
-  
-  .form-container .form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .form-container .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    width: 50%;
-    justify-content: center;
-  }
-  
-  .form-container .form-group label {
-    display: block;
-    margin-bottom: 5px;
-    color: #717171;
-    font-weight: 700;
-    font-size: 16px;
-    text-transform: uppercase;
-    
-  }
-  
-  .form-container .form-group input {
-    width: 100%;
-    padding: 12px 16px;
-    border-radius: 80px;
-    color: black;
-    font-family: inherit;
-    background-color: #f4f4f4;
-    border: 1px solid #414141;
-  }
+  background-color: transparent;
+  backdrop-filter: blur(10px);
+  padding: 32px 24px;
+  font-size: 14px;
+  font-family: inherit;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  border-style: solid;
+}
 
-  #form-header {
-    justify-content: center;
-    position: relative;
-    width: 50%;
-    float: left;
-  }
+.form-container button:active {
+  scale: 0.95;
+}
 
-  .form-container .form-groupDate {
-    /*margin-left: 400px;
+.form-container .form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-container .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 50%;
+  justify-content: center;
+}
+
+.form-container .form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #717171;
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.form-container .form-group input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 80px;
+  color: black;
+  font-family: inherit;
+  background-color: #f4f4f4;
+  border: 1px solid #414141;
+}
+
+#form-header {
+  justify-content: center;
+  position: relative;
+  width: 50%;
+  float: left;
+}
+
+.form-container .form-groupDate {
+  /*margin-left: 400px;
     align-items: flex-end;
     align-self: flex-end;
     top: -8px;*/
-    position: relative;
-    float: right;
-    left: 165%;
-    top: -35%;
-  }
-  
-  .form-container .form-groupDate label {
-    display: block;
-    margin-bottom: 5px;
-    color: #717171;
-    font-weight: 700;
-    font-size: 16px;
-    text-transform: uppercase;
-    
-  }
-  .form-container .form-group textarea {
-    width: 100%;
-    padding: 12px 16px;
-    border-radius: 8px;
-    resize: none;
-    color: #fff;
-    height: 96px;
-    border: 1px solid #414141;
-    background-color: transparent;
-    font-family: inherit;
-  }
-  
-  .form-container .form-group input::placeholder {
-    opacity: 0.5;
-  }
-  
-  .form-container .form-group input:focus {
-    outline: none;
-    border-color: #ff9595;
-  }
-  
-  .form-container .form-group textarea:focus {
-    outline: none;
-    border-color: #ff9595;
-  }
-  
-  .form-container .form-submit-btn {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    align-self: flex-start;
-    font-family: inherit;
-    color: #717171;
-    font-weight: 600;
-    width: 40%;
-    background: #313131;
-    border: 1px solid #414141;
-    padding: 12px 16px;
-    font-size: inherit;
-    gap: 8px;
-    margin-top: 8px;
-    cursor: pointer;
-    border-radius: 6px;
-  }
-  
-  .form-container .form-submit-btn:hover {
-    background-color: #fff;
-    border-color: #fff;
-  }
-  
-  .form-container .form-groupIngredient {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-  
-  .form-container .form-groupIngredient label {
-    position: relative;
-    display: block;
-    margin-bottom: -5px;
-    color: #717171;
-    font-weight: 700;
-    font-size: 16px;
-    top: -35px;
-    left: 10px;
-    text-transform: uppercase;
-    width: 5%;
-  }
-  
-  .form-container .form-groupIngredient input {
-    width: 95%;
-    padding: 12px 16px;
-    border-radius: 80px;
-    left: 5%;
-    color: black;
-    font-family: inherit;
-    background-color: #f4f4f4;
-    border: 1px solid #414141;
-    align-items: flex-end;
-    justify-content: center;
-    align-self: flex-end;
-    position: relative;
-  }
-  
-  .form-container .form-groupIngredient textarea {
-    width: 100%;
-    padding: 12px 16px;
-    border-radius: 8px;
-    resize: none;
-    color: #fff;
-    height: 96px;
-    border: 1px solid #414141;
-    background-color: transparent;
-    font-family: inherit;
-  }
-  
-  .form-container .form-groupIngredient input::placeholder {
-    opacity: 0.5;
-  }
-  
-  .form-container .form-groupIngredient input:focus {
-    outline: none;
-    border-color: #ff9595;
-  }
-  
-  .form-container .discription textarea:focus {
-    outline: none;
-    border-color: #ff9595;
-  }
-  .form-container .form-groupTimeEffort {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    margin-left: 20px;
-    min-width: 30%;
-  }
-  
-  .form-container .form-groupTimeEffort label {
-    display: block;
-    margin-bottom: 5px;
-    color: #717171;
-    font-weight: 700;
-    font-size: 16px;
-    text-transform: uppercase;
-    
-  }
-  
-  .form-container .form-groupTimeEffort input {
-    width: 100%;
-    padding: 3px 8px;
-    border-radius: 80px;
-    color: black;
-    font-family: inherit;
-    background-color: #f4f4f4;
-    border: 1px solid #414141;
-  }
-  
-  
-  
-  .form-container .form-groupTimeEffort input::placeholder {
-    opacity: 0.5;
-  }
-  
-  .form-container .form-groupTimeEffort input:focus {
-    outline: none;
-    border-color: #ff9595;
-  }
+  position: relative;
+  float: right;
+  left: 165%;
+  top: -35%;
+}
 
-  .form-container .form-groupCalories {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    margin-left: 20px;
-    
-  }
-  
-  .form-container .form-groupCalories label {
-    display: block;
-    margin-bottom: 5px;
-    color: #717171;
-    font-weight: 700;
-    font-size: 16px;
-    text-transform: uppercase;
-    
-  }
-  
-  .form-container .form-groupCalories input {
-    width: 100%;
-    padding: 3px 8px;
-    border-radius: 80px;
-    color: black;
-    font-family: inherit;
-    background-color: #f4f4f4;
-    border: 1px solid #414141;
-  }
-  
-  
-  
-  .form-container .form-groupCalories input::placeholder {
-    opacity: 0.5;
-  }
-  
-  .form-container .form-groupCalories input:focus {
-    outline: none;
-    border-color: #ff9595;
-  }
-  
-  .form-container .form-groupCategory {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    min-width: 40%;
-    
-  }
-  
-  .form-container .form-groupCategory label {
-    display: block;
-    margin-bottom: 5px;
-    color: #717171;
-    font-weight: 700;
-    font-size: 16px;
-    text-transform: uppercase;
-  }
-  
-  .form-container .form-groupCategory input {
-    width: 100%;
-    padding: 3px 8px;
-    border-radius: 80px;
-    color: black;
-    font-family: inherit;
-    background-color: #f4f4f4;
-    border: 1px solid #414141;
-  }
-  
-  
-  
-  .form-container .form-groupCategory input::placeholder {
-    opacity: 0.5;
-  }
-  
-  .form-container .form-groupCategory input:focus {
-    outline: none;
-    border-color: #ff9595;
-  }
-  
-  .rating{
-    align-items: flex-end;
-    align-self: flex-end;
-    min-height: 10%;
-    min-width: 30%;
+.form-container .form-groupDate label {
+  display: block;
+  margin-bottom: 5px;
+  color: #717171;
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+.form-container .form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  resize: none;
+  color: #fff;
+  height: 96px;
+  border: 1px solid #414141;
+  background-color: transparent;
+  font-family: inherit;
+}
 
-  }
+.form-container .form-group input::placeholder {
+  opacity: 0.5;
+}
 
-  .rating:not(:checked) > input {
-    position: absolute;
-    appearance: none;
-  }
-  
-  .rating:not(:checked) > label {
-    float: right;
-    cursor: pointer;
-    font-size: 30px;
-    color: #666;
-  }
-  
-  .rating:not(:checked) > label:before {
-    content: '★';
-  }
-  
-  .rating > input:checked + label:hover,
-  .rating > input:checked + label:hover ~ label,
-  .rating > input:checked ~ label:hover,
-  .rating > input:checked ~ label:hover ~ label,
-  .rating > label:hover ~ input:checked ~ label {
-    color: #e58e09;
-  }
-  
-  .rating:not(:checked) > label:hover,
-  .rating:not(:checked) > label:hover ~ label {
-    color: #ff9e0b;
-  }
-  
-  .rating > input:checked ~ label {
-    color: #ffa723;
-  }
-  
-  #wrapperInput {
-    width: 100%;
-    justify-content: center;
-  }
+.form-container .form-group input:focus {
+  outline: none;
+  border-color: #ff9595;
+}
 
-  .recipeInfo{
-    display: flex;
-    max-width: 70%;
-    float: left;
-  }
-  
-  #uploadPicture {
-    min-width: 30%;
-    float: right;
-    justify-content: right;
-  }
-  
-#stepsLabel{
+.form-container .form-group textarea:focus {
+  outline: none;
+  border-color: #ff9595;
+}
+
+.form-container .form-submit-btn {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  align-self: flex-start;
+  font-family: inherit;
+  color: #717171;
+  font-weight: 600;
+  width: 40%;
+  background: #313131;
+  border: 1px solid #414141;
+  padding: 12px 16px;
+  font-size: inherit;
+  gap: 8px;
+  margin-top: 8px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.form-container .form-submit-btn:hover {
+  background-color: #fff;
+  border-color: #fff;
+}
+
+.form-container .form-groupIngredient {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.form-container .form-groupIngredient label {
+  position: relative;
+  display: block;
+  margin-bottom: -5px;
+  color: #717171;
+  font-weight: 700;
+  font-size: 16px;
+  top: -35px;
+  left: 10px;
+  text-transform: uppercase;
+  width: 5%;
+}
+
+.form-container .form-groupIngredient input {
+  width: 95%;
+  padding: 12px 16px;
+  border-radius: 80px;
+  left: 5%;
+  color: black;
+  font-family: inherit;
+  background-color: #f4f4f4;
+  border: 1px solid #414141;
+  align-items: flex-end;
+  justify-content: center;
+  align-self: flex-end;
+  position: relative;
+}
+
+.form-container .form-groupIngredient textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  resize: none;
+  color: #fff;
+  height: 96px;
+  border: 1px solid #414141;
+  background-color: transparent;
+  font-family: inherit;
+}
+
+.form-container .form-groupIngredient input::placeholder {
+  opacity: 0.5;
+}
+
+.form-container .form-groupIngredient input:focus {
+  outline: none;
+  border-color: #ff9595;
+}
+
+.form-container .discription textarea:focus {
+  outline: none;
+  border-color: #ff9595;
+}
+.form-container .form-groupTimeEffort {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-left: 20px;
+  min-width: 30%;
+}
+
+.form-container .form-groupTimeEffort label {
+  display: block;
+  margin-bottom: 5px;
+  color: #717171;
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.form-container .form-groupTimeEffort input {
+  width: 100%;
+  padding: 3px 8px;
+  border-radius: 80px;
+  color: black;
+  font-family: inherit;
+  background-color: #f4f4f4;
+  border: 1px solid #414141;
+}
+
+.form-container .form-groupTimeEffort input::placeholder {
+  opacity: 0.5;
+}
+
+.form-container .form-groupTimeEffort input:focus {
+  outline: none;
+  border-color: #ff9595;
+}
+
+.form-container .form-groupCalories {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-left: 20px;
+}
+
+.form-container .form-groupCalories label {
+  display: block;
+  margin-bottom: 5px;
+  color: #717171;
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.form-container .form-groupCalories input {
+  width: 100%;
+  padding: 3px 8px;
+  border-radius: 80px;
+  color: black;
+  font-family: inherit;
+  background-color: #f4f4f4;
+  border: 1px solid #414141;
+}
+
+.form-container .form-groupCalories input::placeholder {
+  opacity: 0.5;
+}
+
+.form-container .form-groupCalories input:focus {
+  outline: none;
+  border-color: #ff9595;
+}
+
+.form-container .form-groupCategory {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 40%;
+}
+
+.form-container .form-groupCategory label {
+  display: block;
+  margin-bottom: 5px;
+  color: #717171;
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.form-container .form-groupCategory input {
+  width: 100%;
+  padding: 3px 8px;
+  border-radius: 80px;
+  color: black;
+  font-family: inherit;
+  background-color: #f4f4f4;
+  border: 1px solid #414141;
+}
+
+.form-container .form-groupCategory input::placeholder {
+  opacity: 0.5;
+}
+
+.form-container .form-groupCategory input:focus {
+  outline: none;
+  border-color: #ff9595;
+}
+
+.rating {
+  align-items: flex-end;
+  align-self: flex-end;
+  min-height: 10%;
+  min-width: 30%;
+}
+
+.rating:not(:checked) > input {
+  position: absolute;
+  appearance: none;
+}
+
+.rating:not(:checked) > label {
+  float: right;
+  cursor: pointer;
+  font-size: 30px;
+  color: #666;
+}
+
+.rating:not(:checked) > label:before {
+  content: "★";
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+  color: #e58e09;
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+  color: #ff9e0b;
+}
+
+.rating > input:checked ~ label {
+  color: #ffa723;
+}
+
+#wrapperInput {
+  width: 100%;
+  justify-content: center;
+}
+
+.recipeInfo {
+  display: flex;
+  max-width: 70%;
+  float: left;
+}
+
+#uploadPicture {
+  min-width: 30%;
+  float: right;
+  justify-content: right;
+}
+
+#stepsLabel {
   z-index: 1;
   float: left;
   width: 10%;
