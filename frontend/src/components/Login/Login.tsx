@@ -33,14 +33,18 @@ const Login: React.FC<LoginProps> = ({ onToggleLogin, onData }) => {
       username: username,
       password: password,
     }).then((response) => {
-      setChildData(username);
-      onData(username);
-      console.log(response.data.loginmessage); 
-      setLoginStatus(response.data.loginmessage);
-      localStorage.setItem('token', response.data.token);
-      if (onToggleLogin) {
-        onToggleLogin();
-      }
+      if (response.data.success) {
+        setChildData(username);
+        onData(username);
+        console.log(response.data.loginmessage); 
+        setLoginStatus(response.data.loginmessage);
+        localStorage.setItem('token', response.data.token);
+        if (onToggleLogin) {
+          onToggleLogin();
+        }
+      } else {
+        setLoginStatus("Benutzername existiert nicht oder Passwort ist falsch. Bitte versuchen Sie es erneut.");
+      };
     });
   };
 

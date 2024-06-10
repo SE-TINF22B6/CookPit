@@ -28,10 +28,11 @@ function Home() {
 
   useEffect(() => {
     console.log(username); // This will log whenever childData changes
+    console.log(userID?.toString); // This will log whenever childData changes
     if (username) { // Stellen Sie sicher, dass username nicht leer ist
       axios.post("http://localhost:3001/getuserid", {username}).then((response) => {
           console.log(response.data.result);
-          setUserID(response.data.result.userID);
+          setUserID(response.data.result);
       }).catch((error) => {
           console.error("Fehler beim Abrufen der UserID", error);
       });
@@ -84,10 +85,10 @@ function Home() {
           element={<AllRecipes allRecipes={allRecipes} />}
         />
         <Route path="/rezept/generator" element={<OpenAI />} />
-        <Route path="/rezept/hochladen" element={<RecipeUpload />} />
+        <Route path="/rezept/hochladen" element={<RecipeUpload id_author={userID} />} />
         <Route
           path="/rezept/meine"
-          element={<MyRecipe allRecipes={allRecipes} id_author={""} />}
+          element={<MyRecipe allRecipes={allRecipes} id_author={userID} />}
         />
       </Routes>
     </>

@@ -4,7 +4,11 @@ import "../recipeUpload/recipeUpload.css";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-export default function Body() {
+interface Props {
+  id_author: any;
+}
+
+export default function Body(props: Props) {
   const [uploadImageSrc, setUploadImageSrc] = useState<string | null>(null);
   const [header, setheader] = useState("");
   const [category, setcategory] = useState("");
@@ -92,7 +96,7 @@ export default function Body() {
       formData.append("recipeingredients", JSON.stringify(ingredients));
       formData.append("recipesteps", JSON.stringify(steps));
       formData.append("recipecreationdate", currentDate);
-      // formData.append('id_author', idauthor);
+      formData.append('recipeid_author', props.id_author);
 
       if (file) {
         formData.append("recipepicture", file);

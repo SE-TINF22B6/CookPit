@@ -69,11 +69,11 @@ function Database(app) {
             [username, password],
             (err, result) => {
                 if (err) {
-                    res.send({ loginmessage: err });
+                    res.send({ err });
                     return;
                 } else if (result) {
                     const token = jwt.sign({ username: username }, jwtkey, { expiresIn: "24h" });
-                    res.send({ loginmessage: "Erfolgreich eingeloggt", token });
+                    res.send({ loginmessage: "Erfolgreich eingeloggt", token, success: true });
                     console.log('User "' + username + '" eingeloggt');
                     user = username;
                     userstate = true;
@@ -84,13 +84,6 @@ function Database(app) {
             }
         );
     }
-
-    app.post("/getlogin", (req, res) => {
-        if (userstate === true) {
-            loginmessage = user;
-            res.send({ loginmessage });
-        }
-    });
 
     app.post("/logout", (req, res) => {
         if (userstate === true) {
@@ -119,7 +112,7 @@ function Database(app) {
                 console.log("Fehler:" + err);
                 return;
             } else if (result) {
-                res.send({ result });
+                res.send({ result : result.id_user});
                 console.log("ID von " + username + " ist " + result.id_user);
             }
         });
@@ -140,7 +133,7 @@ function Database(app) {
             [recipename, recipedescription, recipetime, recipeid_author, recipeingredients, recipecreationdate, reciperating, recipecategory, recipepicture],
             (err, result) => {
                 if (err) {
-                    console.error(err.message);
+                    console.error(err);
                 } else {
                     console.log(result);
                     res.send({ message: "Rezept erfolgreich eingefügt" });

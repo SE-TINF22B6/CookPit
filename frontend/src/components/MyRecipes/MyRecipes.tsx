@@ -5,7 +5,7 @@ export default function MyRecipes({
   id_author,
 }: {
   allRecipes: any[];
-  id_author: string;
+  id_author: any;
 }) {
   const items = allRecipes
     .filter((recipe) => recipe.id_author === id_author)
@@ -13,7 +13,7 @@ export default function MyRecipes({
       const img = `data:image/jpeg;base64,${recipe.picture}`;
       return (
         <DisplayRecipe
-          id_author={recipe.id_author}
+          id_author={id_author}
           key={recipe.id_recipe}
           img={img}
           title={recipe.name}
