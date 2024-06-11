@@ -2,13 +2,9 @@ import React, { useState, ChangeEvent, useEffect } from "react";
 import uploadImage from "../recipeUpload/image-upload.jpg";
 import "../recipeUpload/recipeUpload.css";
 import Axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-interface Props {
-  id_author: any;
-}
-
-export default function Body(props: Props) {
+export default function EditRecipe({ allRecipes }: { allRecipes: any[] }) {
   const [uploadImageSrc, setUploadImageSrc] = useState<string | null>(null);
   const [header, setheader] = useState("");
   const [category, setcategory] = useState("");
@@ -18,6 +14,36 @@ export default function Body(props: Props) {
   const [ingredients, setIngredients] = useState<string[]>([]);
   const [steps, setSteps] = useState<string[]>([]);
   const [file, setFile] = useState<File | null>(null);
+  const { id_recipe } = useParams();
+
+  const recipe = allRecipes.filter((item) => item.id_recipe == id_recipe)[0];
+
+  useEffect(() => {
+    document.getElementById("headingTop")?.setAttribute("value", recipe.name);
+    document
+      .getElementById("categoryTop")
+      ?.setAttribute("value", recipe.category);
+    document.getElementById("effortTop")?.setAttribute("value", recipe.time);
+    const descriptionInput = document.getElementById(
+      "description"
+    ) as HTMLInputElement;
+    if (descriptionInput) {
+      descriptionInput.value = recipe.description;
+    }
+    document
+      .getElementById("picture-pic")
+      ?.setAttribute("src", `data:image/jpeg;base64,${recipe.picture}`);
+
+    const ingreds: any[] = recipe.ingredients.slice(2, -2).split('","');
+    setCounter(ingreds.length);
+    const newIngredients = ingreds.map((item) => item);
+    setIngredients(newIngredients);
+
+    // const steps: any[] = recipe.steps.slice(2, -2).split('","');
+    // setSteps(steps.length);
+    // const newSteps = steps.map((item) => item);
+    // setIngredients(newSteps);
+  }, []);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0];
@@ -96,7 +122,7 @@ export default function Body(props: Props) {
       formData.append("recipeingredients", JSON.stringify(ingredients));
       formData.append("recipesteps", JSON.stringify(steps));
       formData.append("recipecreationdate", currentDate);
-      formData.append("recipeid_author", props.id_author);
+      //   formData.append("recipeid_author", props.id_author);
 
       if (file) {
         formData.append("recipepicture", file);
@@ -170,10 +196,10 @@ export default function Body(props: Props) {
           <div className="wrapperInput">
             <div className="recipeInfo">
               <div className="form-groupCategory">
-                <label htmlFor="headingTop">Category</label>
+                <label htmlFor="categoryTop">Category</label>
                 <input
                   type="text"
-                  id="headingTop"
+                  id="categoryTop"
                   name="Category"
                   onChange={(e) => {
                     setcategory(e.target.value);
@@ -182,10 +208,10 @@ export default function Body(props: Props) {
               </div>
 
               <div className="form-groupTimeEffort">
-                <label htmlFor="headingTop">Time effort</label>
+                <label htmlFor="effortTop">Time effort</label>
                 <input
                   type="text"
-                  id="headingTop"
+                  id="effortTop"
                   name="Effort"
                   onChange={(e) => {
                     settimeeffort(e.target.value);
@@ -245,6 +271,7 @@ export default function Body(props: Props) {
           <div className="discription">
             <textarea
               className="discriptionInput"
+              id="description"
               name="Description"
               placeholder="Description"
               onChange={(e) => {
@@ -309,7 +336,7 @@ export default function Body(props: Props) {
               handleClick();
             }}
           >
-            Save Recipe
+            Update Recipe
           </button>
         </div>
       </div>

@@ -2,18 +2,20 @@ import DisplayRecipe from "../DisplayRecipe/DisplayRecipe";
 
 export default function MyRecipes({
   allRecipes,
-  id_author,
+  user_id,
 }: {
   allRecipes: any[];
-  id_author: any;
+  user_id: any;
 }) {
   const items = allRecipes
-    .filter((recipe) => recipe.id_author === id_author)
+    .filter((recipe) => recipe.id_author === user_id)
     .map((recipe) => {
       const img = `data:image/jpeg;base64,${recipe.picture}`;
       return (
         <DisplayRecipe
-          id_author={id_author}
+          edit={true}
+          id_author={user_id}
+          id_recipe={recipe.id_recipe}
           key={recipe.id_recipe}
           img={img}
           title={recipe.name}

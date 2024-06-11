@@ -4,10 +4,9 @@ import { BsClock } from "react-icons/bs";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import EditIcon from "@mui/icons-material/Edit";
 import "./DisplayRecipe.css";
 import jsPDF from "jspdf";
-//import from favcourite button --> future feature
-import icon_heart_black from "../../img/icon_heart_black.png";
 import {
   Card,
   CardMedia,
@@ -19,9 +18,12 @@ import {
   ListItemText,
   IconButton,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 type DisplayRecipeProps = {
+  edit?: boolean;
   id_author: number;
+  id_recipe?: number;
   img: string;
   title: string;
   rating: number;
@@ -33,6 +35,8 @@ type DisplayRecipeProps = {
 };
 
 export default function DisplayRecipe({
+  edit,
+  id_recipe,
   img,
   title,
   rating,
@@ -125,12 +129,14 @@ export default function DisplayRecipe({
     };
   };
 
+  const navigate = useNavigate();
+
+  const handleEdit = () => {
+    navigate(`/rezept/bearbeiten/id/${id_recipe}`);
+  };
+
   return (
     <div id="display_recipe_wrapper">
-      {/* future feature --> save recieps as favourites --> out of scope for software engineering project */}
-      {/* <button id="save_to_favourite_recipes">
-        <img src={icon_heart_black} alt="save to favourites" />
-      </button> */}
       <img onClick={handleOpen} src={img} alt="" />
       <div onClick={handleOpen} id="display_recipe_footer">
         <div id="recipe_title" className="hover-text">
@@ -161,7 +167,7 @@ export default function DisplayRecipe({
           <IconButton
             aria-label="download"
             onClick={() => handleDownload(img)}
-            sx={{ position: "absolute", top: 8, right: 8 }}
+            sx={{ position: "absolute", top: 2, right: 8 }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -175,6 +181,15 @@ export default function DisplayRecipe({
               <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z" />
             </svg>
           </IconButton>
+          {edit ? (
+            <IconButton
+              aria-label="edit"
+              onClick={() => handleEdit()}
+              sx={{ position: "absolute", top: 2, right: 48 }}
+            >
+              <EditIcon />
+            </IconButton>
+          ) : null}
           <Card sx={{ maxWidth: 800, margin: "auto", mt: 1 }}>
             <CardContent>
               <Typography variant="h4" component="div" gutterBottom>
