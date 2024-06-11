@@ -2,13 +2,9 @@ import React, { useState, ChangeEvent, useEffect } from "react";
 import uploadImage from "../recipeUpload/image-upload.jpg";
 import "../recipeUpload/recipeUpload.css";
 import Axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-interface Props {
-  id_author: any;
-}
-
-export default function Body(props: Props) {
+export default function EditRecipe({ allRecipes }: { allRecipes: any[] }) {
   const [uploadImageSrc, setUploadImageSrc] = useState<string | null>(null);
   const [header, setheader] = useState("");
   const [category, setcategory] = useState("");
@@ -18,6 +14,36 @@ export default function Body(props: Props) {
   const [ingredients, setIngredients] = useState<string[]>([]);
   const [steps, setSteps] = useState<string[]>([]);
   const [file, setFile] = useState<File | null>(null);
+  const { id_recipe } = useParams();
+
+  const recipe = allRecipes.filter((item) => item.id_recipe == id_recipe)[0];
+
+  useEffect(() => {
+    document.getElementById("headingTop")?.setAttribute("value", recipe.name);
+    document
+      .getElementById("categoryTop")
+      ?.setAttribute("value", recipe.category);
+    document.getElementById("effortTop")?.setAttribute("value", recipe.time);
+    const descriptionInput = document.getElementById(
+      "description"
+    ) as HTMLInputElement;
+    if (descriptionInput) {
+      descriptionInput.value = recipe.description;
+    }
+    document
+      .getElementById("picture-pic")
+      ?.setAttribute("src", `data:image/jpeg;base64,${recipe.picture}`);
+
+    const ingreds: any[] = recipe.ingredients.slice(2, -2).split('","');
+    setCounter(ingreds.length);
+    const newIngredients = ingreds.map((item) => item);
+    setIngredients(newIngredients);
+
+    // const steps: any[] = recipe.steps.slice(2, -2).split('","');
+    // setSteps(steps.length);
+    // const newSteps = steps.map((item) => item);
+    // setIngredients(newSteps);
+  }, []);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0];
@@ -76,7 +102,7 @@ export default function Body(props: Props) {
     setstars(e.target.value);
   };
 
-  const addRecipe = () => {
+  const updateRecipe = () => {
     if (
       header.trim() &&
       category.trim() &&
@@ -96,13 +122,13 @@ export default function Body(props: Props) {
       formData.append("recipeingredients", JSON.stringify(ingredients));
       formData.append("recipesteps", JSON.stringify(steps));
       formData.append("recipecreationdate", currentDate);
-      formData.append("recipeid_author", props.id_author);
+      //   formData.append("recipeid_author", props.id_author);
 
       if (file) {
         formData.append("recipepicture", file);
       }
 
-      Axios.post("http://localhost:3001/addrecipe", formData, {
+      Axios.post("http://localhost:3001/updaterecipe", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -149,7 +175,7 @@ export default function Body(props: Props) {
           <div className="recipeInfo">
             <div className="form-group">
               <div className="form-header">
-                <label htmlFor="headingTop">Name</label>
+                <label htmlFor="headingTop">Header</label>
                 <input
                   type="text"
                   id="headingTop"
@@ -158,23 +184,22 @@ export default function Body(props: Props) {
                     setheader(e.target.value);
                   }}
                 />
-                <div className="form-groupDate">
+              </div>
+
+              <div className="form-groupDate">
                 <label htmlFor="headingTop">
                   Date: {currentDate.toLocaleString()}
                 </label>
               </div>
-              </div>
-
-              
             </div>
           </div>
           <div className="wrapperInput">
             <div className="recipeInfo">
               <div className="form-groupCategory">
-                <label htmlFor="headingTop">Kategorie</label>
+                <label htmlFor="categoryTop">Category</label>
                 <input
                   type="text"
-                  id="headingTop"
+                  id="categoryTop"
                   name="Category"
                   onChange={(e) => {
                     setcategory(e.target.value);
@@ -183,10 +208,10 @@ export default function Body(props: Props) {
               </div>
 
               <div className="form-groupTimeEffort">
-                <label htmlFor="headingTop">Zeitaufwand</label>
+                <label htmlFor="effortTop">Time effort</label>
                 <input
                   type="text"
-                  id="headingTop"
+                  id="effortTop"
                   name="Effort"
                   onChange={(e) => {
                     settimeeffort(e.target.value);
@@ -198,8 +223,7 @@ export default function Body(props: Props) {
             <label htmlFor="headingTop">Calories</label>
             <input type="text" id="headingTop" name="Calories" onChange={(e) => { setcalories(e.target.value); }} />
           </div>*/}
-              <div className="form-groupDifficulty">
-              <label htmlFor="headingTop">Schwierigkeit</label>
+
               <div className="rating">
                 {[...Array(5)].map((_, index) => (
                   <React.Fragment key={index}>
@@ -218,7 +242,6 @@ export default function Body(props: Props) {
                   </React.Fragment>
                 ))}
               </div>
-              </div>
             </div>
 
             {/* <div id="heading" >
@@ -236,7 +259,7 @@ export default function Body(props: Props) {
             </div>
           </div>
           <label className="uploadImageLabel" htmlFor="input-file">
-            Bild hochladen
+            Upload Image
           </label>
           <input
             id="input-file"
@@ -248,19 +271,20 @@ export default function Body(props: Props) {
           <div className="discription">
             <textarea
               className="discriptionInput"
+              id="description"
               name="Description"
               placeholder="Description"
               onChange={(e) => {
                 setdescription(e.target.value);
               }}
             ></textarea>
-            <span className="discriptionSpan">Beschreibung</span>
+            <span className="discriptionSpan">Description</span>
           </div>
 
           <br />
 
           <div className="form-groupIngredient">
-            <label htmlFor="ingredientInput">Zutaten</label>
+            <label htmlFor="ingredientInput">Ingredients</label>
             {[...Array(counter)].map((_, index) => (
               <div key={index}>
                 <input
@@ -276,14 +300,14 @@ export default function Body(props: Props) {
           </div>
 
           <button className="addOneMoreIngredient" onClick={incrementCounter}>
-            Zutat hinzufügen
+            Add Ingredient
           </button>
           <div id="blocker1"></div>
           <div id="blocker1"></div>
 
           <div className="form-groupIngredient">
             <label className="stepsLabel" htmlFor="ingredientInput">
-              Schritte
+              Steps
             </label>
             {[...Array(stepCounter)].map((_, index) => (
               <div key={index}>
@@ -301,18 +325,18 @@ export default function Body(props: Props) {
             className="addOneMoreIngredient"
             onClick={incrementStepCounter}
           >
-            Schritt hinzufügen
+            Add Step
           </button>
           <br />
 
           <button
             className="addOneMoreIngredient"
             onClick={() => {
-              addRecipe();
+              updateRecipe();
               handleClick();
             }}
           >
-            Rezept speichern
+            Update Recipe
           </button>
         </div>
       </div>

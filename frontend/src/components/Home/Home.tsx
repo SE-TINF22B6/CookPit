@@ -10,6 +10,7 @@ import RecipeUpload from "../recipeUpload/recipeUpload";
 import AllRecipes from "../AllRecipes/AllRecipes";
 import axios from "axios";
 import MyRecipe from "../MyRecipes/MyRecipes";
+import EditRecipe from "../EditRecipe/EditRecipe";
 
 function Home() {
   const [loginVisible, setLoginVisible] = useState(false);
@@ -29,17 +30,20 @@ function Home() {
   useEffect(() => {
     console.log(username); // This will log whenever childData changes
     console.log(userID?.toString); // This will log whenever childData changes
-    if (username) { // Stellen Sie sicher, dass username nicht leer ist
-      axios.post("http://localhost:3001/getuserid", {username}).then((response) => {
+    if (username) {
+      // Stellen Sie sicher, dass username nicht leer ist
+      axios
+        .post("http://localhost:3001/getuserid", { username })
+        .then((response) => {
           console.log(response.data.result);
           setUserID(response.data.result);
-      }).catch((error) => {
+        })
+        .catch((error) => {
           console.error("Fehler beim Abrufen der UserID", error);
-      });
-  }
+        });
+    }
   }, [username]);
 
-  
   const toggleLoginVisibility = () => {
     setLoginVisible(!loginVisible);
   };
@@ -53,14 +57,17 @@ function Home() {
       });
   };
 
-
   useEffect(() => {
     getallrecipe();
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     if (token) {
-      axios.post("http://localhost:3001/verifyToken", { token })
+      axios
+        .post("http://localhost:3001/verifyToken", { token })
         .then((response) => {
-          console.log("Token verification, Token valid?", response.data.isValid);
+          console.log(
+            "Token verification, Token valid?",
+            response.data.isValid
+          );
           setIsAuthenticated(response.data.isValid);
         })
         .catch((error) => {
@@ -69,26 +76,42 @@ function Home() {
         });
     } else {
       setIsAuthenticated(false);
-      console.log("No token found")
+      console.log("No token found");
     }
   }, []);
 
   return (
     <>
       <Background />
-      <Header onToggleLogin={toggleLoginVisibility} username={username} emptyusername={emptyusername} />
-      {loginVisible && <Login onData={handleDataFromLogin} onToggleLogin={toggleLoginVisibility} />}
+      <Header
+        onToggleLogin={toggleLoginVisibility}
+        username={username}
+        emptyusername={emptyusername}
+      />
+      {loginVisible && (
+        <Login
+          onData={handleDataFromLogin}
+          onToggleLogin={toggleLoginVisibility}
+        />
+      )}
       <Routes>
-        <Route path="/" element={<SearchSite allRecipes={allRecipes}  />} />
+        <Route path="/" element={<SearchSite allRecipes={allRecipes} />} />
         <Route
           path="/rezept/alle"
           element={<AllRecipes allRecipes={allRecipes} />}
         />
         <Route path="/rezept/generator" element={<OpenAI />} />
-        <Route path="/rezept/hochladen" element={<RecipeUpload id_author={userID} />} />
+        <Route
+          path="/rezept/hochladen"
+          element={<RecipeUpload id_author={userID} />}
+        />
         <Route
           path="/rezept/meine"
-          element={<MyRecipe allRecipes={allRecipes} id_author={userID} />}
+          element={<MyRecipe allRecipes={allRecipes} user_id={userID} />}
+        />
+        <Route
+          path="/rezept/bearbeiten/id/:id_recipe"
+          element={<EditRecipe allRecipes={allRecipes} />}
         />
       </Routes>
     </>
