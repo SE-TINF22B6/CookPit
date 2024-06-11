@@ -294,6 +294,7 @@ th {
 
 .form-container {
   width: 80%;
+  min-width: 700px;
   /*background: linear-gradient(white,white) padding-box,
                 linear-gradient(145deg, #e81cff, #40c9ff) border-box;
     border: 2px solid transparent;
@@ -352,7 +353,7 @@ th {
 #form-header {
   justify-content: center;
   position: relative;
-  width: 50%;
+  width: 100%;
   float: left;
 }
 
@@ -363,7 +364,7 @@ th {
     top: -8px;*/
   position: relative;
   float: right;
-  left: 165%;
+  left: 200%;
   top: -35%;
 }
 
@@ -503,6 +504,8 @@ th {
 
 .form-container .form-groupTimeEffort input {
   width: 100%;
+  max-width: 130px;
+  width: auto;
   padding: 3px 8px;
   border-radius: 80px;
   color: black;
@@ -559,7 +562,7 @@ th {
   display: flex;
   flex-direction: column;
   gap: 2px;
-  min-width: 40%;
+  min-width: 30%;
 }
 
 .form-container .form-groupCategory label {
@@ -573,6 +576,7 @@ th {
 
 .form-container .form-groupCategory input {
   width: 100%;
+  max-width: 130px;
   padding: 3px 8px;
   border-radius: 80px;
   color: black;
@@ -590,11 +594,29 @@ th {
   border-color: #ff9595;
 }
 
+.form-container .form-groupDifficulty {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 40%;
+  width: 100%;
+}
+
+.form-container .form-groupDifficulty label {
+  display: block;
+  padding-left: 8%;
+  color: #717171;
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
 .rating {
-  align-items: flex-end;
-  align-self: flex-end;
+  align-items: flex-start;
+  align-self: flex-start;
   min-height: 10%;
-  min-width: 30%;
+  min-width: 40%;
+  width: 100%;
 }
 
 .rating:not(:checked) > input {
@@ -603,9 +625,9 @@ th {
 }
 
 .rating:not(:checked) > label {
-  float: right;
+  display: inline-block;
   cursor: pointer;
-  font-size: 30px;
+  font-size: 25px;
   color: #666;
 }
 
@@ -638,6 +660,7 @@ th {
 .recipeInfo {
   display: flex;
   max-width: 70%;
+  width: 65%;
   float: left;
 }
 
