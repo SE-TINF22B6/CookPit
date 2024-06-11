@@ -149,7 +149,7 @@ export default function Body(props: Props) {
           <div className="recipeInfo">
             <div className="form-group">
               <div className="form-header">
-                <label htmlFor="headingTop">Header</label>
+                <label htmlFor="headingTop">Name</label>
                 <input
                   type="text"
                   id="headingTop"
@@ -158,19 +158,20 @@ export default function Body(props: Props) {
                     setheader(e.target.value);
                   }}
                 />
-              </div>
-
-              <div className="form-groupDate">
+                <div className="form-groupDate">
                 <label htmlFor="headingTop">
                   Date: {currentDate.toLocaleString()}
                 </label>
               </div>
+              </div>
+
+              
             </div>
           </div>
           <div className="wrapperInput">
             <div className="recipeInfo">
               <div className="form-groupCategory">
-                <label htmlFor="headingTop">Category</label>
+                <label htmlFor="headingTop">Kategorie</label>
                 <input
                   type="text"
                   id="headingTop"
@@ -182,7 +183,7 @@ export default function Body(props: Props) {
               </div>
 
               <div className="form-groupTimeEffort">
-                <label htmlFor="headingTop">Time effort</label>
+                <label htmlFor="headingTop">Zeitaufwand</label>
                 <input
                   type="text"
                   id="headingTop"
@@ -197,7 +198,8 @@ export default function Body(props: Props) {
             <label htmlFor="headingTop">Calories</label>
             <input type="text" id="headingTop" name="Calories" onChange={(e) => { setcalories(e.target.value); }} />
           </div>*/}
-
+              <div className="form-groupDifficulty">
+              <label htmlFor="headingTop">Schwierigkeit</label>
               <div className="rating">
                 {[...Array(5)].map((_, index) => (
                   <React.Fragment key={index}>
@@ -216,6 +218,7 @@ export default function Body(props: Props) {
                   </React.Fragment>
                 ))}
               </div>
+              </div>
             </div>
 
             {/* <div id="heading" >
@@ -233,7 +236,7 @@ export default function Body(props: Props) {
             </div>
           </div>
           <label className="uploadImageLabel" htmlFor="input-file">
-            Upload Image
+            Bild hochladen
           </label>
           <input
             id="input-file"
@@ -251,13 +254,13 @@ export default function Body(props: Props) {
                 setdescription(e.target.value);
               }}
             ></textarea>
-            <span className="discriptionSpan">Description</span>
+            <span className="discriptionSpan">Beschreibung</span>
           </div>
 
           <br />
 
           <div className="form-groupIngredient">
-            <label htmlFor="ingredientInput">Ingredients</label>
+            <label htmlFor="ingredientInput">Zutaten</label>
             {[...Array(counter)].map((_, index) => (
               <div key={index}>
                 <input
@@ -273,14 +276,14 @@ export default function Body(props: Props) {
           </div>
 
           <button className="addOneMoreIngredient" onClick={incrementCounter}>
-            Add Ingredient
+            Zutat hinzufügen
           </button>
           <div id="blocker1"></div>
           <div id="blocker1"></div>
 
           <div className="form-groupIngredient">
             <label className="stepsLabel" htmlFor="ingredientInput">
-              Steps
+              Schritte
             </label>
             {[...Array(stepCounter)].map((_, index) => (
               <div key={index}>
@@ -298,7 +301,7 @@ export default function Body(props: Props) {
             className="addOneMoreIngredient"
             onClick={incrementStepCounter}
           >
-            Add Step
+            Schritt hinzufügen
           </button>
           <br />
 
@@ -309,7 +312,7 @@ export default function Body(props: Props) {
               handleClick();
             }}
           >
-            Save Recipe
+            Rezept speichern
           </button>
         </div>
       </div>
