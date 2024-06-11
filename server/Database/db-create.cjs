@@ -25,6 +25,7 @@ function dbcreate() {
             time TEXT, -- Preparation time for the recipe
             id_author INTEGER, -- ID of the author (user) who created the recipe
             ingredients TEXT, -- Ingredients of the recipe in JSON format
+            steps TEXT, -- Steps to prepare the recipe in JSON format
             creation_date TEXT, -- Date and time when the recipe was created
             rating INTEGER, -- Rating or score of the recipe
             category TEXT, -- Category of the recipe
