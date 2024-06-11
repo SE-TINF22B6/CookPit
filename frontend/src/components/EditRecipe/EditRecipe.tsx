@@ -102,7 +102,7 @@ export default function EditRecipe({ allRecipes }: { allRecipes: any[] }) {
     setstars(e.target.value);
   };
 
-  const addRecipe = () => {
+  const updateRecipe = () => {
     if (
       header.trim() &&
       category.trim() &&
@@ -128,7 +128,7 @@ export default function EditRecipe({ allRecipes }: { allRecipes: any[] }) {
         formData.append("recipepicture", file);
       }
 
-      Axios.post("http://localhost:3001/addrecipe", formData, {
+      Axios.post("http://localhost:3001/updaterecipe", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -332,7 +332,7 @@ export default function EditRecipe({ allRecipes }: { allRecipes: any[] }) {
           <button
             className="addOneMoreIngredient"
             onClick={() => {
-              addRecipe();
+              updateRecipe();
               handleClick();
             }}
           >
