@@ -89,14 +89,18 @@ export default function SearchSite({ allRecipes }: { allRecipes: any[] }) {
     setSearchInput(event.target.value);
   };
 
-  
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === 'Enter') {
+      handleSearch();
+    }
+  };
 
   return (
     <div id="outer_wrapper">
       <div id="i_wrapper">
         <div id="search_box_out_wrapper">
           <div id="search_box_wrapper">
-            <input type="text" placeholder="Search..." value={searchInput} onChange={handleSearchInput}/>
+            <input type="text" placeholder="Search..." value={searchInput} onChange={handleSearchInput} onKeyDown={handleKeyDown}/>
             <button onClick={handleSearch}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
