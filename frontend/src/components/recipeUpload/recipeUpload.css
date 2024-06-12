@@ -186,17 +186,6 @@
   align-items: center;
 }
 
-.uploadImageLabel:hover {
-  background-color: #ff9595;
-  box-shadow: 0px 15px 20px rgb(255, 152, 152);
-  color: #fff;
-  transform: translateY(-7px);
-}
-
-.uploadImageLabel:active {
-  transform: translateY(-1px);
-}
-
 .addOneMoreIngredient {
   display: flex;
   align-items: flex-start;
@@ -604,7 +593,7 @@ th {
 
 .form-container .form-groupDifficulty label {
   display: block;
-  padding-left: 8%;
+  padding-left: 2%;
   color: #717171;
   font-weight: 700;
   font-size: 16px;
@@ -612,11 +601,10 @@ th {
 }
 
 .rating {
-  align-items: flex-start;
-  align-self: flex-start;
+  float: left;
   min-height: 10%;
-  min-width: 40%;
-  width: 100%;
+  min-width: 50px;
+  width: 120px;
 }
 
 .rating:not(:checked) > input {
@@ -625,7 +613,7 @@ th {
 }
 
 .rating:not(:checked) > label {
-  display: inline-block;
+  float: right;
   cursor: pointer;
   font-size: 25px;
   color: #666;
