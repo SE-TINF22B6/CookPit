@@ -4,7 +4,7 @@ import "../recipeUpload/recipeUpload.css";
 import Axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
-export default function EditRecipe({ allRecipes }: { allRecipes: any[] }) {
+export default function EditRecipe({ allRecipes, id_author }: { allRecipes: any[], id_author: any}) {
   const [uploadImageSrc, setUploadImageSrc] = useState<string | null>(null);
   const [header, setheader] = useState("");
   const [category, setcategory] = useState("");
@@ -104,14 +104,15 @@ export default function EditRecipe({ allRecipes }: { allRecipes: any[] }) {
 
   const updateRecipe = () => {
     if (
-      header.trim() &&
-      category.trim() &&
-      timeEffort.trim() &&
-      stars &&
-      description.trim() &&
-      ingredients.length > 0 &&
-      steps.length > 0 &&
-      file
+      // header &&
+      // category &&
+      // timeEffort &&
+      // // stars &&
+      // description &&
+      // ingredients.length > 0 &&
+      // steps.length > 0 &&
+      // file
+      true
     ) {
       const formData = new FormData();
       formData.append("recipename", header);
@@ -122,7 +123,7 @@ export default function EditRecipe({ allRecipes }: { allRecipes: any[] }) {
       formData.append("recipeingredients", JSON.stringify(ingredients));
       formData.append("recipesteps", JSON.stringify(steps));
       formData.append("recipecreationdate", currentDate);
-      // formData.append("recipeid_author", props.id_author);
+      formData.append("recipeid_author", id_author);
 
       if (file) {
         formData.append("recipepicture", file);

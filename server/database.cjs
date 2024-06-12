@@ -92,12 +92,6 @@ function Database(app) {
             res.send({ loginmessage });
             console.log("User ausgeloggt");
         }
-<<<<<<< HEAD
-        });
-    app.get("/getallrecipe", (req, res) => {
-        getallrecipe(res);
-=======
->>>>>>> fe4f04d0bd6f38efe24cce756c73d7ee4c641c5d
     });
 
     app.post("/getallrecipe", (req, res) => {

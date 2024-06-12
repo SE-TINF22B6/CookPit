@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 import Header from "../Header/Header";
-import "../Home/Home.css";
 import Background from "../Background/Background";
 import Login from "../Login/Login";
 import SearchSite from "../SearchSite/SearchSite";
@@ -111,7 +110,7 @@ function Home() {
         />
         <Route
           path="/rezept/bearbeiten/id/:id_recipe"
-          element={<EditRecipe allRecipes={allRecipes} />}
+          element={<EditRecipe allRecipes={allRecipes} id_author={userID} />}
         />
       </Routes>
     </>
