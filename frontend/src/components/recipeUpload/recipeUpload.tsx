@@ -18,6 +18,7 @@ export default function Body(props: Props) {
   const [ingredients, setIngredients] = useState<string[]>([]);
   const [steps, setSteps] = useState<string[]>([]);
   const [file, setFile] = useState<File | null>(null);
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0];
@@ -140,6 +141,8 @@ export default function Body(props: Props) {
 
   const handleClick = () => {
     navigate("/");
+    setIsButtonDisabled(true);
+    setTimeout(() => setIsButtonDisabled(false), 5000);
   };
 
   return (
@@ -307,9 +310,11 @@ export default function Body(props: Props) {
 
           <button
             className="addOneMoreIngredient"
+            disabled={isButtonDisabled}
             onClick={() => {
               addRecipe();
-              handleClick();
+              // handleClick();
+              
             }}
           >
             Rezept speichern
