@@ -136,12 +136,6 @@ export default function Body(props: Props) {
     return () => clearInterval(interval); // Aufräumen des Intervalls, wenn die Komponente unmountet wird
   }, []);
 
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    navigate("/");
-  };
-
   return (
     <div id="pls">
       <div id="template">
@@ -160,7 +154,7 @@ export default function Body(props: Props) {
                 />
                 <div className="form-groupDate">
                 <label htmlFor="headingTop">
-                  Date: {currentDate.toLocaleString()}
+                  Datum: {currentDate.toLocaleString()}
                 </label>
               </div>
               </div>
@@ -183,7 +177,7 @@ export default function Body(props: Props) {
               </div>
 
               <div className="form-groupTimeEffort">
-                <label htmlFor="headingTop">Zeitaufwand</label>
+                <label htmlFor="headingTop">Zeitaufwand in min</label>
                 <input
                   type="text"
                   id="headingTop"
@@ -249,7 +243,6 @@ export default function Body(props: Props) {
             <textarea
               className="discriptionInput"
               name="Description"
-              placeholder="Description"
               onChange={(e) => {
                 setdescription(e.target.value);
               }}
@@ -309,7 +302,6 @@ export default function Body(props: Props) {
             className="addOneMoreIngredient"
             onClick={() => {
               addRecipe();
-              handleClick();
             }}
           >
             Rezept speichern

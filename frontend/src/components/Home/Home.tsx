@@ -27,13 +27,9 @@ function Home() {
   };
 
   useEffect(() => {
-    console.log(username); // This will log whenever childData changes
-    console.log(userID?.toString); // This will log whenever childData changes
     if (username) {
-      // Stellen Sie sicher, dass username nicht leer ist
-      axios
-        .post("http://localhost:3001/getuserid", { username })
-        .then((response) => {
+      axios.post("http://localhost:3001/getuserid", { username })
+      .then((response) => {
           console.log(response.data.result);
           setUserID(response.data.result);
         })
@@ -68,6 +64,7 @@ function Home() {
             response.data.isValid
           );
           setIsAuthenticated(response.data.isValid);
+          setUsername(response.data.username);
         })
         .catch((error) => {
           console.error("Token verification failed", error);

@@ -35,6 +35,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleLogin, username, emptyusername 
         if (emptyusername) {
           emptyusername();
         }
+        localStorage.removeItem("token");
       })
       .catch((error) => {
         console.error("Error while logging out:", error);

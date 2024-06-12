@@ -51,10 +51,8 @@ function Database(app) {
         });
     }
 
-    let user = "";
     let userstate = false;
     let loginmessage;
-    let token;
 
     // Login
     app.post("/login", (req, res) => {
@@ -124,9 +122,19 @@ function Database(app) {
           if (err) {
             return res.json({ isValid: false });
           }
-          res.json({ isValid: true });
+          const { username } = decoded;
+          res.json({ isValid: true, username });
         });
       });
+
+    app.post("/addrecipe", upload.single('recipepicture'), (req, res) => {
+        const { recipename, recipedescription, recipetime, recipeid_author, recipeingredients, recipesteps, recipecreationdate, reciperating, recipecategory } = req.body;
+        let recipepicture = null;
+        if (req.file) {
+          recipepicture = req.file.buffer.toString('base64');
+      }
+        addrecipe(recipename, recipedescription, recipetime, recipeid_author, recipeingredients, recipesteps, recipecreationdate, reciperating, recipecategory, recipepicture, res)
+    });
 
     function addrecipe(recipename, recipedescription, recipetime, recipeid_author, recipeingredients, recipesteps, recipecreationdate, reciperating, recipecategory, recipepicture, res) {
         db.run("INSERT INTO Recipe (name, description, time, id_author, ingredients, steps, creation_date, rating, category, picture) VALUES (?,?,?,?,?,?,?,?,?,?)",
@@ -140,48 +148,9 @@ function Database(app) {
                 }
             });
     }
-
-    function updaterecipe(recipeid, recipename, recipedescription, recipetime, recipeid_author, recipeingredients, recipecreationdate, reciperating, recipecategory, recipepicture, res) {
-        const query = `UPDATE Recipe SET 
-                name = ?, 
-                description = ?, 
-                time = ?, 
-                id_author = ?, 
-                ingredients = ?, 
-                creation_date = ?, 
-                rating = ?, 
-                category = ?, 
-                picture = ?
-            WHERE 
-                id = ?
-        `;
-        
-        const params = [
-            recipename, 
-            recipedescription, 
-            recipetime, 
-            recipeid_author, 
-            recipeingredients, 
-            recipecreationdate, 
-            reciperating, 
-            recipecategory, 
-            recipepicture,
-            recipeid
-        ];
     
-        db.run(query, params, (err, result) => {
-            if (err) {
-                console.error(err);
-                res.status(500).send({ message: "Fehler beim Aktualisieren des Rezepts" });
-            } else {
-                console.log(result);
-                res.send({ message: "Rezept erfolgreich aktualisiert" });
-            }
-        });
-    }
-
     app.post("/updaterecipe", upload.single('recipepicture'), (req, res) => {
-        const { recipeid, recipename, recipedescription, recipetime, recipeid_author, recipeingredients, recipesteps, recipecreationdate, reciperating, recipecategory } = req.body;
+        const { recipeid,recipename, recipedescription, recipetime, recipeid_author, recipeingredients, recipesteps, recipecreationdate, reciperating, recipecategory  } = req.body;
         let recipepicture = null;
         if (req.file) {
             recipepicture = req.file.buffer.toString('base64');
@@ -189,9 +158,22 @@ function Database(app) {
         updaterecipe(recipeid, recipename, recipedescription, recipetime, recipeid_author, recipeingredients, recipecreationdate, reciperating, recipecategory, recipesteps, recipepicture, res)
     });
 
+    function updaterecipe(recipeid, recipename, recipedescription, recipetime, recipeid_author, recipeingredients, recipecreationdate, reciperating, recipecategory, recipesteps, recipepicture, res) {
+        db.run("UPDATE Recipe SET name = ?, description = ?, time = ?, id_author = ?, ingredients = ?, steps = ?, creation_date = ?, rating = ?, category = ?, picture = ? WHERE id_recipe = ?",
+            [recipename, recipedescription, recipetime, recipeid_author, recipeingredients, recipesteps, recipecreationdate, reciperating, recipecategory, recipepicture, recipeid],
+            (err) => {
+                if (err) {
+                    console.error(err);
+                    res.send({ message: "Fehler beim Aktualisieren des Rezepts" });
+                } else {
+                    res.send({ message: "Rezept erfolgreich aktualisiert" });
+                }
+            });
+    }
+
     app.post/("deleterecipe", (req, res) => {
         const { recipeid } = req.body;
-        db.run("DELETE FROM Recipe WHERE id = ?", [recipeid], (err, result) => {
+        db.run("DELETE FROM Recipe WHERE id_recipe = ?", [recipeid], (err, result) => {
             if (err) {
                 console.error(err);
                 res.status(500).send({ message: "Fehler beim Löschen des Rezepts" });
@@ -200,16 +182,6 @@ function Database(app) {
                 res.send({ message: "Rezept erfolgreich gelöscht" });
             }
         });
-    });
-    
-
-    app.post("/addrecipe", upload.single('recipepicture'), (req, res) => {
-        const { recipename, recipedescription, recipetime, recipeid_author, recipeingredients, recipesteps, recipecreationdate, reciperating, recipecategory } = req.body;
-        let recipepicture = null;
-        if (req.file) {
-            recipepicture = req.file.buffer.toString('base64');
-        }
-        addrecipe(recipename, recipedescription, recipetime, recipeid_author, recipeingredients, recipesteps, recipecreationdate, reciperating, recipecategory, recipepicture, res)
     });
 }
 

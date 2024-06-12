@@ -39,10 +39,10 @@ export default function EditRecipe({ allRecipes, id_author }: { allRecipes: any[
     const newIngredients = ingreds.map((item) => item);
     setIngredients(newIngredients);
 
-    // const steps: any[] = recipe.steps.slice(2, -2).split('","');
-    // setSteps(steps.length);
-    // const newSteps = steps.map((item) => item);
-    // setIngredients(newSteps);
+    const steps: any[] = recipe.steps.slice(2, -2).split('","');
+    setStepCounter(steps.length);
+    const newSteps = steps.map((item) => item);
+    setSteps(newSteps);
   }, []);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -104,30 +104,30 @@ export default function EditRecipe({ allRecipes, id_author }: { allRecipes: any[
 
   const updateRecipe = () => {
     if (
-      // header &&
-      // category &&
-      // timeEffort &&
-      // // stars &&
-      // description &&
-      // ingredients.length > 0 &&
-      // steps.length > 0 &&
-      // file
-      true
+      header &&
+      category &&
+      timeEffort &&
+      stars &&
+      description &&
+      ingredients.length > 0 &&
+      steps.length > 0 &&
+      file
     ) {
       const formData = new FormData();
+      formData.append("recipeid", recipe.id_recipe);
       formData.append("recipename", header);
-      formData.append("recipecategory", category);
-      formData.append("recipetime", timeEffort);
-      formData.append("reciperating", stars);
       formData.append("recipedescription", description);
+      formData.append("recipetime", timeEffort);
+      formData.append("recipeid_author", id_author);
       formData.append("recipeingredients", JSON.stringify(ingredients));
       formData.append("recipesteps", JSON.stringify(steps));
       formData.append("recipecreationdate", currentDate);
-      formData.append("recipeid_author", id_author);
-
+      formData.append("reciperating", stars);
+      formData.append("recipecategory", category);
       if (file) {
         formData.append("recipepicture", file);
       }
+
 
       Axios.post("http://localhost:3001/updaterecipe", formData, {
         headers: {
@@ -163,12 +163,6 @@ export default function EditRecipe({ allRecipes, id_author }: { allRecipes: any[
     return () => clearInterval(interval); // Aufräumen des Intervalls, wenn die Komponente unmountet wird
   }, []);
 
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    navigate("/");
-  };
-
   return (
     <div id="pls">
       <div id="template">
@@ -176,7 +170,7 @@ export default function EditRecipe({ allRecipes, id_author }: { allRecipes: any[
           <div className="recipeInfo">
             <div className="form-group">
               <div className="form-header">
-                <label htmlFor="headingTop">Header</label>
+                <label htmlFor="headingTop">Name</label>
                 <input
                   type="text"
                   id="headingTop"
@@ -189,7 +183,7 @@ export default function EditRecipe({ allRecipes, id_author }: { allRecipes: any[
 
               <div className="form-groupDate">
                 <label htmlFor="headingTop">
-                  Date: {currentDate.toLocaleString()}
+                  Datum: {currentDate.toLocaleString()}
                 </label>
               </div>
             </div>
@@ -197,7 +191,7 @@ export default function EditRecipe({ allRecipes, id_author }: { allRecipes: any[
           <div className="wrapperInput">
             <div className="recipeInfo">
               <div className="form-groupCategory">
-                <label htmlFor="categoryTop">Category</label>
+                <label htmlFor="categoryTop">Kategorie</label>
                 <input
                   type="text"
                   id="categoryTop"
@@ -209,7 +203,7 @@ export default function EditRecipe({ allRecipes, id_author }: { allRecipes: any[
               </div>
 
               <div className="form-groupTimeEffort">
-                <label htmlFor="effortTop">Time effort</label>
+                <label htmlFor="effortTop">Zeitaufwand</label>
                 <input
                   type="text"
                   id="effortTop"
@@ -260,7 +254,7 @@ export default function EditRecipe({ allRecipes, id_author }: { allRecipes: any[
             </div>
           </div>
           <label className="uploadImageLabel" htmlFor="input-file">
-            Upload Image
+            Bild hochladen
           </label>
           <input
             id="input-file"
@@ -274,18 +268,17 @@ export default function EditRecipe({ allRecipes, id_author }: { allRecipes: any[
               className="discriptionInput"
               id="description"
               name="Description"
-              placeholder="Description"
               onChange={(e) => {
                 setdescription(e.target.value);
               }}
             ></textarea>
-            <span className="discriptionSpan">Description</span>
+            <span className="discriptionSpan">Beschreibung</span>
           </div>
 
           <br />
 
           <div className="form-groupIngredient">
-            <label htmlFor="ingredientInput">Ingredients</label>
+            <label htmlFor="ingredientInput">Zutaten</label>
             {[...Array(counter)].map((_, index) => (
               <div key={index}>
                 <input
@@ -301,14 +294,14 @@ export default function EditRecipe({ allRecipes, id_author }: { allRecipes: any[
           </div>
 
           <button className="addOneMoreIngredient" onClick={incrementCounter}>
-            Add Ingredient
+            Weitere Zutat hinzufügen
           </button>
           <div id="blocker1"></div>
           <div id="blocker1"></div>
 
           <div className="form-groupIngredient">
             <label className="stepsLabel" htmlFor="ingredientInput">
-              Steps
+              Schritte
             </label>
             {[...Array(stepCounter)].map((_, index) => (
               <div key={index}>
@@ -326,7 +319,7 @@ export default function EditRecipe({ allRecipes, id_author }: { allRecipes: any[
             className="addOneMoreIngredient"
             onClick={incrementStepCounter}
           >
-            Add Step
+            Weitere Schritte hinzufügen
           </button>
           <br />
 
@@ -334,10 +327,9 @@ export default function EditRecipe({ allRecipes, id_author }: { allRecipes: any[
             className="addOneMoreIngredient"
             onClick={() => {
               updateRecipe();
-              handleClick();
             }}
           >
-            Update Recipe
+            Rezept aktualisieren
           </button>
         </div>
       </div>
