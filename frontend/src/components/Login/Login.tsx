@@ -70,11 +70,6 @@ const Login: React.FC<LoginProps> = ({ onToggleLogin, onData }) => {
     clickevent = registeruser;
   }
 
-  const handleKeyDown = (event: React.KeyboardEvent) => {
-    if (event.key === 'Enter') {
-      clickevent();
-    }
-  };
   return (
     <div className="outer">
       <div className="wrapper" id="divOne">
@@ -87,7 +82,7 @@ const Login: React.FC<LoginProps> = ({ onToggleLogin, onData }) => {
           <img src={icon_user} alt="User" />
         </div>
         <div className="input-box">
-          <input type="password" placeholder="  Password" onChange={(e) => setPassword(e.target.value)} onKeyDown={handleKeyDown}/>
+          <input type="password" placeholder="  Password" onChange={(e) => setPassword(e.target.value)} />
           <img src={icon_password} alt="Password" />
         </div>
         <div className="labels-container">
