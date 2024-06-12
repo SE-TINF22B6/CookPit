@@ -98,7 +98,7 @@ function Database(app) {
             console.log("User ausgeloggt")
         }
         });
-    app.post("/getallrecipe", (req, res) => {
+    app.get("/getallrecipe", (req, res) => {
         getallrecipe(res);
     });
 
