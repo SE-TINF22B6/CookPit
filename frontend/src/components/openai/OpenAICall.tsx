@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./OpenAI.css";
 import ListItem from "./../ListItem/ListItem";
 import jsPDF from "jspdf";
-import axios from "axios";
 
 export default function OpenAICall() {
   const [getUserInput, setUserInput] = useState("");

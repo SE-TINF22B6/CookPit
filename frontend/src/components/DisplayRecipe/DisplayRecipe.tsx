@@ -1,26 +1,50 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from "react";
 import { AiOutlineStar } from "react-icons/ai";
 import { BsClock } from "react-icons/bs";
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
+import EditIcon from "@mui/icons-material/Edit";
 import "./DisplayRecipe.css";
-import icon_heart_black from "../../img/icon_heart_black.png";
-import { Card, CardMedia, CardContent, Rating, Grid, List, ListItem, ListItemText } from '@mui/material';
-import Donut from '../../img/donut.jpg';
+import jsPDF from "jspdf";
+import {
+  Card,
+  CardMedia,
+  CardContent,
+  Rating,
+  Grid,
+  List,
+  ListItem,
+  ListItemText,
+  IconButton,
+} from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 type DisplayRecipeProps = {
+  edit?: boolean;
+  id_author: number;
+  id_recipe?: number;
   img: string;
   title: string;
   rating: number;
-  time: number;
+  time: string;
+  description: string;
+  creation_date: string;
+  ingredients: string;
+  steps: string;
 };
 
 export default function DisplayRecipe({
+  edit,
+  id_recipe,
   img,
   title,
   rating,
   time,
+  creation_date,
+  description,
+  ingredients,
+  steps,
 }: DisplayRecipeProps) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
@@ -30,55 +54,89 @@ export default function DisplayRecipe({
   };
   const handleClose = () => setOpen(false);
 
+  const [localIngredients, setLocalIngredients] = useState<string[]>([]);
+  useEffect(() => {
+    try {
+      const parsedIngredients = JSON.parse(ingredients);
+      if (Array.isArray(parsedIngredients)) {
+        setLocalIngredients(parsedIngredients);
+      } else {
+        console.error("Parsed ingredients is not an array");
+      }
+    } catch (error) {
+      console.error("Failed to parse ingredients:", error);
+    }
+  }, [ingredients]);
+
+  const [localSteps, setLocalSteps] = useState<string[]>([]);
+  useEffect(() => {
+    try {
+      const parsedSteps = JSON.parse(steps);
+
+      if (Array.isArray(parsedSteps)) {
+        setLocalSteps(parsedSteps);
+      } else {
+        console.error("Parsed steps is not an array");
+      }
+    } catch (error) {
+      console.error("Failed to parse steps:", error);
+    }
+  }, [steps]);
+
   const style = {
-    position: 'absolute' as 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
+    position: "absolute" as "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
     maxWidth: 800,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
+    bgcolor: "background.paper",
+    border: "2px solid #000",
     boxShadow: 24,
     p: 4,
-    overflowY: 'scroll' as 'scroll',
-    maxHeight: '90vh',
+    overflowY: "scroll" as "scroll",
+    maxHeight: "90vh",
   };
 
-  const recipe = {
-    title: "Delicious Chocolate Cake",
-    image: "./img/donut.jpg",
-    description: "This chocolate cake is rich, moist, and perfect for any chocolate lover.",
-    rating: 4.5,
-    prepTime: "20 mins",
-    cookTime: "45 mins",
-    ingredients: [
-      "1 3/4 cups all-purpose flour",
-      "1 1/2 teaspoons baking powder",
-      "2 cups granulated sugar",
-      "3/4 cup unsweetened cocoa powder",
-      "1 1/2 teaspoons baking soda",
-      "1 teaspoon salt",
-      "2 large eggs",
-      "1 cup whole milk",
-      "1/2 cup vegetable oil",
-      "2 teaspoons vanilla extract",
-      "1 cup boiling water"
-    ],
-    steps: [
-      "Preheat your oven to 350°F (175°C) and grease and flour two 9-inch round baking pans.",
-      "In a large bowl, stir together the flour, sugar, cocoa, baking powder, baking soda, and salt.",
-      "Add the eggs, milk, oil, and vanilla, and mix for 2 minutes on medium speed of a mixer.",
-      "Stir in the boiling water last. The batter will be thin. Pour evenly into the prepared pans.",
-      "Bake for 30 to 35 minutes in the preheated oven, until the cake tests done with a toothpick.",
-      "Cool in the pans for 10 minutes, then remove to a wire rack to cool completely."
-    ]
+  const handleDownload = (downloadImg: string) => {
+    const doc = new jsPDF();
+    const maxWidth = 160;
+    const ingredientsText = localIngredients.join("\n");
+    const stepsText = localSteps
+      .map((step, index) => `${index + 1}. ${step}`)
+      .join("\n");
+    const text = `Ingredients:\n${ingredientsText}\n\nSteps:\n${stepsText}`;
+    const splitText = doc.splitTextToSize(text, maxWidth);
+    doc.text(splitText, 10, 10);
+
+    const imgData = downloadImg;
+    const img = new Image();
+    img.src = imgData;
+    img.onload = () => {
+      const aspectRatio = img.width / img.height;
+      const maxWidth = 100;
+      const maxHeight = 100;
+      let width = maxWidth;
+      let height = maxHeight;
+      if (aspectRatio > 1) {
+        height = maxWidth / aspectRatio;
+      } else {
+        width = maxHeight * aspectRatio;
+      }
+      const x = 10;
+      const y = 50;
+      doc.addImage(img, "JPEG", x, y, width, height);
+      doc.save(`${title}.pdf`);
+    };
+  };
+
+  const navigate = useNavigate();
+
+  const handleEdit = () => {
+    navigate(`/rezept/bearbeiten/id/${id_recipe}`);
   };
 
   return (
     <div id="display_recipe_wrapper">
-      <button id="save_to_favourite_recipes">
-        <img src={icon_heart_black} alt="save to favourites" />
-      </button>
       <img onClick={handleOpen} src={img} alt="" />
       <div onClick={handleOpen} id="display_recipe_footer">
         <div id="recipe_title" className="hover-text">
@@ -101,54 +159,83 @@ export default function DisplayRecipe({
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box className="modalBox" sx={style} onClick={(event) => event.stopPropagation()}>
-          <Card sx={{ maxWidth: 800, margin: 'auto', mt: 1 }}>
+        <Box
+          className="modalBox"
+          sx={style}
+          onClick={(event) => event.stopPropagation()}
+        >
+          <IconButton
+            aria-label="download"
+            onClick={() => handleDownload(img)}
+            sx={{ position: "absolute", top: 2, right: 8 }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="currentColor"
+              className="bi bi-download"
+              viewBox="0 0 16 16"
+            >
+              <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5" />
+              <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z" />
+            </svg>
+          </IconButton>
+          {edit ? (
+            <IconButton
+              aria-label="edit"
+              onClick={() => handleEdit()}
+              sx={{ position: "absolute", top: 2, right: 48 }}
+            >
+              <EditIcon />
+            </IconButton>
+          ) : null}
+          <Card sx={{ maxWidth: 800, margin: "auto", mt: 1 }}>
             <CardContent>
               <Typography variant="h4" component="div" gutterBottom>
-                {recipe.title}
+                {title}
               </Typography>
-              <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                <Rating value={recipe.rating} precision={0.5} readOnly />
-                <Typography variant="body2" color="text.secondary" sx={{ ml: 1 }}>
-                  {recipe.rating} stars
+              <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+                <Rating value={rating} precision={0.5} readOnly />
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  sx={{ ml: 1 }}
+                >
+                  {rating} stars
                 </Typography>
               </Box>
-              <CardMedia
-                component="img"
-                height="400"
-                image={recipe.image}
-                alt={recipe.title}
-              />
+              <CardMedia component="img" height="400" image={img} alt={title} />
               <Typography variant="body1" color="text.secondary" paragraph>
-                {recipe.description}
+                {description}
               </Typography>
               <Grid container spacing={2} sx={{ mb: 2 }}>
                 <Grid item xs={6}>
                   <Typography variant="body2" color="text.secondary">
-                    Prep Time: {recipe.prepTime}
+                    Zeit: {time} min
                   </Typography>
                 </Grid>
                 <Grid item xs={6}>
                   <Typography variant="body2" color="text.secondary">
-                    Cook Time: {recipe.cookTime}
+                    Veröffentlichung: {creation_date}
                   </Typography>
                 </Grid>
               </Grid>
               <Typography variant="h6" component="div" gutterBottom>
-                Ingredients
+                Zutaten
               </Typography>
               <List>
-                {recipe.ingredients.map((ingredient, index) => (
+                {localIngredients.map((ingredient, index) => (
                   <ListItem key={index}>
                     <ListItemText primary={ingredient} />
                   </ListItem>
                 ))}
               </List>
               <Typography variant="h6" component="div" gutterBottom>
-                Steps
+                Anleitung
               </Typography>
               <List>
-                {recipe.steps.map((step, index) => (
+                {localSteps.map((step, index) => (
                   <ListItem key={index}>
                     <ListItemText primary={`${index + 1}. ${step}`} />
                   </ListItem>

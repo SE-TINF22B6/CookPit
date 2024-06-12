@@ -4,8 +4,6 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const KEY = process.env.OPENAI_API_KEY;
 const cors = require("cors");
-const multer = require("multer");
-const fs = require("fs");
 app.use(cors());
 
 const bodyParser = require("body-parser");
@@ -31,6 +29,13 @@ app.post("/recipe-maker", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
+
+let createdatabase = false;
+if (createdatabase === true) {
+  const databasecreate = require("./Database/db-create.cjs");
+  databasecreate(app);
+}
+
 
 //Database init
 const database = require("./database.cjs");

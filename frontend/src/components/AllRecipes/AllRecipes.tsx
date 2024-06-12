@@ -3,13 +3,19 @@ import "./AllRecipes.css";
 
 export default function AllRecipes({ allRecipes }: { allRecipes: any[] }) {
   const items = allRecipes.map((recipe) => {
-    const time = Number(recipe.cook_time) + Number(recipe.prep_time);
+    const img = `data:image/jpeg;base64,${recipe.picture}`;
     return (
       <DisplayRecipe
-        img={recipe.img}
+        id_author={recipe.id_author}
+        key={recipe.id_recipe}
+        img={img}
         title={recipe.name}
         rating={recipe.rating}
-        time={time}
+        time={recipe.time}
+        description={recipe.description}
+        creation_date={recipe.creation_date}
+        ingredients={recipe.ingredients}
+        steps={recipe.steps}
       />
     );
   });
