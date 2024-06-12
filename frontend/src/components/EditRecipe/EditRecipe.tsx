@@ -122,7 +122,7 @@ export default function EditRecipe({ allRecipes }: { allRecipes: any[] }) {
       formData.append("recipeingredients", JSON.stringify(ingredients));
       formData.append("recipesteps", JSON.stringify(steps));
       formData.append("recipecreationdate", currentDate);
-      //   formData.append("recipeid_author", props.id_author);
+      // formData.append("recipeid_author", props.id_author);
 
       if (file) {
         formData.append("recipepicture", file);
