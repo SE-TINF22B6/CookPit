@@ -24,6 +24,12 @@ export default function EditRecipe({ allRecipes, id_author }: { allRecipes: any[
       .getElementById("categoryTop")
       ?.setAttribute("value", recipe.category);
     document.getElementById("effortTop")?.setAttribute("value", recipe.time);
+    settimeeffort(recipe.time);
+    setheader(recipe.name);
+    setcategory(recipe.category);
+    setstars(recipe.rating);
+    setdescription(recipe.description);
+    
     const descriptionInput = document.getElementById(
       "description"
     ) as HTMLInputElement;
@@ -175,6 +181,7 @@ export default function EditRecipe({ allRecipes, id_author }: { allRecipes: any[
                   type="text"
                   id="headingTop"
                   name="Heading"
+                  value= {header}
                   onChange={(e) => {
                     setheader(e.target.value);
                   }}
@@ -196,6 +203,7 @@ export default function EditRecipe({ allRecipes, id_author }: { allRecipes: any[
                   type="text"
                   id="categoryTop"
                   name="Category"
+                  value={category}
                   onChange={(e) => {
                     setcategory(e.target.value);
                   }}
@@ -208,17 +216,12 @@ export default function EditRecipe({ allRecipes, id_author }: { allRecipes: any[
                   type="text"
                   id="effortTop"
                   name="Effort"
+                  value={category}
                   onChange={(e) => {
                     settimeeffort(e.target.value);
                   }}
                 />
               </div>
-
-              {/*<div className="form-groupCalories">
-            <label htmlFor="headingTop">Calories</label>
-            <input type="text" id="headingTop" name="Calories" onChange={(e) => { setcalories(e.target.value); }} />
-          </div>*/}
-
               <div className="rating">
                 {[...Array(5)].map((_, index) => (
                   <React.Fragment key={index}>
@@ -268,6 +271,7 @@ export default function EditRecipe({ allRecipes, id_author }: { allRecipes: any[
               className="discriptionInput"
               id="description"
               name="Description"
+              value={description}
               onChange={(e) => {
                 setdescription(e.target.value);
               }}
