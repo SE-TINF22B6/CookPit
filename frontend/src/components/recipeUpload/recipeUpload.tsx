@@ -304,7 +304,7 @@ export default function Body(props: Props) {
             className="addOneMoreIngredient"
             onClick={incrementStepCounter}
           >
-            Schritt hinzufügen
+            Schritt hinzufügen 
           </button>
           <br />
 
