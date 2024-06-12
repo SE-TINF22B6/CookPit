@@ -4,7 +4,7 @@ import "../recipeUpload/recipeUpload.css";
 import Axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
-export default function EditRecipe({ allRecipes, id_author }: { allRecipes: any[], id_author: any}) {
+export default function EditRecipe({ allRecipes, id_author, buttonclick }: { allRecipes: any[], id_author: any, buttonclick: any}) {
   const [uploadImageSrc, setUploadImageSrc] = useState<string | null>(null);
   const [header, setheader] = useState("");
   const [category, setcategory] = useState("");
@@ -15,6 +15,8 @@ export default function EditRecipe({ allRecipes, id_author }: { allRecipes: any[
   const [steps, setSteps] = useState<string[]>([]);
   const [file, setFile] = useState<File | null>(null);
   const { id_recipe } = useParams();
+  const [message, setMessage] = useState("");
+
 
   const recipe = allRecipes.filter((item) => item.id_recipe == id_recipe)[0];
 
@@ -116,8 +118,7 @@ export default function EditRecipe({ allRecipes, id_author }: { allRecipes: any[
       stars &&
       description &&
       ingredients.length > 0 &&
-      steps.length > 0 &&
-      file
+      steps.length > 0
     ) {
       const formData = new FormData();
       formData.append("recipeid", recipe.id_recipe);
@@ -141,6 +142,8 @@ export default function EditRecipe({ allRecipes, id_author }: { allRecipes: any[
         },
       }).then((response) => {
         console.log(response.data);
+        buttonclick();
+        setMessage(response.data.message)
       });
     } else {
       alert("Please fill out all fields");
@@ -242,11 +245,6 @@ export default function EditRecipe({ allRecipes, id_author }: { allRecipes: any[
               </div>
             </div>
 
-            {/* <div id="heading" >
-                <input type="text"/>
-                <span>Heading</span>
-            </div>*/}
-
             <div className="uploadpicture">
               <img
                 className="imageUpload"
@@ -335,6 +333,9 @@ export default function EditRecipe({ allRecipes, id_author }: { allRecipes: any[
           >
             Rezept aktualisieren
           </button>
+          <label style={{ textAlign: "center", fontWeight: 1000 }}>
+          {message}
+          </label>
         </div>
       </div>
     </div>

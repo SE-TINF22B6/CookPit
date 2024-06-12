@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 interface Props {
   id_author: any;
+  buttonclick: any;
 }
 
 export default function Body(props: Props) {
@@ -19,6 +20,7 @@ export default function Body(props: Props) {
   const [steps, setSteps] = useState<string[]>([]);
   const [file, setFile] = useState<File | null>(null);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+  const [message, setMessage] = useState("");
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0];
@@ -109,6 +111,8 @@ export default function Body(props: Props) {
         },
       }).then((response) => {
         console.log(response.data);
+        props.buttonclick();
+        setMessage(response.data.message );
       });
     } else {
       alert("Please fill out all fields");
@@ -137,10 +141,8 @@ export default function Body(props: Props) {
     return () => clearInterval(interval); // Aufräumen des Intervalls, wenn die Komponente unmountet wird
   }, []);
 
-  const navigate = useNavigate();
-
   const handleClick = () => {
-    navigate("/");
+    addRecipe();
     setIsButtonDisabled(true);
     setTimeout(() => setIsButtonDisabled(false), 5000);
   };
@@ -167,8 +169,6 @@ export default function Body(props: Props) {
                 </label>
               </div>
               </div>
-
-              
             </div>
           </div>
           <div className="wrapperInput">
@@ -196,11 +196,6 @@ export default function Body(props: Props) {
                   }}
                 />
               </div>
-
-              {/*<div className="form-groupCalories">
-            <label htmlFor="headingTop">Calories</label>
-            <input type="text" id="headingTop" name="Calories" onChange={(e) => { setcalories(e.target.value); }} />
-          </div>*/}
               <div className="form-groupDifficulty">
               <label htmlFor="headingTop">Schwierigkeit</label>
               <div className="rating">
@@ -223,12 +218,6 @@ export default function Body(props: Props) {
               </div>
               </div>
             </div>
-
-            {/* <div id="heading" >
-                <input type="text"/>
-                <span>Heading</span>
-            </div>*/}
-
             <div className="uploadpicture">
               <img
                 className="imageUpload"
@@ -306,20 +295,19 @@ export default function Body(props: Props) {
             Schritt hinzufügen
           </button>
           <br />
-
           <button
             className="addOneMoreIngredient"
             disabled={isButtonDisabled}
-            onClick={() => {
-              addRecipe();
-              // handleClick();
-              
-            }}
+            onClick={() => {handleClick();}}
           >
             Rezept speichern
           </button>
+          <label style={{ textAlign: "center", fontWeight: 1000 }}>
+          {message}
+          </label>
         </div>
       </div>
     </div>
   );
 }
+
