@@ -30,7 +30,7 @@ app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
 
-let createdatabase = false;
+let createdatabase = true;
 if (createdatabase === true) {
   const databasecreate = require("./Database/db-create.cjs");
   databasecreate(app);
@@ -38,5 +38,5 @@ if (createdatabase === true) {
 
 
 //Database init
-const database = require("./database.cjs");
-database(app);
+//const database = require("./database.cjs");
+//database(app);
