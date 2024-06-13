@@ -104,10 +104,11 @@ export default function DisplayRecipe({
     const stepsText = localSteps
       .map((step, index) => `${index + 1}. ${step}`)
       .join("\n");
-    const text = `${title}\nSchwierigkeitsgrad: ${rating}\nZeitaufwand: ${time} min\nBeschreibung: ${description}\nDatum: ${creation_date}\n\nZutaten:\n${ingredientsText}\n\nAnleitung:\n${stepsText}`;
-    const splitText = doc.splitTextToSize(text, maxWidth/2);
-    doc.text(splitText, 10, 10);
-
+    const titleText = title;
+    const restOfText = `Schwierigkeitsgrad: ${rating}/5\nZeitaufwand: ${time} min\nBeschreibung: ${description}\nDatum: ${creation_date}\n\nZutaten:\n${ingredientsText}\n\nAnleitung:\n${stepsText}`;
+    const splitTitle = doc.splitTextToSize(titleText, maxWidth);
+    doc.text(splitTitle, 10, 10);
+  
     const imgData = downloadImg;
     const img = new Image();
     img.src = imgData;
@@ -122,9 +123,14 @@ export default function DisplayRecipe({
       } else {
         width = maxHeight * aspectRatio;
       }
-      const x = 105;
-      const y = 5;
+      const x = 10;
+      const y = 15; 
       doc.addImage(img, "JPEG", x, y, width, height);
+  
+      const textStartY = y + height + 10;
+      const splitRestOfText = doc.splitTextToSize(restOfText, maxWidth * 1.9);
+      doc.text(splitRestOfText, x, textStartY);
+  
       doc.save(`${title}.pdf`);
     };
   };
