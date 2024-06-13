@@ -27,6 +27,10 @@
   background-color: #0000000c;
 }
 
+.close-container {
+  margin-right: 10px; /* Moves the button 10px to the left */
+}
+
 .outer {
   display: flex;
   justify-content: center;
@@ -73,6 +77,20 @@
   font-size: 36px;
   cursor: pointer;
 }
+.header-container {
+  display: flex; /* Keeps flexbox layout */
+  align-items: center; /* Keeps items vertically centered */
+  justify-content: flex-start; /* Aligns items to the start, giving more control over spacing */
+  place-items: 10%;
+  width: 100%; /* Keeps the container spanning the full width */
+}
+
+.header-container h1 {
+  margin: 0; /* Keeps default margin removed from h1 */
+  flex-grow: 1; /* Allows the text to take up available space */
+}
+
+
 
 .wrapper .input-box {
   position: relative;
