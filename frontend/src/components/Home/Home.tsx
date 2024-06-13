@@ -24,6 +24,10 @@ function Home() {
     setUsername(data);
   };
 
+  if (username === "") {
+    localStorage.removeItem("token");
+  }
+
   const emptyusername = () => {
     setUsername("");
   };

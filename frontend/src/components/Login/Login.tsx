@@ -73,10 +73,12 @@ const Login: React.FC<LoginProps> = ({ onToggleLogin, onData }) => {
   return (
     <div className="outer">
       <div className="wrapper" id="divOne">
-        <h1>
-          {ueberschrift}
-          <IoClose size={35} className="btnclose" onClick={onToggleLogin} />
-        </h1>
+      <div className="header-container">
+  <h1>{ueberschrift}</h1>
+  <div className="close-container">
+  <IoClose size={35} className="btnclose" onClick={onToggleLogin} />
+  </div>
+</div>
         <div className="input-box">
           <input type="text" placeholder="  Username" onChange={(e) => setUsername(e.target.value)} />
           <img src={icon_user} alt="User" />
