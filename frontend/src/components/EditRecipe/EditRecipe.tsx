@@ -19,6 +19,8 @@ export default function EditRecipe({ allRecipes, id_author, buttonclick }: { all
 
 
   const recipe = allRecipes.filter((item) => item.id_recipe == id_recipe)[0];
+  console.log(recipe);
+  
 
   useEffect(() => {
     document.getElementById("headingTop")?.setAttribute("value", recipe.name);
@@ -219,7 +221,7 @@ export default function EditRecipe({ allRecipes, id_author, buttonclick }: { all
                   type="text"
                   id="effortTop"
                   name="Effort"
-                  value={category}
+                  value={timeEffort}
                   onChange={(e) => {
                     settimeeffort(e.target.value);
                   }}
