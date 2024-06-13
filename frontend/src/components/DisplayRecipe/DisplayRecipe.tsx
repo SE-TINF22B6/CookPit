@@ -99,34 +99,34 @@ export default function DisplayRecipe({
 
   const handleDownload = (downloadImg: string) => {
     const doc = new jsPDF();
-const maxWidth = 160;
-const ingredientsText = localIngredients.join("\n");
-const stepsText = localSteps
-  .map((step, index) => `${index + 1}. ${step}`)
-  .join("\n");
-const text = `${title}\nSchwierigkeitsgrad: ${rating}\nZeitaufwand: ${time} min\nBeschreibung: ${description}\nDatum: ${creation_date}\n\nZutaten:\n${ingredientsText}\n\nAnleitung:\n${stepsText}`;
-const splitText = doc.splitTextToSize(text, maxWidth);
-doc.text(splitText, 10, 10);
+    const maxWidth = 160;
+    const ingredientsText = localIngredients.join("\n");
+    const stepsText = localSteps
+      .map((step, index) => `${index + 1}. ${step}`)
+      .join("\n");
+    const text = `${title}\nSchwierigkeitsgrad: ${rating}\nZeitaufwand: ${time} min\nBeschreibung: ${description}\nDatum: ${creation_date}\n\nZutaten:\n${ingredientsText}\n\nAnleitung:\n${stepsText}`;
+    const splitText = doc.splitTextToSize(text, maxWidth/2);
+    doc.text(splitText, 10, 10);
 
-const imgData = downloadImg;
-const img = new Image();
-img.src = imgData;
-img.onload = () => {
-  const aspectRatio = img.width / img.height;
-  const maxWidth = 100;
-  const maxHeight = 100;
-  let width = maxWidth;
-  let height = maxHeight;
-  if (aspectRatio > 1) {
-    height = maxWidth / aspectRatio;
-  } else {
-    width = maxHeight * aspectRatio;
-  }
-  const x = 105;
-  const y = 10;
-  doc.addImage(img, "JPEG", x, y, width, height);
-  doc.save(`${title}.pdf`);
-};
+    const imgData = downloadImg;
+    const img = new Image();
+    img.src = imgData;
+    img.onload = () => {
+      const aspectRatio = img.width / img.height;
+      const maxWidth = 100;
+      const maxHeight = 100;
+      let width = maxWidth;
+      let height = maxHeight;
+      if (aspectRatio > 1) {
+        height = maxWidth / aspectRatio;
+      } else {
+        width = maxHeight * aspectRatio;
+      }
+      const x = 105;
+      const y = 5;
+      doc.addImage(img, "JPEG", x, y, width, height);
+      doc.save(`${title}.pdf`);
+    };
   };
 
   const navigate = useNavigate();
