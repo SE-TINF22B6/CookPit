@@ -18,8 +18,7 @@ function Home() {
   const [username, setUsername] = useState<string>("");
   const [userID, setUserID] = useState<string | null>(null);
   const [buttoncounter, setButtoncounter] = useState<number>(0);
-  
-  
+
   const handleDataFromLogin = (data: React.SetStateAction<string>) => {
     setUsername(data);
   };
@@ -34,16 +33,17 @@ function Home() {
   const addbuttoncounter = () => {
     console.log("Buttoncounter: ", buttoncounter);
     setButtoncounter(buttoncounter + 1);
-  }
+  };
 
   useEffect(() => {
     getallrecipe();
-  } , [buttoncounter]);
+  }, [buttoncounter]);
 
   useEffect(() => {
     if (username) {
-      axios.post("http://localhost:3001/getuserid", { username })
-      .then((response) => {
+      axios
+        .post("http://localhost:3001/getuserid", { username })
+        .then((response) => {
           setUserID(response.data.result);
         })
         .catch((error) => {
@@ -111,7 +111,9 @@ function Home() {
         <Route path="/rezept/generator" element={<OpenAI />} />
         <Route
           path="/rezept/hochladen"
-          element={<RecipeUpload id_author={userID} buttonclick =  {addbuttoncounter} />}
+          element={
+            <RecipeUpload id_author={userID} buttonclick={addbuttoncounter} />
+          }
         />
         <Route
           path="/rezept/meine"
@@ -119,7 +121,13 @@ function Home() {
         />
         <Route
           path="/rezept/bearbeiten/id/:id_recipe"
-          element={<EditRecipe allRecipes={allRecipes} id_author={userID} buttonclick = {addbuttoncounter}/>}
+          element={
+            <EditRecipe
+              allRecipes={allRecipes}
+              id_author={userID}
+              buttonclick={addbuttoncounter}
+            />
+          }
         />
       </Routes>
     </>
