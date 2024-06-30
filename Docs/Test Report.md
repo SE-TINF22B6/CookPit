@@ -32,8 +32,7 @@
 Web Application Performance Metrics (User Satisfaction / Apdex Scores). Which helps in the calculation of user satisfaction. This compares the response time of the website with the total number of requests to determine whether the website is fast or slow. the second is the Web Application Monitoring Tools Metric. This helps us to see from where in the world users are interacting with our website. Currently these two things are done manually via an internet application by
  
 ### 7. Recommendations
-> This section offers suggestions for improving the testing process and the quality of the software.
+> At the moment we are still using manual programmes to test the metric or are carrying out the tests manually. These can be updated so that a dashboard is displayed every month in which the CookPit team can view its results. 
 
-### 8. Conclusion
-> This section summarizes the key findings of the testing and the overall status of the software quality.
+
 
